@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流放之路 攻略指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #1a1226;
+            --bg-card: #221830;
+            --bg-hover: #2b1e3d;
+            --text-primary: #ffffff;
+            --text-secondary: #9370db;
+            --accent-purple: #6A5ACD;
+            --accent-lavender: #9370DB;
+            --border-color: #4a3a60;
+            --shadow-color: rgba(106, 90, 205, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(106, 90, 205, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(147, 112, 219, 0.15) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--accent-lavender);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-lavender), var(--accent-purple), transparent);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent-lavender);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-lavender);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--accent-lavender);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border-color: var(--accent-lavender);
+        }
+
+        .guide-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-lavender);
+        }
+
+        .guide-card p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← 返回首页</a>
+
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <img src="../../mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-lavender);">
+                <h1>流放之路</h1>
+            </div>
+            <p class="subtitle">by 看雲起雲落 · 技能宝石系统 · 天赋树优化 · 赛季机制深度解析</p>
+        </header>
+
+        <main>
+            <div class="guides-grid">
+                <!-- Skill Gems -->
+                <div class="guide-card">
+                    <h2>技能宝石搭配指南</h2>
+                    <div class="tags">
+                        <span class="tag">技能宝石</span>
+                        <span class="tag">辅助宝石</span>
+                        <span class="tag">链接配置</span>
+                    </div>
+                    <p>详解所有主流技能宝石的搭配方案、辅助宝石选择、六连配置和伤害最大化策略。</p>
+                </div>
+
+                <!-- Passive Tree -->
+                <div class="guide-card">
+                    <h2>天赋树优化攻略</h2>
+                    <div class="tags">
+                        <span class="tag">天赋树</span>
+                        <span class="tag">关键天赋</span>
+                        <span class="tag">路径规划</span>
+                    </div>
+                    <p>针对不同职业和玩法的天赋树最优路径，关键天赋点分析，以及如何根据装备调整天赋分配。</p>
+                </div>
+
+                <!-- League Mechanics -->
+                <div class="guide-card">
+                    <h2>赛季机制详解</h2>
+                    <div class="tags">
+                        <span class="tag">赛季特色</span>
+                        <span class="tag">挑战任务</span>
+                        <span class="tag">独特物品</span>
+                    </div>
+                    <p>当前赛季的核心机制、特殊挑战、独特奖励和最佳应对策略，助你快速适应新赛季。</p>
+                </div>
+
+                <!-- Crafting Guide -->
+                <div class="guide-card">
+                    <h2>装备制作与改造</h2>
+                    <div class="tags">
+                        <span class="tag">装备制作</span>
+                        <span class="tag">词缀改造</span>
+                        <span class="tag">预算控制</span>
+                    </div>
+                    <p>从基础装备选择到高级词缀改造的完整指南，包含各种预算下的最佳制作策略和技巧。</p>
+                </div>
+
+                <!-- Class Builds -->
+                <div class="guide-card">
+                    <h2>全职业Build推荐</h2>
+                    <div class="tags">
+                        <span class="tag">勇士</span>
+                        <span class="tag">女术士</span>
+                        <span class="tag">游侠</span>
+                        <span class="tag">决斗者</span>
+                        <span class="tag">圣堂武僧</span>
+                        <span class="tag">暗影</span>
+                        <span class="tag">贵族</span>
+                    </div>
+                    <p>涵盖所有职业的强力Build方案，包括开荒配置、中期过渡和终局优化的完整成长路线。</p>
+                </div>
+
+                <!-- Economy & Trading -->
+                <div class="guide-card">
+                    <h2>经济与交易系统</h2>
+                    <div class="tags">
+                        <span class="tag">通货体系</span>
+                        <span class="tag">市场价格</span>
+                        <span class="tag">交易技巧</span>
+                    </div>
+                    <p>POE复杂的通货系统解析，物品价值评估，安全交易方法和市场趋势分析指南。</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 by 看雲起雲落 · 游戏攻略指南 · 流放之路 专区</p>
+        </footer>
+    </div>
+</body>
+</html>

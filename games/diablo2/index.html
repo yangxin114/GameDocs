@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>暗黑破坏神 II 攻略指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #231911;
+            --bg-card: #2d2118;
+            --bg-hover: #36281f;
+            --text-primary: #ffffff;
+            --text-secondary: #cd853f;
+            --accent-brown: #8B4513;
+            --accent-gold: #DAA520;
+            --border-color: #5a4230;
+            --shadow-color: rgba(139, 69, 19, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 75% 75%, rgba(218, 165, 32, 0.1) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--accent-gold);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-brown), var(--accent-gold), var(--accent-brown), transparent);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--accent-gold);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border-color: var(--accent-gold);
+        }
+
+        .guide-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+        }
+
+        .guide-card p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-brown);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← 返回首页</a>
+
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <img src="../../mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">
+                <h1>暗黑破坏神 II</h1>
+            </div>
+            <p class="subtitle">by 看雲起雲落 · 经典重制版 · 永恒的经典 · 深度攻略指南</p>
+        </header>
+
+        <main>
+            <div class="guides-grid">
+                <!-- Runewords -->
+                <div class="guide-card">
+                    <h2>符文之语完全指南</h2>
+                    <div class="tags">
+                        <span class="tag">符文之语</span>
+                        <span class="tag">装备制作</span>
+                        <span class="tag">稀有配方</span>
+                    </div>
+                    <p>收录所有符文之语的详细配方、属性效果、适用职业和获取建议。包含隐藏符文之语和特殊搭配技巧。</p>
+                </div>
+
+                <!-- Class Builds -->
+                <div class="guide-card">
+                    <h2>全职业Build推荐</h2>
+                    <div class="tags">
+                        <span class="tag">野蛮人</span>
+                        <span class="tag">亚马逊</span>
+                        <span class="tag">法师</span>
+                        <span class="tag">死灵法师</span>
+                        <span class="tag">圣骑士</span>
+                        <span class="tag">刺客</span>
+                        <span class="tag">德鲁伊</span>
+                    </div>
+                    <p>针对每个职业提供多种强力Build方案，包括技能加点、装备选择、MF配置和实战技巧详解。</p>
+                </div>
+
+                <!-- Item Farming -->
+                <div class="guide-card">
+                    <h2>物品Farm效率指南</h2>
+                    <div class="tags">
+                        <span class="tag">MF策略</span>
+                        <span class="tag">刷怪路线</span>
+                        <span class="tag">效率最大化</span>
+                    </div>
+                    <p>最佳MF地点推荐、高效刷怪路线规划、角色配置优化，助你快速获取稀有装备和符文。</p>
+                </div>
+
+                <!-- Crafting System -->
+                <div class="guide-card">
+                    <h2>合成系统详解</h2>
+                    <div class="tags">
+                        <span class="tag">赫拉迪克方块</span>
+                        <span class="tag">合成公式</span>
+                        <span class="tag">隐藏配方</span>
+                    </div>
+                    <p>全面解析赫拉迪克方块的所有合成公式，包括装备升级、宝石合成、药水制作等实用技巧。</p>
+                </div>
+
+                <!-- Difficulty Guide -->
+                <div class="guide-card">
+                    <h2>难度进阶攻略</h2>
+                    <div class="tags">
+                        <span class="tag">普通难度</span>
+                        <span class="tag">噩梦难度</span>
+                        <span class="tag">地狱难度</span>
+                    </div>
+                    <p>各难度下的游戏策略、角色成长规划、装备获取优先级和Boss应对技巧，助你顺利通关。</p>
+                </div>
+
+                <!-- Economy & Trading -->
+                <div class="guide-card">
+                    <h2>经济与交易系统</h2>
+                    <div class="tags">
+                        <span class="tag">物品价值</span>
+                        <span class="tag">交易技巧</span>
+                        <span class="tag">市场规律</span>
+                    </div>
+                    <p>经典Diablo II经济体系分析，稀有物品价值评估，安全交易技巧和社区交易规范指南。</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 by 看雲起雲落 · 游戏攻略指南 · 暗黑破坏神 II 专区</p>
+        </footer>
+    </div>
+</body>
+</html>

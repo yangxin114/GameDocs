@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>流放之路 2 攻略指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #261226;
+            --bg-card: #2f1830;
+            --bg-hover: #3a1e3d;
+            --text-primary: #ffffff;
+            --text-secondary: #da70d6;
+            --accent-purple: #8A2BE2;
+            --accent-orchid: #DA70D6;
+            --border-color: #5a3a60;
+            --shadow-color: rgba(138, 43, 226, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(218, 112, 214, 0.2) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--accent-orchid);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-purple), var(--accent-orchid), var(--accent-purple), transparent);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent-orchid);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-orchid);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--accent-orchid);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border-color: var(--accent-orchid);
+        }
+
+        .guide-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-orchid);
+        }
+
+        .guide-card p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← 返回首页</a>
+
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <img src="../../mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-orchid);">
+                <h1>流放之路 2</h1>
+            </div>
+            <p class="subtitle">by 看雲起雲落 · 全新职业系统 · 技能机制革新 · 开发进度追踪</p>
+        </header>
+
+        <main>
+            <div class="guides-grid">
+                <!-- New Classes -->
+                <div class="guide-card">
+                    <h2>全新职业系统</h2>
+                    <div class="tags">
+                        <span class="tag">新职业</span>
+                        <span class="tag">技能机制</span>
+                        <span class="tag">玩法差异</span>
+                    </div>
+                    <p>深入解析POE2引入的全新职业系统、技能机制变化和与前作的核心差异，助你快速适应。</p>
+                </div>
+
+                <!-- Skill System -->
+                <div class="guide-card">
+                    <h2>技能系统革新</h2>
+                    <div class="tags">
+                        <span class="tag">技能树</span>
+                        <span class="tag">主动技能</span>
+                        <span class="tag">被动天赋</span>
+                    </div>
+                    <p>详解POE2全新的技能系统设计，包括技能树重构、主动技能机制和被动天赋系统的重大变化。</p>
+                </div>
+
+                <!-- Equipment System -->
+                <div class="guide-card">
+                    <h2>装备系统详解</h2>
+                    <div class="tags">
+                        <span class="tag">装备机制</span>
+                        <span class="tag">词缀系统</span>
+                        <span class="tag">制作工艺</span>
+                    </div>
+                    <p>全面介绍POE2的装备系统革新，包括新的词缀机制、装备制作方式和物品获取策略。</p>
+                </div>
+
+                <!-- Development Updates -->
+                <div class="guide-card">
+                    <h2>开发进度追踪</h2>
+                    <div class="tags">
+                        <span class="tag">版本更新</span>
+                        <span class="tag">测试信息</span>
+                        <span class="tag">官方公告</span>
+                    </div>
+                    <p>实时追踪POE2的开发进度、版本更新内容、测试服信息和官方重要公告的汇总分析。</p>
+                </div>
+
+                <!-- Class Previews -->
+                <div class="guide-card">
+                    <h2>职业预览与分析</h2>
+                    <div class="tags">
+                        <span class="tag">职业预览</span>
+                        <span class="tag">Build潜力</span>
+                        <span class="tag">玩法预测</span>
+                    </div>
+                    <p>基于现有信息对POE2各职业的深度预览分析，包括Build潜力评估和玩法风格预测。</p>
+                </div>
+
+                <!-- Transition Guide -->
+                <div class="guide-card">
+                    <h2>POE1到POE2过渡指南</h2>
+                    <div class="tags">
+                        <span class="tag">经验迁移</span>
+                        <span class="tag">知识转换</span>
+                        <span class="tag">准备建议</span>
+                    </div>
+                    <p>为POE1老玩家提供的平滑过渡指南，如何将现有经验应用到POE2，以及提前准备建议。</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 by 看雲起雲落 · 游戏攻略指南 · 流放之路 2 专区</p>
+        </footer>
+    </div>
+</body>
+</html>

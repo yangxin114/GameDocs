@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏攻略指南 - 专业游戏文档中心</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0a0a12;
+            --bg-card: #12121e;
+            --bg-hover: #1a1a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0c0;
+            --accent-gold: #d4af37;
+            --accent-purple: #9966cc;
+            --accent-red: #ff4444;
+            --accent-blue: #4488dd;
+            --border-color: #2a2a3a;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(100, 30, 120, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(160, 40, 10, 0.1) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-gold), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+            background: var(--bg-hover);
+            border-color: var(--accent-gold);
+        }
+
+        .game-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .game-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .game-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, var(--accent-gold), #b8860b);
+            color: var(--bg-main);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <img src="mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">
+                <h1>游戏攻略指南</h1>
+            </div>
+            <p class="subtitle">by 看雲起雲落 · 专业游戏文档中心 · 深度攻略解析 · 实时更新维护</p>
+        </header>
+
+        <main>
+            <div class="games-grid">
+                <!-- Diablo IV -->
+                <a href="games/diablo4/index.html" class="game-card" style="background: linear-gradient(135deg, #1a0a0f 0%, #0a0a12 100%);">
+                    <div class="game-icon" style="background: linear-gradient(45deg, #8B0000, #DAA520);">D4</div>
+                    <h2>暗黑破坏神 IV</h2>
+                    <p>憎恨之王扩展包 · 新职业术士 · 威能系统 · 专属装备深度解析</p>
+                    <span class="btn">进入攻略</span>
+                </a>
+
+                <!-- Diablo II -->
+                <a href="games/diablo2/index.html" class="game-card" style="background: linear-gradient(135deg, #231911 0%, #0a0a12 100%);">
+                    <div class="game-icon" style="background: linear-gradient(45deg, #8B4513, #CD853F);">D2</div>
+                    <h2>暗黑破坏神 II</h2>
+                    <p>经典重制版 · 职业构建 · 符文之语 · 物品掉落机制详解</p>
+                    <span class="btn">进入攻略</span>
+                </a>
+
+                <!-- Path of Exile -->
+                <a href="games/pathofexile/index.html" class="game-card" style="background: linear-gradient(135deg, #1a1226 0%, #0a0a12 100%);">
+                    <div class="game-icon" style="background: linear-gradient(45deg, #6A5ACD, #9370DB);">POE</div>
+                    <h2>流放之路</h2>
+                    <p>技能宝石搭配 · 天赋树优化 · 装备制作 · 赛季机制攻略</p>
+                    <span class="btn">进入攻略</span>
+                </a>
+
+                <!-- Path of Exile 2 -->
+                <a href="games/pathofexile2/index.html" class="game-card" style="background: linear-gradient(135deg, #261226 0%, #0a0a12 100%);">
+                    <div class="game-icon" style="background: linear-gradient(45deg, #8A2BE2, #DA70D6);">POE2</div>
+                    <h2>流放之路 2</h2>
+                    <p>全新职业系统 · 技能机制 · 装备系统 · 开发进度追踪</p>
+                    <span class="btn">进入攻略</span>
+                </a>
+
+                <!-- Last Epoch -->
+                <a href="games/lastepoch/index.html" class="game-card" style="background: linear-gradient(135deg, #0f1a1a 0%, #0a0a12 100%);">
+                    <div class="game-icon" style="background: linear-gradient(45deg, #20B2AA, #40E0D0);">LE</div>
+                    <h2>最后纪元</h2>
+                    <p>时间穿越机制 · 职业专精 · 装备词缀 · 地牢攻略指南</p>
+                    <span class="btn">进入攻略</span>
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 游戏攻略指南 · 专业游戏文档中心</p>
+        </footer>
+    </div>
+</body>
+</html>

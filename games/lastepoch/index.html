@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最后纪元 攻略指南</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0f1a1a;
+            --bg-card: #152222;
+            --bg-hover: #1c2b2b;
+            --text-primary: #ffffff;
+            --text-secondary: #40e0d0;
+            --accent-teal: #20B2AA;
+            --accent-turquoise: #40E0D0;
+            --border-color: #3a5a5a;
+            --shadow-color: rgba(32, 178, 170, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(32, 178, 170, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(64, 224, 208, 0.15) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--accent-turquoise);
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-teal), var(--accent-turquoise), var(--accent-teal), transparent);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent-turquoise);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-turquoise);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+            text-shadow: 0 0 8px var(--accent-turquoise);
+        }
+
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guide-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+            border-color: var(--accent-turquoise);
+        }
+
+        .guide-card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-turquoise);
+        }
+
+        .guide-card p {
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-teal);
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            margin-bottom: 1.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .guides-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../../index.html" class="back-link">← 返回首页</a>
+
+        <header>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                <img src="../../mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-turquoise);">
+                <h1>最后纪元</h1>
+            </div>
+            <p class="subtitle">by 看雲起雲落 · 时间穿越机制 · 职业专精系统 · 地牢攻略深度解析</p>
+        </header>
+
+        <main>
+            <div class="guides-grid">
+                <!-- Time Travel -->
+                <div class="guide-card">
+                    <h2>时间穿越机制详解</h2>
+                    <div class="tags">
+                        <span class="tag">时间线</span>
+                        <span class="tag">时代差异</span>
+                        <span class="tag">物品获取</span>
+                    </div>
+                    <p>深入解析最后纪元独特的时间穿越机制，不同时代的特色、物品差异和最佳穿越策略。</p>
+                </div>
+
+                <!-- Class Specializations -->
+                <div class="guide-card">
+                    <h2>职业专精系统</h2>
+                    <div class="tags">
+                        <span class="tag">职业树</span>
+                        <span class="tag">专精选择</span>
+                        <span class="tag">Build搭配</span>
+                    </div>
+                    <p>全面介绍各职业的专精系统，包括技能树结构、专精选择建议和强力Build组合方案。</p>
+                </div>
+
+                <!-- Item Affixes -->
+                <div class="guide-card">
+                    <h2>装备词缀系统</h2>
+                    <div class="tags">
+                        <span class="tag">词缀机制</span>
+                        <span class="tag">装备制作</span>
+                        <span class="tag">词缀组合</span>
+                    </div>
+                    <p>详解最后纪元复杂的词缀系统，包括前缀后缀机制、装备制作技巧和最佳词缀组合策略。</p>
+                </div>
+
+                <!-- Dungeon Guide -->
+                <div class="guide-card">
+                    <h2>地牢攻略指南</h2>
+                    <div class="tags>
+                        <span class="tag">地牢机制</span>
+                        <span class="tag">Boss攻略</span>
+                        <span class="tag">奖励分析</span>
+                    </div>
+                    <p>针对游戏内各种地牢的详细攻略，包括机制解析、Boss应对策略和奖励最大化方法。</p>
+                </div>
+
+                <!-- Economy System -->
+                <div class="guide-card">
+                    <h2>经济与交易系统</h2>
+                    <div class="tags">
+                        <span class="tag">通货体系</span>
+                        <span class="tag">市场规律</span>
+                        <span class="tag">资源管理</span>
+                    </div>
+                    <p>最后纪元经济系统全面解析，包括通货获取、市场价格规律和资源高效管理策略。</p>
+                </div>
+
+                <!-- Endgame Content -->
+                <div class="guide-card">
+                    <h2>终局内容攻略</h2>
+                    <div class="tags">
+                        <span class="tag">终局挑战</span>
+                        <span class="tag">高难度内容</span>
+                        <span class="tag">进度优化</span>
+                    </div>
+                    <p>针对游戏终局内容的深度攻略，包括高难度挑战、进度优化和角色培养的完整指南。</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 by 看雲起雲落 · 游戏攻略指南 · 最后纪元 专区</p>
+        </footer>
+    </div>
+</body>
+</html>
