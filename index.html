@@ -85,13 +85,39 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card-image {
+            width: calc(100% + 4rem);
+            height: 160px;
+            margin: -2rem -2rem 1.5rem -2rem;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px 12px 0 0;
+            position: relative;
+        }
+
+        .game-card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(transparent, var(--bg-card));
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px var(--shadow-color);
-            background: var(--bg-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--shadow-color);
             border-color: var(--accent-gold);
+        }
+
+        .game-card:hover .game-card-image {
+            filter: brightness(1.1);
+            transition: filter 0.3s ease;
         }
 
         .game-icon {
@@ -165,18 +191,52 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-                <img src="mypic.jpg" alt="看雲起雲落" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-gold);">
-                <h1>游戏攻略指南</h1>
+        <div class="hero-banner">
+            <div class="hero-content">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                    <img src="mypic.jpg" alt="看雲起雲落" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-gold); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);">
+                    <h1>游戏攻略指南</h1>
+                </div>
+                <p class="subtitle">by 看雲起雲落 · 专业游戏文档中心 · 深度攻略解析 · 实时更新维护</p>
             </div>
-            <p class="subtitle">by 看雲起雲落 · 专业游戏文档中心 · 深度攻略解析 · 实时更新维护</p>
-        </header>
+            <div class="hero-particles"></div>
+        </div>
+
+        <style>
+            .hero-banner {
+                background: linear-gradient(135deg, rgba(160,40,10,0.1) 0%, rgba(10,10,18,0.9) 50%, rgba(100,30,120,0.1) 100%);
+                border-radius: 16px;
+                padding: 3rem 2rem;
+                margin-bottom: 2rem;
+                position: relative;
+                overflow: hidden;
+                border: 1px solid var(--border-color);
+            }
+
+            .hero-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .hero-banner::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background:
+                    radial-gradient(circle at 10% 20%, rgba(100, 30, 120, 0.1) 0%, transparent 20%),
+                    radial-gradient(circle at 90% 80%, rgba(160, 40, 10, 0.1) 0%, transparent 20%);
+                z-index: 1;
+            }
+        </style>
 
         <main>
             <div class="games-grid">
                 <!-- Diablo IV -->
-                <a href="games/diablo4/index.html" class="game-card" style="background: linear-gradient(135deg, #1a0a0f 0%, #0a0a12 100%);">
+                <a href="games/diablo4/index.html" class="game-card">
+                    <div class="game-card-image" style="background-image: url('assets/images/diablo4.jpg');"></div>
                     <div class="game-icon" style="background: linear-gradient(45deg, #8B0000, #DAA520);">D4</div>
                     <h2>暗黑破坏神 IV</h2>
                     <p>憎恨之王扩展包 · 新职业术士 · 威能系统 · 专属装备深度解析</p>
@@ -184,7 +244,8 @@
                 </a>
 
                 <!-- Diablo II -->
-                <a href="games/diablo2/index.html" class="game-card" style="background: linear-gradient(135deg, #231911 0%, #0a0a12 100%);">
+                <a href="games/diablo2/index.html" class="game-card">
+                    <div class="game-card-image" style="background-image: url('assets/images/diablo2.jpg');"></div>
                     <div class="game-icon" style="background: linear-gradient(45deg, #8B4513, #CD853F);">D2</div>
                     <h2>暗黑破坏神 II</h2>
                     <p>经典重制版 · 职业构建 · 符文之语 · 物品掉落机制详解</p>
@@ -192,7 +253,8 @@
                 </a>
 
                 <!-- Path of Exile -->
-                <a href="games/pathofexile/index.html" class="game-card" style="background: linear-gradient(135deg, #1a1226 0%, #0a0a12 100%);">
+                <a href="games/pathofexile/index.html" class="game-card">
+                    <div class="game-card-image" style="background-image: url('assets/images/poe.jpg');"></div>
                     <div class="game-icon" style="background: linear-gradient(45deg, #6A5ACD, #9370DB);">POE</div>
                     <h2>流放之路</h2>
                     <p>技能宝石搭配 · 天赋树优化 · 装备制作 · 赛季机制攻略</p>
@@ -200,7 +262,8 @@
                 </a>
 
                 <!-- Path of Exile 2 -->
-                <a href="games/pathofexile2/index.html" class="game-card" style="background: linear-gradient(135deg, #261226 0%, #0a0a12 100%);">
+                <a href="games/pathofexile2/index.html" class="game-card">
+                    <div class="game-card-image" style="background-image: url('assets/images/poe2.jpg');"></div>
                     <div class="game-icon" style="background: linear-gradient(45deg, #8A2BE2, #DA70D6);">POE2</div>
                     <h2>流放之路 2</h2>
                     <p>全新职业系统 · 技能机制 · 装备系统 · 开发进度追踪</p>
@@ -208,7 +271,8 @@
                 </a>
 
                 <!-- Last Epoch -->
-                <a href="games/lastepoch/index.html" class="game-card" style="background: linear-gradient(135deg, #0f1a1a 0%, #0a0a12 100%);">
+                <a href="games/lastepoch/index.html" class="game-card">
+                    <div class="game-card-image" style="background-image: url('assets/images/lastepoch.jpg');"></div>
                     <div class="game-icon" style="background: linear-gradient(45deg, #20B2AA, #40E0D0);">LE</div>
                     <h2>最后纪元</h2>
                     <p>时间穿越机制 · 职业专精 · 装备词缀 · 地牢攻略指南</p>
