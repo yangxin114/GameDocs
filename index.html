@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>游戏攻略指南 - 专业游戏文档中心</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    :root {
+      --bg-deep: #050510;
+      --bg-card: rgba(18, 18, 36, 0.85);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --text-primary: #E2E8F0;
+      --text-secondary: #94A3B8;
+      --text-muted: #4A5568;
+      --gold: #D4AF37;
+      --gold-bright: #F0D060;
+      --gold-dark: #8B7320;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Chakra Petch', 'Noto Sans SC', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
+
+    #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    .ambient {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(600px circle at 20% 30%, rgba(139, 0, 0, 0.06) 0%, transparent 60%),
+        radial-gradient(500px circle at 80% 70%, rgba(212, 175, 55, 0.04) 0%, transparent 60%);
+    }
+
+    .content { position: relative; z-index: 1; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* === Floating Nav === */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem; transition: all var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(5, 5, 16, 0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.75rem 2rem;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
+    .nav-logo {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif; font-weight: 900; font-size: 1rem; color: var(--bg-deep);
+    }
+    .nav-title { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
+    .nav-title span {
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-link {
+      padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 500;
+      color: var(--text-secondary); transition: all var(--transition); cursor: pointer;
+    }
+    .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+    .nav-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+    /* === Hero === */
+    .hero-section {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 6rem 2rem 4rem; position: relative;
+    }
+    .hero-section::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(218, 175, 55, 0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-avatar {
+      width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+      border: 3px solid #DAA520; box-shadow: 0 0 25px rgba(218, 175, 55, 0.4);
+      margin: 0 auto 1.5rem; transition: all 0.3s ease;
+    }
+    .hero-avatar:hover { transform: scale(1.05); box-shadow: 0 0 35px rgba(218, 175, 55, 0.6); }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.25rem; background: var(--bg-glass); border: 1px solid var(--border-subtle);
+      border-radius: 100px; font-size: 0.78rem; font-weight: 500; color: var(--text-secondary);
+      margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; background: #22c55e; border-radius: 50%;
+      animation: pulse-dot 2s ease infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-title {
+      font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900; letter-spacing: 4px; line-height: 1.1; margin-bottom: 1.5rem;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+    .hero-title .gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      background-size: 200% auto; animation: shimmer 3s linear infinite;
+    }
+    @keyframes shimmer { 0%{background-position:0% center} 100%{background-position:200% center} }
+
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.15rem); color: var(--text-secondary);
+      max-width: 550px; margin: 0 auto 3rem; line-height: 1.8;
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--bg-deep); font-weight: 700; font-size: 0.95rem; border-radius: 12px;
+      cursor: pointer; transition: all var(--transition);
+      opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3); }
+    .hero-cta svg { transition: transform var(--transition); }
+    .hero-cta:hover svg { transform: translateY(3px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2rem; display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem; color: var(--text-muted);
+      font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+      opacity: 0; animation: fadeIn 1s ease forwards 1.2s;
+    }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{transform:scaleY(1);opacity:0.5} 50%{transform:scaleY(0.5);opacity:0.2} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:0.6} }
+
+    /* === Games Section === */
+    .games-section { padding: 6rem 0; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-label {
+      font-family: 'Chakra Petch', sans-serif; font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700; margin-bottom: 1rem;
+    }
+    .section-desc { color: var(--text-secondary); max-width: 500px; margin: 0 auto; font-size: 0.9rem; }
+
+    .games-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;
+    }
+
+    /* Game Card with Background */
+    .game-card {
+      position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle);
+      border-radius: 16px; overflow: hidden; cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column; gap: 1rem;
+      opacity: 0; transform: translateY(30px);
+    }
+    .game-card.visible { opacity: 1; transform: translateY(0); }
+
+    .game-card-bg {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0.06; transition: opacity 0.4s ease;
+      filter: blur(2px);
+    }
+    .game-card:hover .game-card-bg { opacity: 0.12; filter: blur(0px); }
+
+    /* Gradient overlay */
+    .game-card::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(180deg, rgba(5,5,16,0.4) 0%, rgba(5,5,16,0.95) 100%);
+      pointer-events: none;
+    }
+
+    /* Top border glow on hover */
+    .game-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--card-accent), transparent);
+      opacity: 0; transition: opacity 0.4s ease; z-index: 2;
+    }
+    .game-card:hover::after { opacity: 1; }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--card-accent);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5), 0 0 0 1px var(--card-accent);
+    }
+
+    .game-card-content {
+      position: relative; z-index: 2;
+      padding: 2rem; display: flex; flex-direction: column; gap: 0.75rem; flex: 1;
+    }
+
+    .game-logo-wrapper {
+      width: 64px; height: 64px;
+      border-radius: 14px; overflow: hidden;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle);
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition);
+    }
+    .game-logo-wrapper img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .game-card:hover .game-logo-wrapper {
+      border-color: var(--card-accent);
+      box-shadow: 0 0 20px var(--card-glow);
+    }
+
+    .game-name {
+      font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700;
+      color: var(--text-primary); transition: color var(--transition);
+    }
+    .game-card:hover .game-name { color: var(--card-accent); }
+
+    .game-desc {
+      font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7;
+    }
+
+    .game-features {
+      list-style: none; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0.5rem; margin-top: 0.5rem;
+    }
+    .game-features li {
+      font-size: 0.75rem; color: var(--text-muted);
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .game-features li .diamond {
+      color: var(--card-accent); font-size: 0.5rem;
+    }
+
+    .game-enter {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.25rem; background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border-subtle); border-radius: 10px;
+      font-size: 0.82rem; font-weight: 600; color: var(--card-accent);
+      transition: all var(--transition); align-self: flex-start; margin-top: 0.5rem;
+    }
+    .game-enter:hover {
+      background: var(--card-accent); color: var(--bg-deep);
+      border-color: var(--card-accent);
+    }
+    .game-enter svg { transition: transform var(--transition); }
+    .game-enter:hover svg { transform: translateX(4px); }
+
+    /* === Stats === */
+    .stats-section {
+      padding: 4rem 0; border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+    .stat-item { opacity: 0; transform: translateY(20px); }
+    .stat-item.visible { opacity: 1; transform: translateY(0); }
+    .stat-value {
+      font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 0.25rem; }
+
+    /* === About === */
+    .about-section { padding: 6rem 0; }
+    .about-card {
+      max-width: 700px; margin: 0 auto; background: var(--bg-card);
+      border: 1px solid var(--border-subtle); border-radius: 20px; padding: 3rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .about-card::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .about-avatar {
+      width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-dark); margin: 0 auto 1.5rem;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+    }
+    .about-name {
+      font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 0.5rem;
+    }
+    .about-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+    /* === Footer === */
+    .footer {
+      padding: 3rem 0; border-top: 1px solid var(--border-subtle);
+      text-align: center; color: var(--text-muted); font-size: 0.78rem;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .container { padding: 0 1rem; }
+      .hero-section { padding: 5rem 1rem 3rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-links.open {
+        display: flex; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: rgba(5,5,16,0.95);
+        backdrop-filter: blur(20px); padding: 1rem; border-bottom: 1px solid var(--border-subtle);
+      }
+      .games-grid { grid-template-columns: 1fr; }
+      .game-features { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .stat-value { font-size: 2rem; }
+      .about-card { padding: 2rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="ambient"></div>
+
+  <div class="content">
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <div class="nav-brand">
+          <img src="mypic.jpg" alt="看雲起雲落" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);">
+          <div class="nav-title"><span>看雲起雲落</span></div>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="菜单">&#x2630;</button>
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="#games">游戏</a></li>
+          <li><a class="nav-link" href="#stats">统计</a></li>
+          <li><a class="nav-link" href="#about">关于</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section" id="hero">
+      <img src="mypic.jpg" alt="看雲起雲落" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 0 40px rgba(212,175,55,0.4);margin:0 auto 2rem;display:block;opacity:0;animation:fadeUp 0.8s ease forwards 0.15s;">
+      <div class="hero-badge"><span class="dot"></span>专业游戏文档中心 · 持续更新中</div>
+      <h1 class="hero-title"><span class="gold">看雲起雲落</span> 的刷子笔记</h1>
+      <p class="hero-subtitle">从入坑到痴迷，记录每一次刷宝的惊喜与成长。这里没有完美的攻略，只有不断累积的实战经验——愿和你一起变强</p>
+      <a href="#games" class="hero-cta">
+        开始探索
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <div class="hero-scroll"><span>向下滚动</span><div class="scroll-line"></div></div>
+    </section>
+
+    <!-- Games -->
+    <section class="games-section" id="games">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">EXPLORE GAMES</div>
+          <h2 class="section-title">选择你的战场</h2>
+          <p class="section-desc">五款经典刷宝游戏，每款都有专属深度攻略</p>
+        </div>
+
+        <div class="games-grid">
+          <!-- Diablo 4 -->
+          <a href="games/diablo4/index.html" class="game-card" style="--card-accent:#DAA520;--card-glow:rgba(218,165,32,0.06);">
+            <div class="game-card-bg" style="background-image:url('assets/images/diablo4_bg.jpg')"></div>
+            <div class="game-card-content">
+              <div class="game-logo-wrapper">
+                <img src="assets/images/diablo4_logo.jpeg" alt="暗黑破坏神 IV">
+              </div>
+              <h3 class="game-name">暗黑破坏神 IV</h3>
+              <p class="game-desc">《憎恨之王》扩展包已上线 · 术士&圣骑士双职业 · 探索庇护之地</p>
+              <ul class="game-features">
+                <li><span class="diamond">◆</span>防御机制解析</li>
+                <li><span class="diamond">◆</span>全职业构建指南</li>
+                <li><span class="diamond">◆</span>装备词缀优先级</li>
+                <li><span class="diamond">◆</span>高层大秘境攻略</li>
+              </ul>
+              <div class="game-enter">
+                进入攻略
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Diablo 2 -->
+          <a href="games/diablo2/index.html" class="game-card" style="--card-accent:#C8A040;--card-glow:rgba(200,160,64,0.06);">
+            <div class="game-card-bg" style="background-image:url('assets/images/diablo2_bg.jpg')"></div>
+            <div class="game-card-content">
+              <div class="game-logo-wrapper">
+                <img src="assets/images/diablo2_logo.jpg" alt="暗黑破坏神 II">
+              </div>
+              <h3 class="game-name">暗黑破坏神 II</h3>
+              <p class="game-desc">经典暗黑ARPG · 永恒符文之语与刷宝体验</p>
+              <ul class="game-features">
+                <li><span class="diamond">◆</span>符文之语全收录</li>
+                <li><span class="diamond">◆</span>职业BD推荐</li>
+                <li><span class="diamond">◆</span>物品Farm路线</li>
+                <li><span class="diamond">◆</span>合成公式大全</li>
+              </ul>
+              <div class="game-enter">
+                进入攻略
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Path of Exile -->
+          <a href="games/pathofexile/index.html" class="game-card" style="--card-accent:#9868d8;--card-glow:rgba(152,104,216,0.06);">
+            <div class="game-card-bg" style="background-image:url('assets/images/poe_bg.jpg')"></div>
+            <div class="game-card-content">
+              <div class="game-logo-wrapper">
+                <img src="assets/images/poe_logo.jpg" alt="流放之路">
+              </div>
+              <h3 class="game-name">流放之路</h3>
+              <p class="game-desc">超高自由度ARPG · 千颗天赋树等你探索</p>
+              <ul class="game-features">
+                <li><span class="diamond">◆</span>技能宝石搭配</li>
+                <li><span class="diamond">◆</span>天赋树模拟器</li>
+                <li><span class="diamond">◆</span>赛季机制解读</li>
+                <li><span class="diamond">◆</span>词缀制作指南</li>
+              </ul>
+              <div class="game-enter">
+                进入攻略
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Path of Exile 2 -->
+          <a href="games/pathofexile2/index.html" class="game-card" style="--card-accent:#d878e8;--card-glow:rgba(216,120,232,0.06);">
+            <div class="game-card-bg" style="background-image:url('assets/images/poe2_bg.jpg')"></div>
+            <div class="game-card-content">
+              <div class="game-logo-wrapper">
+                <img src="assets/images/poe2_logo.jpg" alt="流放之路 2">
+              </div>
+              <h3 class="game-name">流放之路 2</h3>
+              <p class="game-desc">暗黑2精神续作 · 全新技能系统与赛季内容</p>
+              <ul class="game-features">
+                <li><span class="diamond">◆</span>新职业前瞻</li>
+                <li><span class="diamond">◆</span>技能系统详解</li>
+                <li><span class="diamond">◆</span>装备系统解析</li>
+                <li><span class="diamond">◆</span>新手入门指南</li>
+              </ul>
+              <div class="game-enter">
+                进入攻略
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+
+          <!-- Last Epoch -->
+          <a href="games/lastepoch/index.html" class="game-card" style="--card-accent:#30c8c0;--card-glow:rgba(48,200,192,0.06);">
+            <div class="game-card-bg" style="background-image:url('assets/images/lastepoch_bg.jpg')"></div>
+            <div class="game-card-content">
+              <div class="game-logo-wrapper">
+                <img src="assets/images/lastepoch_logo.jpg" alt="最后纪元">
+              </div>
+              <h3 class="game-name">最后纪元</h3>
+              <p class="game-desc">时空穿梭ARPG · 专精系统与迷宫副本的完美结合</p>
+              <ul class="game-features">
+                <li><span class="diamond">◆</span>时空旅行机制</li>
+                <li><span class="diamond">◆</span>职业专精推荐</li>
+                <li><span class="diamond">◆</span>词缀系统详解</li>
+                <li><span class="diamond">◆</span>终局内容攻略</li>
+              </ul>
+              <div class="game-enter">
+                进入攻略
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item"><div class="stat-value">5</div><div class="stat-label">覆盖游戏</div></div>
+          <div class="stat-item"><div class="stat-value">30+</div><div class="stat-label">攻略文档</div></div>
+          <div class="stat-item"><div class="stat-value">2026</div><div class="stat-label">持续更新</div></div>
+          <div class="stat-item"><div class="stat-value">100%</div><div class="stat-label">免费开放</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">ABOUT</div>
+          <h2 class="section-title">关于本站</h2>
+        </div>
+        <div class="about-card">
+          <img src="mypic.jpg" alt="看雲起雲落" class="about-avatar">
+          <h3 class="about-name">看雲起雲落</h3>
+          <p class="about-desc">
+            一个和你一样沉迷刷宝的普通玩家。<br>
+            从第一次爆装到现在的BD理解，一路踩坑一路成长。<br>
+            这些笔记记录的是我和这些游戏一起走过的日子，<br>
+            也希望能成为你冒险路上的小小参考。<br><br>
+            <span style="color:var(--gold);font-size:0.8rem;">☞ 一起刷，一起变强</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 <span style="color:var(--gold);">看雲起雲落</span> · 用心打造的攻略站 · All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Particles
+    (function(){
+      const c=document.getElementById('particles'),x=c.getContext('2d'),p=[];
+      function r(){c.width=window.innerWidth;c.height=window.innerHeight}
+      function cr(){return{x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-0.5)*0.2,vy:(Math.random()-0.5)*0.2,s:Math.random()*1.5+0.5,o:Math.random()*0.25+0.05}}
+      for(let i=0;i<40;i++)p.push(cr());
+      (function a(){x.clearRect(0,0,c.width,c.height);for(const d of p){d.x+=d.vx;d.y+=d.vy;if(d.x<0)d.x=c.width;if(d.x>c.width)d.x=0;if(d.y<0)d.y=c.height;if(d.y>c.height)d.y=0;x.beginPath();x.arc(d.x,d.y,d.s,0,Math.PI*2);x.fillStyle='rgba(212,175,55,'+d.o+')';x.fill()}requestAnimationFrame(a)})();
+      window.addEventListener('resize',r);r();
+    })();
+
+    // Nav scroll
+    (function(){
+      const n=document.getElementById('nav');
+      window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>20),{passive:true});
+    })();
+
+    // Mobile nav
+    (function(){
+      const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+      if(t)t.addEventListener('click',()=>l.classList.toggle('open'));
+    })();
+
+    // Scroll reveal
+    (function(){
+      const o=new IntersectionObserver(e=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*80);o.unobserve(el.target)}})},{threshold:0.05});
+      document.querySelectorAll('.game-card,.stat-item').forEach(el=>o.observe(el));
+    })();
+  </script>
+</body>
+</html>

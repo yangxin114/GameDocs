@@ -1,0 +1,33 @@
+/**
+ * 流放之路 2 主题
+ * 风格：暗黑魔幻，品红+兰花紫
+ * @author 看雲起雲落
+ */
+:root {
+  --bg-main: #180e18;
+  --bg-card: #241524;
+  --bg-hover: #302030;
+  --text-primary: #f0e0f0;
+  --text-secondary: #a080a0;
+  --text-muted: #504050;
+  --accent: #d878e8;
+  --accent-dim: #8828c0;
+  --accent-bright: #f8a8ff;
+  --border-color: #4a3050;
+  --shadow-color: rgba(136, 40, 192, 0.35);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(136, 40, 192, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(216, 120, 232, 0.08) 0%, transparent 30%);
+}
+
+.page-header h1 {
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(216, 120, 232, 0.2);
+}
+
+.page-header::before {
+  background: linear-gradient(90deg, transparent, var(--accent-dim), var(--accent), var(--accent-dim), transparent);
+}

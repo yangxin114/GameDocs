@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暗黑破坏神 IV - 游戏攻略指南</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+  <style>
+    /* === D4-specific page styles === */
+    .page-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+    /* === Ambient Background === */
+    .d4-bg {
+      position: fixed; inset: 0; z-index: -1; overflow: hidden;
+    }
+    .d4-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(218, 165, 32, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.4) 0%, transparent 80%);
+    }
+    .d4-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      pointer-events: none;
+    }
+    .rune {
+      position: absolute; font-size: 1.5rem; color: rgba(139, 0, 0, 0.08);
+      animation: runeFloat 20s ease-in-out infinite; pointer-events: none;
+    }
+    .rune:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+    .rune:nth-child(2) { top: 40%; right: 5%; animation-delay: -5s; font-size: 2rem; }
+    .rune:nth-child(3) { bottom: 25%; left: 12%; animation-delay: -10s; }
+    .rune:nth-child(4) { top: 60%; right: 15%; animation-delay: -15s; font-size: 1.8rem; }
+    .rune:nth-child(5) { top: 80%; left: 45%; animation-delay: -8s; }
+    @keyframes runeFloat {
+      0%,100%{transform:translateY(0) rotate(0deg);opacity:0.06}
+      25%{transform:translateY(-15px) rotate(5deg);opacity:0.12}
+      50%{transform:translateY(-5px) rotate(-3deg);opacity:0.06}
+      75%{transform:translateY(-20px) rotate(8deg);opacity:0.1}
+    }
+
+    /* === Hero Banner === */
+    .d4-hero {
+      padding: 5rem 0 3rem; text-align: center; position: relative;
+    }
+    .d4-hero::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      width: 50%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
+    }
+
+    .d4-hero-content {
+      display: flex; align-items: center; justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+    }
+
+    .season-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(139, 0, 0, 0.2);
+      border: 1px solid rgba(139, 0, 0, 0.4);
+      border-radius: 100px;
+      font-size: 0.72rem; font-weight: 600; color: #e74c3c;
+      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .season-badge .pulse {
+      width: 6px; height: 6px; background: #e74c3c; border-radius: 50%;
+      animation: pulse-dot 2s ease infinite;
+    }
+    @keyframes pulse-dot {
+      0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(231,76,60,0.4)}
+      50%{opacity:0.6;box-shadow:0 0 0 6px rgba(231,76,60,0)}
+    }
+
+    .d4-title {
+      font-family: 'Cinzel', serif; font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; color: #DAA520; letter-spacing: 4px;
+      text-shadow: 0 0 40px rgba(218,165,32,0.2), 0 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 0.75rem;
+    }
+    .d4-title .accent { color: #c0392b; text-shadow: 0 0 30px rgba(192,57,43,0.3); }
+
+    .d4-subtitle {
+      font-size: 1rem; color: #8a7868; max-width: 550px; margin: 0 auto; line-height: 1.8;
+    }
+
+    .header-logo-d4 {
+      width: 80px; height: 80px; border-radius: 14px; overflow: hidden;
+      border: 2px solid #DAA520; box-shadow: 0 0 25px rgba(218,165,32,0.3);
+    }
+    .header-logo-d4 img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* === Section Label === */
+    .section-label {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; margin-top: 3.5rem;
+    }
+    .section-label::before {
+      content: ''; width: 3px; height: 20px;
+      background: linear-gradient(to bottom, #DAA520, #8B0000); border-radius: 2px;
+    }
+    .section-label h2 {
+      font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700;
+      color: #DAA520; letter-spacing: 2px;
+    }
+    .section-label .count {
+      font-family: 'Chakra Petch', sans-serif; font-size: 0.7rem;
+      color: #665555; letter-spacing: 1px;
+    }
+
+    /* === Content Grid === */
+    .content-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem; margin-bottom: 1rem;
+    }
+
+    /* === Guide Card === */
+    .guide-card {
+      display: block; background: rgba(26, 15, 20, 0.9);
+      border: 1px solid rgba(58, 32, 40, 0.6); border-radius: 14px;
+      padding: 1.5rem; position: relative; overflow: hidden; cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .guide-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, #DAA520, transparent);
+      opacity: 0; transition: opacity 0.35s;
+    }
+    .guide-card:hover {
+      transform: translateY(-4px); border-color: rgba(218, 165, 32, 0.4);
+      box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3), 0 0 0 1px rgba(218,165,32,0.2);
+      background: rgba(35, 22, 28, 0.95);
+    }
+    .guide-card:hover::before { opacity: 1; }
+    .guide-card:hover .card-icon svg { stroke: #DAA520; }
+    .guide-card:hover .card-title { color: #DAA520; }
+
+    /* === Featured Card === */
+    .guide-card.featured {
+      grid-column: span 2;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;
+    }
+    .guide-card.featured .card-content { order: 1; }
+    .guide-card.featured .card-visual {
+      order: 2; display: flex; align-items: center; justify-content: center; min-height: 120px;
+    }
+    .guide-card.featured .card-visual .visual-icon {
+      font-size: 4rem; opacity: 0.15; filter: drop-shadow(0 0 20px rgba(139,0,0,0.5));
+    }
+
+    /* === Locked Card === */
+    .guide-card.locked {
+      cursor: not-allowed; opacity: 0.45; border-style: dashed;
+      border-color: rgba(58, 32, 40, 0.3); background: rgba(18, 10, 14, 0.6);
+    }
+    .guide-card.locked::before { display: none; }
+    .guide-card.locked:hover {
+      transform: none; box-shadow: none; border-color: rgba(58, 32, 40, 0.3);
+    }
+    .guide-card.locked .card-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem; background: rgba(10, 5, 8, 0.6); backdrop-filter: blur(1px);
+      opacity: 0; transition: opacity 0.3s; z-index: 2;
+    }
+    .guide-card.locked:hover .card-overlay { opacity: 1; }
+    .guide-card.locked .card-overlay svg { width: 20px; height: 20px; stroke: #888; stroke-width: 1.5; fill: none; }
+    .guide-card.locked .card-overlay span {
+      font-size: 0.75rem; color: #888; font-weight: 500; letter-spacing: 1px;
+    }
+    .guide-card.locked .card-enter { display: none; }
+    .guide-card.locked .card-tags { display: none; }
+    .guide-card.locked .card-desc { opacity: 0.5; }
+
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(139, 0, 0, 0.12); border: 1px solid rgba(139, 0, 0, 0.2);
+      display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+    .guide-card.locked .card-icon {
+      background: rgba(58, 32, 40, 0.15); border-color: rgba(58, 32, 40, 0.2);
+    }
+    .card-icon svg {
+      width: 22px; height: 22px; stroke: #c0392b; stroke-width: 1.5; fill: none;
+      stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s;
+    }
+
+    .card-tags { display: flex; gap: 0.4rem; margin-bottom: 0.75rem; flex-wrap: wrap; }
+    .card-tag {
+      padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.62rem;
+      font-weight: 600; letter-spacing: 0.5px;
+    }
+    .card-tag.new {
+      background: rgba(139, 0, 0, 0.25); color: #e74c3c; border: 1px solid rgba(139,0,0,0.4);
+    }
+    .card-tag.warlock {
+      background: rgba(139, 0, 0, 0.25); color: #e74c3c; border: 1px solid rgba(139,0,0,0.4);
+    }
+    .card-tag.season {
+      background: rgba(218, 165, 32, 0.15); color: #DAA520; border: 1px solid rgba(218,165,32,0.3);
+    }
+    .card-tag.mechanic {
+      background: rgba(218, 165, 32, 0.12); color: #DAA520; border: 1px solid rgba(218,165,32,0.25);
+    }
+    .card-tag.class-tag {
+      background: rgba(192, 57, 43, 0.15); color: #c0392b; border: 1px solid rgba(192,57,43,0.3);
+    }
+    .card-tag.endgame {
+      background: rgba(142, 68, 173, 0.15); color: #8e44ad; border: 1px solid rgba(142,68,173,0.3);
+    }
+
+    .card-title {
+      font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 700;
+      color: #f0e8e0; margin-bottom: 0.4rem; transition: color 0.3s;
+    }
+    .card-desc { font-size: 0.82rem; color: #7a6a60; line-height: 1.7; margin-bottom: 0.75rem; }
+
+    .card-enter {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.75rem; font-weight: 600; color: #DAA520; transition: all 0.2s;
+    }
+    .card-enter svg {
+      width: 14px; height: 14px; stroke: #DAA520; stroke-width: 2; fill: none;
+      transition: transform 0.2s;
+    }
+    .guide-card:not(.locked):hover .card-enter svg { transform: translateX(4px); }
+
+    /* === Footer === */
+    .page-footer {
+      text-align: center; padding: 3rem 0; margin-top: 3rem;
+      border-top: 1px solid rgba(58, 32, 40, 0.4);
+      color: #554444; font-size: 0.75rem;
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      .page-container { padding: 0 1rem; }
+      .guide-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .guide-card.featured .card-visual { display: none; }
+      .content-grid { grid-template-columns: 1fr; }
+      .d4-hero-content { flex-direction: column; align-items: center; }
+      .header-logo-d4 { width: 60px; height: 60px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important; transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background -->
+  <div class="d4-bg">
+    <div class="rune">&#x2620;</div>
+    <div class="rune">&#x2694;</div>
+    <div class="rune">&#x1F6E1;</div>
+    <div class="rune">&#x2605;</div>
+    <div class="rune">&#x1F525;</div>
+  </div>
+
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-back">&#x2190; 返回首页</a>
+      <span class="nav-game-name">暗黑破坏神 IV</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV</span>
+    </div>
+  </nav>
+
+  <main class="page-container page-content">
+    <!-- Hero -->
+    <section class="d4-hero">
+      <div class="season-badge">
+        <span class="pulse"></span>
+        资料片 · 憎恨之王
+      </div>
+      <div class="d4-hero-content">
+        <div class="header-logo-d4">
+          <img src="../../assets/images/diablo4_logo.jpeg" alt="暗黑破坏神 IV">
+        </div>
+        <div>
+          <h1 class="d4-title">暗黑破坏神 <span class="accent">IV</span></h1>
+          <p class="d4-subtitle">《憎恨之王》扩展包已上线 · 术士&圣骑士双职业 · DLC2开发中 · 攻略持续更新</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 憎恨之王资料片 ===== -->
+    <div class="section-label">
+      <h2>憎恨之王</h2>
+      <span class="count">扩展包 · 新内容</span>
+    </div>
+
+    <div class="content-grid">
+      <!-- Featured: 术士前瞻 -->
+      <a href="sorcerer-guide.html" class="guide-card featured">
+        <div class="card-content">
+          <div class="card-tags">
+            <span class="card-tag warlock">新职业</span>
+            <span class="card-tag new">资料片</span>
+          </div>
+          <div class="card-title">术士职业前瞻</div>
+          <p class="card-desc">全新术士职业深度解析——契约与恶魔之力、召唤/暗影/地狱火焰三大体系、双资源消耗机制、专属暗金装备一览</p>
+          <div class="card-enter">
+            阅读前瞻
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+        <div class="card-visual"><div class="visual-icon">&#x1F525;</div></div>
+      </a>
+
+      <!-- 圣骑士职业 -->
+      <a href="#" class="guide-card">
+        <div class="card-tags">
+          <span class="card-tag new">新职业</span>
+          <span class="card-tag season">资料片</span>
+        </div>
+        <div class="card-title">圣骑士职业前瞻</div>
+        <p class="card-desc">光明之力、神圣光环与近战格斗的完美融合，光暗对立的新职业设计</p>
+        <div class="card-enter">
+          阅读前瞻
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <!-- 技能树重制 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-tags"><span class="card-tag new">资料片</span></div>
+        <div class="card-title">技能树重制详解</div>
+        <p class="card-desc">全职业技能树全面重构、40+项重做选择、70级技能等级分配</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- 护身符甲系统 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-tags"><span class="card-tag new">资料片</span></div>
+        <div class="card-title">护身符甲系统</div>
+        <p class="card-desc">赫拉迪姆印记核心驱动、五插槽机制、套装效果触发、荣誉印记特殊规则</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- 赫拉迪克方块 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-tags"><span class="card-tag new">资料片</span></div>
+        <div class="card-title">赫拉迪克方块</div>
+        <p class="card-desc">3x3合成系统、黄装升级传奇、数值重铸、装备价值重塑</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===== DLC2 前瞻 ===== -->
+    <div class="section-label">
+      <h2>DLC2 前瞻</h2>
+      <span class="count">2026 开发中</span>
+    </div>
+
+    <div class="content-grid">
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span></div>
+        <div class="card-title">第二资料片 DLC2</div>
+        <p class="card-desc">全新主线剧情、新地图世界探索、排名与天梯系统、全新职业</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span></div>
+        <div class="card-title">排名与天梯系统</div>
+        <p class="card-desc">竞技天梯（硬核玩家）+ 进度评估（大众玩家），全球排行竞技</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span></div>
+        <div class="card-title">新主线剧情战役</div>
+        <p class="card-desc">延续墨菲斯托的阴谋，新增可探索区域，收束阶段性叙事</p>
+        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===== 核心机制 ===== -->
+    <div class="section-label">
+      <h2>核心机制</h2>
+      <span class="count">基础必学</span>
+    </div>
+
+    <div class="content-grid">
+      <!-- 防御机制 -->
+      <a href="defense-guide.html" class="guide-card">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-tags"><span class="card-tag mechanic">机制</span><span class="card-tag new">新手必看</span></div>
+        <div class="card-title">防御机制完全解析</div>
+        <p class="card-desc">从护甲抗性到坚韧EHP，六大防御层详解，交互式伤害计算器</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- 技能系统 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="card-tags"><span class="card-tag mechanic">机制</span></div>
+        <div class="card-title">技能系统重构详解</div>
+        <p class="card-desc">被动移除、技能质变机制、天赋树变革、70级技能等级分配策略</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===== 职业攻略 ===== -->
+    <div class="section-label">
+      <h2>职业攻略</h2>
+      <span class="count">全职业BD指南</span>
+    </div>
+
+    <div class="content-grid">
+      <a href="sorcerer-guide.html" class="guide-card">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">S13新职业</span><span class="card-tag class-tag">术士</span></div>
+        <div class="card-title">术士构建指南</div>
+        <p class="card-desc">威能搭配、专属装备解析、召唤/暗影/地狱火焰流派全攻略</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div class="card-tags"><span class="card-tag season">S13新职业</span><span class="card-tag class-tag">圣骑士</span></div>
+        <div class="card-title">圣骑士构建指南</div>
+        <p class="card-desc">神圣光环+近战格斗、光明之力BD、持盾坦克终极路线</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+        <div class="card-tags"><span class="card-tag class-tag">野蛮人</span></div>
+        <div class="card-title">野蛮人构建指南</div>
+        <p class="card-desc">近战碾压流核心，战吼减伤+高护甲，坦克与输出兼备</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/></svg></div>
+        <div class="card-tags"><span class="card-tag class-tag">游侠</span></div>
+        <div class="card-title">游侠构建指南</div>
+        <p class="card-desc">位移+躲闪为核心，高机动性BD，操作上限极高的职业</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div class="card-tags"><span class="card-tag class-tag">德鲁伊</span></div>
+        <div class="card-title">德鲁伊构建指南</div>
+        <p class="card-desc">变熊=天然坦克，生命+护甲百分比加成，最全面的防御职业</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="card-tags"><span class="card-tag class-tag">死灵法师</span></div>
+        <div class="card-title">死灵构建指南</div>
+        <p class="card-desc">骷髅大军+骨甲间接生存，仆从当肉盾本体安全输出</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <!-- ===== 终局内容 ===== -->
+    <div class="section-label">
+      <h2>终局内容</h2>
+      <span class="count">高层挑战</span>
+    </div>
+
+    <div class="content-grid">
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <div class="card-tags"><span class="card-tag endgame">终局</span></div>
+        <div class="card-title">高层大秘境攻略</div>
+        <p class="card-desc">90+层生存指南、词缀优先级、防御叠加策略、各职业冲层BD</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="card-tags"><span class="card-tag endgame">终局</span><span class="card-tag season">新玩法</span></div>
+        <div class="card-title">战争计划 & 回响憎恨</div>
+        <p class="card-desc">全新终局玩法，解决刷图作业感，中高端玩家挑战路径</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="card-tags"><span class="card-tag endgame">终局</span></div>
+        <div class="card-title">Boss战策略</div>
+        <p class="card-desc">各Boss机制解析、仇恨管理、阶段转换应对、掉落优化</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="card-tags"><span class="card-tag endgame">进阶</span></div>
+        <div class="card-title">装备词缀优先级</div>
+        <p class="card-desc">各属性词缀价值分析，回火与宝石镶嵌策略，避免踩坑</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+    </div>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 游戏攻略指南 · 看雲起雲落 · Diablo IV Season 13</p>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

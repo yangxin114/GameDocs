@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最后纪元 - 游戏攻略指南</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-lastepoch.css">
+  <style>
+    .page-header {
+      position: relative; overflow: hidden; padding: 3rem 2rem;
+      background: linear-gradient(180deg, rgba(10,18,18,0.7) 0%, rgba(16,26,26,0.95) 100%);
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('../../assets/images/lastepoch_bg.jpg') center/cover no-repeat;
+      opacity: 0.15; filter: blur(4px) saturate(1.2); z-index: 0;
+    }
+    .page-header::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(10,18,18,0.6) 0%, rgba(16,26,26,0.9) 100%); z-index: 1;
+    }
+    .page-header > * { position: relative; z-index: 2; }
+    .page-header-content { display: flex; align-items: center; gap: 1.5rem; justify-content: center; }
+    .header-logo {
+      width: 64px; height: 64px; border-radius: 12px; overflow: hidden;
+      border: 2px solid var(--accent); box-shadow: 0 0 20px rgba(48,200,192,0.3); flex-shrink: 0;
+    }
+    .header-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .page-header .profile-img { display: none; }
+    .page-header h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    @media (max-width: 480px) {
+      .page-header-content { flex-direction: column; align-items: center; }
+      .header-logo { width: 48px; height: 48px; }
+    }
+    .guide-card.locked { opacity: 0.5; border-style: dashed; cursor: not-allowed; position: relative; }
+    .guide-card.locked .card-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      gap: 0.5rem; background: rgba(5,10,10,0.5); backdrop-filter: blur(2px); opacity: 0;
+      transition: opacity 0.3s; z-index: 2; border-radius: 14px;
+    }
+    .guide-card.locked:hover .card-overlay { opacity: 1; }
+    .guide-card.locked .card-overlay svg { width: 20px; height: 20px; stroke: #888; stroke-width: 1.5; fill: none; }
+    .guide-card.locked .card-overlay span { font-size: 0.75rem; color: #888; font-weight: 500; letter-spacing: 1px; }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="../../index.html" class="nav-back">&#x2190; 返回首页</a>
+      <span class="nav-game-name">最后纪元</span>
+      <span class="nav-breadcrumb">首页 &gt; 最后纪元</span>
+    </div>
+  </nav>
+
+  <main class="container page-content">
+    <header class="page-header">
+      <div class="page-header-content">
+        <div class="header-logo">
+          <img src="../../assets/images/lastepoch_logo.jpg" alt="最后纪元">
+        </div>
+        <div>
+          <h1>最后纪元</h1>
+          <p class="subtitle">时空穿梭ARPG · 专精系统 · 迷宫副本</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="guides-grid">
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">时空</span><span class="tag">旅行</span></div>
+        <h2>时空旅行机制</h2>
+        <p>时间线系统详解、时空裂隙探索、不同时间线奖励差异</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">职业</span><span class="tag">专精</span></div>
+        <h2>职业专精推荐</h2>
+        <p>5大职业15种专精路线，每个专精的核心机制与BD方向</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">词缀</span><span class="tag">系统</span></div>
+        <h2>词缀系统详解</h2>
+        <p>装备词缀分级、锻造与拆解系统、传奇装备制作流程</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">迷宫</span><span class="tag">副本</span></div>
+        <h2>迷宫副本攻略</h2>
+        <p>迷宫地图机制、Boss战策略、掉落表全收录</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">经济</span><span class="tag">系统</span></div>
+        <h2>经济与交易</h2>
+        <p>市场系统使用、物品估价、商人配方、高效赚钱方法</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="tags"><span class="tag">终局</span><span class="tag">内容</span></div>
+        <h2>终局内容攻略</h2>
+        <p>命运副本、时间线终局玩法、角色毕业路线指引</p>
+        <span class="btn"><span>阅读攻略</span></span>
+      </a>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 游戏攻略指南 · 看雲起雲落</p>
+    </footer>
+  </main>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

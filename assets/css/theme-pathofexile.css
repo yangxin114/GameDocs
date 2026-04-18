@@ -1,0 +1,33 @@
+/**
+ * 流放之路 主题
+ * 风格：奥术魔法，紫色+薰衣草
+ * @author 看雲起雲落
+ */
+:root {
+  --bg-main: #100e18;
+  --bg-card: #1a1528;
+  --bg-hover: #242038;
+  --text-primary: #e8e0f0;
+  --text-secondary: #8a78a0;
+  --text-muted: #443855;
+  --accent: #9868d8;
+  --accent-dim: #5838a0;
+  --accent-bright: #c090f0;
+  --border-color: #3a3050;
+  --shadow-color: rgba(88, 56, 160, 0.35);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(88, 56, 160, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(152, 104, 216, 0.08) 0%, transparent 30%);
+}
+
+.page-header h1 {
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(152, 104, 216, 0.2);
+}
+
+.page-header::before {
+  background: linear-gradient(90deg, transparent, var(--accent-dim), var(--accent), var(--accent-dim), transparent);
+}

@@ -1,0 +1,33 @@
+/**
+ * 最后纪元 主题
+ * 风格：时空奇幻，青色+绿松石
+ * @author 看雲起雲落
+ */
+:root {
+  --bg-main: #0a1212;
+  --bg-card: #101a1a;
+  --bg-hover: #182828;
+  --text-primary: #e0f0f0;
+  --text-secondary: #78a8a8;
+  --text-muted: #3a5555;
+  --accent: #30c8c0;
+  --accent-dim: #188888;
+  --accent-bright: #60f0e8;
+  --border-color: #2a4a4a;
+  --shadow-color: rgba(24, 136, 136, 0.35);
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(24, 136, 136, 0.1) 0%, transparent 30%),
+    radial-gradient(circle at 85% 75%, rgba(48, 200, 192, 0.08) 0%, transparent 30%);
+}
+
+.page-header h1 {
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(48, 200, 192, 0.2);
+}
+
+.page-header::before {
+  background: linear-gradient(90deg, transparent, var(--accent-dim), var(--accent), var(--accent-dim), transparent);
+}
