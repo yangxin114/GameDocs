@@ -270,6 +270,33 @@
     .game-enter svg { transition: transform var(--transition); }
     .game-enter:hover svg { transform: translateX(4px); }
 
+    /* Locked Game Card */
+    .game-card-locked {
+      cursor: not-allowed !important;
+    }
+    .game-card-locked:hover {
+      transform: none !important;
+      border-color: var(--border-subtle) !important;
+      box-shadow: none !important;
+    }
+    .game-card-locked::after { display: none !important; }
+    .game-card-locked .game-card-overlay {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+      background: rgba(5,5,16,0.15);
+      border-radius: 16px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .game-card-locked:hover .game-card-overlay {
+      opacity: 1;
+      background: rgba(5,5,16,0.4);
+    }
+    .game-card-locked .game-card-overlay svg { stroke: var(--text-muted); }
+    .game-card-locked .game-card-content { opacity: 1 !important; }
+    .game-card-locked .game-logo-wrapper { opacity: 1 !important; }
+    .game-card-locked .game-name { opacity: 1 !important; }
+
     /* === Stats === */
     .stats-section {
       padding: 4rem 0; border-top: 1px solid var(--border-subtle);
@@ -405,71 +432,53 @@
             </div>
           </a>
 
-          <!-- Diablo 2 -->
-          <a href="games/diablo2/index.html" class="game-card" style="--card-accent:#C8A040;--card-glow:rgba(200,160,64,0.06);">
-            <div class="game-card-bg" style="background-image:url('assets/images/diablo2_bg.jpg')"></div>
+          <!-- Diablo 2 - Coming Soon -->
+          <div class="game-card game-card-locked" style="--card-accent:#C8A040;--card-glow:rgba(200,160,64,0.06);">
+            <div class="game-card-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;opacity:0.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span style="font-size:0.8rem;opacity:0.6;letter-spacing:1px">敬请期待</span>
+            </div>
+            <div class="game-card-bg" style="background-image:url('assets/images/diablo2_bg.jpg');opacity:0.03"></div>
             <div class="game-card-content">
-              <div class="game-logo-wrapper">
+              <div class="game-logo-wrapper" style="opacity:0.5">
                 <img src="assets/images/diablo2_logo.jpg" alt="暗黑破坏神 II">
               </div>
-              <h3 class="game-name">暗黑破坏神 II</h3>
+              <h3 class="game-name" style="opacity:0.5">暗黑破坏神 II</h3>
               <p class="game-desc">经典暗黑ARPG · 永恒符文之语与刷宝体验</p>
-              <ul class="game-features">
-                <li><span class="diamond">◆</span>符文之语全收录</li>
-                <li><span class="diamond">◆</span>职业BD推荐</li>
-                <li><span class="diamond">◆</span>物品Farm路线</li>
-                <li><span class="diamond">◆</span>合成公式大全</li>
-              </ul>
-              <div class="game-enter">
-                进入攻略
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
             </div>
-          </a>
+          </div>
 
-          <!-- Path of Exile -->
-          <a href="games/pathofexile/index.html" class="game-card" style="--card-accent:#9868d8;--card-glow:rgba(152,104,216,0.06);">
-            <div class="game-card-bg" style="background-image:url('assets/images/poe_bg.jpg')"></div>
+          <!-- Path of Exile - Coming Soon -->
+          <div class="game-card game-card-locked" style="--card-accent:#9868d8;--card-glow:rgba(152,104,216,0.06);">
+            <div class="game-card-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;opacity:0.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span style="font-size:0.8rem;opacity:0.6;letter-spacing:1px">敬请期待</span>
+            </div>
+            <div class="game-card-bg" style="background-image:url('assets/images/poe_bg.jpg');opacity:0.03"></div>
             <div class="game-card-content">
-              <div class="game-logo-wrapper">
+              <div class="game-logo-wrapper" style="opacity:0.5">
                 <img src="assets/images/poe_logo.jpg" alt="流放之路">
               </div>
-              <h3 class="game-name">流放之路</h3>
+              <h3 class="game-name" style="opacity:0.5">流放之路</h3>
               <p class="game-desc">超高自由度ARPG · 千颗天赋树等你探索</p>
-              <ul class="game-features">
-                <li><span class="diamond">◆</span>技能宝石搭配</li>
-                <li><span class="diamond">◆</span>天赋树模拟器</li>
-                <li><span class="diamond">◆</span>赛季机制解读</li>
-                <li><span class="diamond">◆</span>词缀制作指南</li>
-              </ul>
-              <div class="game-enter">
-                进入攻略
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
             </div>
-          </a>
+          </div>
 
-          <!-- Path of Exile 2 -->
-          <a href="games/pathofexile2/index.html" class="game-card" style="--card-accent:#d878e8;--card-glow:rgba(216,120,232,0.06);">
-            <div class="game-card-bg" style="background-image:url('assets/images/poe2_bg.jpg')"></div>
+          <!-- Path of Exile 2 - Coming Soon -->
+          <div class="game-card game-card-locked" style="--card-accent:#d878e8;--card-glow:rgba(216,120,232,0.06);">
+            <div class="game-card-overlay">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;opacity:0.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <span style="font-size:0.8rem;opacity:0.6;letter-spacing:1px">敬请期待</span>
+            </div>
+            <div class="game-card-bg" style="background-image:url('assets/images/poe2_bg.jpg');opacity:0.03"></div>
             <div class="game-card-content">
-              <div class="game-logo-wrapper">
+              <div class="game-logo-wrapper" style="opacity:0.5">
                 <img src="assets/images/poe2_logo.jpg" alt="流放之路 2">
               </div>
-              <h3 class="game-name">流放之路 2</h3>
+              <h3 class="game-name" style="opacity:0.5">流放之路 2</h3>
               <p class="game-desc">暗黑2精神续作 · 全新技能系统与赛季内容</p>
-              <ul class="game-features">
-                <li><span class="diamond">◆</span>新职业前瞻</li>
-                <li><span class="diamond">◆</span>技能系统详解</li>
-                <li><span class="diamond">◆</span>装备系统解析</li>
-                <li><span class="diamond">◆</span>新手入门指南</li>
-              </ul>
-              <div class="game-enter">
-                进入攻略
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
             </div>
-          </a>
+          </div>
 
           <!-- Last Epoch -->
           <a href="games/lastepoch/index.html" class="game-card" style="--card-accent:#30c8c0;--card-glow:rgba(48,200,192,0.06);">
@@ -479,12 +488,12 @@
                 <img src="assets/images/lastepoch_logo.jpg" alt="最后纪元">
               </div>
               <h3 class="game-name">最后纪元</h3>
-              <p class="game-desc">时空穿梭ARPG · 专精系统与迷宫副本的完美结合</p>
+              <p class="game-desc">S4 破碎预兆赛季进行中 · 游侠圆舞斩BD攻略已更新</p>
               <ul class="game-features">
-                <li><span class="diamond">◆</span>时空旅行机制</li>
-                <li><span class="diamond">◆</span>职业专精推荐</li>
-                <li><span class="diamond">◆</span>词缀系统详解</li>
-                <li><span class="diamond">◆</span>终局内容攻略</li>
+                <li><span class="diamond">◆</span>圆舞斩收刀BD</li>
+                <li><span class="diamond">◆</span>赛季机制解析</li>
+                <li><span class="diamond">◆</span>时空旅行系统</li>
+                <li><span class="diamond">◆</span>词缀锻造指南</li>
               </ul>
               <div class="game-enter">
                 进入攻略
