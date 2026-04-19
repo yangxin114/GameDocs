@@ -61,3 +61,36 @@
     document.body.style.opacity = '1';
   });
 })();
+
+// 图片灯箱功能
+(function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  if (!lightbox || !lightboxImg) return;
+
+  // 点击图片预览区域打开灯箱
+  document.querySelectorAll('.img-preview').forEach(function(preview) {
+    preview.addEventListener('click', function(e) {
+      const img = this.querySelector('img');
+      if (img && img.src) {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+        e.preventDefault();
+      }
+    });
+  });
+
+  // 点击遮罩关闭
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('open');
+    }
+  });
+
+  // ESC键关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('open');
+    }
+  });
+})();

@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>虚空骑士·盾投时间腐朽 BD 装备选型与制作全指南</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-lastepoch.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:    #0a1414;
+    --bg-card:    #0f1a1a;
+    --bg-panel:   #132020;
+    --bg-item:    #0b1616;
+    --gold:       #20B2AA;
+    --gold-bright:#40E0D0;
+    --gold-dim:   #188888;
+    --purple:     #30c8c0;
+    --purple-dim: #1a8078;
+    --red:        #c84040;
+    --green:      #40b870;
+    --blue:       #4488dd;
+    --text-main:  #c0ddd8;
+    --text-dim:   #70908a;
+    --text-white: #d8eae8;
+    --border:     #1a3a3a;
+    --border-gold:#1a4a4a;
+    --t7:         #ff9940;
+    --t6:         #e87030;
+    --t5:         #d05020;
+    --t4:         #b03818;
+    --t3:         #903010;
+    --t2:         #701c08;
+    --t1:         #501408;
+    --set:        #9966cc;
+    --unique:     #cc7722;
+    --corrupt:    #bb44cc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(32,178,170,0.1) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 80% 80%, rgba(48,200,192,0.06) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.015) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.015) 40px);
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+  .page-wrap { display: flex; min-height: 100vh; }
+
+  .sidebar {
+    width: 220px; flex-shrink: 0; position: sticky; top: 0; height: 100vh; overflow-y: auto;
+    background: rgba(7,8,15,0.95); border-right: 1px solid var(--border-gold);
+    padding: 24px 0 40px; display: flex; flex-direction: column; gap: 2px; backdrop-filter: blur(12px);
+  }
+  .sidebar-logo { padding: 0 20px 20px; border-bottom: 1px solid var(--border-gold); margin-bottom: 12px; }
+  .sidebar-logo .game-title { font-family: 'Cinzel', serif; font-size: 11px; color: var(--gold-dim); letter-spacing: 2px; text-transform: uppercase; }
+  .sidebar-logo .build-title { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); font-weight: 600; line-height: 1.4; margin-top: 4px; }
+  .nav-item { display: flex; align-items: center; gap: 8px; padding: 8px 20px; color: var(--text-dim); text-decoration: none; font-size: 13px; font-weight: 400; transition: all 0.2s; cursor: pointer; border-left: 2px solid transparent; }
+  .nav-item:hover { color: var(--gold); background: rgba(200,150,62,0.06); border-left-color: var(--gold); }
+  .nav-item.active { color: var(--gold-bright); background: rgba(200,150,62,0.1); border-left-color: var(--gold-bright); }
+  .nav-item .nav-icon { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+  .nav-sep { height: 1px; background: var(--border); margin: 8px 20px; }
+  .nav-section-label { padding: 4px 20px; font-size: 10px; color: var(--text-dim); letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+
+  .main { flex: 1; min-width: 0; overflow-x: hidden; }
+
+  .hero { position: relative; padding: 72px 60px 56px; overflow: hidden; border-bottom: 1px solid var(--border-gold); }
+  .hero::before { content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 100% 200% at 60% 50%, rgba(180,110,20,0.15) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 100% at 95% 50%, rgba(100,50,180,0.1) 0%, transparent 50%);
+    pointer-events: none; }
+  .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 4px; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--gold-dim), transparent); max-width: 200px; }
+  .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(28px, 4vw, 52px); font-weight: 900; line-height: 1.15; color: var(--gold-bright); text-shadow: 0 0 40px rgba(200,150,62,0.4), 0 2px 20px rgba(0,0,0,0.8); letter-spacing: 1px; margin-bottom: 8px; }
+  .hero-sub { font-size: 15px; color: var(--text-dim); font-weight: 300; margin-bottom: 24px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 2px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px; }
+  .tag-gold { background: rgba(200,150,62,0.15); border: 1px solid var(--gold-dim); color: var(--gold); }
+  .tag-purple { background: rgba(153,102,204,0.15); border: 1px solid var(--purple-dim); color: var(--purple); }
+  .tag-red { background: rgba(200,64,64,0.15); border: 1px solid #6b2020; color: #e06060; }
+  .hero-deco { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); font-size: 180px; opacity: 0.04; font-family: 'Cinzel', serif; font-weight: 900; color: var(--gold); pointer-events: none; letter-spacing: -10px; line-height: 1; }
+
+  .section { padding: 50px 60px; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+  .section-icon { font-size: 28px; }
+  .section-title { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; }
+  .section-title-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--gold-dim), transparent); }
+
+  .card { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 4px; padding: 24px; position: relative; margin-bottom: 20px; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+  .card-title { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+
+  .equip-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+  .equip-grid.single { grid-template-columns: 1fr; }
+  .equip-card { background: var(--bg-item); border: 1px solid var(--border-gold); border-radius: 3px; overflow: hidden; }
+  .equip-card-header { padding: 12px 16px; background: rgba(200,150,62,0.05); border-bottom: 1px solid var(--border-gold); display: flex; align-items: center; gap: 8px; }
+  .equip-card-header .etype { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+  .equip-card-header .ename { font-size: 14px; color: var(--gold-bright); font-weight: 500; }
+  .equip-card-header .badge { margin-left: auto; font-size: 10px; padding: 2px 8px; border-radius: 2px; font-weight: 600; letter-spacing: 1px; }
+  .badge-set { background: rgba(153,102,204,0.2); color: var(--purple); border: 1px solid var(--purple-dim); }
+  .badge-unique { background: rgba(204,119,34,0.2); color: #cc8822; border: 1px solid #7a4a10; }
+  .badge-legendary { background: rgba(200,150,62,0.2); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .badge-corrupt { background: rgba(187,68,204,0.2); color: #cc66dd; border: 1px solid #6a2280; }
+
+  .equip-body { display: grid; grid-template-columns: auto 1fr; gap: 0; }
+  .equip-img-col { padding: 16px; display: flex; align-items: flex-start; justify-content: center; border-right: 1px solid var(--border); min-width: 180px; max-width: 220px; }
+  .equip-img-col img { max-width: 100%; max-height: 400px; object-fit: contain; border-radius: 2px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6)); }
+  .equip-info-col { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  .affix-group { }
+  .affix-group-title { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .affix-group-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .affix-list { display: flex; flex-direction: column; gap: 4px; }
+  .affix { display: flex; align-items: flex-start; gap: 8px; padding: 5px 8px; border-radius: 2px; font-size: 13px; line-height: 1.5; }
+  .affix.priority { background: rgba(200,150,62,0.08); border: 1px solid rgba(200,150,62,0.15); }
+  .affix.sealed { background: rgba(100,60,180,0.1); border: 1px solid rgba(100,60,180,0.2); }
+  .affix.optional { opacity: 0.75; }
+  .affix-tier { flex-shrink: 0; font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 2px; margin-top: 2px; min-width: 28px; text-align: center; }
+  .t7 { background: rgba(255,153,64,0.2); color: var(--t7); border: 1px solid rgba(255,153,64,0.3); }
+  .t5 { background: rgba(208,80,32,0.2); color: #e87840; border: 1px solid rgba(208,80,32,0.3); }
+  .t4 { background: rgba(176,56,24,0.2); color: #c86030; border: 1px solid rgba(176,56,24,0.3); }
+  .t3 { background: rgba(144,48,16,0.2); color: #a84820; border: 1px solid rgba(144,48,16,0.3); }
+  .t2 { background: rgba(112,28,8,0.2); color: #905028; border: 1px solid rgba(112,28,8,0.3); }
+  .t1 { background: rgba(80,20,8,0.2); color: #784028; border: 1px solid rgba(80,20,8,0.3); }
+  .tset { background: rgba(153,102,204,0.2); color: var(--purple); border: 1px solid rgba(153,102,204,0.3); }
+  .tseal { background: rgba(80,130,220,0.2); color: #88aaee; border: 1px solid rgba(80,130,220,0.3); }
+  .tany { background: rgba(80,80,80,0.3); color: #888; border: 1px solid rgba(80,80,80,0.3); }
+
+  .affix-text { flex: 1; color: var(--text-main); }
+  .affix-text .name { color: var(--text-white); font-weight: 500; }
+  .affix-text .note { color: var(--text-dim); font-size: 12px; margin-top: 1px; }
+  .affix-text .note.warn { color: #e07030; }
+  .affix-text .note.good { color: #40a870; }
+
+  .callout { border-radius: 3px; padding: 14px 18px; margin: 12px 0; display: flex; gap: 12px; align-items: flex-start; font-size: 13.5px; }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-body { flex: 1; line-height: 1.6; }
+  .callout-body strong { display: block; margin-bottom: 2px; font-weight: 600; }
+  .callout-warning { background: rgba(200,100,40,0.1); border: 1px solid rgba(200,100,40,0.3); color: #e0a060; }
+  .callout-warning strong { color: #f0c080; }
+  .callout-tip { background: rgba(64,136,221,0.08); border: 1px solid rgba(64,136,221,0.25); color: #88bbee; }
+  .callout-tip strong { color: #aaccff; }
+  .callout-key { background: rgba(153,102,204,0.08); border: 1px solid rgba(153,102,204,0.25); color: #bb99ee; }
+  .callout-key strong { color: #cc99ff; }
+  .callout-good { background: rgba(64,180,112,0.08); border: 1px solid rgba(64,180,112,0.25); color: #80cc99; }
+  .callout-good strong { color: #90ddaa; }
+
+  .steps { display: flex; flex-direction: column; gap: 12px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step-num { width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--gold-dim); color: var(--gold); font-family: 'Cinzel', serif; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 2px; background: rgba(200,150,62,0.07); }
+  .step-body { flex: 1; font-size: 14px; line-height: 1.6; color: var(--text-main); }
+  .step-body strong { color: var(--gold); }
+  .step-body em { color: var(--purple); font-style: normal; font-weight: 500; }
+
+  .gear-slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .gear-slot { background: var(--bg-item); border: 1px solid var(--border); border-radius: 3px; padding: 12px; text-align: center; cursor: pointer; transition: all 0.2s; text-decoration: none; display: block; }
+  .gear-slot:hover { border-color: var(--gold-dim); background: rgba(200,150,62,0.05); transform: translateY(-2px); }
+  .gear-slot .slot-icon { font-size: 24px; margin-bottom: 6px; }
+  .gear-slot .slot-name { font-size: 13px; color: var(--text-main); font-weight: 500; }
+  .gear-slot .slot-type { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .gear-slot.set-item .slot-name { color: var(--purple); }
+  .gear-slot.unique-item .slot-name { color: #cc8822; }
+  .gear-slot.legendary-item .slot-name { color: var(--gold); }
+
+  .potency-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; font-size: 13px; }
+  .potency-label { color: var(--text-dim); min-width: 90px; }
+  .potency-bar { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .potency-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+  .potency-fill.high { background: linear-gradient(90deg, var(--green), #80ee88); }
+  .potency-fill.med  { background: linear-gradient(90deg, var(--gold-dim), var(--gold)); }
+  .potency-fill.low  { background: linear-gradient(90deg, var(--red), #e06868); }
+
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  .ref-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .ref-table th { background: rgba(200,150,62,0.08); color: var(--gold); font-weight: 600; text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border-gold); letter-spacing: 0.5px; white-space: nowrap; }
+  .ref-table td { padding: 10px 14px; border-bottom: 1px solid rgba(26,58,58,0.5); color: var(--text-main); vertical-align: top; }
+  .ref-table tr:last-child td { border-bottom: none; }
+  .ref-table tr:hover td { background: rgba(200,150,62,0.03); }
+
+  .footer { padding: 32px 60px; border-top: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-dim); }
+  .footer-brand { font-family: 'Cinzel', serif; color: var(--gold-dim); letter-spacing: 2px; font-size: 11px; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .section { animation: fadeInUp 0.5s ease both; }
+
+  /* ====== 图片灯箱 ====== */
+  .lightbox {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    cursor: zoom-out;
+  }
+  .lightbox.open { opacity: 1; visibility: visible; }
+  .lightbox.open #lightbox-img {
+    transform: scale(1);
+    opacity: 1;
+  }
+  #lightbox-img {
+    max-width: 90vw; max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: default;
+  }
+
+  /* ====== 装备图片预览 ====== */
+  .img-preview {
+    cursor: pointer;
+    border-radius: 2px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .img-preview:hover { transform: scale(1.03); }
+  .img-preview img {
+    transition: filter 0.2s ease;
+  }
+  .img-preview:hover img {
+    filter: brightness(1.15) drop-shadow(0 0 8px rgba(32, 178, 170, 0.3));
+  }
+
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .section { padding: 32px 24px; }
+    .hero { padding: 40px 24px 32px; }
+    .equip-grid { grid-template-columns: 1fr; }
+    .equip-body { grid-template-columns: 1fr; }
+    .equip-img-col { border-right: none; border-bottom: 1px solid var(--border); max-width: 100%; }
+    .footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+    .hero-deco { display: none; }
+    .gear-slots { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top-nav" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,18,18,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #3a5a5a;padding:0 2rem;height:60px;display:flex;align-items:center;font-family:'Noto Sans SC',sans-serif;">
+  <div style="max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;">
+    <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;color:#20B2AA;font-size:0.85rem;text-decoration:none;">← 返回最后纪元</a>
+    <span style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#20B2AA;">虚空骑士·盾投BD</span>
+    <span style="font-size:0.75rem;color:#666;">首页 > 最后纪元 > 虚空骑士盾投BD</span>
+  </div>
+</nav>
+
+<div style="height:60px;"></div>
+
+<div class="lightbox" id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<div class="page-wrap">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="game-title">Last Epoch</div>
+      <div class="build-title">虚空骑士·盾投<br>时间腐朽 BD 装备攻略</div>
+    </div>
+    <div class="nav-section-label">总览</div>
+    <a class="nav-item" href="#overview"><span class="nav-icon">🗺️</span> 装备总览</a>
+    <a class="nav-item" href="#affixes"><span class="nav-icon">💥</span> 核心增伤词缀</a>
+    <a class="nav-item" href="#craft-flow"><span class="nav-icon">⚒️</span> 套装重铸通用流程</a>
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">套装部件</div>
+    <a class="nav-item" href="#helmet"><span class="nav-icon">🪖</span> 头盔</a>
+    <a class="nav-item" href="#chest"><span class="nav-icon">🛡️</span> 胸甲</a>
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">武器</div>
+    <a class="nav-item" href="#mainhand"><span class="nav-icon">⚔️</span> 主手权杖</a>
+    <a class="nav-item" href="#offhand"><span class="nav-icon">🗡️</span> 副手细剑</a>
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">其他装备</div>
+    <a class="nav-item" href="#gloves"><span class="nav-icon">🥊</span> 手套</a>
+    <a class="nav-item" href="#belt"><span class="nav-icon">🔗</span> 腰带</a>
+    <a class="nav-item" href="#boots"><span class="nav-icon">👢</span> 鞋子</a>
+    <a class="nav-item" href="#rings"><span class="nav-icon">💍</span> 戒指</a>
+    <a class="nav-item" href="#amulet"><span class="nav-icon">📿</span> 护身符</a>
+    <a class="nav-item" href="#relic"><span class="nav-icon">💎</span> 遗物</a>
+    <a class="nav-item" href="#idol"><span class="nav-icon">🗿</span> 神像祭坛</a>
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">进阶</div>
+    <a class="nav-item" href="#stats"><span class="nav-icon">📊</span> 属性目标</a>
+    <a class="nav-item" href="#tools"><span class="nav-icon">🛠️</span> 工具速查</a>
+  </nav>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-deco">盾</div>
+      <div class="hero-eyebrow">Last Epoch · 守卫 · Void Knight</div>
+      <h1>虚空骑士·盾投时间腐朽<br>BD 装备选型与制作全指南</h1>
+      <div class="hero-sub">终末野熊 × 遗忘骑士 × 乔尔曼 · 多套装混搭 · 持续伤体系深度解析</div>
+      <div class="hero-tags">
+        <span class="tag tag-purple">🛡️ 盾牌投掷</span>
+        <span class="tag tag-gold">☠️ 时间腐朽</span>
+        <span class="tag tag-gold">🔗 多套装混搭</span>
+        <span class="tag tag-red">☠️ 支持腐化</span>
+        <span class="tag" style="background:rgba(40,180,140,0.12);border:1px solid rgba(40,180,140,0.35);color:#60ddb0;margin-left:auto;">✍️ 分享者：看雲起雲落</span>
+      </div>
+      <div class="callout callout-good" style="margin-top:28px;">
+        <span class="callout-icon">🙏</span>
+        <div class="callout-body">
+          <strong>感谢 2神 的原创 BD 思路与深度解析</strong>
+          本攻略的 BD 核心机制与装备选型思路来源于 <a href="https://www.caimogu.cc/post/2355435.html" target="_blank" rel="noopener" style="color:#90ddaa;text-decoration:underline;">2神 — 最后纪元·虚空骑士：盾投时间腐朽 BD 完全指南</a>，在此表示感谢。本站在此基础上对装备制作流程进行了逐项细化与补充。
+        </div>
+      </div>
+    </div>
+
+    <!-- Overview -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <span class="section-icon">🗺️</span>
+        <h2 class="section-title">装备总览</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="callout callout-key">
+        <span class="callout-icon">💡</span>
+        <div class="callout-body">
+          <strong>BD核心机制</strong>
+          本BD以<strong>盾牌投掷</strong>为核心技能，通过伤害转化为虚空后触发<strong>时间腐朽</strong>持续伤害体系。
+          核心循环为"投掷→迟缓覆盖→引爆腐朽"，冷却恢复速度是循环命脉，时间腐朽几率决定触发稳定性。
+        </div>
+      </div>
+
+      <div class="gear-slots">
+        <a class="gear-slot set-item" href="#helmet">
+          <div class="slot-icon">🪖</div>
+          <div class="slot-name">终末野熊的挽歌</div>
+          <div class="slot-type">头盔 · 已重铸</div>
+        </a>
+        <a class="gear-slot set-item" href="#chest">
+          <div class="slot-icon">🛡️</div>
+          <div class="slot-name">终末野熊的蔑视</div>
+          <div class="slot-type">胸甲 · 已重铸</div>
+        </a>
+        <a class="gear-slot legendary-item" href="#mainhand">
+          <div class="slot-icon">⚔️</div>
+          <div class="slot-name">阿波罗斯的命令</div>
+          <div class="slot-type">主手 · 传奇权杖</div>
+        </a>
+        <a class="gear-slot set-item" href="#offhand">
+          <div class="slot-icon">🗡️</div>
+          <div class="slot-name">遗忘骑士之刃</div>
+          <div class="slot-type">副手 · 已重铸细剑</div>
+        </a>
+        <a class="gear-slot legendary-item" href="#gloves">
+          <div class="slot-icon">🥊</div>
+          <div class="slot-name">光阴锈蚀 / 不朽台钳</div>
+          <div class="slot-type">手套 · 传奇切换</div>
+        </a>
+        <a class="gear-slot set-item" href="#belt">
+          <div class="slot-icon">🔗</div>
+          <div class="slot-name">乔尔曼的焦渴</div>
+          <div class="slot-type">腰带 · 已重铸</div>
+        </a>
+        <a class="gear-slot legendary-item" href="#boots">
+          <div class="slot-icon">👢</div>
+          <div class="slot-name">山之麓</div>
+          <div class="slot-type">鞋子 · 传奇</div>
+        </a>
+        <a class="gear-slot set-item" href="#rings">
+          <div class="slot-icon">💍</div>
+          <div class="slot-name">编织者的遗弃壳质</div>
+          <div class="slot-type">戒指 · 已重铸</div>
+        </a>
+        <a class="gear-slot legendary-item" href="#rings">
+          <div class="slot-icon">💍</div>
+          <div class="slot-name">传奇交织</div>
+          <div class="slot-type">戒指 · 传奇必备</div>
+        </a>
+        <a class="gear-slot set-item" href="#amulet">
+          <div class="slot-icon">📿</div>
+          <div class="slot-name">遗忘骑士的挂坠</div>
+          <div class="slot-type">护身符 · 已重铸</div>
+        </a>
+        <a class="gear-slot legendary-item" href="#relic">
+          <div class="slot-icon">💎</div>
+          <div class="slot-name">破碎世界</div>
+          <div class="slot-type">遗物 · 传奇</div>
+        </a>
+        <a class="gear-slot unique-item" href="#idol">
+          <div class="slot-icon">🗿</div>
+          <div class="slot-name">金字塔祭坛</div>
+          <div class="slot-type">神像祭坛 · 掉落</div>
+        </a>
+      </div>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <strong>多套装混搭核心</strong>
+          <strong>终末野熊</strong>（头盔+胸甲）+ <strong>遗忘骑士</strong>（副手+护身符）+ <strong>乔尔曼</strong>（腰带）+ <strong>编织者</strong>（戒指）
+          依靠<strong>传奇交织</strong>戒指作为万能连接器，激活全部套装效果。
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心增伤词缀 -->
+    <section class="section" id="affixes">
+      <div class="section-header">
+        <span class="section-icon">💥</span>
+        <h2 class="section-title">对这套BD最有用的伤害词缀</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="callout callout-key">
+        <span class="callout-icon">📖</span>
+        <div class="callout-body">
+          <strong>为什么必须"盾投转虚空"？——伤害类型转化与标签匹配</strong>
+          游戏中装备词缀的增伤效果，只有在其<strong>标签与技能标签匹配</strong>时才生效（模块二）。
+          盾牌投掷默认是物理伤害，但通过胸甲上的<code>100% 盾牌投掷基础伤害转化为虚空</code>词缀，
+          技能的基础伤害类型变为虚空，获得<code>虚空</code>标签，此后所有"虚空伤害提高""虚空技能时间腐朽几率"等词缀才会生效。
+          转化只改变基础伤害类型，不影响异常状态或其他触发效果（模块五）。
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">☠️ 核心输出词缀</div>
+        <div class="affix-list" style="display:flex;flex-direction:column;gap:8px;">
+          <div class="affix priority">
+            <span class="affix-tier t7">T7</span>
+            <span class="affix-text">
+              <span class="name">+(55-90)% 虚空技能时间腐朽几率</span>
+              <span class="note">头盔/胸甲核心前缀，决定腐朽触发稳定性</span>
+            </span>
+            <span class="affix-priority-star">★</span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier t7">T7</span>
+            <span class="affix-text">
+              <span class="name">+(88-114)% 几率施加 迟缓 于击中时</span>
+              <span class="note">主手/副手必需后缀，400%+迟缓覆盖率的保证</span>
+            </span>
+            <span class="affix-priority-star">★</span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier t7">T7</span>
+            <span class="affix-text">
+              <span class="name">(28-32)% 提高冷却恢复速度</span>
+              <span class="note">腰带/鞋子核心后缀，放逐冷却压缩至2.5秒内</span>
+            </span>
+            <span class="affix-priority-star">★</span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier tany">—</span>
+            <span class="affix-text">
+              <span class="name">100% 的 盾牌投掷基础伤害转化为虚空</span>
+              <span class="note">胸甲核心机制词缀，T1即可，封印后腾出前缀位</span>
+            </span>
+            <span class="affix-priority-star">★</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">⚡ 次要输出词缀</div>
+        <div class="affix-list" style="display:flex;flex-direction:column;gap:8px;">
+          <div class="affix">
+            <span class="affix-tier t5">T5</span>
+            <span class="affix-text">
+              <span class="name">(47-105)% 持续伤害提高</span>
+              <span class="note">主手/副手前缀，提升腐朽总伤害</span>
+            </span>
+          </div>
+          <div class="affix">
+            <span class="affix-tier t5">T5</span>
+            <span class="affix-text">
+              <span class="name">(47-70)% 虚空伤害提高</span>
+              <span class="note">护身符/副手前缀，通用虚空增伤</span>
+            </span>
+          </div>
+          <div class="affix">
+            <span class="affix-tier t5">T5</span>
+            <span class="affix-text">
+              <span class="name">+(13-14)% 时间腐朽几率</span>
+              <span class="note">护身符前缀，辅助叠加腐朽触发率</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛡️ 核心生存词缀</div>
+        <div class="affix-list" style="display:flex;flex-direction:column;gap:8px;">
+          <div class="affix priority">
+            <span class="affix-tier t7">T7</span>
+            <span class="affix-text">
+              <span class="name">(0.9-1)% 的 护甲减伤效果也对持续伤害生效 自每10点属性总和</span>
+              <span class="note">戒指1核心前缀，将护甲转化为对DoT的硬减伤</span>
+            </span>
+            <span class="affix-priority-star">★</span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier t5">T5</span>
+            <span class="affix-text">
+              <span class="name">(10-18)% 生命提高</span>
+              <span class="note">胸甲/腰带后缀，3500+生命的基础保障</span>
+            </span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier t5">T5</span>
+            <span class="affix-text">
+              <span class="name">+(126-150) 耐伤阈值</span>
+              <span class="note">头盔后缀，配合低血减伤抵御猝死</span>
+            </span>
+          </div>
+          <div class="affix priority">
+            <span class="affix-tier t7">T7</span>
+            <span class="affix-text">
+              <span class="name">+(153-211) 生命</span>
+              <span class="note">护身符后缀，大量生命值补足</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 套装重铸通用流程 -->
+    <section class="section" id="craft-flow">
+      <div class="section-header">
+        <span class="section-icon">⚒️</span>
+        <h2 class="section-title">套装重铸通用流程</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📦 步骤一：获取套装词缀碎片</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">前往<strong>编织秘境·雄伟大桥</strong>，突破防御工事后前往命运熔炉，分解套装装备获取对应部位词缀碎片。建议<strong>多攒一些再去</strong>，批量操作更高效。</div>
+          </div>
+          <div class="step">
+            <div class="step-num">—</div>
+            <div class="step-body">或者将套装装备<em>腐化后分解</em>同样可获得词缀碎片，但注意有约 <strong style="color: #e07030;">30% 失败概率</strong>。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔩 步骤二：选择底材</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">选择<strong>崇高装备</strong>作为底材（T7最优，T6可用）。底材应自带高优先级词缀（T7/T6），且<em>锻造潜能尽量高</em>，否则后续步骤容易潜能不足。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔓 步骤三：腾出一个空余前缀/后缀（三选一）</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">A</div>
+            <div class="step-body"><strong>天选方案：</strong>底材天生只有3个词缀，空缺一个前缀/后缀位。打上一个低阶词缀再用 T1-T3 封印它即可（若锻造潜能较低，则不必封印）。</div>
+          </div>
+          <div class="step">
+            <div class="step-num">B</div>
+            <div class="step-body">使用<strong>雕文·绝望</strong>封印一个现有词缀（低阶T1-T3成功率高，高阶失败率较高）。成功后，该词缀移至封印位，原位置空出。</div>
+          </div>
+          <div class="step">
+            <div class="step-num">C</div>
+            <div class="step-body">使用<strong>符文·剥离</strong>随机移除一个词缀，返还对应数量碎片。四个词缀<em>完全随机</em>选择——靠天吃饭，同时注意潜能消耗。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔧 步骤四：锻造套装词缀</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">在普通锻造台（按F），将套装词缀碎片打到空余位置上。此时装备会变为<strong>"已重铸"</strong>状态，获得对应套装效果。套装词缀T1即可激活效果，后续可用<em>符文·浩劫</em>随机提升至 T6/T7。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✨ 步骤五：优化其他词缀（可选浩劫）</div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">使用混沌雕文、剥离符文等优化其他词缀为T5/T7。若希望套装词缀也达到高阶，可在4词缀满的状态下使用<strong>符文·浩劫</strong>，有机会将所有未封印词缀（含套装词缀）roll到更高阶。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. 头盔 -->
+    <section class="section" id="helmet">
+      <div class="section-header">
+        <span class="section-icon">🪖</span>
+        <h2 class="section-title">头盔 — 终末野熊的挽歌（已重铸）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">头盔 · 狮子重盔基底（推荐）</span>
+            <span class="ename">终末野熊的挽歌 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/头盔.png" alt="头盔 - 终末野熊的挽歌" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/头盔-推荐底材.png" alt="头盔 - 推荐底材" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供关键的 <strong>T7 虚空技能时间腐朽几率</strong> 前缀，极大提升核心持续伤的触发稳定性。
+                  作为"终末野熊"套装组件，配合其他部位激活强力套装效果。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(55-60)% 虚空技能时间腐朽几率</span>
+                      <span class="note">核心必需词缀，决定腐朽触发稳定性</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+
+                  <div class="affix optional">
+                    <span class="affix-tier t5">—</span>
+                    <span class="affix-text">
+                      <span class="name">+2 放逐等级 附带 (41-60)% 虚空伤害提高</span>
+                      <span class="note">次选输出词缀，来自放逐装备加成</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text">
+                      <span class="name">(10-12)% 生命提高</span>
+                      <span class="note">核心生存后缀</span>
+                    </span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text">
+                      <span class="name">+(126-150) 耐伤阈值</span>
+                      <span class="note">核心生存后缀，配合耐伤机制抵御猝死</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">制作路线</div>
+                <div class="steps">
+                  <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body">在<strong>编织者阵营</strong>的"破碎之炉"处，粉碎任意多余的"终末野熊"套装头盔，获得<strong>套装词缀碎片</strong>。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">推荐底材：<strong>狮子重盔</strong>（其他也可）。刷取80+区域，直到掉落拥有 <strong>T7 虚空技能时间腐朽几率</strong> 前缀的崇高头盔。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body">将套装词缀碎片打到底材的<strong>空后缀位</strong>上，然后升级至 <strong>T5</strong>。查看生命和 +2放逐等级 等词缀情况，优化其他后缀为生命%、元素抗性等。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 胸甲 -->
+    <section class="section" id="chest">
+      <div class="section-header">
+        <span class="section-icon">🛡️</span>
+        <h2 class="section-title">胸甲 — 终末野熊的蔑视（已重铸）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">胸甲 · 勇士华服（推荐）</span>
+            <span class="ename">终末野熊的蔑视 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/胸甲.png" alt="胸甲 - 终末野熊的蔑视" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/胸甲-推荐底材.png" alt="胸甲 - 推荐底材" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-warning" style="margin:0">
+                <span class="callout-icon">🔥</span>
+                <div class="callout-body">
+                  <strong>BD启动器 — 必须拥有 100% 盾投转虚空词缀</strong>
+                  此胸甲走<strong>已重铸路线</strong>（非传奇合成），因此可以使用封印机制。顶配玩家将只需T1的"转虚空"词缀用<code>雕纹·绝望</code>封印到独立槽位，腾出前缀位给 T7 时间腐朽几率。
+                  <br><em style="font-size:12px;color:var(--text-dim);">⚠ 注意：封印词缀不参与传奇合成继承，所以此技巧仅适用于非传奇路线装备。计划用于时空圣殿合成的崇高装备绝不能有封印词缀。</em>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">封印词缀</div>
+                <div class="affix-list">
+                  <div class="affix sealed">
+                    <span class="affix-tier tseal">封</span>
+                    <span class="affix-text">
+                      <span class="name">100% 的 盾牌投掷基础伤害转化为虚空</span>
+                      <span class="note">核心机制，T1即可，必须封印以腾出前缀位</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(82-90)% 虚空技能时间腐朽几率</span>
+                      <span class="note">核心输出词缀</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">终末野熊（重铸）套装词缀</span>
+                      <span class="note">封印后空出的前缀位，由破碎之炉锻造打入</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text">
+                      <span class="name">(15-18)% 生命提高</span>
+                    </span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">元素抗性 或 力量</span>
+                      <span class="note">次选生存属性</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">制作路线</div>
+                <div class="steps">
+                  <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body">推荐底材：<strong>勇士华服</strong>。刷取80+区域，直到掉落拥有 <strong>T7 虚空技能时间腐朽几率</strong> 的崇高胸甲。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">若底材<strong>同时拥有</strong> <strong>盾投转虚空</strong> 和 <strong>T7 时间腐朽几率</strong>，使用<em>雕纹·绝望</em>将<strong>盾投转虚空</strong>词缀<strong>封印</strong>（T1时成功率100%），移入独立槽位空出前缀位。若底材有<strong>空余前缀</strong>，也可手工打上"盾牌投掷基础伤害转化为虚空"词缀（T1即可）——T1词缀不一定非得掉落既有，空出位置手工打上也完全可以。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body">粉碎"终末野熊"套装胸甲获得碎片，将其锻造到胸甲新空出的<strong>前缀位</strong>上（T1即可），然后用<em>雕纹·绝望</em>将其<strong>封印</strong>，腾出位置供后续其他词缀使用。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-body">使用<em>混沌雕文</em>和<em>剥离符文</em>，将剩余后缀优化为 <strong>生命%</strong>、<strong>元素抗性</strong> 等。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-body"><strong>腐化增值（可选）：</strong>词缀完善后尝试腐化，增加第6条强大词缀。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 主手武器 -->
+    <section class="section" id="mainhand">
+      <div class="section-header">
+        <span class="section-icon">⚔️</span>
+        <h2 class="section-title">主手武器 — 阿波罗斯的命令（传奇）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">主手 · 权杖</span>
+            <span class="ename">阿波罗斯的命令 — 传奇</span>
+            <span class="badge badge-legendary">传奇合成</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/主手.png" alt="主手武器 - 阿波罗斯的命令" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供虚空顺势斩的质变特效（+40%虚空抗性穿透），并通过传奇合成获得关键的 <strong>T7 击中施加迟缓几率</strong>。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">暗金固有属性</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-text">
+                      <span class="name">虚空顺势斩 +40% 虚空抗性穿透</span>
+                      <span class="note">暗金固有特效，传奇合成后完整保留</span>
+                    </span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-text">
+                      <span class="name">持续伤害提高 / 范围技能范围</span>
+                      <span class="note">暗金自带词缀，编织者熔炉洗至高Roll</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">传奇继承词缀（LP合成）</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(88-114)% 几率施加 迟缓 于击中时</span>
+                      <span class="note">必需后缀，确保Boss满层覆盖</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text">
+                      <span class="name">持续伤害提高 (70-105)%</span>
+                      <span class="note">LP2+时可额外继承的前缀</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">制作路线</div>
+                <div class="steps">
+                  <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-body">击败<strong>阿波罗斯</strong>（流亡者时间线Boss也可掉落）获取暗金权杖"阿波罗斯的命令"。在<strong>编织者熔炉</strong>处消耗锻造潜能将自带词缀洗至高Roll。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-body">刷取80+区域，直到掉落一件拥有 <strong>T7 击中施加迟缓几率</strong> 后缀的<strong>崇高权杖</strong>。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-body">使用<em>混沌雕文</em>和<em>剥离符文</em>优化底材其他词缀为 <strong>持续伤害提高</strong>、<strong>虚空伤害%</strong> 等。</div>
+                  </div>
+                  <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-body">消耗钥匙进入<strong>时空圣殿</strong>，在<strong>永恒宝箱</strong>处，将带有<strong>至少1点LP</strong>的暗金权杖与崇高权杖合成。</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 副手武器 -->
+    <section class="section" id="offhand">
+      <div class="section-header">
+        <span class="section-icon">🗡️</span>
+        <h2 class="section-title">副手武器 — 遗忘骑士之刃（已重铸）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">副手 · 细剑（蛇人弯刀基底·推荐）</span>
+            <span class="ename">遗忘骑士之刃 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/副手.png" alt="副手武器 - 遗忘骑士之刃" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/副手-推荐底材.png" alt="副手 - 推荐底材" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供第二把武器的 <strong>T7 击中施加迟缓几率</strong>，确保对Boss的满层覆盖。同时作为"遗忘骑士"套装组件，配合护身符激活套装效果。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(88-114)% 几率施加 迟缓 于击中时</span>
+                      <span class="note">必需后缀，与主手双迟缓覆盖</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">持续伤害提高</span></span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">虚空伤害提高</span></span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">遗忘骑士（重铸）套装词缀</span>
+                      <span class="note">由破碎之炉锻造打入空前缀</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">制作路线</div>
+                <div class="steps">
+                  <div class="step"><div class="step-num">1</div><div class="step-body">粉碎多余的"遗忘骑士"套装单手剑，获得<strong>"遗忘骑士（重铸）"碎片</strong>。</div></div>
+                  <div class="step"><div class="step-num">2</div><div class="step-body">推荐底材：<strong>蛇人弯刀</strong>（自带持续伤害加成）。刷取80+区域，直到掉落拥有 <strong>T7 击中施加迟缓几率</strong> 后缀的崇高细剑。</div></div>
+                  <div class="step"><div class="step-num">3</div><div class="step-body">先将套装词缀碎片锻造到<strong>空前缀</strong>上，然后升级至尽量 <strong>T5</strong>。</div></div>
+                  <div class="step"><div class="step-num">4</div><div class="step-body">将前缀优化为<strong>持续伤害提高</strong>和<strong>虚空伤害提高</strong>（尽量T7，T5也可）。</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 手套 -->
+    <section class="section" id="gloves">
+      <div class="section-header">
+        <span class="section-icon">🥊</span>
+        <h2 class="section-title">手套 — 光阴锈蚀 / 不朽台钳（传奇切换）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <!-- 方案A -->
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">方案A · 输出</span>
+            <span class="ename">光阴锈蚀 — 传奇</span>
+            <span class="badge badge-legendary">传奇</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/手套-攻击.png" alt="手套 - 光阴锈蚀（攻击）" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-good" style="margin:0">
+                <span class="callout-icon">⚔️</span>
+                <div class="callout-body">
+                  <strong>输出方案</strong>
+                  提供大量<strong>时间腐朽持续时间</strong>和<strong>所有抗性穿透</strong>，是提升输出的核心暗金。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">传奇合成词缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text"><span class="name">+(153-211) 生命</span><span class="note">合成目标后缀</span></span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">施法速度提高</span><span class="note">次选合成词缀</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">在<strong>黑日时间线</strong>刷取带有<strong>至少1点LP</strong>的暗金"光阴锈蚀"手套。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，掉落带有目标T7词缀的<strong>崇高手套</strong>。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">在时空圣殿<strong>永恒宝箱</strong>处合成传奇。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 方案B -->
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">方案B · 生存</span>
+            <span class="ename">不朽台钳 — 传奇</span>
+            <span class="badge badge-legendary">传奇</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/手套-防御.png" alt="手套 - 不朽台钳（防御）" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-warning" style="margin:0">
+                <span class="callout-icon">🛡️</span>
+                <div class="callout-body">
+                  <strong>生存方案</strong>
+                  不朽台钳的传奇特效将Boss的巨额<strong>击中伤害转化为持续伤害</strong>。
+                  由于游戏机制中"护甲对持续伤害无效"（模块一），单靠护甲无法防御这类伤害——但配合<strong>戒指1"编织者的遗弃壳质"</strong>上的词缀<code>护甲减伤效果也对持续伤害生效</code>，高额护甲就能同时减免这部分转化后的持续伤害，实现"脸接大锤"的硬度。
+                  <br><em style="font-size:12px;color:var(--text-dim);">⚠ 核心逻辑链：不朽台钳（击中→持续伤转化）→ 戒指（护甲减伤对持续伤生效）→ 高额护甲覆盖减伤</em>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">传奇合成词缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(106-135) 生命 & (8-10)% 生命提高</span>
+                      <span class="note">复合词缀，合成目标</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body"><strong>世界掉落</strong>刷取带有<strong>至少1点LP</strong>的暗金"不朽台钳"手套。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，掉落带有T7生命复合词缀的<strong>崇高手套</strong>。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">在时空圣殿<strong>永恒宝箱</strong>处合成传奇。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 腰带 -->
+    <section class="section" id="belt">
+      <div class="section-header">
+        <span class="section-icon">🔗</span>
+        <h2 class="section-title">腰带 — 乔尔曼的焦渴（已重铸）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">腰带</span>
+            <span class="ename">乔尔曼的焦渴 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/腰带.png" alt="腰带 - 乔尔曼的焦渴" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/腰带-推荐底材1.png" alt="腰带 - 推荐底材1" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/腰带-推荐底材2.png" alt="腰带 - 推荐底材2" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供巨量的 <strong>T7 冷却恢复速度</strong>，这是缩短"放逐"冷却，实现"投掷-引爆"循环的关键。配合<strong>传奇交织</strong>戒指激活更多套装效果。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">(28-32)% 提高冷却恢复速度</span>
+                      <span class="note">BD命脉词缀，必需</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">(10-12)% 生命提高</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix optional">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">药剂相关 或 力量</span>
+                      <span class="note">次选前缀</span>
+                    </span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">乔尔曼（重铸）套装词缀</span>
+                      <span class="note">由破碎之炉锻造打入空前缀</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">制作路线</div>
+                <div class="steps">
+                  <div class="step"><div class="step-num">1</div><div class="step-body">粉碎"乔尔曼"套装腰带，获得<strong>套装碎片</strong>。</div></div>
+                  <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，直到掉落拥有 <strong>T7 冷却恢复速度</strong> 后缀的<strong>崇高腰带</strong>。</div></div>
+                  <div class="step"><div class="step-num">3</div><div class="step-body">先将套装词缀碎片打到<strong>空前缀</strong>上。如无前缀空位，可封印一条低阶前缀腾出位置。</div></div>
+                  <div class="step"><div class="step-num">4</div><div class="step-body">将其他后缀优化为生命、抗性等词缀。</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. 鞋子 -->
+    <section class="section" id="boots">
+      <div class="section-header">
+        <span class="section-icon">👢</span>
+        <h2 class="section-title">鞋子 — 山之麓（传奇）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">鞋子</span>
+            <span class="ename">山之麓 — 传奇</span>
+            <span class="badge badge-legendary">传奇合成 / 流亡者之靴</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/鞋子-攻坚.png" alt="鞋子 - 山之麓（攻坚）" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/鞋子-速刷.png" alt="鞋子 - 山之麓（速刷）" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供大量<strong>全属性</strong>和站桩<strong>耐伤</strong>效果，并通过传奇合成获得 <strong>T7 冷却恢复速度</strong>，进一步压缩核心技能冷却。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">暗金固有属性</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-text"><span class="name">全属性加成 + 站桩耐伤效果</span><span class="note">暗金固有特效，传奇合成后完整保留</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">传奇继承词缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">(28-32)% 提高冷却恢复速度</span>
+                      <span class="note">必需后缀</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">移动速度提高</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">击败<strong>无光之亭</strong>Boss获取"山之麓"，追求带有<strong>至少1点LP</strong>的版本。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，直到掉落一件拥有 <strong>T7 冷却恢复速度</strong> 后缀的<strong>崇高鞋子</strong>。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">将前缀优化为<strong>移动速度提高</strong>。</div></div>
+                <div class="step"><div class="step-num">4</div><div class="step-body">在时空圣殿<strong>永恒宝箱</strong>处合成传奇。</div></div>
+              </div>
+
+              <div class="callout callout-tip" style="margin-top:12px;">
+                <span class="callout-icon">🔄</span>
+                <div class="callout-body"><strong>替代选择：流亡者之靴</strong>
+                日常速刷可切换为<strong>流亡者之靴</strong>，提高跑图速度和灵活性。攻坚时换回山之麓获取全属性和耐伤。</div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. 戒指 -->
+    <section class="section" id="rings">
+      <div class="section-header">
+        <span class="section-icon">💍</span>
+        <h2 class="section-title">戒指 — 双戒搭配</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <!-- 戒指1 -->
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">戒指1 · 蛋白石基底</span>
+            <span class="ename">编织者的遗弃壳质 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/戒指2-编织者已重铸.png" alt="戒指1 - 编织者的遗弃壳质" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/戒指2-推荐底材.png" alt="戒指1 - 推荐底材" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">(0.9-1)% 的 护甲减伤效果也对持续伤害生效 自每10点属性总和</span>
+                      <span class="note">BD生存核心支柱之一，必需</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">+(7-8) 力量</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">+(61-90) 生命</span></span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">+(16-20)% 元素抗性</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">粉碎"编织者"套装戒指，获得<strong>碎片</strong>。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">准备崇高戒指（蛋白石基底最佳），先打上套装词缀碎片，将4个词缀打满。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">使用<strong>符文·浩劫</strong>随机提升所有未封印词缀等级，有机会将套装词缀roll至 T7（"护甲减伤对持续伤害生效"词缀即为套装词缀本身）。</div></div>
+                <div class="step"><div class="step-num">4</div><div class="step-body">前缀选择<strong>力量</strong>，后缀找<strong>生命、抗性</strong>等词缀均可。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 戒指2 -->
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">戒指2</span>
+            <span class="ename">传奇交织 — 传奇</span>
+            <span class="badge badge-legendary">传奇必备</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/戒指-传奇交织.png" alt="戒指2 - 传奇交织" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-warning" style="margin:0">
+                <span class="callout-icon">🔑</span>
+                <div class="callout-body">
+                  <strong>万能套装连接器</strong>
+                  传奇特效 <strong>"视为所有已装备套装的组件"</strong>，轻松激活多个套装的强力效果，是整个BD装备搭配的润滑剂。无可替代的核心暗金。
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">通过<strong>裂隙商人</strong>兑换，或完成相关<strong>预言</strong>获取。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">在<strong>编织者秘境</strong>中，使用<em>复仇武装</em>为无LP的戒指增加传奇潜能（可选）。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">若获得带LP版本，可在时空圣殿合成 <strong>T7 力量</strong>，高优词缀。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 护身符 -->
+    <section class="section" id="amulet">
+      <div class="section-header">
+        <span class="section-icon">📿</span>
+        <h2 class="section-title">护身符 — 遗忘骑士的挂坠（已重铸）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">护身符 · 神谕基底</span>
+            <span class="ename">遗忘骑士的挂坠 — 已重铸</span>
+            <span class="badge badge-set">套装重铸</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/项链.png" alt="护身符 - 遗忘骑士的挂坠" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/项链-推荐底材.png" alt="护身符 - 推荐底材" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供大量 <strong>T7 生命</strong> 后缀，补足生存。同时作为"遗忘骑士"套装组件，与副手武器配合激活套装效果。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">后缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(153-211) 生命</span>
+                      <span class="note">核心生存后缀，必需</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">+(19-23)% 元素抗性</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">前缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">虚空伤害提高 (47-70)%</span></span>
+                  </div>
+                  <div class="affix priority">
+                    <span class="affix-tier t5">T5</span>
+                    <span class="affix-text"><span class="name">+(13-14)% 时间腐朽几率</span></span>
+                  </div>
+                  <div class="affix optional">
+                    <span class="affix-tier tany">—</span>
+                    <span class="affix-text">
+                      <span class="name">遗忘骑士（重铸）套装词缀</span>
+                      <span class="note">由破碎之炉锻造打入空前缀</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">粉碎"遗忘骑士"套装护身符，获得<strong>碎片</strong>。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，直到掉落拥有 <strong>T7 生命</strong> 后缀的<strong>崇高护身符</strong>（神谕基底最佳）。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">先将套装词缀碎片打到<strong>空前缀</strong>上。</div></div>
+                <div class="step"><div class="step-num">4</div><div class="step-body">将其他词缀优化为目标前缀（虚空伤害、时间腐朽几率）和抗性。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. 遗物 -->
+    <section class="section" id="relic">
+      <div class="section-header">
+        <span class="section-icon">💎</span>
+        <h2 class="section-title">遗物 — 破碎世界（传奇）</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">遗物</span>
+            <span class="ename">破碎世界 — 传奇</span>
+            <span class="badge badge-legendary">传奇合成</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/遗物.png" alt="遗物 - 破碎世界" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <div class="callout callout-key" style="margin:0">
+                <span class="callout-icon">🎯</span>
+                <div class="callout-body">
+                  <strong>核心作用</strong>
+                  提供最高 <strong>10% 总降所受伤害</strong> 的强大防御特效，并通过传奇合成获得 <strong>T7 力量</strong>，兼顾生存与输出。
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">暗金固有属性</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-text">
+                      <span class="name">最高 10% 总降所受伤害</span>
+                      <span class="note">高层腐化站得住脚的保障</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="affix-group">
+                <div class="affix-group-title">传奇继承词缀</div>
+                <div class="affix-list">
+                  <div class="affix priority">
+                    <span class="affix-tier t7">T7</span>
+                    <span class="affix-text">
+                      <span class="name">+(14-16) 力量</span>
+                      <span class="note">必需前缀</span>
+                    </span>
+                    <span class="affix-priority-star">★</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="steps">
+                <div class="step"><div class="step-num">1</div><div class="step-body">击败<strong>超波阿波罗斯</strong>（命运巨石Boss）获取"破碎世界"，追求带有<strong>至少1点LP</strong>的版本。</div></div>
+                <div class="step"><div class="step-num">2</div><div class="step-body">刷取80+区域，直到掉落一件拥有 <strong>T7 力量</strong> 前缀的<strong>崇高遗物</strong>。</div></div>
+                <div class="step"><div class="step-num">3</div><div class="step-body">将其他词缀优化为<strong>全属性</strong>、<strong>生命%</strong>等。</div></div>
+                <div class="step"><div class="step-num">4</div><div class="step-body">在时空圣殿<strong>永恒宝箱</strong>处合成传奇。</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. 神像祭坛 -->
+    <section class="section" id="idol">
+      <div class="section-header">
+        <span class="section-icon">🗿</span>
+        <h2 class="section-title">神像祭坛</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="equip-grid single">
+        <div class="equip-card">
+          <div class="equip-card-header">
+            <span class="etype">神像祭坛 · 金字塔基底</span>
+            <span class="ename">金字塔祭坛</span>
+            <span class="badge badge-unique">随机掉落</span>
+          </div>
+          <div class="equip-body">
+            <div class="equip-img-col">
+              <div class="img-preview">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/神像1.png" alt="神像配置1" onerror="this.style.display='none'">
+              </div>
+              <div class="img-preview" style="margin-top:8px;">
+                <img src="../../assets/images/lastepoch/void-knight-shield-build/神像2.png" alt="神像配置2" onerror="this.style.display='none'">
+              </div>
+            </div>
+            <div class="equip-info-col">
+              <p style="font-size:14px;line-height:1.7;color:var(--text-main);">
+                前缀选择 <strong style="color:var(--gold);">T7 折射栏位神像前缀效果提高 (40-50)%</strong>，
+                配合<strong>3巨型神像</strong>（前缀堆时间腐朽持续时间）和<strong>1预兆神像</strong>（对低血量敌人增伤）使用，
+                是后期伤害质变的关键。
+              </p>
+
+              <div class="callout callout-good" style="margin-top:16px;">
+                <span class="callout-icon">💡</span>
+                <div class="callout-body">
+                  <strong>时间腐朽持续时间 = 独立 more 增伤乘区</strong>
+                  根据模块五，放逐·流沙结算时，时间腐朽的"持续时间"会转化为独立 more 增伤。
+                  持续时间越长，结算时炸出的伤害越高。<strong>目标：每个巨型神像前缀追求 T5+ 的时间腐朽持续时间（+2.0秒以上）</strong>，
+                  配合祭坛 50% 的折射栏位加成，每个巨型神像实际可贡献约 +3.0 秒的持续时间，三个神像叠加后放逐结算伤害可提升数倍。
+                </div>
+              </div>
+
+              <div class="callout callout-tip" style="margin-top:8px;">
+                <span class="callout-icon">📊</span>
+                <div class="callout-body">
+                  <strong>神像属性目标</strong>
+                  巨型神像后缀补 <strong>生命 / 元素抗性</strong>，预兆神像选择<strong>"对生命值低于20%的敌人伤害提高"</strong>用于Boss斩杀阶段。
+                  祝福搭配：黑日（虚空伤害%）、拉贡（魔力上限）、骨龙（迟缓几率）、冰鹿（耐伤阈值）、火灵（基础护甲）。
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 属性目标 -->
+    <section class="section" id="stats">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <h2 class="section-title">成型属性目标</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="card">
+        <div class="equip-body" style="grid-template-columns:1fr;">
+          <div class="equip-info-col" style="gap:8px;">
+            <div class="affix-group">
+              <div class="affix-group-title">生存属性</div>
+              <div class="affix-list">
+                <div class="affix priority"><span class="affix-text"><span class="name">生命 3500+</span><span class="note">越高越好，核心生存指标</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">全抗性 65%+</span><span class="note">对抗高层腐化中的抗性穿透</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">耐伤 满（100%）</span><span class="note">配合低血减伤，抵御猝死</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">护甲 常驻15000+</span><span class="note">核心减伤来源，同时对持续伤害生效</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">暴击伤害减免 80%+</span><span class="note">防御Boss暴击秒杀</span></span></div>
+              </div>
+            </div>
+            <div class="affix-group">
+              <div class="affix-group-title">输出属性</div>
+              <div class="affix-list">
+                <div class="affix priority"><span class="affix-text"><span class="name">迟缓几率 400%+</span><span class="note">直接影响时间腐朽的触发和叠层速度</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">头、胸：T7 虚空技能时间腐朽几率</span><span class="note">核心触发词缀，双部位必备</span></span></div>
+                <div class="affix priority"><span class="affix-text"><span class="name">冷却恢复速度 — 放逐冷却 2.5秒以内</span><span class="note">面板放逐冷却时间压缩至2.5秒内，保证输出循环频率</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工具速查表 -->
+    <section class="section" id="tools">
+      <div class="section-header">
+        <span class="section-icon">🛠️</span>
+        <h2 class="section-title">关键工具速查表</h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table class="ref-table">
+            <thead>
+              <tr>
+                <th>操作目的</th>
+                <th>所需工具/场所</th>
+                <th>获取途径/说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>粉碎套装获得碎片</td>
+                <td>破碎之炉</td>
+                <td>编织者阵营解锁，位于雄伟大桥秘境终点</td>
+              </tr>
+              <tr>
+                <td>随机洗掉一条词缀</td>
+                <td>混沌雕文</td>
+                <td>世界掉落、预言兑换、无光森林宝库</td>
+              </tr>
+              <tr>
+                <td>移除一条词缀（获得碎片）</td>
+                <td>剥离符文</td>
+                <td>世界掉落、预言兑换、无光森林宝库</td>
+              </tr>
+              <tr>
+                <td>升级词缀时节省FP</td>
+                <td>希望雕文</td>
+                <td>世界掉落、预言兑换、无光森林宝库</td>
+              </tr>
+              <tr>
+                <td>将词缀封印至独立槽位</td>
+                <td>雕纹·绝望</td>
+                <td>世界掉落，<strong>用于崇高/已重铸装备</strong>，暗金和套装无效</td>
+              </tr>
+              <tr>
+                <td>给暗金增加LP</td>
+                <td>复仇武装</td>
+                <td>编织者秘境，需要消耗稳定值</td>
+              </tr>
+              <tr>
+                <td>重铸暗金属性Roll值</td>
+                <td>编织者熔炉</td>
+                <td>编织者阵营解锁，消耗大量锻造潜能</td>
+              </tr>
+              <tr>
+                <td>传奇合成</td>
+                <td>时空圣殿永恒宝箱</td>
+                <td>消耗<strong>时空圣殿钥匙</strong>（100级地图Boss概率掉落）进入</td>
+              </tr>
+              <tr>
+                <td>随机提升所有未封印词缀等级</td>
+                <td>符文·浩劫</td>
+                <td>第四赛季核心工具，套装词缀可被roll至<strong>T6/T7</strong>，用于伤害类高阶套装词缀打造</td>
+              </tr>
+              <tr>
+                <td>为装备增加随机腐化词缀</td>
+                <td>腐化</td>
+                <td>在"被遗忘的骑士"时间线或特定秘境与腐化神龛互动，<strong>结果不可逆</strong></td>
+              </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <strong>腐化使用提醒</strong>
+          腐化是终极豪赌，结果完全随机——可能大赚（新增腐化词缀、提升词缀等级）也可能巨亏（移除词缀、降低稀有度）。
+          请务必在装备用标准工艺制作到最佳状态后再考虑腐化，切勿在关键装备上轻易尝试。
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span class="footer-brand">看雲起雲落 · 攻略制作</span>
+      <span>Last Epoch · 虚空骑士·盾投时间腐朽 BD · S4 破碎预兆</span>
+    </div>
+
+  </main>
+</div>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>
