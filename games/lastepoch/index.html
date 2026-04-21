@@ -43,7 +43,32 @@
     .guide-card.locked:hover .card-overlay { opacity: 1; }
     .guide-card.locked .card-overlay svg { width: 20px; height: 20px; stroke: #888; stroke-width: 1.5; fill: none; }
     .guide-card.locked .card-overlay span { font-size: 0.75rem; color: #888; font-weight: 500; letter-spacing: 1px; }
-  </style>
+  
+    /* Site header & footer */
+    .footer {
+      padding: 2rem 0; border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.06));
+      text-align: center; color: #554444; font-size: 0.75rem;
+    }
+    .footer-qr {
+      width: 48px; height: 48px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
+      background: #fff; padding: 2px; cursor: pointer; transition: all 0.2s;
+    }
+    .footer-qr:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.15); }
+    .qr-preview-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: all 0.3s; cursor: pointer;
+    }
+    .qr-preview-overlay.open { opacity: 1; visibility: visible; }
+    .qr-preview-overlay img {
+      width: 200px; height: 200px; border-radius: 12px;
+      background: #fff; padding: 10px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    }
+
+</style>
 </head>
 <body>
   <nav class="top-nav">
@@ -54,7 +79,25 @@
     </div>
   </nav>
 
-  <main class="container page-content">
+      <!-- 站点 Header -->
+    <section class="site-header-section" style="padding:5rem 0 1rem;">
+      <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.85rem;">
+          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+          </div>
+        </div>
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+          space.bilibili.com/443078910
+        </a>
+      </div>
+    </section>
+
+<main class="container page-content">
     <header class="page-header">
       <div class="page-header-content">
         <div class="header-logo">
@@ -227,11 +270,27 @@
         <span class="btn"><span>阅读攻略</span></span>
       </a>
     </section>
-
-    <footer class="site-footer">
-      <p>&copy; 2026 游戏攻略指南 · 看雲起雲落</p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+            B站: @看雲起雲落
+          </a>
+          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+        </div>
+      </div>
     </footer>
-  </main>
+
+    <!-- QR Code Preview -->
+    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+    </div>
+
+</main>
 
   <script src="../../assets/js/main.js"></script>
 </body>

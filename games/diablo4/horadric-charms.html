@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《憎恨之王》护身符系统前瞻 - 暗黑破坏神 IV</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+  <link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4-charms.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+      <span class="nav-game-name">护身符系统前瞻</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 护身符系统</span>
+    </div>
+  </nav>
+
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress-track">
+    <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+  </div>
+
+  <!-- 灯箱 -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')">
+    <img id="lightboxImage" src="" alt="图片预览">
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 返回顶部 -->
+  <button class="back-to-top-rune" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- 站点 Header -->
+  <section class="site-header-section" style="padding:5rem 0 1rem;">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.85rem;">
+        <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+        </div>
+      </div>
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+      <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+        space.bilibili.com/443078910
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== 左侧导航栏 ====== -->
+  <aside class="guide-sidebar" id="charmSidebar">
+    <div class="guide-sidebar-title">目录导航</div>
+    <ul class="guide-sidebar-nav">
+      <li><a href="#sec-hero" class="active"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">封面</span><span class="nav-step">TOP</span></a></li>
+      <li><a href="#sec-cube"><span class="nav-icon">&#x1F9F3;</span><span class="nav-text">赫拉迪姆方块</span><span class="nav-step">STEP 1</span></a></li>
+      <li><a href="#sec-seals"><span class="nav-icon">&#x1F512;</span><span class="nav-text">赫拉迪姆封印</span><span class="nav-step">STEP 2</span></a></li>
+      <li><a href="#sec-sets"><span class="nav-icon">&#x2694;</span><span class="nav-text">套装护身符</span><span class="nav-step">STEP 3</span></a></li>
+      <li><a href="#sec-runes"><span class="nav-icon">&#x2728;</span><span class="nav-text">符文系统</span><span class="nav-step">STEP 4</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-rare"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符三大分类</span><span class="nav-step">BONUS</span></a></li>
+    </ul>
+    <div class="guide-sidebar-footer">
+      <a href="index.html">&#x2190; 返回D4首页</a>
+    </div>
+  </aside>
+
+  <!-- 移动端侧边栏切换按钮 -->
+  <button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ====== 主内容区域 ====== -->
+  <main class="guide-content">
+
+  <!-- ====== 免责声明 ====== -->
+  <div class="disclaimer-bar" id="disclaimerBar">
+    <span class="disclaimer-icon">&#x26A0;&#xFE0F;</span>
+    <span class="disclaimer-text"><strong>重要声明：</strong>本文内容基于《憎恨之王》测试版截图反推整理，不代表官方最终设定。部分数值、词缀、机制可能在正式上线时调整，请以 4 月 28 日实际内容为准。</span>
+    <button class="disclaimer-close" onclick="this.parentElement.style.display='none'">&#x2715;</button>
+  </div>
+
+  <!-- ====== 第一屏：封面大图区 ====== -->
+  <section class="charm-hero" id="sec-hero">
+    <div class="charm-hero-bg"></div>
+    <div class="charm-hero-overlay"></div>
+    <div class="charm-hero-content">
+      <div class="charm-hero-badge">
+        <span class="pulse"></span>
+        基于测试版本截图反推
+      </div>
+      <h1 class="charm-hero-title" id="charmHeroTitle">《憎恨之王》护身符系统前瞻</h1>
+      <p class="charm-hero-subtitle">封印、套装与符文——探索终局战斗的全新力量体系</p>
+
+      <!-- 系统概述 -->
+      <div class="charm-system-summary" style="margin-top: 2rem; padding: 1.5rem; background: rgba(26,15,20,0.6); border-radius: 12px; border: 1px solid rgba(58,32,40,0.4);">
+        <h3 style="font-family:'Cinzel',serif;color:#DAA520;margin-bottom:1rem;font-size:1.1rem;">护身符体系概览</h3>
+        <p style="color:#a09088;line-height:1.7;margin-bottom:1rem;">
+          《憎恨之王》资料片引入了全新的护身符系统，核心围绕三大层次：<strong>赫拉迪姆封印</strong>（基础槽位与流派特效）、<strong>护身符本体</strong>（分为套装、稀有、魔法三大类，均镶入封印槽位）、<strong>符文系统</strong>（仪式+祈唤双轨，机制待验证）。整套系统深度绑定赫拉迪姆方块，形成完整的装备强化闭环。
+        </p>
+        <p style="color:#8a7a70;font-size:0.85rem;">
+          <strong>我的解读：</strong>这不仅是简单的装备扩展
+          <br>• 封印机制让玩家在构建BD前就确定核心流派方向
+          <br>• 套装设计强调部件协同而非单件强度，鼓励多样化搭配
+          <br>• 符文系统预留了大量后续扩展空间，仪式符文的悬念设计非常巧妙
+        </p>
+      </div>
+
+      <p style="font-size:0.85rem;color:#665555;margin-top:0.5rem;">4 月 28 日正式上线0，一切内容以正式版本为准</p>
+    </div>
+    <div class="charm-hero-scroll" id="scrollArrow">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="7 13 12 18 17 13"/>
+        <line x1="12" y1="2" x2="12" y2="18"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ====== 第二屏：赫拉迪姆方块 ====== -->
+  <section class="charm-section" id="sec-cube">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 01</div>
+      <h2>赫拉迪姆方块 — 已知制作配方</h2>
+      <p>护身符可通过赫拉迪姆方块的以下专属配方进行重铸、制作与转化。<strong>赫拉迪姆封印本身不由方块直接制作或修改</strong>，封印需通过其他途径（如掉落）获取。</p>
+    </div>
+    <div class="cube-layout">
+      <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="../../assets/images/diablo4/dlc2/charms/Rune Crafting.png" alt="符文制作界面" loading="lazy">
+      </div>
+      <div>
+        <ul class="recipe-list">
+          <li class="recipe-item">
+            <div class="recipe-en">Upgrade to Legendary</div>
+            <div class="recipe-zh">升级至传奇</div>
+            <div class="recipe-desc">可能用于提升护身符品质</div>
+            <div class="recipe-icon-group">
+              <span class="mat">&#x1F48E;</span>
+              <span class="mat">&#x1F52E;</span>
+              <span class="mat">&#x1F525;</span>
+            </div>
+          </li>
+          <li class="recipe-item">
+            <div class="recipe-en">Reroll Set Charm</div>
+            <div class="recipe-zh">重铸套装护身符</div>
+            <div class="recipe-desc">将套装护身符转化为同一套装中的另一件护身符</div>
+            <div class="recipe-icon-group">
+              <span class="mat">&#x2728;</span>
+              <span class="mat">&#x1F504;</span>
+              <span class="mat">&#x1F3AF;</span>
+            </div>
+          </li>
+          <li class="recipe-item">
+            <div class="recipe-en">Craft Unique Charm</div>
+            <div class="recipe-zh">制作独特护身符</div>
+            <div class="recipe-desc">直接制作特定独特护身符（部分独特装备不适用）</div>
+            <div class="recipe-icon-group">
+              <span class="mat">&#x1F525;</span>
+              <span class="mat">&#x2694;</span>
+              <span class="mat">&#x1F48E;</span>
+            </div>
+          </li>
+          <li class="recipe-item">
+            <div class="recipe-en">Amalgamation</div>
+            <div class="recipe-zh">融合</div>
+            <div class="recipe-desc">将多个护身符合并或转化</div>
+            <div class="recipe-icon-group">
+              <span class="mat">&#x1F300;</span>
+              <span class="mat">&#x1F48E;</span>
+              <span class="mat">&#x2728;</span>
+            </div>
+          </li>
+          <li class="recipe-item">
+            <div class="recipe-en">Rune Crafting</div>
+            <div class="recipe-zh">符文制作</div>
+            <div class="recipe-desc">使用材料制作符文（非护身符配方）</div>
+            <div class="recipe-icon-group">
+              <span class="mat">&#x2694;</span>
+              <span class="mat">&#x1F52E;</span>
+              <span class="mat">&#x1F48E;</span>
+            </div>
+          </li>
+        </ul>
+        <p style="font-size:0.78rem;color:#665555;margin-top:1.2rem;padding-top:0.8rem;border-top:1px solid rgba(58,32,40,0.4);">
+          &#x1F4CD; 注：<code style="color:#a09088;">3 to 1 Transmutation</code> 与 <code style="color:#a09088;">Recycle Uniques</code> 配方也支持护身符作为材料参与（截图原文提及 Talisman 与 Charms）。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 第三屏：赫拉迪姆封印 ====== -->
+  <section class="charm-section" id="sec-seals">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 02</div>
+      <h2>赫拉迪姆封印 — 槽位与流派核心</h2>
+      <p>封印决定了你能装备多少个护身符，并附带名为 <strong style="color:#e74c3c;">Seal Power</strong> 的流派特效</p>
+    </div>
+    <div class="seal-grid">
+      <!-- Bountiful Anger - 6槽稀有 -->
+      <div class="seal-card">
+        <div class="seal-slots">
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+        </div>
+        <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Bountiful Anger.png" alt="Vigorous Horadric Seal of Bountiful Anger" loading="lazy" style="width:100%;display:block;">
+        </div>
+        <div class="seal-name">Vigorous Horadric Seal of Bountiful Anger</div>
+        <div class="seal-quality legendary">传奇品质</div>
+        <div class="seal-slot-count">6 个护身符槽位</div>
+        <ul class="seal-power-list">
+          <li class="seal-power-item">
+            <div class="sp-name">暴击几率</div>
+            <div class="sp-desc"><span class="var-range">+10.0%</span> <span class="var-range">[7.5-10.0]%</span></div>
+            <div class="seal-power-tooltip"><strong>基于测试版截图</strong><br>暴击几率固定在 <span class="var-range">+10.0%</span><br>变量范围为 <span class="var-range">[7.5-10.0]%</span></div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Swiftness - 5槽传奇 -->
+      <div class="seal-card">
+        <div class="seal-slots">
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot dimmed"></div>
+        </div>
+        <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Swiftness.png" alt="Vigorous Horadric Seal of Swiftness" loading="lazy" style="width:100%;display:block;">
+        </div>
+        <div class="seal-name">Vigorous Horadric Seal of Swiftness</div>
+        <div class="seal-quality legendary">传奇品质</div>
+        <div class="seal-slot-count">5 个护身符槽位</div>
+        <ul class="seal-power-list">
+          <li class="seal-power-item">
+            <div class="sp-name">Chains of Horazon</div>
+            <div class="sp-desc"><span class="var-range">+9%</span> <span class="var-range">[5-11]%</span> 愤怒生成<br>+1 护身符槽位</div>
+            <div class="seal-power-tooltip"><strong>Chains of Horazon</strong><br>增加怒气生成与额外槽位</div>
+          </li>
+          <li class="seal-power-item">
+            <div class="sp-name">Practiced Technique</div>
+            <div class="sp-desc"><span class="var-range">+23%</span> <span class="var-range">[20-24]%</span> 移动速度<br>+7% 击杀经验（70级时+0.7%）</div>
+            <div class="seal-power-tooltip"><strong>Practiced Technique</strong><br>提升移动速度与击杀经验<br>适合速刷Build</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Alchemy - 4槽传奇 -->
+      <div class="seal-card">
+        <div class="seal-slots">
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot dimmed"></div>
+          <div class="seal-slot dimmed"></div>
+        </div>
+        <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Alchemy.png" alt="Vigorous Horadric Seal of Alchemy" loading="lazy" style="width:100%;display:block;">
+        </div>
+        <div class="seal-name">Vigorous Horadric Seal of Alchemy</div>
+        <div class="seal-quality rare">稀有品质</div>
+        <div class="seal-slot-count">4 个护身符槽位</div>
+        <ul class="seal-power-list">
+          <li class="seal-power-item">
+            <div class="sp-name">Practiced Technique</div>
+            <div class="sp-desc">+1~3 药水容量</div>
+            <div class="seal-power-tooltip"><strong>Practiced Technique</strong><br>对应祈唤符文：Ohm<br>提升药水使用效果</div>
+          </li>
+          <li class="seal-power-item">
+            <div class="sp-name">Chains of Horazon</div>
+            <div class="sp-desc"><span class="var-range">+9%</span> <span class="var-range">[5-11]%</span> 愤怒生成<br>+1 护身符槽位</div>
+            <div class="seal-power-tooltip"><strong>Chains of Horazon</strong><br>增加怒气生成与额外槽位</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 第四屏：套装护身符 ====== -->
+  <section class="charm-section" id="sec-sets">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 03</div>
+      <h2>套装护身符 — 截图中的四套套装数据</h2>
+      <p>每套由 Phoba、Fer、Mlor 三件组成（部分仅需两件），激活 2件/3件 套装效果</p>
+    </div>
+
+    <!-- Tab 切换器 -->
+    <div class="set-tabs">
+      <div class="set-tab active" data-set="slaughter">
+        <span class="tab-dot offense"></span>
+        杀戮套装（输出倾向）
+      </div>
+      <div class="set-tab" data-set="survival">
+        <span class="tab-dot defense"></span>
+        生存套装（防御倾向）
+      </div>
+      <div class="set-tab" data-set="practiced">
+        <span class="tab-dot efficiency"></span>
+        熟练技法套装（效率倾向）
+      </div>
+      <div class="set-tab" data-set="mastery">
+        <span class="tab-dot skill"></span>
+        精通套装（技能倾向）
+      </div>
+    </div>
+
+    <!-- ===== 杀戮套装 ===== -->
+    <div class="set-panel active" id="panel-slaughter">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Slaughter 杀戮套装</h3>
+          <div class="set-type">输出倾向 — 伤害加成与精英特攻</div>
+          <blockquote class="set-quote">
+            "Life can be most often characterized as meat ruled by instinct. Dumb flesh, Mlor alone. Disassembly is the most efficient, I find."
+            <span class="quote-author">— Zoltun Kulle</span>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="set-charms">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Phoba of Slaughter.png" alt="Phoba of Slaughter" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Phoba of Slaughter</div>
+            <ul class="charm-stats">
+              <li><span>暗影抗性</span><span class="stat-num"><span class="var-range">+466</span> <span class="var-range">[416-523]</span></span></li>
+              <li><span>移动速度</span><span class="stat-num"><span class="var-range">+20%</span> <span class="var-range">[20-24]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Fer of Slaughter 1.png" alt="Fer of Slaughter" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Fer of Slaughter</div>
+            <ul class="charm-stats">
+              <li><span>冰霜抗性</span><span class="stat-num"><span class="var-range">+416</span> <span class="var-range">[416-523]</span></span></li>
+              <li><span>幸运一击: 冰霜伤害</span><span class="stat-num"><span class="var-range">+800</span> <span class="var-range">[550-1,000]</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Mlor of Slaughter 1.png" alt="Mlor of Slaughter" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Mlor of Slaughter</div>
+            <ul class="charm-stats">
+              <li><span>恶魔学技能</span><span class="stat-num"><span class="var-range">+1</span> <span class="var-range">[1-3]</span></span></li>
+              <li><span>金币掉落</span><span class="stat-num"><span class="var-range">+7%</span> <span class="var-range">[5-9]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 伤害减免，x10% 伤害</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+10% 精英伤害减免，x15% 精英伤害</div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+      </div>
+    </div>
+
+    <!-- ===== 生存套装 ===== -->
+    <div class="set-panel" id="panel-survival">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Survival 生存套装</h3>
+          <div class="set-type">防御倾向 — 护甲、抗性与全属性</div>
+        </div>
+      </div>
+
+      <div class="set-charms">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Mlör of Survival.png" alt="Mlör of Survival" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Mlor of Survival</div>
+            <ul class="charm-stats">
+              <li><span>火焰抗性</span><span class="stat-num"><span class="var-range">+510</span> <span class="var-range">[416-523]</span></span></li>
+              <li><span>幸运一击: 中毒伤害</span><span class="stat-num"><span class="var-range">+600</span> <span class="var-range">[550-1,000]</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of Survival</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of Survival</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+1,000 护甲，+100 所有抗性</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+200 全属性</div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+    </div>
+
+    <!-- ===== 熟练技法套装 ===== -->
+    <div class="set-panel" id="panel-practiced">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Practiced Technique 熟练技法套装</h3>
+          <div class="set-type">效率倾向 — 攻速、金币与经验加成</div>
+        </div>
+      </div>
+
+      <div class="set-charms">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Fer of Practiced Technique.png" alt="Fer of Practiced Technique" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Fer of Practiced Technique</div>
+            <ul class="charm-stats">
+              <li><span>幸运一击: 火焰伤害</span><span class="stat-num"><span class="var-range">+700</span> <span class="var-range">[550-1,000]</span></span></li>
+              <li><span>药水治疗</span><span class="stat-num"><span class="var-range">+7.3%</span> <span class="var-range">[7.0-8.0]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Mlor of Practiced Technique.png" alt="Mlor of Practiced Technique" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Mlor of Practiced Technique</div>
+            <ul class="charm-stats">
+              <li><span>制作材料掉落</span><span class="stat-num"><span class="var-range">+5.1%</span> <span class="var-range">[4.8-9.0]%</span></span></li>
+              <li><span>全属性</span><span class="stat-num"><span class="var-range">+58</span> <span class="var-range">[45-70]</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of Practiced Technique</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 攻击速度</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+25% 金币掉落，+50% 击杀经验加成（70级时+5%）</div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+    </div>
+
+    <!-- ===== 精通套装 ===== -->
+    <div class="set-panel" id="panel-mastery">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Mastery 精通套装</h3>
+          <div class="set-type">技能倾向 — 全技能等级加成</div>
+          <blockquote class="set-quote">
+            "Phoba, Fer. Emotion and Mind. These form the root of a mage's intention, no matter the medium. Focus first upon these, and put all ambition aside."
+            <span class="quote-author">— Tal Rasha</span>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="set-charms">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Fer of Mastery.png" alt="Fer of Mastery" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Fer of Mastery</div>
+            <ul class="charm-stats">
+              <li><span>全属性</span><span class="stat-num"><span class="var-range">+53</span> <span class="var-range">[45-70]</span></span></li>
+              <li><span>幸运一击: 定身</span><span class="stat-num"><span class="var-range">6.5%</span> <span class="var-range">[6.0-7.0]%</span> 几率定身2秒</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of Mastery</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of Mastery</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+2 所有技能</div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 第五屏：符文系统 ====== -->
+  <section class="charm-section" id="sec-runes">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 04</div>
+      <h2>符文系统 — 名称与机制推测</h2>
+      <p>截图中出现了<strong style="color:#a09088;">仪式符文</strong>与<strong style="color:#e67e22;">祈唤符文</strong>两类符文。<strong>已确认</strong>：祈唤符文（Eom / Jah / Ohm）可镶嵌至赫拉迪姆封印，激活对应的 Seal Power 流派特效。<strong>仪式符文的作用在截图中未显示</strong>，以下推测仅供参考，正式服上线前请勿将其视为确定机制。</p>
+    </div>
+
+    <div class="rune-columns">
+      <!-- 左侧：仪式符文 -->
+      <div class="rune-column">
+        <h3>
+          <svg class="col-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+          仪式符文（未在封印界面出现 — 截图未显示任何效果文本）
+        </h3>
+        <div class="rune-card mystery" data-rune="bac">
+          <div class="rune-name ritual-color">Bac</div>
+          <div class="rune-zh-name">巴克</div>
+          <div class="mystery-bg">
+            <div class="q-mark">?</div>
+            <div class="q-text">作用尚不明确<br>正式上线后揭晓</div>
+          </div>
+        </div>
+        <div class="rune-card mystery" data-rune="igni">
+          <div class="rune-name ritual-color">Igni</div>
+          <div class="rune-zh-name">伊格尼</div>
+          <div class="mystery-bg">
+            <div class="q-mark">?</div>
+            <div class="q-text">作用尚不明确<br>正式上线后揭晓</div>
+          </div>
+        </div>
+        <div class="rune-card mystery" data-rune="tam">
+          <div class="rune-name ritual-color">Tam</div>
+          <div class="rune-zh-name">塔姆</div>
+          <div class="mystery-bg">
+            <div class="q-mark">?</div>
+            <div class="q-text">作用尚不明确<br>正式上线后揭晓</div>
+          </div>
+        </div>
+        <div class="rune-card mystery" data-rune="yul">
+          <div class="rune-name ritual-color">Yul</div>
+          <div class="rune-zh-name">尤尔</div>
+          <div class="mystery-bg">
+            <div class="q-mark">?</div>
+            <div class="q-text">作用尚不明确<br>正式上线后揭晓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧：祈唤符文 -->
+      <div class="rune-column">
+        <h3>
+          <svg class="col-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          祈唤符文（基于封印 Seal Power 推断）
+        </h3>
+        <div class="rune-card" data-pair="chains" data-rune="eom">
+          <div class="rune-name legendary-color">Eom</div>
+          <div class="rune-zh-name">艾姆 — Chains of Horazon</div>
+          <div class="rune-effect-text">
+            <span class="stat-line">+<span class="var-range">9%</span> <span class="var-range">[5-11]%</span> 愤怒生成</span>
+            <span class="stat-line">+1 护身符槽位</span>
+          </div>
+        </div>
+        <div class="rune-card" data-pair="flesh" data-rune="jah">
+          <div class="rune-name legendary-color">Jah</div>
+          <div class="rune-zh-name">乔 — Flesh of Abaddon</div>
+          <div class="rune-effect-text">
+            <span class="stat-line">+1~3 地狱火技能等级</span>
+          </div>
+        </div>
+        <div class="rune-card" data-pair="practiced" data-rune="ohm">
+          <div class="rune-name legendary-color">Ohm</div>
+          <div class="rune-zh-name">欧姆 — Practiced Technique</div>
+          <div class="rune-effect-text">
+            <span class="stat-line">+<span class="var-range">23%</span> <span class="var-range">[20-24]%</span> 移动速度</span>
+            <span class="stat-line">+7% <span class="var-range">[2-10]%</span> 击杀经验</span>
+            <span class="stat-line">+1~3 药水容量</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 机制推测说明 -->
+    <div style="margin-top:2rem;padding:1.5rem;background:rgba(26,15,20,0.7);border-radius:12px;border:1px solid rgba(218,165,32,0.3);">
+      <h4 style="font-family:'Cinzel',serif;color:#DAA520;margin-bottom:1rem;font-size:1rem;">&#x1F4DD; 仪式符文机制推测（仅供前瞻参考，非官方确认）</h4>
+      <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:1rem;">由于仪式符文未出现在封印界面，其具体机制尚不明确。一种可能性是作为制作祈唤符文的材料，另一种是作为独立触发条件。正式服上线前，请勿将其视为确定机制。</p>
+      <div style="display:grid;gap:0.8rem;">
+        <div style="padding:1rem;background:rgba(26,15,20,0.5);border-radius:8px;border-left:3px solid #DAA520;">
+          <div style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.4rem;">可能性一：制作材料</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">仪式符文可能用于"制作"或"激活"祈唤符文，属于赫拉迪姆方块制作环节中的材料一环。这与方块中"Rune Crafting"（符文制作）配方相呼应。</p>
+        </div>
+        <div style="padding:1rem;background:rgba(26,15,20,0.5);border-radius:8px;border-left:3px solid #a09088;">
+          <div style="color:#a09088;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.4rem;">可能性二：独立触发条件</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">仪式符文可能作为某种独立的触发条件或增益效果，但与祈唤符文如何关联、是否需要组合使用，目前缺乏截图支撑。</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ====== 第六屏：护身符三大分类 ====== -->
+  <section class="charm-section" id="sec-rare">
+    <!-- 概念区分提示条 -->
+    <div style="margin-bottom:2rem;padding:1rem 1.2rem;background:rgba(231,76,60,0.08);border-radius:10px;border:1px solid rgba(231,76,60,0.3);border-left:4px solid #e74c3c;">
+      <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+        <span style="font-size:1.2rem;line-height:1;">&#x26A0;&#xFE0F;</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;color:#e74c3c;font-size:0.9rem;margin-bottom:0.3rem;">概念区分</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+            <strong style="color:#c0a060;">护身符</strong>是直接装备在封印槽位上的物品，提供基础属性与套装效果；<br>
+            <strong style="color:#e67e22;">符文</strong>是镶嵌在封印上的消耗品，激活封印的 Seal Power。<br>
+            两者属于不同系统，互不替代。
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="charm-section-header">
+      <div class="section-step">BONUS</div>
+      <h2>护身符分类 — 套装、稀有与魔法</h2>
+      <p>所有护身符均镶入赫拉迪姆封印的槽位中使用，按品质和效果分为三大类。套装护身符通过凑件激活套装效果，稀有护身符和魔法护身符则以单件词缀独立生效。</p>
+    </div>
+
+    <!-- 分类概述 -->
+    <div style="margin-bottom:2rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+      <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:10px;border:1px solid rgba(218,165,32,0.2);border-top:3px solid #DAA520;">
+        <div style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.95rem;margin-bottom:0.4rem;">&#x2694; 套装护身符</div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">每套由 Phoba、Fer、Mlor 三件组成，凑够数量激活 2件套/3件套 效果。目前已知四套方向：输出向杀戮套装、防御向生存套装、效率向熟练技法套装、技能向精通套装。详见上方 STEP 3 详细数据。</p>
+      </div>
+      <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:10px;border:1px solid rgba(138,122,112,0.3);border-top:3px solid #c0a060;">
+        <div style="color:#c0a060;font-family:'Cinzel',serif;font-size:0.95rem;margin-bottom:0.4rem;">&#x1F48E; 稀有护身符</div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">拥有 2 条随机词缀，无需凑套装即可单件使用。截图中共出现 8 件，涵盖输出、防御、功能等不同方向，适合过渡或补充特定词缀。详见下方图鉴。</p>
+      </div>
+      <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:10px;border:1px solid rgba(100,149,237,0.2);border-top:3px solid #6495ED;">
+        <div style="color:#6495ED;font-family:'Cinzel',serif;font-size:0.95rem;margin-bottom:0.4rem;">&#x1F52E; 魔法护身符</div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">品质最低，仅 1 条词缀。目前截图中只看到一件 Resourceful Charm（最大资源加成），纯过渡用途。</p>
+      </div>
+    </div>
+
+    <!-- ===== 稀有护身符图鉴 ===== -->
+    <h3 style="font-family:'Cinzel',serif;color:#c0a060;font-size:1.1rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(192,160,96,0.3);">&#x1F48E; 稀有护身符图鉴</h3>
+
+    <!-- 筛选 -->
+    <div class="rare-filters">
+      <div class="rare-filter active" data-type="all">全部</div>
+      <div class="rare-filter" data-type="offense">输出向</div>
+      <div class="rare-filter" data-type="defense">防御向</div>
+      <div class="rare-filter" data-type="utility">功能向</div>
+    </div>
+
+    <!-- 稀有护身符网格 -->
+    <div class="rare-grid">
+      <div class="rare-card" data-type="offense">
+        <div class="fav-star" data-id="frigid-knowledge">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Frigid Charm of Knowledge.png" alt="Frigid Charm of Knowledge" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Frigid Charm of Knowledge</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>击杀经验</span><span class="sv"><span class="var-range">+9%</span> <span class="var-range">[2-10]%</span></span></li>
+            <li><span>幸运一击: 冰霜伤害</span><span class="sv"><span class="var-range">+650</span> <span class="var-range">[550-1,000]</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="defense">
+        <div class="fav-star" data-id="vigorous-ground">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Charm of Grounding.png" alt="Vigorous Charm of Grounding" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Vigorous Charm of Grounding</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>闪电抗性</span><span class="sv"><span class="var-range">+495</span> <span class="var-range">[416-523]</span></span></li>
+            <li><span>最大生命</span><span class="sv"><span class="var-range">+8.0%</span> <span class="var-range">[7.0-8.0]%</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="offense">
+        <div class="fav-star" data-id="occult-freezing">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of Freezing.png" alt="Occult Charm of Freezing" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Occult Charm of Freezing</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>秘术技能</span><span class="sv"><span class="var-range">+3</span> <span class="var-range">[1-3]</span></span></li>
+            <li><span>幸运一击: 冻结</span><span class="sv"><span class="var-range">6.0%</span> <span class="var-range">[6.0-7.0]%</span> 2秒</span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="defense">
+        <div class="fav-star" data-id="divine-restoration">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Divine Charm of Restoration.png" alt="Divine Charm of Restoration" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Divine Charm of Restoration</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>幸运一击: 神圣伤害</span><span class="sv"><span class="var-range">+850</span> <span class="var-range">[550-1,000]</span></span></li>
+            <li><span>药水治疗</span><span class="sv"><span class="var-range">+8.0%</span> <span class="var-range">[7.0-8.0]%</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="offense">
+        <div class="fav-star" data-id="brutal-greed">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/ Brutal Charm of Greed.png" alt="Brutal Charm of Greed" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Brutal Charm of Greed</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>金币掉落</span><span class="sv"><span class="var-range">+5%</span> <span class="var-range">[5-9]%</span></span></li>
+            <li><span>幸运一击: 物理伤害</span><span class="sv"><span class="var-range">+550</span> <span class="var-range">[550-1,000]</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="utility">
+        <div class="fav-star" data-id="occult-artisan">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of the Artisan.png" alt="Occult Charm of the Artisan" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Occult Charm of the Artisan</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>秘术技能</span><span class="sv"><span class="var-range">+2</span> <span class="var-range">[1-3]</span></span></li>
+            <li><span>制作材料掉落</span><span class="sv"><span class="var-range">+8.1%</span> <span class="var-range">[4.8-9.0]%</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="utility">
+        <div class="fav-star" data-id="resourceful-greed">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm of Greed.png" alt="Resourceful Charm of Greed" loading="lazy">
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Resourceful Charm of Greed</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>金币掉落</span><span class="sv"><span class="var-range">+5%</span> <span class="var-range">[5-9]%</span></span></li>
+            <li><span>最大资源</span><span class="sv"><span class="var-range">+13</span> <span class="var-range">[10-15]</span></span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+
+      <div class="rare-card" data-type="offense">
+        <div class="fav-star" data-id="occult-dazing">
+          <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="rare-image" style="background:rgba(26,15,20,0.5);min-height:120px;display:flex;align-items:center;justify-content:center;color:#554444;font-size:0.8rem;">
+          截图待补充
+        </div>
+        <div class="rare-info">
+          <div class="rare-name">Occult Charm of Dazing</div>
+          <div class="rare-type">稀有护身符</div>
+          <ul class="rare-stats">
+            <li><span>秘术技能</span><span class="sv"><span class="var-range">+1</span> <span class="var-range">[1-2]</span></span></li>
+            <li><span>幸运一击: 眩晕</span><span class="sv"><span class="var-range">2.0%</span> <span class="var-range">[1.5-2.0]%</span> 2秒</span></li>
+          </ul>
+        </div>
+        <div class="drop-tip">推测掉落：斯科沃斯区域事件 / 终局首领</div>
+      </div>
+    </div>
+
+    <!-- ===== 魔法护身符 ===== -->
+    <h3 style="font-family:'Cinzel',serif;color:#6495ED;font-size:1.1rem;margin-top:2.5rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid rgba(100,149,237,0.3);">&#x1F52E; 魔法护身符</h3>
+
+    <div style="max-width:350px;padding:1.2rem;background:rgba(26,15,20,0.5);border-radius:10px;border:1px solid rgba(100,149,237,0.2);">
+      <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:0.8rem;">
+        <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm.png" alt="Resourceful Charm" loading="lazy">
+      </div>
+      <div class="rare-info">
+        <div class="rare-name">Resourceful Charm</div>
+        <div class="rare-type">魔法护身符</div>
+        <ul class="rare-stats">
+          <li><span>最大资源</span><span class="sv"><span class="var-range">+12</span> <span class="var-range">[10-15]</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+            B站: @看雲起雲落
+          </a>
+          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- QR Code Preview -->
+    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+    </div>
+
+  </main>
+
+  <script src="../../assets/js/charms-interactions.js"></script>
+  <script>
+    // 灯箱
+    function openLightbox(src) {
+      if (!src) return;
+      document.getElementById('lightboxImage').src = src;
+      document.getElementById('lightboxOverlay').classList.add('open');
+    }
+
+    // 分享
+    function shareTo(platform) {
+      var title = '《憎恨之王》护身符系统前瞻';
+      var url = window.location.href;
+      var text = '基于测试版截图反推 · 封印、套装与符文全解析';
+      var shareUrl = '';
+      switch(platform) {
+        case 'weibo': shareUrl = 'https://service.weibo.com/share/share.php?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text); break;
+        case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text); break;
+        case 'qq': shareUrl = 'https://connect.qq.com/share?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&summary=' + encodeURIComponent(text); break;
+      }
+      if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+  </script>
+  <script src="../../assets/js/guide-sidebar.js"></script>
+</body>
+</html>

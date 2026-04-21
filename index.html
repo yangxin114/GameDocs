@@ -48,41 +48,6 @@
     .content { position: relative; z-index: 1; }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 
-    /* === Floating Nav === */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1rem 2rem; transition: all var(--transition);
-    }
-    .nav.scrolled {
-      background: rgba(5, 5, 16, 0.95);
-      backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0.75rem 2rem;
-    }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo {
-      width: 36px; height: 36px; border-radius: 8px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cinzel', serif; font-weight: 900; font-size: 1rem; color: var(--bg-deep);
-    }
-    .nav-title { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; }
-    .nav-title span {
-      background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
-    .nav-link {
-      padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.82rem; font-weight: 500;
-      color: var(--text-secondary); transition: all var(--transition); cursor: pointer;
-    }
-    .nav-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
-    .nav-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
-
     /* === Hero === */
     .hero-section {
       min-height: 100vh; display: flex; flex-direction: column;
@@ -313,10 +278,10 @@
     .stat-label { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 0.25rem; }
 
     /* === About === */
-    .about-section { padding: 6rem 0; }
+    .about-section { padding: 4rem 0; }
     .about-card {
-      max-width: 700px; margin: 0 auto; background: var(--bg-card);
-      border: 1px solid var(--border-subtle); border-radius: 20px; padding: 3rem;
+      max-width: 550px; margin: 0 auto; background: var(--bg-card);
+      border: 1px solid var(--border-subtle); border-radius: 16px; padding: 2rem;
       text-align: center; position: relative; overflow: hidden;
     }
     .about-card::before {
@@ -324,38 +289,57 @@
       width: 60%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
     .about-avatar {
-      width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
-      border: 2px solid var(--gold-dark); margin: 0 auto 1.5rem;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-dark); margin: 0 auto 1rem;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
     }
     .about-name {
-      font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 700;
-      color: var(--gold); margin-bottom: 0.5rem;
+      font-family: 'Cinzel', serif; font-size: 1.2rem; font-weight: 700;
+      color: var(--gold); margin-bottom: 0.4rem;
     }
-    .about-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+    .about-desc { color: var(--text-secondary); font-size: 0.85rem; line-height: 1.7; max-width: 420px; margin: 0 auto; }
 
     /* === Footer === */
     .footer {
-      padding: 3rem 0; border-top: 1px solid var(--border-subtle);
-      text-align: center; color: var(--text-muted); font-size: 0.78rem;
+      padding: 2rem 0; border-top: 1px solid var(--border-subtle);
+      text-align: center; color: var(--text-muted); font-size: 0.75rem;
+    }
+    .footer-qr {
+      width: 48px; height: 48px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
+      background: #fff; padding: 2px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .footer-qr:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 12px rgba(255,255,255,0.15);
+    }
+    .qr-preview-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: all 0.3s;
+      cursor: pointer;
+    }
+    .qr-preview-overlay.open {
+      opacity: 1; visibility: visible;
+    }
+    .qr-preview-overlay img {
+      width: 200px; height: 200px; border-radius: 12px;
+      background: #fff; padding: 10px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
     }
 
     /* === Responsive === */
     @media (max-width: 768px) {
       .container { padding: 0 1rem; }
       .hero-section { padding: 5rem 1rem 3rem; }
-      .nav-links { display: none; }
-      .nav-toggle { display: block; }
-      .nav-links.open {
-        display: flex; position: absolute; top: 100%; left: 0; right: 0;
-        flex-direction: column; background: rgba(5,5,16,0.95);
-        backdrop-filter: blur(20px); padding: 1rem; border-bottom: 1px solid var(--border-subtle);
-      }
       .games-grid { grid-template-columns: 1fr; }
       .game-features { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
       .stat-value { font-size: 2rem; }
       .about-card { padding: 2rem 1.5rem; }
+    .game-features { grid-template-columns: 1fr 1fr; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -371,28 +355,30 @@
   <div class="ambient"></div>
 
   <div class="content">
-    <!-- Nav -->
-    <nav class="nav" id="nav">
-      <div class="nav-inner">
-        <div class="nav-brand">
-          <img src="mypic.jpg" alt="看雲起雲落" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);">
-          <div class="nav-title"><span>看雲起雲落</span></div>
+    <!-- 站点 Header -->
+    <section class="site-header-section" style="padding:5rem 0 1rem;">
+      <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.85rem;">
+          <img src="mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+          </div>
         </div>
-        <button class="nav-toggle" id="navToggle" aria-label="菜单">&#x2630;</button>
-        <ul class="nav-links" id="navLinks">
-          <li><a class="nav-link" href="#games">游戏</a></li>
-          <li><a class="nav-link" href="#stats">统计</a></li>
-          <li><a class="nav-link" href="#about">关于</a></li>
-        </ul>
+        <img src="assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+          space.bilibili.com/443078910
+        </a>
       </div>
-    </nav>
+    </section>
 
     <!-- Hero -->
     <section class="hero-section" id="hero">
-      <img src="mypic.jpg" alt="看雲起雲落" style="width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 0 40px rgba(212,175,55,0.4);margin:0 auto 2rem;display:block;opacity:0;animation:fadeUp 0.8s ease forwards 0.15s;">
+      <img src="mypic.jpg" alt="看雲起雲落" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 0 40px rgba(212,175,55,0.4);margin:0 auto 1.5rem;display:block;opacity:0;animation:fadeUp 0.8s ease forwards 0.15s;">
       <div class="hero-badge"><span class="dot"></span>专业游戏文档中心 · 持续更新中</div>
       <h1 class="hero-title"><span class="gold">看雲起雲落</span> 的刷子笔记</h1>
-      <p class="hero-subtitle">从入坑到痴迷，记录每一次刷宝的惊喜与成长。这里没有完美的攻略，只有不断累积的实战经验——愿和你一起变强</p>
+      <p class="hero-subtitle">一只上班狗，喜欢看云起云落，业余刷刷刷，随缘更新。大家的喜欢，就是我最大的动力。</p>
       <a href="#games" class="hero-cta">
         开始探索
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -517,33 +503,25 @@
       </div>
     </section>
 
-    <!-- About -->
-    <section class="about-section" id="about">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-label">ABOUT</div>
-          <h2 class="section-title">关于本站</h2>
-        </div>
-        <div class="about-card">
-          <img src="mypic.jpg" alt="看雲起雲落" class="about-avatar">
-          <h3 class="about-name">看雲起雲落</h3>
-          <p class="about-desc">
-            一个和你一样沉迷刷宝的普通玩家。<br>
-            从第一次爆装到现在的BD理解，一路踩坑一路成长。<br>
-            这些笔记记录的是我和这些游戏一起走过的日子，<br>
-            也希望能成为你冒险路上的小小参考。<br><br>
-            <span style="color:var(--gold);font-size:0.8rem;">☞ 一起刷，一起变强</span>
-          </p>
-        </div>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2026 <span style="color:var(--gold);">看雲起雲落</span> · 用心打造的攻略站 · All Rights Reserved</p>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+            B站: @看雲起雲落
+          </a>
+          <img src="assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+        </div>
       </div>
     </footer>
+
+    <!-- QR Code Preview -->
+    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+      <img src="assets/images/my-bili-2pic.png" alt="B站二维码大图">
+    </div>
   </div>
 
   <script>
@@ -557,17 +535,6 @@
       window.addEventListener('resize',r);r();
     })();
 
-    // Nav scroll
-    (function(){
-      const n=document.getElementById('nav');
-      window.addEventListener('scroll',()=>n.classList.toggle('scrolled',window.scrollY>20),{passive:true});
-    })();
-
-    // Mobile nav
-    (function(){
-      const t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
-      if(t)t.addEventListener('click',()=>l.classList.toggle('open'));
-    })();
 
     // Scroll reveal
     (function(){

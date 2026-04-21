@@ -235,6 +235,38 @@
       color: #554444; font-size: 0.75rem;
     }
 
+    /* Site header & footer (homepage style) */
+    .site-header-section {
+      padding: 5rem 0 1rem;
+    }
+    .footer {
+      padding: 2rem 0; border-top: 1px solid rgba(58, 32, 40, 0.4);
+      text-align: center; color: #554444; font-size: 0.75rem;
+    }
+    .footer-qr {
+      width: 48px; height: 48px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
+      background: #fff; padding: 2px; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .footer-qr:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 12px rgba(255,255,255,0.15);
+    }
+    .qr-preview-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: all 0.3s;
+      cursor: pointer;
+    }
+    .qr-preview-overlay.open { opacity: 1; visibility: visible; }
+    .qr-preview-overlay img {
+      width: 200px; height: 200px; border-radius: 12px;
+      background: #fff; padding: 10px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    }
+
     /* === Responsive === */
     @media (max-width: 768px) {
       .page-container { padding: 0 1rem; }
@@ -250,7 +282,32 @@
         animation-duration: 0.01ms !important; transition-duration: 0.01ms !important;
       }
     }
-  </style>
+  
+    /* Site header & footer */
+    .footer {
+      padding: 2rem 0; border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.06));
+      text-align: center; color: #554444; font-size: 0.75rem;
+    }
+    .footer-qr {
+      width: 48px; height: 48px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
+      background: #fff; padding: 2px; cursor: pointer; transition: all 0.2s;
+    }
+    .footer-qr:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.15); }
+    .qr-preview-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.85);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: all 0.3s; cursor: pointer;
+    }
+    .qr-preview-overlay.open { opacity: 1; visibility: visible; }
+    .qr-preview-overlay img {
+      width: 200px; height: 200px; border-radius: 12px;
+      background: #fff; padding: 10px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    }
+
+</style>
 </head>
 <body>
   <!-- Background -->
@@ -270,7 +327,25 @@
     </div>
   </nav>
 
-  <main class="page-container page-content">
+      <!-- 站点 Header -->
+    <section class="site-header-section" style="padding:5rem 0 1rem;">
+      <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.85rem;">
+          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+          </div>
+        </div>
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+          space.bilibili.com/443078910
+        </a>
+      </div>
+    </section>
+
+<main class="page-container page-content">
     <!-- Hero -->
     <section class="d4-hero">
       <div class="season-badge">
@@ -302,7 +377,7 @@
             <span class="card-tag new">开荒BD</span>
             <span class="card-tag warlock">DLC2</span>
           </div>
-          <div class="card-title">术士开荒BD · 仪式师·地狱裂隙</div>
+          <div class="card-title">术士开荒：仪式师·深渊·地狱裂隙（含新暗金和威能）</div>
           <p class="card-desc">压制层数驱动多重增伤，配合妖术与易爆完成毁灭性AOE，三重裂缝爆发清场</p>
           <div class="card-enter">
             阅读攻略
@@ -334,31 +409,61 @@
       </a>
 
       <!-- 护身符甲系统 -->
-      <a href="#" class="guide-card locked">
-        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
-        <div class="card-tags"><span class="card-tag new">资料片</span></div>
-        <div class="card-title">护身符甲系统</div>
-        <p class="card-desc">赫拉迪姆印记核心驱动、五插槽机制、套装效果触发、荣誉印记特殊规则</p>
-        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <a href="horadric-charms.html" class="guide-card">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <div class="card-tags"><span class="card-tag new">资料片</span><span class="card-tag mechanic">机制</span></div>
+        <div class="card-title">护身符系统</div>
+        <p class="card-desc">赫拉迪姆印记核心驱动、五插槽机制、套装效果触发、稀有护身符图鉴</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
 
       <!-- 赫拉迪克方块 -->
-      <a href="#" class="guide-card locked">
-        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
-        <div class="card-tags"><span class="card-tag new">资料片</span></div>
-        <div class="card-title">赫拉迪克方块</div>
-        <p class="card-desc">3x3合成系统、黄装升级传奇、数值重铸、装备价值重塑</p>
-        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <a href="horadric-cube-guide.html" class="guide-card">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg></div>
+        <div class="card-tags"><span class="card-tag new">资料片</span><span class="card-tag mechanic">机制</span></div>
+        <div class="card-title">赫拉迪姆方块完全解读</div>
+        <p class="card-desc">14种配方全解析 · 词缀添加/混沌重铸/物品变形 · 护身符制作 · 符文系统 · 材料大全</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
 
-      <!-- DLC2 前瞻 -->
+      <!-- 征战计划系统 -->
       <a href="#" class="guide-card locked">
         <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
-        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="card-tags"><span class="card-tag warlock">DLC2</span></div>
-        <div class="card-title">DLC2 · 第二资料片</div>
-        <p class="card-desc">全新主线剧情、新地图世界探索、排名与天梯系统、全新职业</p>
-        <div class="card-enter">阅读前瞻<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span><span class="card-tag season">新系统</span></div>
+        <div class="card-title">征战计划系统</div>
+        <p class="card-desc">全新进度奖励系统、赛季任务链、专属奖励与里程碑</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- 斯科沃斯全新区域 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.5 17 20 14 20 10a8 8 0 10-16 0c0 4 2.5 7 8 11.7z"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span><span class="card-tag new">新区域</span></div>
+        <div class="card-title">斯科沃斯 · 全新区域</div>
+        <p class="card-desc">吸血鬼之地、全新地图探索、区域事件与隐藏 Boss</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- 钓鱼攻略 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M19 11V4a2 2 0 00-2-2H4a2 2 0 00-2 2v11a2 2 0 002 2h4"/><path d="M12 17v5"/><path d="M8 22h8"/><path d="M15 8l3 3-3 3"/><path d="M18 11H7"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span><span class="card-tag mechanic">休闲玩法</span></div>
+        <div class="card-title">钓鱼系统攻略</div>
+        <p class="card-desc">钓鱼玩法、稀有鱼种图鉴、钓鱼奖励与成就系统</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- DLC2 剧情解读 -->
+      <a href="#" class="guide-card locked">
+        <div class="card-overlay"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg><span>敬请期待</span></div>
+        <div class="card-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
+        <div class="card-tags"><span class="card-tag warlock">DLC2</span><span class="card-tag new">剧情</span></div>
+        <div class="card-title">DLC2 剧情解读</div>
+        <p class="card-desc">憎恨之王完整剧情线、关键角色解析、隐藏任务与彩蛋</p>
+        <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
 
@@ -407,7 +512,7 @@
       <a href="warlock-build.html" class="guide-card">
         <div class="card-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="card-tags"><span class="card-tag new">开荒BD</span><span class="card-tag warlock">DLC2</span><span class="card-tag class-tag">术士</span></div>
-        <div class="card-title">术士开荒BD · 仪式师·地狱裂隙</div>
+        <div class="card-title">术士开荒：仪式师·深渊·地狱裂隙（含新暗金和威能）</div>
         <p class="card-desc">压制驱动爆发循环，三重裂缝AOE清场，完整装备与技能配置</p>
         <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
@@ -492,11 +597,26 @@
         <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
-
-    <footer class="page-footer">
-      <p>&copy; 2026 游戏攻略指南 · 看雲起雲落 · Diablo IV Season 13</p>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+            B站: @看雲起雲落
+          </a>
+          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+        </div>
+      </div>
     </footer>
-  </main>
+
+    <!-- QR Code Preview -->
+    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+    </div>
+</main>
 
   <script src="../../assets/js/main.js"></script>
 </body>

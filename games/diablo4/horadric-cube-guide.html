@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赫拉迪姆方块完全解读 - 暗黑破坏神 IV</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+  <link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+  <style>
+    /* === D4 Cube Guide Page Styles === */
+    :root {
+      --gold: #DAA520;
+      --gold-dim: #7a5a25;
+      --red: #c0392b;
+      --green: #27ae60;
+      --blue: #3498db;
+      --purple: #8e44ad;
+    }
+
+    .cube-page { padding: 0 3rem 4rem; max-width: 1200px; margin: 0 auto; }
+
+    /* Section */
+    .cube-section {
+      margin-bottom: 4rem;
+      padding-top: 2rem;
+      scroll-margin-top: 80px;
+    }
+
+    .cube-section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(58,32,40,0.4);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .cube-section-title .sec-icon {
+      font-size: 1.3rem;
+    }
+
+    .cube-section-desc {
+      color: #8a7a70;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+
+    /* Sub section */
+    .cube-sub {
+      margin-bottom: 3rem;
+      scroll-margin-top: 80px;
+    }
+
+    .cube-sub-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f0e8e0;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cube-sub-title .sub-icon {
+      color: var(--gold);
+    }
+
+    /* Recipe card */
+    .recipe-card {
+      background: rgba(26,15,20,0.85);
+      border: 1px solid rgba(58,32,40,0.5);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+    }
+
+    .recipe-card:hover {
+      border-color: rgba(218,165,32,0.3);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .recipe-header {
+      padding: 1.25rem 1.5rem;
+      background: rgba(139,0,0,0.08);
+      border-bottom: 1px solid rgba(58,32,40,0.4);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .recipe-header:hover {
+      background: rgba(139,0,0,0.12);
+    }
+
+    .recipe-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #f0e8e0;
+    }
+
+    .recipe-name-en {
+      font-size: 0.72rem;
+      color: #554444;
+      margin-left: 0.5rem;
+    }
+
+    .recipe-toggle {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: #665555;
+      transition: transform 0.3s;
+    }
+
+    .recipe-card.open .recipe-toggle {
+      transform: rotate(180deg);
+      color: var(--gold);
+    }
+
+    .recipe-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .recipe-card.open .recipe-body {
+      max-height: 3000px;
+    }
+
+    .recipe-content {
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .recipe-info p {
+      color: #b0a098;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .recipe-desc-en {
+      font-style: italic;
+      color: #665555;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      padding: 0.75rem 1rem;
+      background: rgba(0,0,0,0.2);
+      border-left: 3px solid var(--gold-dim);
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 1rem;
+    }
+
+    .recipe-materials {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .recipe-materials li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: #b0a098;
+      border-bottom: 1px solid rgba(58,32,40,0.2);
+    }
+
+    .recipe-materials li:last-child { border-bottom: none; }
+
+    .mat-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .recipe-image {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .recipe-image img {
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid rgba(58,32,40,0.4);
+      cursor: zoom-in;
+      transition: all 0.3s;
+    }
+
+    .recipe-image img:hover {
+      border-color: rgba(218,165,32,0.4);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    /* Warning */
+    .recipe-warning {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      background: rgba(231,76,60,0.08);
+      border: 1px solid rgba(231,76,60,0.25);
+      border-radius: 8px;
+      margin-top: 0.75rem;
+    }
+
+    .recipe-warning .warn-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .recipe-warning p {
+      font-size: 0.82rem;
+      color: #e07060;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Table */
+    .cube-table-wrap {
+      overflow-x: auto;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(58,32,40,0.5);
+    }
+
+    .cube-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      min-width: 600px;
+    }
+
+    .cube-table th {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.85rem 1.25rem;
+      background: rgba(139,0,0,0.08);
+      border-bottom: 1px solid rgba(58,32,40,0.5);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .cube-table td {
+      padding: 0.75rem 1.25rem;
+      color: #b0a098;
+      border-bottom: 1px solid rgba(58,32,40,0.2);
+      vertical-align: top;
+    }
+
+    .cube-table tr:hover td {
+      background: rgba(218,165,32,0.03);
+    }
+
+    .cube-table .en {
+      font-family: 'Cinzel', serif;
+      color: #f0e8e0;
+      font-size: 0.82rem;
+    }
+
+    .cube-table .zh {
+      color: #8a7a70;
+    }
+
+    .cube-table .note {
+      color: #554444;
+      font-size: 0.78rem;
+    }
+
+    /* Material card */
+    .mat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .mat-card {
+      background: rgba(26,15,20,0.7);
+      border: 1px solid rgba(58,32,40,0.4);
+      border-radius: 10px;
+      padding: 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .mat-card:hover {
+      border-color: rgba(218,165,32,0.3);
+    }
+
+    .mat-card .mat-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 0.15rem;
+    }
+
+    .mat-card .mat-name-zh {
+      font-size: 0.8rem;
+      color: #8a7a70;
+      margin-bottom: 0.5rem;
+    }
+
+    .mat-card .mat-use {
+      font-size: 0.78rem;
+      color: #665555;
+      line-height: 1.6;
+    }
+
+    /* Rune grid */
+    .rune-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .rune-card {
+      background: rgba(26,15,20,0.7);
+      border: 1px solid rgba(58,32,40,0.4);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+
+    .rune-card .rune-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.15rem;
+    }
+
+    .rune-card .rune-name-zh {
+      font-size: 0.78rem;
+      color: #665555;
+      margin-bottom: 0.5rem;
+    }
+
+    .rune-card .rune-type {
+      font-size: 0.65rem;
+      color: #554444;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .rune-card .rune-effect {
+      font-size: 0.82rem;
+      color: #b0a098;
+      line-height: 1.6;
+    }
+
+    .rune-mystery {
+      border-style: dashed;
+      border-color: rgba(58,32,40,0.3);
+      opacity: 0.6;
+    }
+
+    .rune-mystery .rune-effect {
+      color: #554444;
+      font-style: italic;
+    }
+
+    /* Disclaimer */
+    .cube-disclaimer {
+      padding: 1.25rem 1.5rem;
+      background: rgba(231,76,60,0.06);
+      border: 1px solid rgba(231,76,60,0.2);
+      border-radius: 12px;
+      margin-bottom: 3rem;
+    }
+
+    .cube-disclaimer p {
+      font-size: 0.85rem;
+      color: #b0a098;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .cube-disclaimer strong {
+      color: #e07060;
+    }
+
+    /* Outro */
+    .cube-outro {
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 2rem;
+    }
+
+    .cube-outro p {
+      font-size: 1rem;
+      color: #8a7a70;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .outro-date {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .outro-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .outro-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: 1px solid rgba(58,32,40,0.5);
+      background: rgba(26,15,20,0.8);
+      color: #b0a098;
+    }
+
+    .outro-btn:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .outro-btn.primary {
+      background: linear-gradient(135deg, rgba(139,0,0,0.2), rgba(218,165,32,0.15));
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    .outro-btn.primary:hover {
+      background: linear-gradient(135deg, rgba(139,0,0,0.3), rgba(218,165,32,0.25));
+      box-shadow: 0 4px 20px rgba(218,165,32,0.15);
+    }
+
+    /* Lightbox */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      cursor: zoom-out;
+    }
+
+    .lightbox-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cube-page { padding: 0 1.5rem 3rem; }
+      .recipe-content { grid-template-columns: 1fr; }
+      .recipe-image { order: -1; }
+    }
+
+    @media (max-width: 600px) {
+      .mat-grid { grid-template-columns: 1fr; }
+      .rune-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+      <span class="nav-game-name">赫拉迪姆方块解读</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 赫拉迪姆方块</span>
+    </div>
+  </nav>
+
+  <!-- 灯箱 -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')">
+    <img id="lightboxImage" src="" alt="图片预览">
+  </div>
+
+  <!-- 站点 Header -->
+  <section class="site-header-section" style="padding:5rem 0 1rem;">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.85rem;">
+        <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+        </div>
+      </div>
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+      <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+        space.bilibili.com/443078910
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== 左侧导航栏 ====== -->
+  <aside class="guide-sidebar" id="guideSidebar">
+    <div class="guide-sidebar-title">目录导航</div>
+    <ul class="guide-sidebar-nav">
+      <li><a href="#sec-overview" class="active"><span class="nav-icon">&#x1F4CB;</span><span class="nav-text">方块功能总览</span><span class="nav-step">TOP</span></a></li>
+      <li><a href="#sec-materials"><span class="nav-icon">&#x2B50;</span><span class="nav-text">全新材料系统</span><span class="nav-step">CH 2</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-modify"><span class="nav-icon">&#x1F527;</span><span class="nav-text">装备修改详解</span><span class="nav-step">CH 3</span></a></li>
+      <li><a href="#sec-convert"><span class="nav-icon">&#x1F504;</span><span class="nav-text">物品转化详解</span><span class="nav-step">CH 4</span></a></li>
+      <li><a href="#sec-charms"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符专属配方</span><span class="nav-step">CH 5</span></a></li>
+      <li><a href="#sec-runes"><span class="nav-icon">&#x2728;</span><span class="nav-text">符文制作</span><span class="nav-step">CH 6</span></a></li>
+      <li><a href="#sec-cheatsheet"><span class="nav-icon">&#x1F4CA;</span><span class="nav-text">材料速查表</span><span class="nav-step">CH 7</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-outro"><span class="nav-icon">&#x1F3AF;</span><span class="nav-text">结语</span><span class="nav-step">END</span></a></li>
+    </ul>
+    <div class="guide-sidebar-footer">
+      <a href="index.html">&#x2190; 返回D4首页</a>
+    </div>
+  </aside>
+
+  <!-- 移动端侧边栏切换按钮 -->
+  <button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ====== 主内容区域 ====== -->
+  <main class="guide-content">
+    <div class="cube-page">
+
+      <!-- 免责声明 -->
+      <div class="cube-disclaimer">
+        <p><strong>&#x26A0;&#xFE0F; 重要声明：</strong>本文所有数据均来源于《憎恨之王》测试版界面截图，由玩家社区反推整理而成。以上信息不代表官方最终设定，部分数值、材料、机制可能在 <strong style="color:var(--gold)">4 月 28 日</strong> 正式上线时发生调整。请以游戏内实际内容为准。</p>
+      </div>
+
+      <!-- ====== 1. 方块功能总览 ====== -->
+      <section class="cube-section" id="sec-overview">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F4CB;</span> 方块功能总览</h2>
+        <p class="cube-section-desc">赫拉迪姆方块是《憎恨之王》新增的核心系统，涵盖装备修改、物品转化、护身符制作与符文制作四大板块。共收录 <strong style="color:var(--gold)">14 种配方</strong>，以下为完整清单。</p>
+
+        <div class="cube-table-wrap">
+          <table class="cube-table">
+            <thead>
+              <tr>
+                <th>分类</th>
+                <th>配方名称</th>
+                <th>中文翻译</th>
+                <th>核心作用</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="1"><span style="color:#665555;">通用</span></td>
+                <td class="en">Clear Cube</td>
+                <td class="zh">清空方块</td>
+                <td class="note">一键清空当前放入的所有物品</td>
+              </tr>
+              <tr>
+                <td rowspan="6"><span style="color:#665555;">装备修改</span></td>
+                <td class="en">Add Affix</td>
+                <td class="zh">添加词缀</td>
+                <td class="note">为装备添加一条随机词缀</td>
+              </tr>
+              <tr>
+                <td class="en">Chaotic Reroll</td>
+                <td class="zh">混沌重铸</td>
+                <td class="note">将一条词缀随机替换为其他类别词缀</td>
+              </tr>
+              <tr>
+                <td class="en">Focused Reroll</td>
+                <td class="zh">聚焦重铸</td>
+                <td class="note">将一条词缀替换为同类别其他词缀</td>
+              </tr>
+              <tr>
+                <td class="en">Remove Affix</td>
+                <td class="zh">移除词缀</td>
+                <td class="note">移除装备上的一条词缀</td>
+              </tr>
+              <tr>
+                <td class="en">Transfigure Item</td>
+                <td class="zh">物品变形</td>
+                <td class="note">高风险高回报的终极改造</td>
+              </tr>
+              <tr>
+                <td class="en">Unique Power Reroll</td>
+                <td class="zh">独特威能重铸</td>
+                <td class="note">重铸先祖独特装备的威能数值</td>
+              </tr>
+              <tr>
+                <td rowspan="4"><span style="color:#665555;">物品转化</span></td>
+                <td class="en">3 to 1 Transmutation</td>
+                <td class="zh">三合一转化</td>
+                <td class="note">3件相同类型→1件随机新物品（装备/护身符/符文）</td>
+              </tr>
+              <tr>
+                <td class="en">Recycle Uniques</td>
+                <td class="zh">独特回收</td>
+                <td class="note">3件相同独特装备/护身符→1件同独特新版本</td>
+              </tr>
+              <tr>
+                <td class="en">Upgrade to Unique</td>
+                <td class="zh">升级至独特</td>
+                <td class="note">普通装备→同类型随机独特</td>
+              </tr>
+              <tr>
+                <td class="en">Upgrade to Legendary</td>
+                <td class="zh">升级至传奇</td>
+                <td class="note">稀有装备→带有随机传奇威能的传奇装备</td>
+              </tr>
+              <tr>
+                <td rowspan="3"><span style="color:#665555;">护身符专属</span></td>
+                <td class="en">Reroll Set Charm</td>
+                <td class="zh">重铸套装护身符</td>
+                <td class="note">套装护身符→同套装另一件</td>
+              </tr>
+              <tr>
+                <td class="en">Craft Unique Charm</td>
+                <td class="zh">制作独特护身符</td>
+                <td class="note">先祖独特装备→独特护身符（部分独特不适用）</td>
+              </tr>
+              <tr>
+                <td class="en">Amalgamation</td>
+                <td class="zh">融合</td>
+                <td class="note">将多个护身符合并或转化（机制待确认）</td>
+              </tr>
+              <tr>
+                <td><span style="color:#665555;">符文相关</span></td>
+                <td class="en">Rune Crafting</td>
+                <td class="zh">符文制作</td>
+                <td class="note">制作仪式符文与祈唤符文</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ====== 2. 全新材料系统 ====== -->
+      <section class="cube-section" id="sec-materials">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x2B50;</span> 全新材料系统</h2>
+        <p class="cube-section-desc">方块配方需要消耗多种原初之尘与关键道具，以下为已确认的材料清单。</p>
+
+        <h3 style="font-family:'Cinzel',serif;font-size:1rem;color:#f0e8e0;margin-bottom:1rem;">原初之尘家族 · Primordial Dust</h3>
+
+        <div class="mat-grid">
+          <div class="mat-card">
+            <div class="mat-name">Coarse Primordial Dust</div>
+            <div class="mat-name-zh">粗糙原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">添加词缀</strong> 配方</div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Raw Primordial Dust</div>
+            <div class="mat-name-zh">原始原初之尘</div>
+            <div class="mat-use">几乎所有配方的<strong style="color:var(--gold)">通用辅料</strong>，需求量最大</div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Refined Primordial Dust</div>
+            <div class="mat-name-zh">精炼原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">混沌重铸 / 聚焦重铸</strong></div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Pure Primordial Dust</div>
+            <div class="mat-name-zh">纯净原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">升级至传奇</strong></div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Enhanced Primordial Dust</div>
+            <div class="mat-name-zh">强化原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">升级至独特 / 制作独特护身符</strong></div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Volatile Primordial Dust</div>
+            <div class="mat-name-zh">不稳定原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">物品变形</strong>（⚠️ 高风险配方）</div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Attuned Primordial Dust</div>
+            <div class="mat-name-zh">调和原初之尘</div>
+            <div class="mat-use">用于 <strong style="color:var(--gold)">独特威能重铸</strong>（需求 100 颗）</div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Cinzel',serif;font-size:1rem;color:#f0e8e0;margin-bottom:1rem;">关键道具</h3>
+
+        <div class="mat-grid">
+          <div class="mat-card">
+            <div class="mat-name">Tuning Prism</div>
+            <div class="mat-name-zh">调谐棱镜</div>
+            <div class="mat-use">控制随机词缀/结果的类别，部分配方为<strong style="color:var(--gold)">必选材料</strong></div>
+          </div>
+          <div class="mat-card">
+            <div class="mat-name">Infused Horadric Resin</div>
+            <div class="mat-name-zh">注入赫拉迪姆树脂</div>
+            <div class="mat-use">用于<strong style="color:var(--gold)">护身符重铸</strong>与<strong style="color:var(--gold)">制作配方</strong></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 3. 装备修改详解 ====== -->
+      <section class="cube-section" id="sec-modify">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F527;</span> 装备修改详解</h2>
+        <p class="cube-section-desc">以下 6 种配方直接作用于已有装备，改变其词缀、威能或整体形态。使用时需将装备放入方块并搭配对应材料。</p>
+
+        <!-- 添加词缀 -->
+        <div class="cube-sub" id="sec-add-affix">
+          <div class="recipe-card open">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">添加词缀 <span class="recipe-name-en">Add Affix</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Adds a random Affix to an Item. Use a Tuning Prism to narrow the Affix Category.</div>
+                  <p>为物品添加一条随机词缀。使用调谐棱镜可缩小词缀类别范围。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 普通/魔法/稀有/传奇 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Coarse Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust</li>
+                    <li><span class="mat-icon">&#x1F52E;</span> Tuning Prism（可选）</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Add Affix.png" alt="Add Affix 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 混沌重铸 -->
+        <div class="cube-sub" id="sec-chaotic-reroll">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">混沌重铸 <span class="recipe-name-en">Chaotic Reroll</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Changes a random Affix to one of another Category. Use a Tuning Prism to determine the Category of the random chosen Affix.</div>
+                  <p>将一条随机词缀更改为<strong style="color:var(--gold)">另一类别</strong>的词缀。使用调谐棱镜可指定随机选择词缀的类别。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 魔法/稀有/传奇 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Refined Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×15</li>
+                    <li><span class="mat-icon">&#x1F52E;</span> Tuning Prism（可选）</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Chaotic Reroll.png" alt="Chaotic Reroll 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 聚焦重铸 -->
+        <div class="cube-sub" id="sec-focused-reroll">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">聚焦重铸 <span class="recipe-name-en">Focused Reroll</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Changes an Affix to one of the same Category. Requires a Tuning Prism to determine the Category.</div>
+                  <p>将一条词缀更改为<strong style="color:var(--gold)">同一类别</strong>的另一词缀。必须使用调谐棱镜来指定类别。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 魔法/稀有/传奇 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Refined Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×15</li>
+                    <li><span class="mat-icon">&#x1F52E;</span> Tuning Prism ×1（<strong style="color:var(--red)">必选</strong>）</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Focused Reroll.png" alt="Focused Reroll 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 移除词缀 -->
+        <div class="cube-sub" id="sec-remove-affix">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">移除词缀 <span class="recipe-name-en">Remove Affix</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <p>移除装备上的一条指定词缀。</p>
+                  <p style="color:#554444;font-size:0.82rem;">截图未显示详细描述与材料需求，待正式服确认。</p>
+                </div>
+                <div class="recipe-image" style="align-items:center;color:#554444;font-size:0.9rem;">
+                  <div style="text-align:center;">&#x1F512; 界面截图待补充</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 物品变形 -->
+        <div class="cube-sub" id="sec-transfigure">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">物品变形 <span class="recipe-name-en">Transfigure Item</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Grants a random modification of great possibilities! Use a Tuning Prism to narrow the outcomes. The item has a very high chance to become Unmodifiable after Transfiguration.</div>
+                  <p>赋予物品极具可能性的随机改造。使用调谐棱镜可缩小结果范围。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 传奇/独特/秘稀 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Volatile Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x1F52E;</span> Tuning Prism（可选）</li>
+                  </ul>
+                  <div class="recipe-warning">
+                    <span class="warn-icon">&#x26A0;&#xFE0F;</span>
+                    <p>变形后物品有<strong>极高几率</strong>变为不可再修改状态（Unmodifiable）。请慎重使用此配方！</p>
+                  </div>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/transfigure item.png" alt="Transfigure Item 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 独特威能重铸 -->
+        <div class="cube-sub" id="sec-unique-power">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">独特威能重铸 <span class="recipe-name-en">Unique Power Reroll</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Randomizes the value of the Unique Power on an Ancestral Unique item.</div>
+                  <p>随机重铸先祖独特物品上<strong style="color:var(--gold)">独特威能的数值</strong>。适用于刷到好底子但威能数值不理想的情况。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 先祖独特 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Attuned Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×100</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Unique power reroll.png" alt="Unique Power Reroll 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 4. 物品转化详解 ====== -->
+      <section class="cube-section" id="sec-convert">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F504;</span> 物品转化详解</h2>
+        <p class="cube-section-desc">4 种物品转化配方，用于将多件物品合为一件，或将低品质装备升级为高品质。</p>
+
+        <!-- 三合一转化 -->
+        <div class="cube-sub" id="sec-3to1">
+          <div class="recipe-card open">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">三合一转化 <span class="recipe-name-en">3 to 1 Transmutation</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes 3 of the same equipment, Talisman, or Rune items into a random new item of that type.</div>
+                  <p>将 3 件相同类型的装备、护身符或符文，转化为<strong style="color:var(--gold)">一件同类型的随机新物品</strong>。最基础的处理多余装备的方法。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 3件 相同类型 物品</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/3 to 1 transmutation.png" alt="3 to 1 Transmutation 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 独特回收 -->
+        <div class="cube-sub" id="sec-recycle">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">独特回收 <span class="recipe-name-en">Recycle Uniques</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes 3 of the same Unique equipment items or Charms into a new version of that Unique.</div>
+                  <p>将 3 件<strong style="color:var(--gold)">相同的独特装备或护身符</strong>，转化为该独特的新版本（重铸词缀）。相当于独特装备的"混沌石"用法。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 3件 相同独特 物品</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Recycle Uniques.png" alt="Recycle Uniques 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 升级至独特 -->
+        <div class="cube-sub" id="sec-upgrade-unique">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">升级至独特 <span class="recipe-name-en">Upgrade to Unique</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes a Common equipment item into a random Unique of the same type.</div>
+                  <p>将一件普通装备转化为<strong style="color:var(--gold)">同类型的随机独特物品</strong>。低成本搏高回报的核心配方。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 普通 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Enhanced Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×10</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Upgrade to Unique.png" alt="Upgrade to Unique 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 升级至传奇 -->
+        <div class="cube-sub" id="sec-upgrade-legendary">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">升级至传奇 <span class="recipe-name-en">Upgrade to Legendary</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes a Rare equipment item into a Legendary with a random Legendary power. Tuning Prisms can be used to modify the Category of the Legendary power that is added.</div>
+                  <p>将一件稀有装备转化为带有<strong style="color:var(--gold)">随机传奇威能</strong>的传奇物品。可使用调谐棱镜修改添加的传奇威能类别。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 稀有 物品</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Pure Primordial Dust</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust</li>
+                    <li><span class="mat-icon">&#x1F52E;</span> Tuning Prism（可选）</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Upgrade to legendary.png" alt="Upgrade to Legendary 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 5. 护身符专属配方 ====== -->
+      <section class="cube-section" id="sec-charms">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F48E;</span> 护身符专属配方</h2>
+        <p class="cube-section-desc">3 种护身符专用配方，消耗赫拉迪姆树脂进行重铸、制作与融合。</p>
+
+        <!-- 重铸套装护身符 -->
+        <div class="cube-sub" id="sec-reroll-charm">
+          <div class="recipe-card open">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">重铸套装护身符 <span class="recipe-name-en">Reroll Set Charm</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes a Set Charm to a different Charm from the same Set.</div>
+                  <p>将一件套装护身符转化为<strong style="color:var(--gold)">同一套装</strong>中的另一件护身符。用于补齐套装缺件。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 套装护身符</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×25</li>
+                    <li><span class="mat-icon">&#x1F9EA;</span> Infused Horadric Resin ×50</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Reroll set charm.png" alt="Reroll Set Charm 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 制作独特护身符 -->
+        <div class="cube-sub" id="sec-craft-charm">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">制作独特护身符 <span class="recipe-name-en">Craft Unique Charm</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <div class="recipe-desc-en">Transmutes a Unique equipment item into a Unique Charm. Some Unique items are excluded.</div>
+                  <p>将一件独特装备转化为一个<strong style="color:var(--gold)">独特护身符</strong>。部分独特物品不适用此配方。</p>
+                  <p style="color:var(--gold);font-size:0.82rem;">所需材料：</p>
+                  <ul class="recipe-materials">
+                    <li><span class="mat-icon">&#x1F4E6;</span> 1件 先祖独特 物品</li>
+                    <li><span class="mat-icon">&#x1F4E6;</span> 3件 任意 独特护身符</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Enhanced Primordial Dust ×1</li>
+                    <li><span class="mat-icon">&#x2B50;</span> Raw Primordial Dust ×50</li>
+                    <li><span class="mat-icon">&#x1F9EA;</span> Infused Horadric Resin ×100</li>
+                  </ul>
+                </div>
+                <div class="recipe-image">
+                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Craft Unique Charm.png" alt="Craft Unique Charm 界面" onclick="openLightbox(this.src)">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 融合 -->
+        <div class="cube-sub" id="sec-amalgamation">
+          <div class="recipe-card">
+            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
+              <span class="recipe-name">融合 <span class="recipe-name-en">Amalgamation</span></span>
+              <span class="recipe-toggle">&#x25BC;</span>
+            </div>
+            <div class="recipe-body">
+              <div class="recipe-content">
+                <div class="recipe-info">
+                  <p>将多个护身符合并或转化，具体机制待正式服确认。</p>
+                  <p style="color:#554444;font-size:0.82rem;">截图未显示详细描述与材料需求，待正式服确认。</p>
+                </div>
+                <div class="recipe-image" style="align-items:center;color:#554444;font-size:0.9rem;">
+                  <div style="text-align:center;">&#x1F512; 界面截图待补充</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 6. 符文制作 ====== -->
+      <section class="cube-section" id="sec-runes">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x2728;</span> 符文制作</h2>
+        <p class="cube-section-desc">制作仪式符文与祈唤符文。符文分为触发型（仪式）与消耗型（祈唤）两种。</p>
+
+        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;color:#f0e8e0;margin-bottom:1rem;">已知祈唤符文</h3>
+        <div class="rune-grid">
+          <div class="rune-card">
+            <div class="rune-name">Eom</div>
+            <div class="rune-name-zh">艾姆</div>
+            <div class="rune-type">祈唤符文</div>
+            <div class="rune-effect">
+              <strong>Chains of Horazon</strong><br>
+              +9% 愤怒生成<br>
+              +1 护身符槽位
+            </div>
+          </div>
+          <div class="rune-card">
+            <div class="rune-name">Jah</div>
+            <div class="rune-name-zh">乔</div>
+            <div class="rune-type">祈唤符文</div>
+            <div class="rune-effect">
+              <strong>Flesh of Abaddon</strong><br>
+              +1~3 地狱火技能等级
+            </div>
+          </div>
+          <div class="rune-card">
+            <div class="rune-name">Ohm</div>
+            <div class="rune-name-zh">欧姆</div>
+            <div class="rune-type">祈唤符文</div>
+            <div class="rune-effect">
+              <strong>Practiced Technique</strong><br>
+              +23% 移动速度<br>
+              +7% 击杀经验<br>
+              +1~3 药水容量
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;color:#f0e8e0;margin-bottom:1rem;">已知仪式符文（效果待揭晓）</h3>
+        <div class="rune-grid">
+          <div class="rune-card rune-mystery">
+            <div class="rune-name">Bac</div>
+            <div class="rune-name-zh">巴克</div>
+            <div class="rune-type">仪式符文 · 效果未知</div>
+            <div class="rune-effect">效果将在 4 月 28 日正式上线后揭晓</div>
+          </div>
+          <div class="rune-card rune-mystery">
+            <div class="rune-name">Igni</div>
+            <div class="rune-name-zh">伊格尼</div>
+            <div class="rune-type">仪式符文 · 效果未知</div>
+            <div class="rune-effect">效果将在 4 月 28 日正式上线后揭晓</div>
+          </div>
+          <div class="rune-card rune-mystery">
+            <div class="rune-name">Tam</div>
+            <div class="rune-name-zh">塔姆</div>
+            <div class="rune-type">仪式符文 · 效果未知</div>
+            <div class="rune-effect">效果将在 4 月 28 日正式上线后揭晓</div>
+          </div>
+          <div class="rune-card rune-mystery">
+            <div class="rune-name">Yul</div>
+            <div class="rune-name-zh">尤尔</div>
+            <div class="rune-type">仪式符文 · 效果未知</div>
+            <div class="rune-effect">效果将在 4 月 28 日正式上线后揭晓</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====== 7. 材料速查表 ====== -->
+      <section class="cube-section" id="sec-cheatsheet">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F4CA;</span> 材料速查表</h2>
+        <p class="cube-section-desc">所有配方的材料需求一览，方便快速查阅和规划。</p>
+
+        <div class="cube-table-wrap">
+          <table class="cube-table">
+            <thead>
+              <tr>
+                <th>配方</th>
+                <th>Dust 类型</th>
+                <th>Dust 数量</th>
+                <th>其他材料</th>
+                <th>调谐棱镜</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="en">Add Affix</td>
+                <td>Coarse + Raw</td>
+                <td>未显示</td>
+                <td>—</td>
+                <td>可选</td>
+              </tr>
+              <tr>
+                <td class="en">Chaotic Reroll</td>
+                <td>Refined + Raw</td>
+                <td>1 + 15</td>
+                <td>—</td>
+                <td>可选</td>
+              </tr>
+              <tr>
+                <td class="en">Focused Reroll</td>
+                <td>Refined + Raw</td>
+                <td>1 + 15</td>
+                <td>—</td>
+                <td><strong style="color:var(--red)">必选 ×1</strong></td>
+              </tr>
+              <tr>
+                <td class="en">Remove Affix</td>
+                <td>未显示</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Transfigure Item</td>
+                <td>Volatile</td>
+                <td>1</td>
+                <td>—</td>
+                <td>可选</td>
+              </tr>
+              <tr>
+                <td class="en">Unique Power Reroll</td>
+                <td>Attuned + Raw</td>
+                <td>1 + 100</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">3 to 1 Transmutation</td>
+                <td>—</td>
+                <td>—</td>
+                <td>3件相同类型</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Recycle Uniques</td>
+                <td>—</td>
+                <td>—</td>
+                <td>3件相同独特</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Upgrade to Unique</td>
+                <td>Enhanced + Raw</td>
+                <td>1 + 10</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Upgrade to Legendary</td>
+                <td>Pure + Raw</td>
+                <td>未显示</td>
+                <td>—</td>
+                <td>可选</td>
+              </tr>
+              <tr>
+                <td class="en">Reroll Set Charm</td>
+                <td>Raw</td>
+                <td>25</td>
+                <td>Infused Resin ×50</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Craft Unique Charm</td>
+                <td>Enhanced + Raw</td>
+                <td>1 + 50</td>
+                <td>Infused Resin ×100 + 3个独特护身符</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Amalgamation</td>
+                <td>未显示</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td class="en">Rune Crafting</td>
+                <td>未显示</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ====== 8. 结语 ====== -->
+      <section class="cube-section" id="sec-outro">
+        <div class="cube-outro">
+          <p class="outro-date">&#x1F52E; 4 月 28 日</p>
+          <p>赫拉迪姆方块系统的引入，为装备养成带来了前所未有的深度与灵活性。从词缀微调到独特转化，从护身符重铸到符文制作，每一套配方都值得深入研究。</p>
+          <p>让我们一起探索这个全新的系统——<strong style="color:var(--gold)">庇护之地的力量，等待被重新定义</strong>。</p>
+
+          <div class="outro-actions">
+            <a href="index.html" class="outro-btn primary">&#x1F3E0; 返回暗黑4首页</a>
+            <a href="horadric-charms.html" class="outro-btn">&#x1F48E; 护身符系统前瞻</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+            <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+              B站: @看雲起雲落
+            </a>
+            <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+            <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+            <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- QR Code Preview -->
+      <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+      </div>
+
+    </div><!-- /.cube-page -->
+  </main>
+
+  <script>
+    // Lightbox
+    function openLightbox(src) {
+      if (!src) return;
+      document.getElementById('lightboxImage').src = src;
+      document.getElementById('lightboxOverlay').classList.add('open');
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') document.getElementById('lightboxOverlay').classList.remove('open');
+    });
+  </script>
+  <script src="../../assets/js/guide-sidebar.js"></script>
+</body>
+</html>
