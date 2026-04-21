@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《暗黑破坏神4》DLC2 术士开荒BD攻略：仪式师·深渊·地狱裂隙</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep:    #07080f;
+    --bg-card:    #0d0e1a;
+    --bg-panel:   #111220;
+    --bg-item:    #0a0c18;
+    --gold:       #c8963e;
+    --gold-bright:#f0c060;
+    --gold-dim:   #7a5a25;
+    --purple:     #9966cc;
+    --purple-dim: #5533aa;
+    --red:        #c84040;
+    --green:      #40b870;
+    --blue:       #4488dd;
+    --demon:      #cc4422;
+    --demon-dim:  #7a2010;
+    --text-main:  #ddd4c0;
+    --text-dim:   #8a8070;
+    --text-white: #efe8d8;
+    --border:     #2a2820;
+    --border-gold:#40321a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(160,40,10,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 80% 80%, rgba(100,30,120,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px);
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--demon-dim); border-radius: 3px; }
+
+  /* Layout */
+  .page-wrap { display: flex; min-height: 100vh; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 210px; flex-shrink: 0;
+    position: sticky; top: 0; height: 100vh;
+    overflow-y: auto;
+    background: rgba(7,8,15,0.96);
+    border-right: 1px solid var(--border-gold);
+    padding: 24px 0 40px;
+    display: flex; flex-direction: column; gap: 2px;
+    backdrop-filter: blur(12px);
+  }
+  .sidebar-logo { padding: 0 18px 18px; border-bottom: 1px solid var(--border-gold); margin-bottom: 12px; }
+  .sidebar-logo .game-title {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    color: var(--demon-dim); letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sidebar-logo .build-title {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--demon); font-weight: 600; line-height: 1.4; margin-top: 4px;
+  }
+  .sidebar-logo .build-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 18px; color: var(--text-dim);
+    text-decoration: none; font-size: 12.5px; font-weight: 400;
+    transition: all 0.2s; cursor: pointer;
+    border-left: 2px solid transparent;
+  }
+  .nav-item:hover { color: var(--gold); background: rgba(200,150,62,0.06); border-left-color: var(--gold); }
+  .nav-item .nav-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+  .nav-sep { height: 1px; background: var(--border); margin: 8px 18px; }
+  .nav-section-label {
+    padding: 4px 18px; font-size: 10px;
+    color: var(--text-dim); letter-spacing: 2px;
+    text-transform: uppercase; opacity: 0.6;
+  }
+  .sidebar-footer {
+    margin-top: auto; padding: 16px 18px 0;
+    border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--text-dim);
+    text-align: center; line-height: 1.6;
+  }
+  .sidebar-footer span { color: var(--demon); font-weight: 500; }
+
+  /* Main */
+  .main { flex: 1; min-width: 0; overflow-x: hidden; }
+
+  /* Hero */
+  .hero {
+    position: relative; padding: 64px 60px 52px;
+    overflow: hidden; border-bottom: 1px solid var(--border-gold);
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 100% 200% at 60% 50%, rgba(180,50,20,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 100% at 95% 50%, rgba(100,30,120,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 4px; color: var(--demon-dim);
+    text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--demon-dim), transparent);
+    max-width: 200px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 3.5vw, 48px);
+    font-weight: 900; line-height: 1.15;
+    color: var(--gold-bright);
+    text-shadow: 0 0 40px rgba(200,80,30,0.5), 0 2px 20px rgba(0,0,0,0.9);
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .hero-cn {
+    font-size: clamp(14px, 2vw, 22px);
+    color: var(--demon); font-weight: 500;
+    letter-spacing: 2px; margin-bottom: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .hero-sub { font-size: 14px; color: var(--text-dim); font-weight: 300; margin-bottom: 20px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 11px; border-radius: 2px;
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.5px;
+  }
+  .tag-gold { background: rgba(200,150,62,0.15); border: 1px solid var(--gold-dim); color: var(--gold); }
+  .tag-demon { background: rgba(200,60,30,0.15); border: 1px solid var(--demon-dim); color: var(--demon); }
+  .tag-purple { background: rgba(153,102,204,0.15); border: 1px solid var(--purple-dim); color: var(--purple); }
+  .tag-unique { background: rgba(204,119,34,0.15); border: 1px solid #7a4a10; color: #cc8822; }
+  .hero-deco {
+    position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 160px; opacity: 0.035;
+    font-family: 'Cinzel', serif; font-weight: 900;
+    color: var(--demon); pointer-events: none;
+    letter-spacing: -10px; line-height: 1;
+  }
+
+  /* Section */
+  .section {
+    padding: 48px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-header {
+    display: flex; align-items: center;
+    gap: 16px; margin-bottom: 32px;
+  }
+  .section-icon { font-size: 26px; }
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: 20px;
+    font-weight: 600; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .section-title-cn {
+    font-size: 13px; color: var(--text-dim);
+    margin-top: 1px; font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .section-title-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--gold-dim), transparent);
+  }
+
+  /* Category badge */
+  .cat-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 14px; border-radius: 2px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase; font-family: 'Cinzel', serif;
+  }
+  .cat-def { background: rgba(64,136,221,0.15); border: 1px solid rgba(64,136,221,0.35); color: #88bbee; }
+  .cat-atk { background: rgba(200,60,30,0.15); border: 1px solid rgba(200,60,30,0.35); color: #e07050; }
+  .cat-res { background: rgba(64,180,112,0.15); border: 1px solid rgba(64,180,112,0.35); color: #70cc99; }
+  .cat-gen { background: rgba(200,150,62,0.15); border: 1px solid rgba(200,150,62,0.35); color: var(--gold); }
+  .cat-unique { background: rgba(204,119,34,0.18); border: 1px solid #7a4a10; color: #dd9933; }
+  .cat-hex { background: rgba(153,102,204,0.15); border: 1px solid var(--purple-dim); color: var(--purple); }
+
+  /* Item Card */
+  .item-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .item-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--demon-dim), transparent);
+  }
+  .item-card.unique-card::before {
+    background: linear-gradient(90deg, transparent, #cc7722, transparent);
+  }
+  .item-card-header {
+    padding: 11px 18px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .item-card-header.unique-header {
+    background: rgba(204,119,34,0.08);
+  }
+  .item-etype {
+    font-size: 10.5px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .item-ename {
+    font-family: 'Cinzel', serif;
+    font-size: 13.5px; color: var(--gold-bright); font-weight: 600;
+  }
+  .item-ename-cn { font-size: 12px; color: var(--text-dim); margin-left: 6px; }
+  .item-badge {
+    margin-left: auto; font-size: 10px;
+    padding: 2px 8px; border-radius: 2px;
+    font-weight: 600; letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
+  }
+  .badge-leg { background: rgba(200,150,62,0.2); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .badge-uniq { background: rgba(204,119,34,0.2); color: #dd9933; border: 1px solid #7a4a10; }
+  .item-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+  }
+  .item-img-col {
+    padding: 18px 14px;
+    display: flex; align-items: flex-start; justify-content: center;
+    border-right: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .item-img-col img {
+    max-width: 100%; max-height: 420px;
+    object-fit: contain; border-radius: 2px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.7));
+    cursor: zoom-in; transition: filter 0.2s;
+  }
+  .item-img-col img:hover { filter: drop-shadow(0 4px 16px rgba(0,0,0,0.7)) brightness(1.1); }
+  .item-info-col {
+    padding: 18px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  /* Affix groups */
+  .affix-group-title {
+    font-size: 11px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .affix-group-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .affix-list { display: flex; flex-direction: column; gap: 4px; }
+  .affix {
+    display: flex; align-items: flex-start; gap: 8px;
+    padding: 5px 8px; border-radius: 2px;
+    font-size: 13px; line-height: 1.5;
+  }
+  .affix.key-affix {
+    background: rgba(200,60,30,0.08);
+    border: 1px solid rgba(200,60,30,0.2);
+  }
+  .affix.unique-affix {
+    background: rgba(204,119,34,0.08);
+    border: 1px solid rgba(204,119,34,0.25);
+  }
+  .affix-dot {
+    flex-shrink: 0; width: 6px; height: 6px;
+    border-radius: 50%; margin-top: 7px;
+    background: var(--demon);
+  }
+  .affix-dot.gold { background: var(--gold); }
+  .affix-dot.orange { background: #cc7722; }
+  .affix-star {
+    flex-shrink: 0; color: var(--demon);
+    font-size: 14px; margin-top: 1px;
+  }
+  .affix-star.gold { color: var(--gold); }
+
+  /* Affix text colors */
+  .affix-key { color: var(--gold-bright); font-weight: 600; font-size: 13px; }
+  .affix-val { color: var(--green); font-weight: 500; }
+  .affix-val-gold { color: var(--gold); font-weight: 500; }
+  .affix-val-orange { color: #cc7722; font-weight: 600; }
+  .affix-normal { color: var(--text-main); }
+  .affix-note {
+    font-size: 12px; color: var(--text-dim);
+    margin-top: 2px; line-height: 1.5;
+  }
+
+  /* Text content blocks */
+  .text-block {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+  }
+  .text-block p { margin-bottom: 12px; }
+  .text-block p:last-child { margin-bottom: 0; }
+
+  .inline-label {
+    font-size: 11px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 8px; display: block;
+  }
+
+  /* Two-column resource panel */
+  .resource-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 20px;
+  }
+  .resource-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px; padding: 18px 20px;
+  }
+  .resource-card h4 {
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold-bright); margin-bottom: 8px;
+  }
+  .resource-card .res-desc {
+    font-size: 13px; color: var(--text-dim); line-height: 1.6;
+  }
+  .resource-card .res-dot {
+    display: inline-block; width: 12px; height: 12px;
+    border-radius: 50%; margin-right: 6px; vertical-align: middle;
+  }
+  .res-dot.red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+  .res-dot.purple { background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+
+  /* Data table */
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; margin-bottom: 20px;
+  }
+  .data-table th {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    color: var(--gold); letter-spacing: 1px;
+    text-transform: uppercase; padding: 10px 16px;
+    background: rgba(200,150,62,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    text-align: left;
+  }
+  .data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(42,40,32,0.5);
+    color: var(--text-main);
+  }
+  .data-table tr:hover td { background: rgba(200,150,62,0.03); }
+  .data-table .val-highlight {
+    color: var(--gold-bright); font-weight: 600;
+  }
+
+  /* Skill section */
+  .skill-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .skill-card-header {
+    padding: 14px 22px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .skill-level {
+    font-size: 11px; color: var(--text-dim);
+    font-family: 'Cinzel', serif; letter-spacing: 1px;
+  }
+  .skill-name {
+    font-family: 'Cinzel', serif; font-size: 15px;
+    color: var(--gold-bright); font-weight: 600;
+  }
+  .skill-name-cn { font-size: 12px; color: var(--text-dim); }
+  .skill-tag {
+    margin-left: auto; font-size: 10px;
+    padding: 2px 8px; border-radius: 2px;
+    font-weight: 600; letter-spacing: 0.5px;
+  }
+  .skill-tag.base { background: rgba(64,136,221,0.15); color: #88bbee; border: 1px solid rgba(64,136,221,0.3); }
+  .skill-tag.core { background: rgba(200,60,30,0.15); color: var(--red); border: 1px solid rgba(200,60,30,0.3); }
+  .skill-tag.defense { background: rgba(64,180,112,0.15); color: var(--green); border: 1px solid rgba(64,180,112,0.3); }
+  .skill-tag.sigil { background: rgba(153,102,204,0.15); color: var(--purple); border: 1px solid var(--purple-dim); }
+  .skill-tag.ultimate { background: rgba(204,119,34,0.15); color: #cc8822; border: 1px solid #7a4a10; }
+  .skill-body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+  }
+  .skill-img-col {
+    padding: 20px 16px;
+    display: flex; align-items: flex-start; justify-content: center;
+    border-right: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .skill-img-col img {
+    max-width: 100%; max-height: 500px;
+    object-fit: contain; border-radius: 2px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.7));
+  }
+  .skill-info-col {
+    padding: 18px 22px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .skill-desc {
+    font-size: 13px; color: var(--text-main); line-height: 1.7;
+  }
+  .variant-title {
+    font-size: 11px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .variant-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .variant-list { display: flex; flex-direction: column; gap: 8px; }
+  .variant-item {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; line-height: 1.6;
+  }
+  .variant-item::before {
+    content: ''; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    margin-top: 8px; background: var(--demon);
+  }
+  .variant-item.core-variant::before { background: var(--gold); }
+
+  /* Rotation steps */
+  .rotation-grid {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .rotation-phase {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .rotation-phase-header {
+    padding: 12px 20px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold); font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rotation-phase-header .phase-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--demon-dim); color: var(--gold-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .rotation-steps {
+    padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .rotation-step {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; line-height: 1.6;
+    padding: 6px 10px; border-radius: 3px;
+  }
+  .rotation-step:hover { background: rgba(200,150,62,0.04); }
+  .step-num {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border-radius: 50%; background: rgba(200,60,30,0.15);
+    border: 1px solid var(--demon-dim);
+    color: var(--demon); font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .step-skill {
+    color: var(--gold-bright); font-weight: 600;
+    font-size: 13px;
+  }
+
+  /* Shard card */
+  .shard-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .shard-card-header {
+    padding: 12px 20px;
+    background: rgba(153,102,204,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .shard-type {
+    font-size: 10.5px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .shard-name {
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--purple); font-weight: 600;
+  }
+  .shard-body {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+  }
+  .shard-img-col {
+    padding: 18px 14px;
+    display: flex; align-items: flex-start; justify-content: center;
+    border-right: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .shard-img-col img {
+    max-width: 100%; max-height: 380px;
+    object-fit: contain; border-radius: 2px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.7));
+  }
+  .shard-info-col {
+    padding: 18px 22px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .shard-effect {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; line-height: 1.6;
+    padding: 4px 0;
+  }
+  .shard-effect::before {
+    content: ''; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    margin-top: 8px; background: var(--purple);
+  }
+
+  /* Affix priority */
+  .affix-prio-group {
+    margin-bottom: 20px;
+  }
+  .affix-prio-title {
+    font-size: 12px; color: var(--gold);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .affix-prio-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .affix-chain {
+    display: flex; align-items: center; gap: 4px;
+    flex-wrap: wrap;
+  }
+  .affix-chain-item {
+    padding: 6px 14px; border-radius: 3px;
+    font-size: 13px; font-weight: 500;
+    background: rgba(200,150,62,0.08);
+    border: 1px solid rgba(200,150,62,0.2);
+    color: var(--gold);
+  }
+  .affix-chain-arrow {
+    color: var(--text-dim); font-size: 16px;
+  }
+
+  /* Image modal */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.92);
+    display: none; align-items: center; justify-content: center;
+    cursor: zoom-out; opacity: 0;
+    transition: opacity 0.25s;
+  }
+  .modal-overlay.active { display: flex; opacity: 1; }
+  .modal-overlay img {
+    max-width: 90vw; max-height: 90vh;
+    object-fit: contain; border-radius: 4px;
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
+  }
+
+  /* Back link */
+  .back-link-bar {
+    padding: 10px 60px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,8,15,0.8);
+  }
+  .back-link-bar a {
+    font-size: 13px; color: var(--text-dim);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .back-link-bar a:hover { color: var(--gold); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .hero { padding: 48px 24px 36px; }
+    .section { padding: 32px 24px; }
+    .item-body, .skill-body, .shard-body {
+      grid-template-columns: 1fr;
+    }
+    .item-img-col, .skill-img-col, .shard-img-col {
+      border-right: none; border-bottom: 1px solid var(--border);
+    }
+    .resource-grid { grid-template-columns: 1fr; }
+    .hero-deco { display: none; }
+    .back-link-bar { padding: 10px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="game-title">Diablo IV</div>
+      <div class="build-title">仪式师·地狱裂隙</div>
+      <div class="build-sub">Warlock Overpower Build</div>
+    </div>
+
+    <div class="nav-section-label">核心内容</div>
+    <a class="nav-item" href="#overview">
+      <span class="nav-icon">&#x1F4CB;</span>BD概述
+    </a>
+    <a class="nav-item" href="#resources">
+      <span class="nav-icon">&#x26A1;</span>资源机制
+    </a>
+
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">装备配置</div>
+    <a class="nav-item" href="#unique-weapon">
+      <span class="nav-icon">&#x1F5E1;</span>核心暗金武器
+    </a>
+    <a class="nav-item" href="#legendary-aspects">
+      <span class="nav-icon">&#x1F6E1;</span>传奇威能
+    </a>
+    <a class="nav-item" href="#soul-shards">
+      <span class="nav-icon">&#x1F48E;</span>灵魂碎片
+    </a>
+
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">技能搭配</div>
+    <a class="nav-item" href="#skill-molten">
+      <span class="nav-icon">&#x1F525;</span>熔岩炸弹
+    </a>
+    <a class="nav-item" href="#skill-hellfracture">
+      <span class="nav-icon">&#x26A1;</span>地狱裂隙
+    </a>
+    <a class="nav-item" href="#skill-netherstep">
+      <span class="nav-icon">&#x1F4A8;</span>幽冥步
+    </a>
+    <a class="nav-item" href="#skill-sigil">
+      <span class="nav-icon">&#x2B55;</span>混沌印记
+    </a>
+    <a class="nav-item" href="#skill-metamorphosis">
+      <span class="nav-icon">&#x1F479;</span>变形
+    </a>
+
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">实战指南</div>
+    <a class="nav-item" href="#rotation">
+      <span class="nav-icon">&#x1F504;</span>输出循环
+    </a>
+    <a class="nav-item" href="#data-table">
+      <span class="nav-icon">&#x1F4CA;</span>增伤数据
+    </a>
+    <a class="nav-item" href="#affix-priority">
+      <span class="nav-icon">&#x1F50D;</span>词缀优先级
+    </a>
+    <a class="nav-item" href="#leveling">
+      <span class="nav-icon">&#x1F4CD;</span>开荒过渡
+    </a>
+
+    <div class="sidebar-footer">
+      &copy; 2026 看雲起雲落<br>
+      <span>Season 13</span> · DLC2 前瞻
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Back link -->
+    <div class="back-link-bar">
+      <a href="index.html">&#x2190; 返回暗黑4首页</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+      <div class="hero-eyebrow">术士开荒BD攻略</div>
+      <h1>仪式师·深渊·地狱裂隙</h1>
+      <div class="hero-cn">Ritualist · Abyss · Hell Fracture</div>
+      <p class="hero-sub">中近距离爆发型施法者，通过压制层数驱动多重增伤，配合妖术与易爆完成毁灭性AOE。</p>
+      <div class="hero-tags">
+        <span class="tag tag-demon">&#x1F525; AOE爆发</span>
+        <span class="tag tag-gold">&#x2B50; 压制核心</span>
+        <span class="tag tag-purple">&#x1F4A8; 暗影形态</span>
+        <span class="tag tag-unique">&#x1F31F; 三重裂缝</span>
+        <span class="tag tag-demon">&#x1F479; 恶魔联动</span>
+      </div>
+      <div class="hero-deco">W</div>
+    </header>
+
+    <!-- ===== Section: Overview ===== -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4CB;</span>
+        <div>
+          <div class="section-title">BD概述与核心机制</div>
+          <div class="section-title-cn">BD Overview</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="text-block">
+        <p><strong class="affix-key">BD名称</strong><span class="affix-normal">：仪式师·地狱裂隙</span></p>
+        <p><strong class="affix-key">定位</strong><span class="affix-normal">：中近距离爆发型施法者。通过压制层数驱动多重增伤，配合妖术(Hex)与易爆完成毁灭性AOE。</span></p>
+        <p><strong class="affix-key">核心机制</strong><span class="affix-normal">：</span><span class="affix-val-orange">压制(Overpower)</span><span class="affix-normal">层数是整个BD的运转核心。通过消耗怒气积累压制，压制不仅提供独立增伤，更是触发妖术和维持爆发的关键资源。</span></p>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4>&#x2705; 优势</h4>
+          <p class="res-desc">AOE清图效率极高，每第三次施法的三重裂缝爆发力惊人；技能联动紧密，循环顺畅。</p>
+        </div>
+        <div class="resource-card">
+          <h4>&#x26A0;</h4>
+          <p class="res-desc">需要维持暗影形态和压制层数，对操作节奏有一定要求。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Resources ===== -->
+    <section class="section" id="resources">
+      <div class="section-header">
+        <span class="section-icon">&#x26A1;</span>
+        <div>
+          <div class="section-title">术士资源机制速览</div>
+          <div class="section-title-cn">Resource System</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4><span class="res-dot red"></span>愤怒 (Wrath)</h4>
+          <p class="res-desc">由基础技能（如熔岩炸弹）生成，用于施放核心技能（如地狱裂隙）。</p>
+          <p class="res-desc" style="margin-top:8px;"><strong class="affix-key">与本BD关联</strong><span class="affix-normal">：熔岩炸弹是主要愤怒来源，每次施放稳定生成10点怒气。</span></p>
+        </div>
+        <div class="resource-card">
+          <h4><span class="res-dot purple"></span>支配力 (Dominance)</h4>
+          <p class="res-desc">随时间自动恢复；恶魔形态下基础攻击可加速获取。用于召唤恶魔、施放部分恶魔能力。</p>
+          <p class="res-desc" style="margin-top:8px;"><strong class="affix-key">与本BD关联</strong><span class="affix-normal">：本BD不依赖召唤物，支配力主要作为恶魔形态下的辅助资源，不必刻意关注。</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Unique Weapon ===== -->
+    <section class="section" id="unique-weapon">
+      <div class="section-header">
+        <span class="section-icon">&#x1F5E1;</span>
+        <div>
+          <div class="section-title">核心暗金武器</div>
+          <div class="section-title-cn">Unique Weapon</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="cat-badge cat-unique">&#x2B50; 暗金装备 Unique</div>
+
+      <div class="item-card unique-card">
+        <div class="item-card-header unique-header">
+          <span class="item-etype">暗金武器</span>
+          <span class="item-ename">塔萨美特之脊</span>
+          <span class="item-ename-cn">Spine of Tathamet</span>
+          <span class="item-badge badge-uniq">暗金</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/Spine of Tathamet.png" alt="塔萨美特之脊武器截图" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="affix-group-title">固定词缀</div>
+            <div class="affix-list">
+              <div class="affix unique-affix">
+                <span class="affix-star gold">&#x2605;</span>
+                <span><span class="affix-val-orange">+3 地狱裂隙等级</span></span>
+              </div>
+              <div class="affix unique-affix">
+                <span class="affix-star gold">&#x2605;</span>
+                <span><span class="affix-val-orange">物品强度 815</span></span>
+              </div>
+            </div>
+            <div class="affix-group-title">传奇特效</div>
+            <div class="affix-list">
+              <div class="affix unique-affix">
+                <span class="affix-star gold">&#x2605;</span>
+                <span><span class="affix-val-orange">地狱裂隙造成 120%[x] 增伤</span>，且每第3次施放创造一次<span class="affix-val-orange">三重裂缝</span></span>
+              </div>
+            </div>
+            <div class="text-block" style="margin:0;">
+              <span class="inline-label">解析</span>
+              <p class="affix-normal" style="font-size:13px;">这是BD的绝对核心，120%独立乘伤与第3次施放的三倍覆盖，彻底改变输出节奏。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Legendary Aspects ===== -->
+    <section class="section" id="legendary-aspects">
+      <div class="section-header">
+        <span class="section-icon">&#x1F6E1;</span>
+        <div>
+          <div class="section-title">核心传奇威能配置</div>
+          <div class="section-title-cn">Legendary Aspects</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <!-- 勇力之威能 -->
+      <div class="item-card">
+        <div class="item-card-header">
+          <span class="item-etype">头盔</span>
+          <span class="item-ename">勇力之威能</span>
+          <span class="item-badge badge-leg">传奇</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/勇力之威能.png" alt="勇力之威能" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="text-block" style="margin:0;">
+              <p class="affix-normal" style="font-size:13px;">提供基础攻防属性，强化头盔位的基础生存能力。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 违抗之威能 -->
+      <div class="item-card">
+        <div class="item-card-header">
+          <span class="item-etype">胸甲</span>
+          <span class="item-ename">违抗之威能</span>
+          <span class="item-badge badge-leg">传奇</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/违抗之威能.png" alt="违抗之威能" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="text-block" style="margin:0;">
+              <p class="affix-normal" style="font-size:13px;">强化生存与控制抗性，胸甲位的核心防御威能。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 优势大师的威能 -->
+      <div class="item-card">
+        <div class="item-card-header">
+          <span class="item-etype">手套</span>
+          <span class="item-ename">优势大师的威能</span>
+          <span class="item-badge badge-leg">传奇</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/优势大师的威能.png" alt="优势大师的威能" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="text-block" style="margin:0;">
+              <p class="affix-normal" style="font-size:13px;">针对精英/首领增伤，手套位的核心输出威能。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 贪噬暴怒之威能 -->
+      <div class="item-card">
+        <div class="item-card-header">
+          <span class="item-etype">Ring 1</span>
+          <span class="item-ename">贪噬暴怒之威能</span>
+          <span class="item-badge badge-leg">Legendary</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/贪噬暴怒之威能.png" alt="贪噬暴怒之威能" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="text-block" style="margin:0;">
+              <p class="affix-normal" style="font-size:13px;">与怒气消耗联动，加速压制获取，保障BD核心压制机制的稳定运转。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Insidious Demonblad -->
+      <div class="item-card unique-card">
+        <div class="item-card-header unique-header">
+          <span class="item-etype">Ring 2 · CORE</span>
+          <span class="item-ename">Insidious Demonblad</span>
+          <span class="item-badge badge-uniq">Core</span>
+        </div>
+        <div class="item-body">
+          <div class="item-img-col">
+            <img src="../../assets/images/diablo4/warlock/Insidious Demonblade.png" alt="Insidious Demonblade" onclick="openModal(this.src)">
+          </div>
+          <div class="item-info-col">
+            <div class="affix-group-title">Core Power</div>
+            <div class="affix-list">
+              <div class="affix unique-affix">
+                <span class="affix-star gold">&#x2605;</span>
+                <span>深渊(Abyss)技能每层<span class="affix-val-orange">暗影形态(Shadowform)</span>叠层额外造成 <span class="affix-val-orange">3.4% 增伤</span></span>
+              </div>
+              <div class="affix unique-affix">
+                <span class="affix-star gold">&#x2605;</span>
+                <span>拥有<span class="affix-val-orange">隐身(Stealth)</span>时此加成提升 <span class="affix-val-orange">400%</span>（即每层变为 <span class="affix-val-orange">17%</span>）</span>
+              </div>
+            </div>
+            <div class="text-block" style="margin:0;">
+              <span class="inline-label">解析</span>
+              <p class="affix-normal" style="font-size:13px;">与幽冥步和终极技能"变形"完美联动，是恶魔形态下的主要增伤来源。配合"恐怖恶魔"变体，隐身不破，维持每层17%的超高增伤。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Soul Shards ===== -->
+    <section class="section" id="soul-shards">
+      <div class="section-header">
+        <span class="section-icon">&#x1F48E;</span>
+        <div>
+          <div class="section-title">灵魂碎片配置</div>
+          <div class="section-title-cn">Soul Shards</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <!-- 仪式师碎片 -->
+      <div class="shard-card">
+        <div class="shard-card-header">
+          <span class="shard-type">Primary Shard</span>
+          <span class="shard-name">仪式师碎片</span>
+        </div>
+        <div class="shard-body">
+          <div class="shard-img-col">
+            <img src="../../assets/images/diablo4/warlock/仪式师碎片.png" alt="仪式师碎片" onclick="openModal(this.src)">
+          </div>
+          <div class="shard-info-col">
+            <div class="shard-effect">
+              <span>秘术技能每拥有1层压制，<span class="affix-val-orange">伤害提高 4%</span></span>
+            </div>
+            <div class="shard-effect">
+              <span>每拥有2层压制，<span class="affix-val-orange">获得 10% 体型增大</span></span>
+            </div>
+            <div class="shard-effect">
+              <span>拥有至少4层压制时，秘术深渊技能命中<span class="affix-val-orange">额外施加1层妖术</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 扭曲碎片 -->
+      <div class="shard-card">
+        <div class="shard-card-header">
+          <span class="shard-type">Sub Talent</span>
+          <span class="shard-name">扭曲碎片</span>
+        </div>
+        <div class="shard-body">
+          <div class="shard-img-col">
+            <img src="../../assets/images/diablo4/warlock/扭曲碎片.png" alt="扭曲碎片" onclick="openModal(this.src)">
+          </div>
+          <div class="shard-info-col">
+            <div class="shard-effect">
+              <span>秘术地狱火技能消耗目标身上1层妖术，<span class="affix-val-orange">该次伤害提高 25%</span></span>
+            </div>
+            <div class="shard-effect">
+              <span>秘术深渊技能可被不稳定强化，并在首次命中引发 <span class="affix-val-orange">294 伤害爆炸</span></span>
+            </div>
+            <div class="shard-effect">
+              <span>每消耗50怒气<span class="affix-val-orange">获得1层压制</span></span>
+            </div>
+            <div class="text-block" style="margin:0;">
+              <span class="inline-label">联动关键</span>
+              <p class="affix-normal" style="font-size:13px;">此碎片提供了"怒气→压制"的转化，以及"妖术消耗增伤"的爆发手段。是BD压制循环与爆发联动的核心枢纽。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Skills ===== -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-icon">&#x26A1;</span>
+        <div>
+          <div class="section-title">技能配置与变体选择</div>
+          <div class="section-title-cn">Skill Configuration</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <!-- 1. 熔岩炸弹 -->
+      <div class="skill-card" id="skill-molten">
+        <div class="skill-card-header">
+          <span class="skill-level">Lv 12/12</span>
+          <span class="skill-name">Molten Bomb</span>
+          <span class="skill-name-cn">熔岩炸弹</span>
+          <span class="skill-tag base">基础</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-img-col">
+            <img src="../../assets/images/diablo4/warlock/熔岩炸弹.png" alt="熔岩炸弹技能" onclick="openModal(this.src)">
+          </div>
+          <div class="skill-info-col">
+            <p class="skill-desc">标签：基础、地狱火、伤害<br>向敌人投掷不稳定的熔岩，在小范围内造成58点伤害。</p>
+            <div class="variant-title">变体选择（三选，全部点满）</div>
+            <div class="variant-list">
+              <div class="variant-item core-variant">
+                <span><strong>范围加成</strong>：爆炸范围扩大30%，对中心区域造成额外30%伤害。</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong class="affix-val-orange">集束炸弹</strong>：投掷6个小型暗影法球，各造成17点伤害。<strong>变为深渊技能</strong>。（核心变体，使其享受深渊标签增伤）</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>怒气强化</strong>：每次撞击额外生成1点怒气。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 地狱裂隙 -->
+      <div class="skill-card" id="skill-hellfracture">
+        <div class="skill-card-header">
+          <span class="skill-level">Lv 12/12（含武器+3）</span>
+          <span class="skill-name">Hell Fracture</span>
+          <span class="skill-name-cn">地狱裂隙</span>
+          <span class="skill-tag core">核心</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-img-col">
+            <img src="../../assets/images/diablo4/warlock/地狱裂隙.png" alt="地狱裂隙技能" onclick="openModal(this.src)">
+          </div>
+          <div class="skill-info-col">
+            <p class="skill-desc">标签：核心、深渊、伤害<br>本BD的绝对核心输出技能，消耗愤怒造成巨额深渊伤害。</p>
+            <div class="variant-title">变体选择</div>
+            <div class="variant-list">
+              <div class="variant-item core-variant">
+                <span><strong class="affix-val-orange">消耗降低</strong>：施放后怒气消耗降低25%，直到你施放其他技能。（核心变体，保障连续施放续航）</span>
+              </div>
+              <div class="variant-item">
+                <span>其余变体节点根据个人手感补充增伤或范围强化。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 幽冥步 -->
+      <div class="skill-card" id="skill-netherstep">
+        <div class="skill-card-header">
+          <span class="skill-level">Lv 12/12</span>
+          <span class="skill-name">Nether Step</span>
+          <span class="skill-name-cn">幽冥步</span>
+          <span class="skill-tag defense">防御</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-img-col">
+            <img src="../../assets/images/diablo4/warlock/幽冥步.png" alt="幽冥步技能" onclick="openModal(this.src)">
+          </div>
+          <div class="skill-info-col">
+            <p class="skill-desc">标签：防御、深渊、移动<br>冷却11.72秒。穿过地狱的阴影出现在目标位置，获得4层暗影形态，以及100%移动速度加成（在2秒内衰减）。</p>
+            <div class="variant-title">变体选择（三选，全部点满）</div>
+            <div class="variant-list">
+              <div class="variant-item core-variant">
+                <span><strong>额外充能</strong>：幽冥步获得1次额外充能。</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>传送门</strong>：幽冥步的传送门保留10秒，可以再次进入以进行来回穿梭。</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>移动速度</strong>：移动速度加成持续时间延长50%。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 混沌印记 -->
+      <div class="skill-card" id="skill-sigil">
+        <div class="skill-card-header">
+          <span class="skill-level">Lv 12/12</span>
+          <span class="skill-name">Sigil of Chaos</span>
+          <span class="skill-name-cn">混沌印记</span>
+          <span class="skill-tag sigil">印记</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-img-col">
+            <img src="../../assets/images/diablo4/warlock/混沌印记.png" alt="混沌印记技能" onclick="openModal(this.src)">
+          </div>
+          <div class="skill-info-col">
+            <p class="skill-desc">标签：印记、地狱火、伤害<br>冷却14.66秒。创造持续10秒的破坏仪式使你获得易爆。击杀敌人会助长混沌地狱火，增加每个敌人死后爆炸造成23点伤害的几率。</p>
+            <div class="variant-title">变体选择（三选，全部点满）</div>
+            <div class="variant-list">
+              <div class="variant-item core-variant">
+                <span><strong class="affix-val-orange">易爆持续</strong>：离开区域后，混沌印记的易爆效果现在持续10秒。（必选，解放走位）</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>地狱火光环</strong>：印记现在施放在你周围持续15秒，并瞬间引爆内的小恶魔造成15伤害。</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>易爆施法</strong>：在印记内被易爆强化的施法算作触发3次击杀。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 变形 -->
+      <div class="skill-card" id="skill-metamorphosis">
+        <div class="skill-card-header">
+          <span class="skill-level">Lv 12/12</span>
+          <span class="skill-name">Metamorphosis</span>
+          <span class="skill-name-cn">变形</span>
+          <span class="skill-tag ultimate">终极</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-img-col">
+            <img src="../../assets/images/diablo4/warlock/变形.png" alt="变形技能" onclick="openModal(this.src)">
+          </div>
+          <div class="skill-info-col">
+            <p class="skill-desc">标签：终极、变身、伤害<br>冷却5秒。变身为恶魔并获得恶魔形态、技能变体及特殊近战攻击(383伤害)。重施可取消。</p>
+            <div class="variant-title">变体选择（三选，全部点满）</div>
+            <div class="variant-list">
+              <div class="variant-item core-variant">
+                <span><strong>伤害缩放</strong>：每拥有179点额外最大生命值，变身提供的伤害提高2%。</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong class="affix-val-orange">恐怖恶魔</strong>：赋予深渊技能等级。每秒提供4层暗影形态，深渊技能不破隐身。冷却变为30秒。（核心变体，配合威能达到每层17%增伤）</span>
+              </div>
+              <div class="variant-item core-variant">
+                <span><strong>二阶段激怒</strong>：生命值低于一半时伤害提高40%，但你无法将生命值治疗到该阈值以上。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Rotation ===== -->
+    <section class="section" id="rotation">
+      <div class="section-header">
+        <span class="section-icon">&#x1F504;</span>
+        <div>
+          <div class="section-title">输出循环与操作手法</div>
+          <div class="section-title-cn">Rotation Guide</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="rotation-grid">
+        <!-- 起手铺垫 -->
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">1</span>
+            起手铺垫
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>施放 <span class="step-skill">幽冥步</span>，获得4层暗影形态。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>开启 <span class="step-skill">变形（恐怖恶魔）</span>，进入恶魔形态，获得持续暗影形态与不破隐身效果。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">3</span>
+              <span>施放 <span class="step-skill">混沌印记</span>，获得易爆状态。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 资源积累 -->
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">2</span>
+            资源积累
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>使用 <span class="step-skill">熔岩炸弹（集束炸弹）</span> 攻击敌人，消耗怒气并叠加压制层数。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>当压制达到4层后，熔岩炸弹/地狱裂隙命中将<span class="affix-val-orange">附加妖术</span>。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 爆发输出 -->
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">3</span>
+            爆发输出
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>在易爆状态下，对带有妖术的敌人施放 <span class="step-skill">地狱裂隙</span>。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>此时地狱裂隙同时享受：<span class="affix-val-orange">武器120%[x]增伤</span>、易爆强化、消耗妖术25%增伤、暗影形态高额增伤（每层17%）、压制层数增伤。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">3</span>
+              <span>注意计数，每第三次地狱裂隙触发<span class="affix-val-orange">三重裂缝</span>，用于清场或秒杀精英。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 循环维持 -->
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">4</span>
+            循环维持
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">&infin;</span>
+              <span>持续使用熔岩炸弹维持怒气消耗与压制层数。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">&infin;</span>
+              <span>幽冥步和变形冷却就绪后及时补充暗影形态。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Data Table ===== -->
+    <section class="section" id="data-table">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4CA;</span>
+        <div>
+          <div class="section-title">核心增伤数据速查表</div>
+          <div class="section-title-cn">Damage Data</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>增伤来源</th>
+            <th>触发条件</th>
+            <th>增伤幅度（独立乘区）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="val-highlight">塔萨美特之脊</td>
+            <td>地狱裂隙命中</td>
+            <td class="val-highlight">120%[x]</td>
+          </tr>
+          <tr>
+            <td class="val-highlight">Insidious Demonblad</td>
+            <td>每层暗影形态（隐身时）</td>
+            <td class="val-highlight">17% 每层</td>
+          </tr>
+          <tr>
+            <td class="val-highlight">仪式师碎片</td>
+            <td>每层压制</td>
+            <td class="val-highlight">4% 每层</td>
+          </tr>
+          <tr>
+            <td class="val-highlight">扭曲碎片</td>
+            <td>消耗妖术</td>
+            <td class="val-highlight">25%</td>
+          </tr>
+          <tr>
+            <td class="val-highlight">混沌印记</td>
+            <td>易爆状态</td>
+            <td>随机强化下次施法</td>
+          </tr>
+          <tr>
+            <td class="val-highlight">三重裂缝</td>
+            <td>每第3次地狱裂隙</td>
+            <td class="val-highlight">3倍AOE覆盖</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== Section: Affix Priority ===== -->
+    <section class="section" id="affix-priority">
+      <div class="section-header">
+        <span class="section-icon">&#x1F50D;</span>
+        <div>
+          <div class="section-title">装备词缀优先级</div>
+          <div class="section-title-cn">Affix Priority</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="affix-prio-group">
+        <div class="affix-prio-title">&#x2694; 攻击属性</div>
+        <div class="affix-chain">
+          <span class="affix-chain-item">暴击几率</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">暴击伤害</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">深渊技能伤害</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">地狱火技能伤害</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">意志力</span>
+        </div>
+      </div>
+
+      <div class="affix-prio-group">
+        <div class="affix-prio-title">&#x1F6E1; 防御属性</div>
+        <div class="affix-chain">
+          <span class="affix-chain-item">生命值上限</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">护甲</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">全元素抗性</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">暗影抗性</span>
+        </div>
+      </div>
+
+      <div class="affix-prio-group">
+        <div class="affix-prio-title">&#x26A1; 资源属性</div>
+        <div class="affix-chain">
+          <span class="affix-chain-item">怒气生成</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">怒气消耗降低</span>
+          <span class="affix-chain-arrow">&#x2192;</span>
+          <span class="affix-chain-item">冷却缩减</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Section: Leveling ===== -->
+    <section class="section" id="leveling">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4CD;</span>
+        <div>
+          <div class="section-title">开荒过渡建议</div>
+          <div class="section-title-cn">Leveling Guide</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="rotation-grid">
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">&#x1F5E1;</span>
+            武器过渡
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>在获得 <span class="step-skill">塔萨美特之脊</span> 之前，可使用任意高伤双手武器，优先保证地狱裂隙的等级。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">&#x1F6E1;</span>
+            威能过渡
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>如果前期缺少 <span class="step-skill">Insidious Demonblad</span> 威能，可将幽冥步单纯作为位移技能，暂时放弃暗影形态增伤联动。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>先围绕压制与妖术进行构建，后续再补充暗影形态联动。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">&#x1F4D6;</span>
+            地下城优先
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>普通地下城优先解锁与<span class="affix-val-orange">深渊/地狱火</span>相关的能量法典威能。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align:center;padding:3rem 0;border-top:1px solid var(--border);color:var(--text-dim);font-size:12px;">
+      &copy; 2026 看雲起雲落 · Diablo IV Season 13 · DLC2 前瞻攻略
+    </footer>
+
+  </main>
+</div>
+
+<!-- Image Modal -->
+<div class="modal-overlay" id="imgModal" onclick="closeModal()">
+  <img src="" alt="放大查看" id="modalImg">
+</div>
+
+<script>
+function openModal(src) {
+  const modal = document.getElementById('imgModal');
+  document.getElementById('modalImg').src = src;
+  modal.classList.add('active');
+}
+function closeModal() {
+  document.getElementById('imgModal').classList.remove('active');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Active nav tracking
+const sections = document.querySelectorAll('.section[id]');
+const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => n.style.color = '');
+      const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+      if (active) {
+        active.style.color = 'var(--gold)';
+        active.style.borderLeftColor = 'var(--gold)';
+      }
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

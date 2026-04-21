@@ -346,16 +346,15 @@
   .callout-demon strong { color: #f08060; }
 
   /* Stats row */
-  .stats-row {
-    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px;
+  .stat-list { display: flex; flex-direction: column; gap: 3px; margin-bottom: 4px; }
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 12px; border-radius: 2px;
+    font-size: 12.5px; background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
   }
-  .stat-chip {
-    display: inline-flex; align-items: center; gap: 4px;
-    padding: 3px 10px; border-radius: 2px;
-    font-size: 12px; background: rgba(255,255,255,0.04);
-    border: 1px solid var(--border); color: var(--text-dim);
-  }
-  .stat-chip .val { color: var(--text-white); font-weight: 500; }
+  .stat-label { color: var(--text-dim); }
+  .stat-value { color: var(--text-white); font-weight: 600; font-family: 'Chakra Petch', sans-serif; }
 
   /* Lore */
   .lore-text {
@@ -509,12 +508,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">298</span> DPS</span>
-                <span class="stat-chip">+<span class="val">56</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">64</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">16%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">48%</span> Crit Dmg</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">伤害每秒 (DPS)</span><span class="stat-value">298</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">56</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">64</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">16%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击伤害 (Crit Dmg)</span><span class="stat-value">48%</span></div>
               </div>
             </div>
 
@@ -562,12 +561,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">295</span> DPS</span>
-                <span class="stat-chip">+<span class="val">60</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">56</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">17%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">50%</span> Crit Dmg</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">伤害每秒 (DPS)</span><span class="stat-value">295</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">60</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">56</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">17%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击伤害 (Crit Dmg)</span><span class="stat-value">50%</span></div>
               </div>
             </div>
 
@@ -614,12 +613,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">295</span> DPS</span>
-                <span class="stat-chip">+<span class="val">56</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">60</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">16%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">48%</span> Crit Dmg</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">伤害每秒 (DPS)</span><span class="stat-value">295</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">56</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">60</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">16%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击伤害 (Crit Dmg)</span><span class="stat-value">48%</span></div>
               </div>
             </div>
 
@@ -666,12 +665,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">63</span> All Resist</span>
-                <span class="stat-chip">+<span class="val">30</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">8%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">3.2%</span> Crit Chance</span>
-                <span class="stat-chip">+<span class="val">24%</span> Crit Dmg</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">63</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">30</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">8%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击率 (Crit Chance)</span><span class="stat-value">3.2%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击伤害 (Crit Dmg)</span><span class="stat-value">24%</span></div>
               </div>
             </div>
 
@@ -731,12 +730,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">675</span> Armor</span>
-                <span class="stat-chip">+<span class="val">30</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">25</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">43</span> Life/5s</span>
-                <span class="stat-chip">+<span class="val">1</span> Demonology Skills</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">护甲值 (Armor)</span><span class="stat-value">675</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">30</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">25</span></div>
+              <div class="stat-row"><span class="stat-label">生命恢复 (Life/5s)</span><span class="stat-value">43</span></div>
+              <div class="stat-row"><span class="stat-label">恶魔学技能等级 (Demonology Skills)</span><span class="stat-value">1</span></div>
               </div>
             </div>
 
@@ -783,12 +782,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">862</span> Armor</span>
-                <span class="stat-chip">+<span class="val">30</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">32</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">70</span> Armor</span>
-                <span class="stat-chip">+<span class="val">17</span> All Resist</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">护甲值 (Armor)</span><span class="stat-value">862</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">30</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">32</span></div>
+              <div class="stat-row"><span class="stat-label">护甲值 (Armor)</span><span class="stat-value">70</span></div>
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">17</span></div>
               </div>
             </div>
 
@@ -848,12 +847,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">62</span> All Resist</span>
-                <span class="stat-chip">+<span class="val">29</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">13</span> Life on Kill</span>
-                <span class="stat-chip">+<span class="val">8.3%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">2%</span> Crit Chance</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">62</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">29</span></div>
+              <div class="stat-row"><span class="stat-label">击杀生命恢复 (Life on Kill)</span><span class="stat-value">13</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">8.3%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击率 (Crit Chance)</span><span class="stat-value">2%</span></div>
               </div>
             </div>
 
@@ -900,12 +899,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">82</span> All Resist</span>
-                <span class="stat-chip">+<span class="val">28</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">8%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">25%</span> Crit Dmg</span>
-                <span class="stat-chip">+<span class="val">15</span> All Resist</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">82</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">28</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">8%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击伤害 (Crit Dmg)</span><span class="stat-value">25%</span></div>
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">15</span></div>
               </div>
             </div>
 
@@ -965,12 +964,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">338</span> Armor</span>
-                <span class="stat-chip">+<span class="val">29</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">30</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">8.9%</span> Move Speed</span>
-                <span class="stat-chip">+<span class="val">17</span> All Resist</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">护甲值 (Armor)</span><span class="stat-value">338</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">29</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">30</span></div>
+              <div class="stat-row"><span class="stat-label">移动速度 (Move Speed)</span><span class="stat-value">8.9%</span></div>
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">17</span></div>
               </div>
             </div>
 
@@ -1038,12 +1037,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">86</span> All Resist</span>
-                <span class="stat-chip">+<span class="val">11%</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">8.5%</span> Crit Chance</span>
-                <span class="stat-chip"><span class="val">10%</span> CDR</span>
-                <span class="stat-chip">+<span class="val">3</span> Sigil of Summons</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">全元素抗性 (All Resist)</span><span class="stat-value">86</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">11%</span></div>
+              <div class="stat-row"><span class="stat-label">暴击率 (Crit Chance)</span><span class="stat-value">8.5%</span></div>
+              <div class="stat-row"><span class="stat-label">冷却缩减 (CDR)</span><span class="stat-value">10%</span></div>
+              <div class="stat-row"><span class="stat-label">召唤印记技能等级 (Sigil of Summons)</span><span class="stat-value">3</span></div>
               </div>
             </div>
 
@@ -1094,12 +1093,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">2,004</span> Armor</span>
-                <span class="stat-chip">+<span class="val">121</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">1,000</span> Max Life</span>
-                <span class="stat-chip">+<span class="val">505</span> Poison Resist</span>
-                <span class="stat-chip">+<span class="val">3</span> Wall of Agony</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">护甲值 (Armor)</span><span class="stat-value">2,004</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">121</span></div>
+              <div class="stat-row"><span class="stat-label">最大生命值 (Max Life)</span><span class="stat-value">1,000</span></div>
+              <div class="stat-row"><span class="stat-label">毒素抗性 (Poison Resist)</span><span class="stat-value">505</span></div>
+              <div class="stat-row"><span class="stat-label">痛苦之墙技能等级 (Wall of Agony)</span><span class="stat-value">3</span></div>
               </div>
             </div>
 
@@ -1150,12 +1149,12 @@
 
             <div>
               <div class="affix-group-title">基础属性 · Base Stats</div>
-              <div class="stats-row">
-                <span class="stat-chip"><span class="val">815</span> DPS</span>
-                <span class="stat-chip">+<span class="val">121</span> Willpower</span>
-                <span class="stat-chip">+<span class="val">300</span> Life on Kill</span>
-                <span class="stat-chip">+<span class="val">75%</span> Damage</span>
-                <span class="stat-chip">+<span class="val">3</span> Hell Fracture</span>
+                            <div class="stat-list">
+              <div class="stat-row"><span class="stat-label">伤害每秒 (DPS)</span><span class="stat-value">815</span></div>
+              <div class="stat-row"><span class="stat-label">意志力 (Willpower)</span><span class="stat-value">121</span></div>
+              <div class="stat-row"><span class="stat-label">击杀生命恢复 (Life on Kill)</span><span class="stat-value">300</span></div>
+              <div class="stat-row"><span class="stat-label">伤害加成 (Damage)</span><span class="stat-value">75%</span></div>
+              <div class="stat-row"><span class="stat-label">地狱裂缝技能等级 (Hell Fracture)</span><span class="stat-value">3</span></div>
               </div>
             </div>
 
