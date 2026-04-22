@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《憎恨之王》征战计划系统前瞻 - 暗黑破坏神 IV</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+  <link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4-charms.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+      <span class="nav-game-name">征战计划系统前瞻</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 征战计划</span>
+    </div>
+  </nav>
+
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress-track">
+    <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+  </div>
+
+  <!-- 灯箱 -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')">
+    <img id="lightboxImage" src="" alt="图片预览">
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 返回顶部 -->
+  <button class="back-to-top-rune" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- 站点 Header -->
+  <section class="site-header-section" style="padding:5rem 0 1rem;">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.85rem;">
+        <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+        </div>
+      </div>
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+      <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+        space.bilibili.com/443078910
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== 左侧导航栏 ====== -->
+  <aside class="guide-sidebar" id="guideSidebar">
+    <div class="guide-sidebar-title">目录导航</div>
+    <ul class="guide-sidebar-nav">
+      <li><a href="#sec-hero" class="active"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">封面</span><span class="nav-step">TOP</span></a></li>
+      <li><a href="#sec-overview"><span class="nav-icon">&#x1F4CB;</span><span class="nav-text">系统概述</span><span class="nav-step">STEP 1</span></a></li>
+      <li><a href="#sec-mechanics"><span class="nav-icon">&#x2699;</span><span class="nav-text">核心机制</span><span class="nav-step">STEP 2</span></a></li>
+      <li><a href="#sec-tasks"><span class="nav-icon">&#x1F3AF;</span><span class="nav-text">任务类型</span><span class="nav-step">STEP 3</span></a></li>
+      <li><a href="#sec-rewards"><span class="nav-icon">&#x1F4C8;</span><span class="nav-text">奖励与进度</span><span class="nav-step">STEP 4</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-activities"><span class="nav-icon">&#x1F30D;</span><span class="nav-text">终局活动</span><span class="nav-step">BONUS</span></a></li>
+      <li><a href="#sec-strategy"><span class="nav-icon">&#x1F4DD;</span><span class="nav-text">策略建议</span><span class="nav-step">GUIDE</span></a></li>
+      <li><a href="#sec-unknown"><span class="nav-icon">&#x1F50D;</span><span class="nav-text">待确认内容</span><span class="nav-step">TBD</span></a></li>
+    </ul>
+    <div class="guide-sidebar-footer">
+      <a href="index.html">&#x2190; 返回D4首页</a>
+    </div>
+  </aside>
+
+  <!-- 移动端侧边栏切换按钮 -->
+  <button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ====== 主内容区域 ====== -->
+  <main class="guide-content">
+
+  <!-- ====== 免责声明 ====== -->
+  <div class="disclaimer-bar" id="disclaimerBar">
+    <span class="disclaimer-icon">&#x26A0;&#xFE0F;</span>
+    <span class="disclaimer-text"><strong>重要声明：</strong>本文内容基于《憎恨之王》测试版截图反推整理，不代表官方最终设定。部分数值、机制可能在正式上线时调整，请以 4 月 28 日实际内容为准。</span>
+    <button class="disclaimer-close" onclick="this.parentElement.style.display='none'">&#x2715;</button>
+  </div>
+
+  <!-- ====== 第一屏：封面 ====== -->
+  <section class="charm-hero" id="sec-hero">
+    <div class="charm-hero-bg" style="background:
+      radial-gradient(ellipse at 30% 20%, rgba(139,0,0,0.25) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(218,165,32,0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #1a0f14, #0d0608, #1a0f14);"></div>
+    <div class="charm-hero-overlay"></div>
+    <div class="charm-hero-content">
+      <div class="charm-hero-badge">
+        <span class="pulse"></span>
+        基于测试版本截图反推
+      </div>
+      <h1 class="charm-hero-title" id="warPlansTitle">《憎恨之王》征战计划系统前瞻</h1>
+      <p class="charm-hero-subtitle">自选终局活动、自定义技能树、累积奖励——全新的终局玩法框架</p>
+
+      <!-- 系统概述 -->
+      <div class="charm-system-summary" style="margin-top: 2rem; padding: 1.5rem; background: rgba(26,15,20,0.6); border-radius: 12px; border: 1px solid rgba(58,32,40,0.4);">
+        <h3 style="font-family:'Cinzel',serif;color:#DAA520;margin-bottom:1rem;font-size:1.1rem;">征战计划体系概览</h3>
+        <p style="color:#a09088;line-height:1.7;margin-bottom:1rem;">
+          <strong>征战计划（War Plans）</strong>是《憎恨之王》新增的终局玩法框架，允许玩家<strong>自选多个终局活动组成任务清单</strong>，完成后领取累积奖励。它将原本分散的终局内容整合为一个有目标感、可自定义、可深度成长的进度系统。
+        </p>
+        <p style="color:#8a7a70;font-size:0.85rem;">
+          <strong>我的解读：</strong>这不只是又一个通行证
+          <br>&bull; <strong>目标感：</strong>有明确的任务清单，减少"不知道刷什么"的迷茫
+          <br>&bull; <strong>自定义成长：</strong>活动专属技能树让你深度定制终局体验
+          <br>&bull; <strong>策略性：</strong>任务锁定机制要求玩家根据实力合理选择活动组合
+        </p>
+      </div>
+
+      <p style="font-size:0.85rem;color:#665555;margin-top:0.5rem;">4 月 28 日正式上线，一切内容以正式版本为准</p>
+    </div>
+    <div class="charm-hero-scroll" id="scrollArrow">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="7 13 12 18 17 13"/>
+        <line x1="12" y1="2" x2="12" y2="18"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ====== 第二屏：系统概述 ====== -->
+  <section class="charm-section" id="sec-overview">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 01</div>
+      <h2>系统概述 — 什么是征战计划？</h2>
+      <p>征战计划将原本分散的终局内容整合为一个有目标感的进度系统，玩家自选活动、锁定任务、完成后领奖</p>
+    </div>
+
+    <!-- 主界面截图 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-bottom:2rem;">
+      <div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-14-17.png" alt="征战计划主界面" loading="lazy">
+        </div>
+        <p style="font-size:0.72rem;color:#554444;text-align:center;margin-top:0.5rem;">截图：征战计划主界面（含任务列表与等级显示）</p>
+      </div>
+      <div>
+        <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+          <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">核心流程</h3>
+          <div style="display:flex;flex-direction:column;gap:0.85rem;">
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">1</div>
+              <div>
+                <div style="color:#f0e8e0;font-size:0.88rem;font-weight:600;">选择活动</div>
+                <div style="color:#8a7a70;font-size:0.78rem;">从可用终局活动中自选任务清单</div>
+              </div>
+            </div>
+            <div style="width:2px;height:16px;background:rgba(58,32,40,0.4);margin-left:1.1rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">2</div>
+              <div>
+                <div style="color:#f0e8e0;font-size:0.88rem;font-weight:600;">确认锁定</div>
+                <div style="color:#8a7a70;font-size:0.78rem;">确认后任务清单不可更改</div>
+              </div>
+            </div>
+            <div style="width:2px;height:16px;background:rgba(58,32,40,0.4);margin-left:1.1rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">3</div>
+              <div>
+                <div style="color:#f0e8e0;font-size:0.88rem;font-weight:600;">完成任务</div>
+                <div style="color:#8a7a70;font-size:0.78rem;">逐一完成锁定的终局活动</div>
+              </div>
+            </div>
+            <div style="width:2px;height:16px;background:rgba(58,32,40,0.4);margin-left:1.1rem;"></div>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+              <div style="width:32px;height:32px;border-radius:50%;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">4</div>
+              <div>
+                <div style="color:#f0e8e0;font-size:0.88rem;font-weight:600;">领取奖励</div>
+                <div style="color:#8a7a70;font-size:0.78rem;">全部完成后领取累积奖励与经验</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 关键信息表 -->
+    <div style="overflow-x:auto;">
+      <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <thead>
+          <tr style="border-bottom:2px solid rgba(218,165,32,0.3);">
+            <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">界面元素</th>
+            <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">截图内容</th>
+            <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">解读</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.6rem 1rem;color:#f0e8e0;">等级</td>
+            <td style="padding:0.6rem 1rem;color:#a09088;">Rank 1/10</td>
+            <td style="padding:0.6rem 1rem;color:#8a7a70;">征战计划共有 <strong style="color:#DAA520;">10 个等级</strong></td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.6rem 1rem;color:#f0e8e0;">解锁条件</td>
+            <td style="padding:0.6rem 1rem;color:#a09088;">Unlock 0/2 Activity Skill Points</td>
+            <td style="padding:0.6rem 1rem;color:#8a7a70;">完成 2 个活动后可获得技能点强化奖励</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.6rem 1rem;color:#f0e8e0;">任务卡片</td>
+            <td style="padding:0.6rem 1rem;color:#a09088;">Magic: Conquer a Nightmare Dungeon</td>
+            <td style="padding:0.6rem 1rem;color:#8a7a70;">任务有<strong style="color:#DAA520;">稀有度区分</strong>，影响奖励品质</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.6rem 1rem;color:#f0e8e0;">奖励</td>
+            <td style="padding:0.6rem 1rem;color:#a09088;">中量金币与奥博尔，68 活动经验</td>
+            <td style="padding:0.6rem 1rem;color:#8a7a70;">奖励包含资源与<strong style="color:#DAA520;">活动经验</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ====== 第三屏：核心机制 ====== -->
+  <section class="charm-section" id="sec-mechanics">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 02</div>
+      <h2>核心机制 — 任务选择与锁定</h2>
+      <p>征战计划的独特之处在于「锁定」机制——一旦确认启动，任务清单不可中途更改</p>
+    </div>
+
+    <!-- 确认锁定流程 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;margin-bottom:2.5rem;">
+      <div>
+        <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">确认与锁定流程</h3>
+        <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(231,76,60,0.3);border-left:4px solid #e74c3c;margin-bottom:1rem;">
+          <div style="color:#e74c3c;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.5rem;">&#x1F512; 锁定机制</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+            玩家在选择完所有任务后，需<strong style="color:#f0e8e0;">确认启动</strong>征战计划。一旦确认，任务清单将被<strong style="color:#e74c3c;">锁定</strong>，无法中途更改。所有任务完成后统一领取奖励。
+          </p>
+        </div>
+        <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+          <div style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;margin-bottom:0.5rem;">确认弹窗原文</div>
+          <blockquote style="color:#a09088;font-size:0.82rem;line-height:1.7;padding:0.75rem;background:rgba(0,0,0,0.2);border-radius:8px;font-style:italic;">
+            "Do you want to start the War Plan? Your choices will be locked in. You will receive your rewards upon completion."
+          </blockquote>
+          <div style="display:flex;gap:0.5rem;margin-top:0.75rem;">
+            <span style="padding:0.3rem 0.8rem;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);border-radius:6px;color:#DAA520;font-size:0.75rem;">Confirm</span>
+            <span style="padding:0.3rem 0.8rem;background:rgba(58,32,40,0.3);border:1px solid rgba(58,32,40,0.4);border-radius:6px;color:#8a7a70;font-size:0.75rem;">Change Selection</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-16-11.png" alt="确认弹窗" loading="lazy">
+        </div>
+        <p style="font-size:0.72rem;color:#554444;text-align:center;margin-top:0.5rem;">截图：确认启动弹窗</p>
+      </div>
+    </div>
+
+    <!-- 任务稀有度系统 -->
+    <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1.1rem;margin-bottom:1.5rem;">任务稀有度系统</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+      <!-- Common -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(150,150,150,0.3);">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:12px;height:12px;border-radius:50%;background:#969696;box-shadow:0 0 8px rgba(150,150,150,0.3);"></div>
+          <span style="font-family:'Cinzel',serif;color:#c0c0c0;font-size:1rem;">Common 普通</span>
+        </div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:1rem;">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-14-34.png" alt="梦魇地下城任务（Common）" loading="lazy">
+        </div>
+        <p style="color:#8a7a70;font-size:0.78rem;line-height:1.6;">
+          基础任务，奖励品质较低。截图显示为梦魇地下城征服任务，活动经验 68 点。
+        </p>
+      </div>
+      <!-- Magic -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(0,120,255,0.3);">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:12px;height:12px;border-radius:50%;background:#4a8fff;box-shadow:0 0 8px rgba(74,143,255,0.3);"></div>
+          <span style="font-family:'Cinzel',serif;color:#4a8fff;font-size:1rem;">Magic 魔法</span>
+        </div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:1rem;">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-14-17.png" alt="梦魇地下城任务（Magic）" loading="lazy">
+        </div>
+        <p style="color:#8a7a70;font-size:0.78rem;line-height:1.6;">
+          稀有任务，奖励品质更高。同为梦魇地下城征服任务，但金币与奥博尔奖励更多。
+        </p>
+      </div>
+    </div>
+
+    <!-- 炼狱大军任务详情 -->
+    <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1.1rem;margin-bottom:1.5rem;">炼狱大军 — 任务详情</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;">
+      <div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-15-15.png" alt="炼狱大军任务" loading="lazy">
+        </div>
+        <p style="font-size:0.72rem;color:#554444;text-align:center;margin-top:0.5rem;">截图：炼狱大军任务卡片</p>
+      </div>
+      <div>
+        <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:1.5rem;">
+          <img src="../../assets/images/diablo4/warplans/PixPin_2026-04-22_20-15-51.png" alt="炼狱大军等级界面" loading="lazy">
+        </div>
+        <p style="font-size:0.72rem;color:#554444;text-align:center;margin-top:0.5rem;">截图：炼狱大军等级界面（Lv 0/7）</p>
+      </div>
+    </div>
+    <div style="margin-top:1.5rem;padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+        <div>
+          <div style="color:#665555;font-size:0.72rem;margin-bottom:0.25rem;">任务目标</div>
+          <div style="color:#a09088;font-size:0.85rem;">面对炼狱大军，存活至最终突袭。可使用自己的地狱罗盘（Infernal Compass）激活。</div>
+        </div>
+        <div>
+          <div style="color:#665555;font-size:0.72rem;margin-bottom:0.25rem;">活动经验</div>
+          <div style="color:#DAA520;font-size:0.85rem;font-weight:600;">43 点</div>
+        </div>
+        <div>
+          <div style="color:#665555;font-size:0.72rem;margin-bottom:0.25rem;">等级系统</div>
+          <div style="color:#a09088;font-size:0.85rem;">Lv 0/7，Next Point: 0/100</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 第四屏：任务类型 ====== -->
+  <section class="charm-section" id="sec-tasks">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 03</div>
+      <h2>任务类型 — 已知任务一览</h2>
+      <p>截图中共出现 3 条任务记录，涵盖梦魇地下城与炼狱大军两种终局活动</p>
+    </div>
+
+    <div style="overflow-x:auto;margin-bottom:2rem;">
+      <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+        <thead>
+          <tr style="border-bottom:2px solid rgba(218,165,32,0.3);">
+            <th style="text-align:left;padding:0.75rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">任务名称</th>
+            <th style="text-align:center;padding:0.75rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">稀有度</th>
+            <th style="text-align:left;padding:0.75rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">目标简述</th>
+            <th style="text-align:center;padding:0.75rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;letter-spacing:1px;">活动经验</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.75rem 1rem;color:#f0e8e0;font-weight:600;">Conquer a Nightmare Dungeon</td>
+            <td style="padding:0.75rem 1rem;text-align:center;">
+              <span style="display:inline-block;padding:0.15rem 0.6rem;background:rgba(150,150,150,0.15);border:1px solid rgba(150,150,150,0.3);border-radius:4px;color:#c0c0c0;font-size:0.72rem;">Common</span>
+            </td>
+            <td style="padding:0.75rem 1rem;color:#a09088;">进入并完成梦魇地下城</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#DAA520;font-weight:600;font-family:'Consolas',monospace;">68</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.75rem 1rem;color:#f0e8e0;font-weight:600;">Conquer a Nightmare Dungeon</td>
+            <td style="padding:0.75rem 1rem;text-align:center;">
+              <span style="display:inline-block;padding:0.15rem 0.6rem;background:rgba(74,143,255,0.15);border:1px solid rgba(74,143,255,0.3);border-radius:4px;color:#4a8fff;font-size:0.72rem;">Magic</span>
+            </td>
+            <td style="padding:0.75rem 1rem;color:#a09088;">同上，奖励品质更高</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#DAA520;font-weight:600;font-family:'Consolas',monospace;">68</td>
+          </tr>
+          <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+            <td style="padding:0.75rem 1rem;color:#f0e8e0;font-weight:600;">Face the Infernal Hordes</td>
+            <td style="padding:0.75rem 1rem;text-align:center;">
+              <span style="display:inline-block;padding:0.15rem 0.6rem;background:rgba(74,143,255,0.15);border:1px solid rgba(74,143,255,0.3);border-radius:4px;color:#4a8fff;font-size:0.72rem;">Magic</span>
+            </td>
+            <td style="padding:0.75rem 1rem;color:#a09088;">面对炼狱大军，存活至最终波次</td>
+            <td style="padding:0.75rem 1rem;text-align:center;color:#DAA520;font-weight:600;font-family:'Consolas',monospace;">43</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 稀有度说明 -->
+    <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+      <h4 style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.75rem;">&#x1F4CD; 稀有度差异解读</h4>
+      <p style="color:#a09088;font-size:0.82rem;line-height:1.7;">
+        同一种活动（如「征服梦魇地下城」）可能以不同稀有度出现在任务池中。<strong style="color:#4a8fff;">Magic 稀有度</strong>的任务奖励品质更高（更多金币与奥博尔），但活动经验值相同。
+        <br>
+        <strong style="color:#DAA520;">推测：</strong>更高稀有度（Rare / Legendary）的任务可能提供更丰厚的活动经验与技能点奖励，正式上线后可进一步验证。
+      </p>
+    </div>
+  </section>
+
+  <!-- ====== 第五屏：奖励与进度 ====== -->
+  <section class="charm-section" id="sec-rewards">
+    <div class="charm-section-header">
+      <div class="section-step">STEP 04</div>
+      <h2>奖励与进度 — 活动经验与技能点</h2>
+      <p>完成任务获得活动经验，提升征战计划等级；积累技能点强化后续奖励</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2rem;">
+      <!-- 活动经验 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(218,165,32,0.2);border-top:3px solid #DAA520;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="font-size:1.5rem;">&#x1F4C8;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;">活动经验</div>
+            <div style="color:#665555;font-size:0.72rem;">Activity Experience</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:1rem;">
+          每个任务完成后获得活动经验，用于提升征战计划的等级（Rank 1-10）。等级越高，可获得的奖励越丰厚。
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0.6rem;background:rgba(0,0,0,0.15);border-radius:6px;">
+            <span style="color:#a09088;font-size:0.78rem;">梦魇地下城（Magic）</span>
+            <span style="color:#DAA520;font-family:'Consolas',monospace;font-size:0.78rem;font-weight:600;">+68 EXP</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:0.4rem 0.6rem;background:rgba(0,0,0,0.15);border-radius:6px;">
+            <span style="color:#a09088;font-size:0.78rem;">炼狱大军（Magic）</span>
+            <span style="color:#DAA520;font-family:'Consolas',monospace;font-size:0.78rem;font-weight:600;">+43 EXP</span>
+          </div>
+        </div>
+        <!-- 进度条可视化 -->
+        <div style="margin-top:1rem;">
+          <div style="display:flex;justify-content:space-between;font-size:0.72rem;color:#554444;margin-bottom:0.3rem;">
+            <span>Rank 1</span><span>Rank 10</span>
+          </div>
+          <div style="height:8px;background:rgba(58,32,40,0.3);border-radius:4px;overflow:hidden;">
+            <div style="height:100%;width:10%;background:linear-gradient(90deg,#DAA520,#f0c060);border-radius:4px;box-shadow:0 0 8px rgba(218,165,32,0.3);"></div>
+          </div>
+          <div style="font-size:0.7rem;color:#665555;text-align:center;margin-top:0.3rem;">截图显示 Rank 1/10，当前进度约 10%</div>
+        </div>
+      </div>
+
+      <!-- 技能点 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(139,0,0,0.3);border-top:3px solid #8B0000;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="font-size:1.5rem;">&#x2728;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#e74c3c;font-size:1rem;">活动技能点</div>
+            <div style="color:#665555;font-size:0.72rem;">Activity Skill Points</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:1rem;">
+          完成一定数量的任务后可获得技能点，用于<strong style="color:#e74c3c;">强化后续任务的奖励</strong>。截图中显示为 <span class="var-range">Unlock 0/2</span>，即需要完成 2 个活动来解锁第一个技能点。
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+          <div style="padding:0.6rem;background:rgba(139,0,0,0.08);border-radius:6px;border-left:3px solid #8B0000;">
+            <div style="color:#f0e8e0;font-size:0.82rem;font-weight:600;">技能点用途（推测）</div>
+            <div style="color:#8a7a70;font-size:0.78rem;margin-top:0.25rem;">增加掉落数量、提高稀有度、调整难度与回报等</div>
+          </div>
+          <div style="padding:0.6rem;background:rgba(139,0,0,0.08);border-radius:6px;border-left:3px solid #8B0000;">
+            <div style="color:#f0e8e0;font-size:0.82rem;font-weight:600;">活动专属技能树</div>
+            <div style="color:#8a7a70;font-size:0.78rem;margin-top:0.25rem;">每个活动拥有独立技能树，技能点可深度改变活动机制</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活动经验汇总 -->
+    <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+      <h4 style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.75rem;">&#x1F4CA; 已知经验数据汇总</h4>
+      <div style="overflow-x:auto;">
+        <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+          <thead>
+            <tr style="border-bottom:2px solid rgba(218,165,32,0.3);">
+              <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;">任务</th>
+              <th style="text-align:center;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;">活动经验</th>
+              <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;">截图来源</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#f0e8e0;">Conquer a Nightmare Dungeon（Magic）</td>
+              <td style="padding:0.6rem 1rem;text-align:center;color:#DAA520;font-weight:600;font-family:'Consolas',monospace;">68</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-size:0.75rem;">PixPin_2026-04-22_20-14-17.png</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#f0e8e0;">Face the Infernal Hordes（Magic）</td>
+              <td style="padding:0.6rem 1rem;text-align:center;color:#DAA520;font-weight:600;font-family:'Consolas',monospace;">43</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-size:0.75rem;">PixPin_2026-04-22_20-15-15.png</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 终局活动一览 ====== -->
+  <section class="charm-section" id="sec-activities">
+    <div class="charm-section-header">
+      <div class="section-step">BONUS</div>
+      <h2>终局活动一览 — 可加入征战计划的七种活动</h2>
+      <p>以下活动均可作为征战计划的任务选项，每个活动拥有独立的技能树与成长路径</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:2rem;">
+      <!-- 地狱狂潮 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(58,32,40,0.5);transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(231,76,60,0.2),rgba(139,0,0,0.3));border:1px solid rgba(231,76,60,0.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F525;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">地狱狂潮</div>
+            <div style="color:#665555;font-size:0.72rem;">Helltides</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          在限定区域内刷怪，收集"烬焰"换取奖励。经典终局玩法，回归《憎恨之王》的框架中。
+        </p>
+      </div>
+
+      <!-- 低语之树 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(58,32,40,0.5);transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(155,89,182,0.2),rgba(100,50,130,0.3));border:1px solid rgba(155,89,182,0.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F333;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">低语之树</div>
+            <div style="color:#665555;font-size:0.72rem;">Whispers of the Dead</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          完成地图上随机刷新的世界任务。适合喜欢探索地图、随机性强的玩家。
+        </p>
+      </div>
+
+      <!-- 巢穴首领 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(58,32,40,0.5);transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(230,126,34,0.2),rgba(180,60,0,0.3));border:1px solid rgba(230,126,34,0.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F480;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">巢穴首领</div>
+            <div style="color:#665555;font-size:0.72rem;">Lair Bosses</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          挑战特定终局Boss，获取专属掉落。高回报但需要一定的角色强度和机制理解。
+        </p>
+      </div>
+
+      <!-- 梦魇地下城 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(155,89,182,0.4);border-top:2px solid #9b59b6;transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(155,89,182,0.25),rgba(100,50,130,0.35));border:1px solid rgba(155,89,182,0.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F3DB;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">梦魇地下城</div>
+            <div style="color:#665555;font-size:0.72rem;">Nightmare Dungeons</div>
+            <span style="display:inline-block;padding:0.1rem 0.4rem;background:rgba(155,89,182,0.15);border:1px solid rgba(155,89,182,0.3);border-radius:3px;color:#9b59b6;font-size:0.62rem;">截图已确认</span>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          挑战被符印强化的地下城，获取雕文经验。截图中已确认的任务类型，支持使用自备梦魇符印。
+        </p>
+      </div>
+
+      <!-- 炼狱大军 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(231,76,60,0.4);border-top:2px solid #e74c3c;transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(231,76,60,0.25),rgba(139,0,0,0.35));border:1px solid rgba(231,76,60,0.4);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x2694;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">炼狱大军</div>
+            <div style="color:#665555;font-size:0.72rem;">Infernal Hordes</div>
+            <span style="display:inline-block;padding:0.1rem 0.4rem;background:rgba(231,76,60,0.15);border:1px solid rgba(231,76,60,0.3);border-radius:3px;color:#e74c3c;font-size:0.62rem;">截图已确认</span>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          波次防守战，选择恩惠与祸害影响战斗与奖励。截图中已确认，拥有独立的 Lv 0/7 等级系统。
+        </p>
+      </div>
+
+      <!-- 秘域魔境 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(58,32,40,0.5);transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(52,152,219,0.2),rgba(30,80,140,0.3));border:1px solid rgba(52,152,219,0.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F48E;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">秘域魔境</div>
+            <div style="color:#665555;font-size:0.72rem;">The Pit of Artificers</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          限时冲层玩法，获取与升级雕文的核心途径。追求极限挑战的终局玩家的必经之路。
+        </p>
+      </div>
+
+      <!-- 库拉斯特荒城 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.8);border-radius:12px;border:1px solid rgba(218,165,32,0.3);transition:all 0.3s;cursor:default;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.75rem;">
+          <div style="width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,rgba(218,165,32,0.2),rgba(139,100,0,0.3));border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;font-size:1.4rem;">&#x1F3D9;</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#f0e8e0;font-size:0.95rem;">库拉斯特荒城</div>
+            <div style="color:#665555;font-size:0.72rem;">Kurast Undercity</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+          限时挑战地牢，高效刷取暗金装备与符文。《憎恨之王》DLC 新增的终局内容，刷宝效率极高。
+        </p>
+      </div>
+    </div>
+
+    <!-- 提示 -->
+    <div style="padding:1rem 1.2rem;background:rgba(231,76,60,0.08);border-radius:10px;border:1px solid rgba(231,76,60,0.3);border-left:4px solid #e74c3c;">
+      <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+        <span style="font-size:1.2rem;line-height:1;">&#x1F4CC;</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;color:#e74c3c;font-size:0.9rem;margin-bottom:0.3rem;">推测说明</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+            上述七种活动基于官方访谈与社区信息整理，<strong style="color:#f0e8e0;">截图仅确认了梦魇地下城与炼狱大军两种</strong>。
+            社区信息推测玩家最多可选择 5 个活动组成一个征战计划，此数值未经截图验证。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 策略建议 ====== -->
+  <section class="charm-section" id="sec-strategy">
+    <div class="charm-section-header">
+      <div class="section-step">GUIDE</div>
+      <h2>策略建议 — 如何规划你的征战计划</h2>
+      <p>基于已知机制的前瞻性策略建议，正式上线后可根据实际数据调整</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-bottom:2rem;">
+      <!-- 早期规划 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(39,174,96,0.3);border-top:3px solid #27ae60;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(39,174,96,0.15);border:1px solid rgba(39,174,96,0.3);display:flex;align-items:center;justify-content:center;color:#27ae60;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">1</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#27ae60;font-size:0.95rem;">早期规划</div>
+            <div style="color:#665555;font-size:0.72rem;">赛季初期 / 新手阶段</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.7;">
+          优先配置<strong style="color:#f0e8e0;">「梦魇地下城」</strong>和<strong style="color:#f0e8e0;">「地狱狂潮」</strong>等基础活动。这些活动难度可控、回报稳定，适合先解锁和升级它们的技能树，建立稳定的资源循环。
+        </p>
+        <div style="margin-top:0.75rem;padding:0.6rem;background:rgba(39,174,96,0.08);border-radius:6px;">
+          <div style="color:#27ae60;font-size:0.78rem;font-weight:600;">&#x1F4A1; 建议组合</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">梦魇地下城 + 地狱狂潮 + 低语之树</div>
+        </div>
+      </div>
+
+      <!-- 后期速刷 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(218,165,32,0.3);border-top:3px solid #DAA520;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(218,165,32,0.15);border:1px solid rgba(218,165,32,0.3);display:flex;align-items:center;justify-content:center;color:#DAA520;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">2</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;">后期速刷</div>
+            <div style="color:#665555;font-size:0.72rem;">角色成型 / 终局阶段</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.7;">
+          角色成型后，可围绕<strong style="color:#f0e8e0;">「库拉斯特荒城」</strong>等高收益活动规划计划，最大化奖励效率。配合技能树加成，速刷效率会大幅提升。
+        </p>
+        <div style="margin-top:0.75rem;padding:0.6rem;background:rgba(218,165,32,0.08);border-radius:6px;">
+          <div style="color:#DAA520;font-size:0.78rem;font-weight:600;">&#x1F4A1; 建议组合</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">库拉斯特荒城 + 巢穴首领 + 秘域魔境</div>
+        </div>
+      </div>
+
+      <!-- 隐藏机制 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(155,89,182,0.3);border-top:3px solid #9b59b6;">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(155,89,182,0.15);border:1px solid rgba(155,89,182,0.3);display:flex;align-items:center;justify-content:center;color:#9b59b6;font-family:'Cinzel',serif;font-size:0.85rem;flex-shrink:0;">3</div>
+          <div>
+            <div style="font-family:'Cinzel',serif;color:#9b59b6;font-size:0.95rem;">隐藏机制</div>
+            <div style="color:#665555;font-size:0.72rem;">社区反馈，非官方确认</div>
+          </div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.7;">
+          根据社区测试反馈，特定活动的<strong style="color:#f0e8e0;">组合顺序</strong>可能触发隐藏的伤害加成。此外，<strong style="color:#f0e8e0;">召唤物</strong>在特定计划中可能继承高额伤害加成。
+        </p>
+        <div style="margin-top:0.75rem;padding:0.6rem;background:rgba(155,89,182,0.08);border-radius:6px;">
+          <div style="color:#9b59b6;font-size:0.78rem;font-weight:600;">&#x26A0;&#xFE0F; 注意</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">此为玩家社区反馈，非官方确认，仅供参考</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 技能树策略 -->
+    <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(230,126,34,0.3);border-left:4px solid #e67e22;">
+      <h4 style="font-family:'Cinzel',serif;color:#e67e22;font-size:0.95rem;margin-bottom:0.75rem;">&#x1F33F; 技能树投入策略</h4>
+      <p style="color:#a09088;font-size:0.82rem;line-height:1.7;margin-bottom:1rem;">
+        每个征战计划中的活动都拥有<strong style="color:#f0e8e0;">独立的技能树</strong>，使用技能点可深度改变活动的机制和回报。官方访谈中提到的示例包括：
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0.75rem;">
+        <div style="padding:0.75rem;background:rgba(0,0,0,0.15);border-radius:8px;">
+          <div style="color:#f0e8e0;font-size:0.82rem;font-weight:600;">&#x1F504; 难度与回报调整</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">如"死亡时失去所有烬焰，但烬焰获取量变为三倍"</div>
+        </div>
+        <div style="padding:0.75rem;background:rgba(0,0,0,0.15);border-radius:8px;">
+          <div style="color:#f0e8e0;font-size:0.82rem;font-weight:600;">&#x1F381; 惊喜元素</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">让巢穴首领乱入到其他活动中，增加随机乐趣</div>
+        </div>
+        <div style="padding:0.75rem;background:rgba(0,0,0,0.15);border-radius:8px;">
+          <div style="color:#f0e8e0;font-size:0.82rem;font-weight:600;">&#x1F4B0; 遭遇概率提升</div>
+          <div style="color:#8a7a70;font-size:0.75rem;margin-top:0.25rem;">增加遭遇宝藏地精或特定商人的概率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 待确认内容 ====== -->
+  <section class="charm-section" id="sec-unknown">
+    <div class="charm-section-header">
+      <div class="section-step">TBD</div>
+      <h2>待确认内容 — 待正式服验证</h2>
+      <p>以下机制在截图中未体现或仅有官方访谈描述，请以正式上线版本为准</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;margin-bottom:2rem;">
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x2753;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">任务数量上限</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">截图未显示，社区信息推测为 5 个</div>
+      </div>
+
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F332;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">技能树节点效果</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">截图未显示，仅见官方访谈描述的示例</div>
+      </div>
+
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F465;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">多人组队支持</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">截图无相关信息，是否支持组队完成待确认</div>
+      </div>
+
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F3C6;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">Rank 1-10 全部奖励</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">截图仅显示 Rank 1/10，具体奖励待确认</div>
+      </div>
+
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F504;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">任务刷新机制</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">每日/每周刷新，还是手动刷新，截图未体现</div>
+      </div>
+
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F3B0;</div>
+        <div style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:0.5rem;">稀有度对奖励的影响</div>
+        <div style="color:#8a7a70;font-size:0.82rem;">截图显示 Common 和 Magic，具体奖励差异待确认</div>
+      </div>
+    </div>
+
+    <!-- 截图文件清单 -->
+    <div style="margin-top:2rem;padding:1.5rem;background:rgba(26,15,20,0.6);border-radius:12px;border:1px solid rgba(58,32,40,0.4);">
+      <h4 style="font-family:'Cinzel',serif;color:#DAA520;font-size:0.95rem;margin-bottom:1rem;">&#x1F4F7; 本攻略使用的截图文件</h4>
+      <div style="overflow-x:auto;">
+        <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.82rem;">
+          <thead>
+            <tr style="border-bottom:2px solid rgba(218,165,32,0.3);">
+              <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;">截图内容</th>
+              <th style="text-align:left;padding:0.6rem 1rem;color:#DAA520;font-family:'Cinzel',serif;font-size:0.78rem;">原始文件名</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#a09088;">征战计划主界面</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-family:'Consolas',monospace;font-size:0.75rem;">PixPin_2026-04-22_20-14-17.png</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#a09088;">梦魇地下城任务（Common）</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-family:'Consolas',monospace;font-size:0.75rem;">PixPin_2026-04-22_20-14-34.png</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#a09088;">炼狱大军任务</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-family:'Consolas',monospace;font-size:0.75rem;">PixPin_2026-04-22_20-15-15.png</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(58,32,40,0.3);">
+              <td style="padding:0.6rem 1rem;color:#a09088;">炼狱大军等级界面</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-family:'Consolas',monospace;font-size:0.75rem;">PixPin_2026-04-22_20-15-51.png</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 1rem;color:#a09088;">确认弹窗</td>
+              <td style="padding:0.6rem 1rem;color:#665555;font-family:'Consolas',monospace;font-size:0.75rem;">PixPin_2026-04-22_20-16-11.png</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373z"/></svg>
+          B站: @看雲起雲落
+        </a>
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+        <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+        <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QR Code Preview -->
+  <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+    <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+  </div>
+
+  </main>
+
+  <script src="../../assets/js/charms-interactions.js"></script>
+  <script>
+    // 灯箱
+    function openLightbox(src) {
+      if (!src) return;
+      document.getElementById('lightboxImage').src = src;
+      document.getElementById('lightboxOverlay').classList.add('open');
+    }
+
+    // 分享
+    function shareTo(platform) {
+      var title = '《憎恨之王》征战计划系统前瞻';
+      var url = window.location.href;
+      var text = '基于测试版截图反推 · 终局玩法框架全解析';
+      var shareUrl = '';
+      switch(platform) {
+        case 'weibo': shareUrl = 'https://service.weibo.com/share/share.php?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text); break;
+        case 'twitter': shareUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text); break;
+        case 'qq': shareUrl = 'https://connect.qq.com/share?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&summary=' + encodeURIComponent(text); break;
+      }
+      if (shareUrl) window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+  </script>
+  <script src="../../assets/js/guide-sidebar.js"></script>
+</body>
+</html>

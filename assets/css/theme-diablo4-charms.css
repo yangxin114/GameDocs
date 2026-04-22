@@ -692,6 +692,7 @@
 .set-tab .tab-dot.defense { background: #27ae60; }
 .set-tab .tab-dot.efficiency { background: #3498db; }
 .set-tab .tab-dot.skill { background: #9b59b6; }
+.set-tab .tab-dot.shadow { background: #6a0dad; }
 
 .set-panel {
   display: none;
@@ -758,6 +759,17 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1.25rem;
   margin-bottom: 1.5rem;
+}
+
+/* 五件套套装适配 */
+.set-charms-five {
+  grid-template-columns: repeat(5, 1fr) !important;
+}
+
+@media (max-width: 1200px) {
+  .set-charms-five {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
 
 .set-charm-card {
@@ -1311,6 +1323,183 @@
 .magic-card .magic-stat {
   font-size: 0.78rem;
   color: #665555;
+}
+
+/* ====== Section 独特护身符 ====== */
+.unique-showcase {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.unique-card-main {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  background: rgba(26,15,20,0.85);
+  border: 1px solid rgba(139,0,0,0.4);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: all 0.4s;
+}
+
+.unique-card-main:hover {
+  border-color: rgba(218,165,32,0.4);
+  box-shadow: 0 12px 30px rgba(139,0,0,0.3);
+}
+
+.unique-card-image {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  border: 1px solid rgba(58,32,40,0.4);
+}
+
+.unique-card-image img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.unique-card-image:hover img {
+  transform: scale(1.03);
+}
+
+.unique-name-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.unique-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  color: #e67e22;
+  font-weight: 700;
+}
+
+.unique-quality {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 4px;
+}
+
+.unique-quality.unique-unique {
+  color: #e67e22;
+  background: rgba(230,126,34,0.1);
+  border: 1px solid rgba(230,126,34,0.3);
+}
+
+.unique-level-req {
+  font-size: 0.78rem;
+  color: #8a7a70;
+  margin-bottom: 0.75rem;
+}
+
+.unique-stats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.unique-stats-list li {
+  font-size: 0.85rem;
+  color: #a09088;
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.unique-stats-list li:last-child {
+  border-bottom: none;
+}
+
+.unique-stats-list li .stat-num {
+  color: #DAA520;
+  font-weight: 600;
+  font-family: 'Consolas', monospace;
+  font-size: 0.78rem;
+}
+
+.unique-affix {
+  padding: 1rem;
+  background: rgba(139,0,0,0.12);
+  border: 1px solid rgba(139,0,0,0.3);
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+}
+
+.unique-affix-label {
+  font-size: 0.72rem;
+  color: #e74c3c;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.unique-affix-text {
+  font-size: 0.82rem;
+  color: #f0e8e0;
+  line-height: 1.7;
+}
+
+.unique-flavor-text {
+  font-size: 0.75rem;
+  color: #665555;
+  font-style: italic;
+  line-height: 1.6;
+  padding: 0.75rem;
+  background: rgba(0,0,0,0.2);
+  border-left: 3px solid rgba(218,165,32,0.2);
+  border-radius: 0 6px 6px 0;
+}
+
+@media (max-width: 768px) {
+  .unique-card-main {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .unique-showcase {
+    flex-direction: column;
+  }
+}
+
+/* ====== 数据表格 ====== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  color: #DAA520;
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+}
+
+.data-table td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid rgba(58, 32, 40, 0.3);
+  color: #a09088;
+  line-height: 1.5;
+}
+
+.data-table tbody tr:hover {
+  background: rgba(218, 165, 32, 0.04);
 }
 
 /* ====== Section 7: 页脚 ====== */

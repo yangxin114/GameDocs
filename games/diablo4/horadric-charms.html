@@ -68,6 +68,8 @@
       <li><a href="#sec-sets"><span class="nav-icon">&#x2694;</span><span class="nav-text">套装护身符</span><span class="nav-step">STEP 3</span></a></li>
       <li><a href="#sec-runes"><span class="nav-icon">&#x2728;</span><span class="nav-text">符文系统</span><span class="nav-step">STEP 4</span></a></li>
       <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-unique"><span class="nav-icon">&#x1F45C;</span><span class="nav-text">独特护身符</span><span class="nav-step">NEW</span></a></li>
+      <div class="guide-sidebar-divider"></div>
       <li><a href="#sec-rare"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符三大分类</span><span class="nav-step">BONUS</span></a></li>
     </ul>
     <div class="guide-sidebar-footer">
@@ -293,6 +295,36 @@
           </li>
         </ul>
       </div>
+
+      <!-- Ferocious Horadric Seal of Terror - 6槽传奇（暗影流） -->
+      <div class="seal-card">
+        <div class="seal-slots">
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+          <div class="seal-slot filled"></div>
+        </div>
+        <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
+          <img src="../../assets/images/diablo4/dlc2/charms/Ferocious_Horadric_Seal_of_Terror.png" alt="Ferocious Horadric Seal of Terror" loading="lazy" style="width:100%;display:block;">
+        </div>
+        <div class="seal-name">Ferocious Horadric Seal of Terror</div>
+        <div class="seal-quality legendary">传奇品质</div>
+        <div class="seal-slot-count">6 个护身符槽位</div>
+        <ul class="seal-power-list">
+          <li class="seal-power-item">
+            <div class="sp-name">全局伤害</div>
+            <div class="sp-desc"><span class="var-range">+12.0%[x]</span> <span class="var-range">[12.0-20.0]%</span>[x]</div>
+            <div class="seal-power-tooltip"><strong>全局伤害</strong><br>增伤为最终乘区[x]</div>
+          </li>
+          <li class="seal-power-item">
+            <div class="sp-name">Shadow of Harash</div>
+            <div class="sp-desc">暗影形态下伤害 <span class="var-range">+7.0%</span> <span class="var-range">[7.0-10.0]%</span><br>+1 护身符槽位</div>
+            <div class="seal-power-tooltip"><strong>Shadow of Harash</strong><br>暗影形态专属增伤<br>适合暗影流BD</div>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -321,6 +353,10 @@
       <div class="set-tab" data-set="mastery">
         <span class="tab-dot skill"></span>
         精通套装（技能倾向）
+      </div>
+      <div class="set-tab" data-set="harash">
+        <span class="tab-dot shadow"></span>
+        哈拉什之影套装（暗影形态）
       </div>
     </div>
 
@@ -540,6 +576,131 @@
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
+    </div>
+
+    <!-- ===== 哈拉什之影套装 ===== -->
+    <div class="set-panel" id="panel-harash">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Shadow of Harash 哈拉什之影套装</h3>
+          <div class="set-type">暗影形态 — 围绕暗影形态（Shadowform）设计的五件套套装</div>
+          <blockquote class="set-quote">
+            "The shadow does not destroy — it reveals what was always there, hidden by light."
+            <span class="quote-author">— Harash</span>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="set-charms set-charms-five">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Phoba_of_Harashs_Shado.png" alt="Phoba of Harash's Shadow" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Phoba of Harash's Shadow</div>
+            <ul class="charm-stats">
+              <li><span>秘术技能（Occult Skills）</span><span class="stat-num"><span class="var-range">+2</span> <span class="var-range">[1-3]</span></span></li>
+              <li><span>金币掉落</span><span class="stat-num"><span class="var-range">+5%</span> <span class="var-range">[5-9]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Fer_of_Harashs_Shadow.png" alt="Fer of Harash's Shadow" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Fer of Harash's Shadow</div>
+            <ul class="charm-stats">
+              <li><span>全元素抗性</span><span class="stat-num"><span class="var-range">+7.3%</span> <span class="var-range">[7.0-8.0]%</span></span></li>
+              <li><span>药水治疗</span><span class="stat-num"><span class="var-range">+7.7%</span> <span class="var-range">[7.0-8.0]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Linta_of_Harashs_Shadow.png" alt="Linta of Harash's Shadow" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Linta of Harash's Shadow</div>
+            <ul class="charm-stats">
+              <li><span>恶魔学技能（Demonology Skills）</span><span class="stat-num"><span class="var-range">+1</span> <span class="var-range">[1-3]</span></span></li>
+              <li><span>制作材料掉落率</span><span class="stat-num"><span class="var-range">+6.0%</span> <span class="var-range">[4.8-9.0]%</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of Harash's Shadow</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Berú of Harash's Shadow</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>暗影形态区域内的敌人被<strong>支配（Dominated）</strong>最多7秒，无法行动，并随你的重施技能（Recast Skills）指令移动。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>暗影形态使你受到的伤害降低 <strong>25%</strong>，移动时身后留下<strong>颠覆印记（Sigil of Subversion）</strong>暗影轨迹。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>拥有暗影形态时，你的<strong>深渊技能（Abyss Skills）</strong>伤害提高 <strong>350%[x]</strong>，但每次施放消耗1层暗影形态。</div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 独特护身符 ====== -->
+  <section class="charm-section" id="sec-unique">
+    <div class="charm-section-header">
+      <div class="section-step">UNIQUE</div>
+      <h2>独特护身符 — 截图中的已知独特装备</h2>
+      <p>独特护身符拥有固定的核心特效与独立的基础属性，品质独特不可重铸</p>
+    </div>
+
+    <!-- Paingörger's Gauntlets -->
+    <div class="unique-showcase">
+      <div class="unique-card-main">
+        <div class="unique-card-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/charms/Paingörger's Gauntlets.png" alt="Paingörger's Gauntlets" loading="lazy" style="width:100%;display:block;border-radius:8px;">
+        </div>
+        <div class="unique-card-details">
+          <div class="unique-name-row">
+            <span class="unique-name">Paingörger's Gauntlets — 痛苦使者护手</span>
+            <span class="unique-quality unique-unique">独特品质</span>
+          </div>
+          <div class="unique-level-req">等级需求：70</div>
+          <ul class="unique-stats-list">
+            <li><span>暗影抗性</span><span class="stat-num"><span class="var-range">+438</span> <span class="var-range">[416-523]</span></span></li>
+            <li><span>移动速度</span><span class="stat-num"><span class="var-range">+23%</span> <span class="var-range">[20-24]%</span></span></li>
+          </ul>
+          <div class="unique-affix">
+            <div class="unique-affix-label">核心特效</div>
+            <div class="unique-affix-text">
+              用非基础技能伤害敌人会对其标记3秒。当基础技能首次命中被标记的敌人时，该基础技能的伤害会<strong>回响</strong>至所有被标记的敌人，造成 <span class="var-range">110%[x]</span> <span class="var-range">[100-125]%</span> 增伤。
+            </div>
+          </div>
+          <div class="unique-flavor-text">
+            <em>"由都瑞尔的甲壳碎片锻造而成。佩戴这双手套——或被它击中——都会带来一种如同将双手推过千片碎玻璃般的剧痛。"</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 更多独特护身符占位 -->
+    <div style="margin-top:2rem;padding:1.5rem;background:rgba(26,15,20,0.5);border-radius:12px;border:1px dashed rgba(218,165,32,0.3);text-align:center;">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+      <div style="color:#a09088;font-size:0.9rem;">更多独特护身符待发现...</div>
+      <div style="color:#665555;font-size:0.8rem;margin-top:0.3rem;">正式上线后持续补充</div>
     </div>
   </section>
 
