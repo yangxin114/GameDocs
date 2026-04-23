@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《憎恨之王》神话装备变动前瞻 - 暗黑破坏神 IV</title>
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+  <link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+  <link rel="stylesheet" href="../../assets/css/theme-diablo4-charms.css">
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+      <span class="nav-game-name">神话装备变动前瞻</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 神话装备变动</span>
+    </div>
+  </nav>
+
+  <!-- 滚动进度条 -->
+  <div class="scroll-progress-track">
+    <div class="scroll-progress-fill" id="scrollProgressFill"></div>
+  </div>
+
+  <!-- 灯箱 -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')">
+    <img id="lightboxImage" src="" alt="图片预览">
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 返回顶部 -->
+  <button class="back-to-top-rune" id="backToTop" aria-label="返回顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- 站点 Header -->
+  <section class="site-header-section" style="padding:5rem 0 1rem;">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:0.85rem;">
+        <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+        <div>
+          <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+          <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+        </div>
+      </div>
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+      <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+        space.bilibili.com/443078910
+      </a>
+    </div>
+  </section>
+
+  <!-- ====== 左侧导航栏 ====== -->
+  <aside class="guide-sidebar" id="mythicSidebar">
+    <div class="guide-sidebar-title">目录导航</div>
+    <ul class="guide-sidebar-nav">
+      <li><a href="#sec-hero" class="active"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">封面</span><span class="nav-step">TOP</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-perdition"><span class="nav-icon">&#x1F451;</span><span class="nav-text">堕灭传承</span><span class="nav-step">#1</span></a></li>
+      <li><a href="#sec-doombringer"><span class="nav-icon">&#x2694;&#xFE0F;</span><span class="nav-text">末日使者</span><span class="nav-step">#2</span></a></li>
+      <li><a href="#sec-nesekem"><span class="nav-icon">&#x1F5E3;&#xFE0F;</span><span class="nav-text">先驱者涅塞克姆</span><span class="nav-step">#3</span></a></li>
+      <li><a href="#sec-grandfather"><span class="nav-icon">&#x1F52E;</span><span class="nav-text">祖父</span><span class="nav-step">#4</span></a></li>
+      <div class="guide-sidebar-divider"></div>
+      <li><a href="#sec-trends"><span class="nav-icon">&#x1F4CA;</span><span class="nav-text">流派趋势</span><span class="nav-step">SUMMARY</span></a></li>
+    </ul>
+    <div class="guide-sidebar-footer">
+      <a href="index.html">&#x2190; 返回D4首页</a>
+    </div>
+  </aside>
+
+  <!-- 移动端侧边栏切换按钮 -->
+  <button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- ====== 主内容区域 ====== -->
+  <main class="guide-content">
+
+  <!-- ====== 免责声明 ====== -->
+  <div class="disclaimer-bar" id="disclaimerBar">
+    <span class="disclaimer-icon">&#x26A0;&#xFE0F;</span>
+    <span class="disclaimer-text"><strong>重要声明：</strong>本文内容基于《憎恨之王》测试版截图反推整理，不代表官方最终设定。以下仅列举机制或特效发生显著改变的装备，基础属性浮动已忽略。一切内容以 4 月 28 日正式上线版本为准。</span>
+    <button class="disclaimer-close" onclick="this.parentElement.style.display='none'">&#x2715;</button>
+  </div>
+
+  <!-- ====== 第一屏：封面大图区 ====== -->
+  <section class="charm-hero" id="sec-hero">
+    <div class="charm-hero-bg" style="background:
+      radial-gradient(ellipse at 30% 20%, rgba(180,50,20,0.3) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(218,165,32,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(100,30,120,0.1) 0%, transparent 50%),
+      url('../images/diablo4/dlc2/Heir of Perdition.png') center 30%/contain no-repeat;"></div>
+    <div class="charm-hero-overlay"></div>
+    <div class="charm-hero-content">
+      <div class="charm-hero-badge">
+        <span class="pulse"></span>
+        基于测试版本截图反推
+      </div>
+      <h1 class="charm-hero-title" id="mythicHeroTitle">《憎恨之王》神话装备变动前瞻</h1>
+      <p class="charm-hero-subtitle">四件神话暗金装备加强——数值增强、机制重做、流派洗牌</p>
+
+      <!-- 概述卡片 -->
+      <div class="charm-system-summary" style="margin-top: 2rem; padding: 1.5rem; background: rgba(26,15,20,0.6); border-radius: 12px; border: 1px solid rgba(58,32,40,0.4);">
+        <h3 style="font-family:'Cinzel',serif;color:#DAA520;margin-bottom:1rem;font-size:1.1rem;">本次变动概览</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          <div style="padding:0.8rem;background:rgba(139,0,0,0.1);border-radius:8px;border-left:3px solid #e74c3c;">
+            <div style="color:#e74c3c;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x1F451; 堕灭传承</div>
+            <p style="color:#a09088;font-size:0.72rem;line-height:1.5;">全局增伤 60%→80%[x]，移除天使/恶魔特攻</p>
+          </div>
+          <div style="padding:0.8rem;background:rgba(39,174,96,0.08);border-radius:8px;border-left:3px solid #27ae60;">
+            <div style="color:#27ae60;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x2694;&#xFE0F; 末日使者</div>
+            <p style="color:#a09088;font-size:0.72rem;line-height:1.5;">纯防御重做，减伤 20%→25%，触发率 25%→40%</p>
+          </div>
+          <div style="padding:0.8rem;background:rgba(52,152,219,0.08);border-radius:8px;border-left:3px solid #3498db;">
+            <div style="color:#3498db;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x1F5E3;&#xFE0F; 先驱者</div>
+            <p style="color:#a09088;font-size:0.72rem;line-height:1.5;">从精英/压制转向易伤爆发，+450%易伤伤害</p>
+          </div>
+          <div style="padding:0.8rem;background:rgba(155,89,182,0.08);border-radius:8px;border-left:3px solid #9b59b6;">
+            <div style="color:#9b59b6;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x1F52E; 祖父</div>
+            <p style="color:#a09088;font-size:0.72rem;line-height:1.5;">暴伤 100%[x]→150%[x]，纯粹数值增强</p>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:0.85rem;color:#665555;margin-top:0.5rem;">4 月 28 日正式上线，一切内容以正式版本为准</p>
+    </div>
+    <div class="charm-hero-scroll" id="scrollArrow">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="7 13 12 18 17 13"/>
+        <line x1="12" y1="2" x2="12" y2="18"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ====== 第二屏：堕灭传承 ====== -->
+  <section class="charm-section" id="sec-perdition">
+    <div class="charm-section-header">
+      <div class="section-step">MYTHIC UNIQUE #01</div>
+      <h2>堕灭传承 — Heir of Perdition</h2>
+      <p>从头盔特攻到全局增伤——泛用性的质变飞跃</p>
+    </div>
+
+    <!-- 新旧对比 -->
+    <div class="mythic-compare-grid">
+      <div class="mythic-compare-card">
+        <div class="compare-label">旧版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Heir of Perdition_Old.png" alt="Heir of Perdition 旧版本" loading="lazy">
+        </div>
+      </div>
+      <div class="compare-arrow">
+        <svg viewBox="0 0 24 24" width="48" height="48" stroke="#DAA520" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <polyline points="14 6 20 12 14 18"/>
+        </svg>
+      </div>
+      <div class="mythic-compare-card highlight">
+        <div class="compare-label">新版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Heir of Perdition.png" alt="Heir of Perdition 新版本" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- 核心变化 -->
+    <div class="mythic-changes">
+      <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">&#x1F4C8; 核心变化</h3>
+      <div class="change-row remove">
+        <div class="change-icon">&#x274C;</div>
+        <div class="change-text">
+          <strong>移除：</strong> +200.0% 对天使和恶魔的伤害
+        </div>
+      </div>
+      <div class="change-row buff">
+        <div class="change-icon">&#x2B06;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>增强：</strong>全局增伤从 <span class="var-range">60%[x]</span> 提升至 <span class="var-range">80%[x]</span>（增幅约 33%）
+        </div>
+      </div>
+    </div>
+
+    <!-- 解读 -->
+    <div class="mythic-analysis">
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F4CA;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">解读</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            从"条件性特攻"变为"无条件的全局增伤"，泛用性大幅提升。不再绑定特定敌人类型，意味着在任何场景下都能享受完整的增伤收益。数值从 60%[x] 提升到 80%[x]，增幅高达 33%。对于追求极限输出的玩家来说，这是一个从"看情况使用"到"无脑毕业"的质变。
+          </p>
+        </div>
+      </div>
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F3AF;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">职业影响</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            <strong style="color:#e74c3c;">所有职业</strong>：追求极致输出的通用毕业头盔，优先级显著上升。不再仅限于对抗天使/恶魔敌人，而是成为任何场景下的最优选择。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="mythic-quote">
+      <em>"从特攻利器到全局重炮——堕灭传承完成了从'针对性武器'到'全面输出核心'的蜕变。"</em>
+    </blockquote>
+  </section>
+
+  <!-- ====== 第三屏：末日使者 ====== -->
+  <section class="charm-section" id="sec-doombringer">
+    <div class="charm-section-header">
+      <div class="section-step">MYTHIC UNIQUE #02</div>
+      <h2>末日使者 — Doombringer</h2>
+      <p>从攻防兼备到防御核心——定位的彻底转向</p>
+    </div>
+
+    <div class="mythic-compare-grid">
+      <div class="mythic-compare-card">
+        <div class="compare-label">旧版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Doombringer_Old.png" alt="Doombringer 旧版本" loading="lazy">
+        </div>
+      </div>
+      <div class="compare-arrow">
+        <svg viewBox="0 0 24 24" width="48" height="48" stroke="#DAA520" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <polyline points="14 6 20 12 14 18"/>
+        </svg>
+      </div>
+      <div class="mythic-compare-card highlight">
+        <div class="compare-label">新版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Doombringer.png" alt="Doombringer 新版本" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-changes">
+      <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">&#x1F6E1;&#xFE0F; 核心变化</h3>
+      <div class="change-row remove">
+        <div class="change-icon">&#x274C;</div>
+        <div class="change-text">
+          <strong>移除：</strong>通用 +100.0% 伤害词缀
+        </div>
+      </div>
+      <div class="change-row buff">
+        <div class="change-icon">&#x2B06;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>增强：</strong>减伤效果从 <span class="var-range">20%</span> 提升至 <span class="var-range">25%</span>，触发几率从 <span class="var-range">25%</span> 提升至 <span class="var-range">40%</span>
+        </div>
+      </div>
+      <div class="change-row adjust">
+        <div class="change-icon">&#x2699;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>调整：</strong>击中回复从概率触发改为固定数值
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-analysis">
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F4CA;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">解读</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            定位从"攻防兼备"彻底转向"纯粹防御与回复"。牺牲增伤能力，换取更稳定可控的生存保障。减伤触发率从 25% 提升到 40%，意味着在同等攻击频率下，减伤覆盖率提升约 60%。
+          </p>
+        </div>
+      </div>
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F3AF;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">职业影响</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            <strong style="color:#27ae60;">旋风斩野蛮人、近战游侠</strong>：高难场景下的顶级生存武器，生存能力提升显著。<br>
+            <strong style="color:#e74c3c;">追求极限输出的流派</strong>：优先级下降，不再作为首选增伤件。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="mythic-quote">
+      <em>"从攻守兼备到防御核心——末日使者在失去增伤锋芒的同时，化身为坚不可摧的壁垒。"</em>
+    </blockquote>
+  </section>
+
+  <!-- ====== 第四屏：先驱者涅塞克姆 ====== -->
+  <section class="charm-section" id="sec-nesekem">
+    <div class="charm-section-header">
+      <div class="section-step">MYTHIC UNIQUE #03</div>
+      <h2>先驱者涅塞克姆 — Nesekem, The Herald</h2>
+      <p>全面重做——从压制专精到易伤引擎</p>
+    </div>
+
+    <div class="mythic-compare-grid">
+      <div class="mythic-compare-card">
+        <div class="compare-label">旧版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Nesekem, The Herald_Old.png" alt="Nesekem, The Herald 旧版本" loading="lazy">
+        </div>
+      </div>
+      <div class="compare-arrow">
+        <svg viewBox="0 0 24 24" width="48" height="48" stroke="#DAA520" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <polyline points="14 6 20 12 14 18"/>
+        </svg>
+      </div>
+      <div class="mythic-compare-card highlight">
+        <div class="compare-label">新版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/Nesekem, The Herald.png" alt="Nesekem, The Herald 新版本" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-changes">
+      <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">&#x1F504; 核心变化</h3>
+      <div class="change-row remove">
+        <div class="change-icon">&#x274C;</div>
+        <div class="change-text">
+          <strong>移除：</strong>+400.0% 精英伤害、+450.0% 压制伤害
+        </div>
+      </div>
+      <div class="change-row buff">
+        <div class="change-icon">&#x2B06;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>新增：</strong><span class="var-range">+450% 易伤伤害</span>
+        </div>
+      </div>
+      <div class="change-row adjust">
+        <div class="change-icon">&#x2699;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>调整：</strong>特效从"必暴+必压制"变为"仅必暴"
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-analysis">
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F4CA;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">解读</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            全面重做。从绑定压制流派的"精英杀手"，转变为泛用性更强的"单体易伤爆发神器"。不再限制流派选择，适用于更多需要快速触发易伤增伤的场景。
+          </p>
+        </div>
+      </div>
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F3AF;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">职业影响</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            <strong style="color:#3498db;">灵巫（专属）</strong>：对缺乏单体爆发和易伤触发手段的流派是绝对核心。高攻速下可快速循环标记爆发。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="mythic-quote">
+      <em>"从压制专精到易伤引擎——先驱者不再执着于精英猎杀，转而以易伤标记引爆每一次攻击。"</em>
+    </blockquote>
+  </section>
+
+  <!-- ====== 第五屏：祖父 ====== -->
+  <section class="charm-section" id="sec-grandfather">
+    <div class="charm-section-header">
+      <div class="section-step">MYTHIC UNIQUE #04</div>
+      <h2>祖父 — The Grandfather</h2>
+      <p>纯粹的数值增强——暴伤加成再创新高</p>
+    </div>
+
+    <div class="mythic-compare-grid">
+      <div class="mythic-compare-card">
+        <div class="compare-label">旧版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/The Grandfather_Old.png" alt="The Grandfather 旧版本" loading="lazy">
+        </div>
+      </div>
+      <div class="compare-arrow">
+        <svg viewBox="0 0 24 24" width="48" height="48" stroke="#DAA520" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <polyline points="14 6 20 12 14 18"/>
+        </svg>
+      </div>
+      <div class="mythic-compare-card highlight">
+        <div class="compare-label">新版本</div>
+        <div class="mythic-image" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="../../assets/images/diablo4/dlc2/The Grandfather.png" alt="The Grandfather 新版本" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-changes">
+      <h3 style="font-family:'Cinzel',serif;color:#DAA520;font-size:1rem;margin-bottom:1rem;">&#x2694;&#xFE0F; 核心变化</h3>
+      <div class="change-row buff">
+        <div class="change-icon">&#x2B06;&#xFE0F;</div>
+        <div class="change-text">
+          <strong>增强：</strong>核心特效"暴击伤害提高"从 <span class="var-range">100%[x]</span> 提升至 <span class="var-range">150%[x]</span>（增幅 50%）
+        </div>
+      </div>
+    </div>
+
+    <div class="mythic-analysis">
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F4CA;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">解读</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            纯粹的数值增强，进一步巩固其作为"终极输出武器"的地位。暴伤加成从 100%[x] 提升到 150%[x]，增幅达 50%。对于暴击率高的流派而言，这意味着每个暴击都能造成更夸张的伤害。
+          </p>
+        </div>
+      </div>
+      <div class="analysis-block">
+        <div class="analysis-icon">&#x1F3AF;</div>
+        <div>
+          <div class="analysis-title" style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.9rem;margin-bottom:0.3rem;">职业影响</div>
+          <p style="color:#a09088;font-size:0.85rem;line-height:1.7;">
+            <strong style="color:#9b59b6;">野蛮人、死灵法师、圣骑士（专属）</strong>：双手流派的终极毕业武器，暴伤加成无可替代。配合暴击率堆叠，输出天花板再创新高。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="mythic-quote">
+      <em>"祖父依然是祖父——只不过这位老人家变得更强壮了。"</em>
+    </blockquote>
+  </section>
+
+  <!-- ====== 第六屏：流派趋势 ====== -->
+  <section class="charm-section" id="sec-trends">
+    <div class="charm-section-header">
+      <div class="section-step">SUMMARY</div>
+      <h2>装备重做后的流派趋势</h2>
+      <p>这些变动将如何影响现有 BD 构筑</p>
+    </div>
+
+    <div style="display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+      <!-- 趋势1 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.7);border-radius:12px;border:1px solid rgba(231,76,60,0.3);border-top:3px solid #e74c3c;">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">&#x2694;&#xFE0F;</span>
+          <div style="color:#e74c3c;font-family:'Cinzel',serif;font-size:0.95rem;">无条件爆发流 · Universal Burst</div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:0.75rem;">
+          <strong style="color:#DAA520;">堕灭传承</strong>（80%[x]全局增伤）替代旧版本的天使/恶魔特攻，成为通用输出核心。配合<strong style="color:#DAA520;">祖父</strong>（150%[x]暴伤加成），任何双手流派在暴击后的伤害将达到新的高度。
+        </p>
+        <div style="padding:0.5rem 0.75rem;background:rgba(139,0,0,0.1);border-radius:6px;font-size:0.72rem;color:#8a7a70;">
+          适合：暴流野蛮人、双手圣骑士、双手死灵法师
+        </div>
+      </div>
+
+      <!-- 趋势2 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.7);border-radius:12px;border:1px solid rgba(39,174,96,0.3);border-top:3px solid #27ae60;">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">&#x1F6E1;&#xFE0F;</span>
+          <div style="color:#27ae60;font-family:'Cinzel',serif;font-size:0.95rem;">极限生存流 · Pure Survival</div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:0.75rem;">
+          <strong style="color:#DAA520;">末日使者</strong>（40%几率25%减伤）转向纯防御，适合旋风斩野蛮人等高频近战流派。在高难度场景下，减伤覆盖率提升60%，大幅降低猝死率。
+        </p>
+        <div style="padding:0.5rem 0.75rem;background:rgba(39,174,96,0.08);border-radius:6px;font-size:0.72rem;color:#8a7a70;">
+          适合：旋风斩野蛮人、近战游侠、高难速刷生存流
+        </div>
+      </div>
+
+      <!-- 趋势3 -->
+      <div style="padding:1.5rem;background:rgba(26,15,20,0.7);border-radius:12px;border:1px solid rgba(52,152,219,0.3);border-top:3px solid #3498db;">
+        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
+          <span style="font-size:1.2rem;">&#x1F504;</span>
+          <div style="color:#3498db;font-family:'Cinzel',serif;font-size:0.95rem;">易伤引擎流 · Vulnerable Engine</div>
+        </div>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;margin-bottom:0.75rem;">
+          <strong style="color:#DAA520;">先驱者涅塞克姆</strong>（+450%易伤+必暴）成为灵巫流派的单体爆发核心。高攻速下可快速循环易伤标记+暴击输出，在BOSS战中表现尤为突出。
+        </p>
+        <div style="padding:0.5rem 0.75rem;background:rgba(52,152,219,0.08);border-radius:6px;font-size:0.72rem;color:#8a7a70;">
+          适合：灵巫专属、高攻速BOSS战、单体爆发流
+        </div>
+      </div>
+    </div>
+
+    <!-- 注意事项 -->
+    <div style="margin-top:2rem;padding:1rem 1.2rem;background:rgba(231,76,60,0.08);border-radius:10px;border:1px solid rgba(231,76,60,0.3);border-left:4px solid #e74c3c;">
+      <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+        <span style="font-size:1.2rem;line-height:1;">&#x26A0;&#xFE0F;</span>
+        <div>
+          <div style="font-family:'Cinzel',serif;color:#e74c3c;font-size:0.9rem;margin-bottom:0.3rem;">注意事项</div>
+          <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">
+            以上装备变动均基于《憎恨之王》测试版截图反推。神话暗金装备仅在资料片正式上线后可获取，具体掉落来源待官方确认。请以 4 月 28 日实际内容为准。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+          B站: @看雲起雲落
+        </a>
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+        <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+        <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QR Code Preview -->
+  <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+    <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+  </div>
+
+  </main>
+
+  <script>
+    // 灯箱
+    function openLightbox(src) {
+      if (!src) return;
+      document.getElementById('lightboxImage').src = src;
+      document.getElementById('lightboxOverlay').classList.add('open');
+    }
+  </script>
+  <script src="../../assets/js/charms-interactions.js"></script>
+  <script src="../../assets/js/guide-sidebar.js"></script>
+  <script>
+    // 封面标题逐字动画
+    (function(){
+      var el = document.getElementById('mythicHeroTitle');
+      if (!el || el.dataset.done) return;
+      var text = el.textContent;
+      el.innerHTML = '';
+      for (var i = 0; i < text.length; i++) {
+        var s = document.createElement('span');
+        s.className = 'char';
+        s.textContent = text[i] === ' ' ? ' ' : text[i];
+        s.style.animationDelay = (i * 0.07) + 's';
+        el.appendChild(s);
+      }
+      el.dataset.done = '1';
+    })();
+
+    // 侧边栏初始化
+    (function(){
+      var toggle = document.getElementById('sidebarToggle');
+      var sidebar = document.getElementById('mythicSidebar');
+      if (toggle && sidebar) {
+        toggle.addEventListener('click', function() {
+          sidebar.classList.toggle('open');
+        });
+        sidebar.querySelectorAll('a[href^="#"]').forEach(function(a) {
+          a.addEventListener('click', function() {
+            sidebar.classList.remove('open');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

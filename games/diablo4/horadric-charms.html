@@ -332,8 +332,8 @@
   <section class="charm-section" id="sec-sets">
     <div class="charm-section-header">
       <div class="section-step">STEP 03</div>
-      <h2>套装护身符 — 截图中的四套套装数据</h2>
-      <p>每套由 Phoba、Fer、Mlor 三件组成（部分仅需两件），激活 2件/3件 套装效果</p>
+      <h2>套装护身符 — 截图中的六套套装数据</h2>
+      <p>多数套装由 Phoba、Fer、Mlor 三件组成（Dark Pact 与 Mastery 仅 2 件），凑够件数激活对应套装效果</p>
     </div>
 
     <!-- Tab 切换器 -->
@@ -357,6 +357,10 @@
       <div class="set-tab" data-set="harash">
         <span class="tab-dot shadow"></span>
         哈拉什之影套装（暗影形态）
+      </div>
+      <div class="set-tab" data-set="darkpact">
+        <span class="tab-dot pact"></span>
+        黑暗契约套装（触发流）
       </div>
     </div>
 
@@ -657,6 +661,67 @@
         <div class="set-progress-seg"></div>
       </div>
     </div>
+
+    <!-- ===== 黑暗契约套装 ===== -->
+    <div class="set-panel" id="panel-darkpact">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <h3>Dark Pact 黑暗契约套装</h3>
+          <div class="set-type">触发流 — 多元素幸运一击伤害，纯触发向套装</div>
+          <blockquote class="set-quote">
+            "Berü... The purest, strongest, and most perilous aspect of the mage is their Soul. Our work demands that we risk it for the greater good. When and how is your choice."
+            <span class="quote-author">— Tal Rasha</span>
+          </blockquote>
+          <div style="margin-top:0.75rem;padding:0.85rem 1rem;background:rgba(231,76,60,0.06);border-radius:8px;border-left:3px solid #e74c3c;">
+            <div style="color:#e74c3c;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x1F50E; 解读</div>
+            <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">
+              这是一套<strong>纯触发流</strong>护身符，以<strong>塔·拉夏（Tal Rasha）</strong>的风味文本为背景，暗示以灵魂为代价换取力量。套装仅 <strong>2件</strong> 即可激活效果，一次性提供三种元素的幸运一击伤害，数值高达 1,500-1,550。
+              适合<strong>高攻速、高幸运一击触发率</strong>的BD，能在短时间内频繁触发冰/火/电三种元素伤害，形成"元素雨"效果。由于不提供传统的百分比增伤乘区，更偏向于补充伤害与触发元素联动（叠加异常状态、触发元素雕文等）。
+              局限性在于固定数值伤害在高难度下可能被怪物抗性稀释，缺乏百分比乘区增伤。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="set-charms" style="grid-template-columns: repeat(2, 1fr);">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Phoba_of_Harashs_Shado.png" alt="Phoba of Dark Pact" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">Phoba of Dark Pact</div>
+            <ul class="charm-stats">
+              <li><span>毒素抗性</span><span class="stat-num"><span class="var-range">+459</span> <span class="var-range">[416-523]</span></span></li>
+              <li><span>幸运一击: 神圣伤害</span><span class="stat-num">40% 几率 <span class="var-range">+800</span> <span class="var-range">[550-1,000]</span></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="2">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of Dark Pact</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果（2件套）</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>幸运一击时同时触发三种元素伤害：</div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x2744;&#xFE0F; 冰霜伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 冰霜伤害
+        </div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x1F525; 火焰伤害 — 最高 40% 几率 <span class="var-range">1,550</span> 火焰伤害
+        </div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x26A1; 闪电伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 闪电伤害
+        </div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ====== 独特护身符 ====== -->
@@ -834,7 +899,7 @@
     <div style="margin-bottom:2rem;display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
       <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:10px;border:1px solid rgba(218,165,32,0.2);border-top:3px solid #DAA520;">
         <div style="color:#DAA520;font-family:'Cinzel',serif;font-size:0.95rem;margin-bottom:0.4rem;">&#x2694; 套装护身符</div>
-        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">每套由 Phoba、Fer、Mlor 三件组成，凑够数量激活 2件套/3件套 效果。目前已知四套方向：输出向杀戮套装、防御向生存套装、效率向熟练技法套装、技能向精通套装。详见上方 STEP 3 详细数据。</p>
+        <p style="color:#a09088;font-size:0.82rem;line-height:1.6;">多数套装由 Phoba、Fer、Mlor 三件组成，Dark Pact 与 Mastery 仅 2 件。凑够件数激活对应套装效果。目前已知六套方向：输出向杀戮套装、防御向生存套装、效率向熟练技法套装、技能向精通套装、暗影形态哈拉什之影、多元素触发流黑暗契约。详见上方 STEP 3 详细数据。</p>
       </div>
       <div style="padding:1.2rem;background:rgba(26,15,20,0.6);border-radius:10px;border:1px solid rgba(138,122,112,0.3);border-top:3px solid #c0a060;">
         <div style="color:#c0a060;font-family:'Cinzel',serif;font-size:0.95rem;margin-bottom:0.4rem;">&#x1F48E; 稀有护身符</div>
