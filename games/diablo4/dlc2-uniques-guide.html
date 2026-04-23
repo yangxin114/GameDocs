@@ -2307,9 +2307,9 @@
 
   // === Filter logic ===
   (function(){
-    var bar = document.getElementById('uniqueFilterBar');
+    var bar = document.getElementById('classQuickFilters') || document.getElementById('slotQuickFilters');
     if (!bar) return;
-    var items = document.querySelectorAll('.item-card.unique-card');
+    var items = document.querySelectorAll('.item-card');
     items.forEach(function(item){
       var hdr = item.querySelector('.item-card-header .item-etype');
       if (!hdr) return;
