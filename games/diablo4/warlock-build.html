@@ -612,17 +612,23 @@
   /* Responsive */
   @media (max-width: 900px) {
     .sidebar { display: none; }
-    .hero { padding: 48px 24px 36px; }
-    .section { padding: 32px 24px; }
+    .top-nav { padding: 0 1rem !important; }
+    .top-nav > div { flex-wrap: wrap; }
+    .top-nav > div > span:last-child { display: none; }
+    .page-wrap { flex-direction: column; }
+    .hero { padding: 48px 16px 36px; }
+    .section { padding: 32px 16px; }
     .item-body, .skill-body, .shard-body {
       grid-template-columns: 1fr;
     }
     .item-img-col, .skill-img-col, .shard-img-col {
       border-right: none; border-bottom: 1px solid var(--border);
+      max-width: 220px; margin: 0 auto;
     }
     .resource-grid { grid-template-columns: 1fr; }
     .hero-deco { display: none; }
-    .back-link-bar { padding: 10px 24px; }
+    .back-link-bar { padding: 10px 16px; }
+    .modal-overlay img { max-width: 95vw; }
   }
 
   @media (prefers-reduced-motion: reduce) {
