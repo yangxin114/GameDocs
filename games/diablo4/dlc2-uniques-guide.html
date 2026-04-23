@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>术士·威能与专属装备解析 | Diablo IV Witch Class Guide</title>
+<title>DLC2 全职业暗金装备与威能变动 | Diablo IV Lord of Hatred Guide</title>
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="../../assets/css/components.css">
 <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
@@ -498,11 +498,65 @@
     .summary-stat .num { font-family:'Cinzel',serif; font-size:1.4rem; font-weight:700; color:var(--gold); }
     .summary-stat .label { font-size:0.68rem; color:#665555; margin-top:0.15rem; }
     .summary-stats { display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.25rem; }
-    .class-row { display:flex; align-items:center; gap:0.75rem; padding:0.5rem 0; border-bottom:1px solid rgba(58,32,40,0.2); }
-    .class-row:last-child { border-bottom:none; }
-    .class-name { font-size:0.82rem; color:#f0e8e0; min-width:60px; }
-    .class-items { font-size:0.78rem; color:#a09088; }
 
+    /* Quick filter row */
+    .quick-filters { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1rem; }
+    .quick-filter-btn {
+      display:inline-flex; align-items:center; gap:0.3rem;
+      padding:0.35rem 0.8rem; border-radius:8px; font-size:0.78rem;
+      background:rgba(26,15,20,0.7); border:1px solid rgba(58,32,40,0.5);
+      color:#a09088; cursor:pointer; transition:all 0.2s; font-family:'Noto Sans SC',sans-serif;
+    }
+    .quick-filter-btn:hover { border-color:var(--gold); color:var(--gold); }
+    .quick-filter-btn.active { background:rgba(218,165,32,0.12); border-color:var(--gold); color:var(--gold); }
+    .quick-filter-btn .qf-icon { font-size:0.9rem; }
+    .quick-filter-btn .qf-count { font-size:0.65rem; color:#554444; margin-left:0.15rem; }
+    .quick-filter-btn.active .qf-count { color:#8a7a70; }
+    /* Summary card */
+    .summary-card {
+      background:rgba(26,15,20,0.85); border:1px solid rgba(58,32,40,0.5);
+      border-radius:14px; overflow:hidden; margin-bottom:2.5rem;
+    }
+    .summary-card-header {
+      padding:1.25rem 1.5rem; background:rgba(139,0,0,0.1);
+      border-bottom:1px solid rgba(58,32,40,0.4);
+      display:flex; align-items:center; gap:0.75rem;
+    }
+    .summary-card-body { padding:1.5rem; }
+    .summary-stat {
+      display:inline-flex; flex-direction:column; align-items:center;
+      padding:0.75rem 1rem; background:rgba(0,0,0,0.2); border-radius:10px;
+      min-width:90px;
+    }
+    .summary-stat .num { font-family:'Cinzel',serif; font-size:1.4rem; font-weight:700; color:var(--gold); }
+    .summary-stat .label { font-size:0.68rem; color:#665555; margin-top:0.15rem; }
+    .summary-stats { display:flex; flex-wrap:wrap; gap:0.75rem; margin-bottom:1.25rem; }
+
+    /* Hidden filter */
+    .item-card.hidden-filter { opacity:0.15; pointer-events:none; height:0; overflow:hidden; margin:0; padding:0; border:none; }
+
+    @media (max-width:900px) {
+      .top-nav { padding: 0 1rem !important; }
+      .top-nav > div { flex-wrap: wrap; }
+      .top-nav > div > span:last-child { display: none; }
+      .sidebar { display: none; }
+      .page-wrap { flex-direction: column; }
+      .section { padding: 32px 16px; }
+      .hero { padding: 40px 16px 32px; }
+      .item-body { grid-template-columns: 1fr; }
+      .item-img-col { border-right: none; border-bottom: 1px solid var(--border); max-width: 220px; margin: 0 auto; }
+      .two-col { grid-template-columns: 1fr; }
+      .page-footer { padding: 24px 16px; }
+      .hero-deco { display: none; }
+      .summary-card-body { padding: 1rem; }
+      .summary-stats { gap: 0.5rem; }
+      .summary-stat { min-width: 70px; padding: 0.5rem; }
+      .summary-stat .num { font-size: 1.1rem; }
+      .summary-card-header { padding: 1rem; }
+      .summary-card { border-radius: 10px; }
+      .quick-filters { flex-wrap: wrap; gap: 0.3rem; }
+      .quick-filter-btn { font-size: 0.72rem; padding: 0.3rem 0.6rem; }
+    }
 
 </style>
 </head>
@@ -511,8 +565,8 @@
 <nav class="top-nav" id="topNav" style="position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(7,8,15,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border,#2a2820);padding:0 2rem;height:60px;display:flex;align-items:center;font-family:'Noto Sans SC',sans-serif;">
   <div style="max-width:1200px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;">
     <a href="index.html" style="display:flex;align-items:center;gap:0.5rem;color:#DAA520;font-size:0.85rem;text-decoration:none;">← 返回D4攻略</a>
-    <span style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#DAA520;">术士指南</span>
-    <span style="font-size:0.75rem;color:#666;">首页 > 暗黑破坏神 IV > 术士指南</span>
+    <span style="font-family:'Cinzel',serif;font-size:1.1rem;font-weight:700;color:#DAA520;">DLC2 装备变动</span>
+    <span style="font-size:0.75rem;color:#666;">首页 > 暗黑破坏神 IV > 暗金装备变动</span>
   </div>
 </nav>
 
@@ -528,7 +582,7 @@
     <div class="sidebar-logo">
       <div class="game-title">Diablo IV · Lord of Hatred</div>
       <div class="build-title">DLC2 暗金装备<br>&amp; 威能变动</div>
-      <div class="build-sub">Witch Class Item Guide</div>
+      <div class="build-sub">Lord of Hatred Expansion</div>
     </div>
 
     <div class="nav-section-label">暗金装备</div>
@@ -545,7 +599,7 @@
 
     <div class="sidebar-footer">
       分享者<br><span>看雲起雲落</span><br>
-      <span style="font-size:10px;opacity:0.6;margin-top:4px;display:block">Diablo IV · Witch Class</span>
+      <span style="font-size:10px;opacity:0.6;margin-top:4px;display:block">Diablo IV · Lord of Hatred</span>
     </div>
   </nav>
 
@@ -560,7 +614,7 @@
             <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
           </div>
         </div>
-        <img src="../../assets/images/my-bili-2pic.jpg" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
         <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
           <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
           space.bilibili.com/443078910
@@ -572,16 +626,14 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-eyebrow">Diablo IV · Lord of Hatred Expansion · Witch Class</div>
-      <h1>WITCH CLASS<br>TEMPERS &amp; UNIQUES</h1>
-      <div class="hero-cn">术士·独特装备与威能配置完全解析</div>
-      <div class="hero-sub">DLC2《憎恨之王》新增 15 件独特装备 + 威能系统变动全面解读 · 含术士专属 6 件</div>
+      <div class="hero-eyebrow">Diablo IV · Lord of Hatred Expansion · 全职业装备</div>
+      <h1>DLC2 暗金装备<br>&amp; 威能变动</h1>
+      <div class="hero-cn">全职业独特装备图鉴 · 淬炼威能变动解读</div>
+      <div class="hero-sub">《憎恨之王》新增 15 件独特装备 + 威能系统变动全面解读 · 术士专属 6 件</div>
       <div class="hero-tags">
-        <span class="tag tag-demon">🔥 攻击威能 ×4</span>
-        <span class="tag tag-gold">🛡️ 防御威能 ×2</span>
-        <span class="tag tag-gold">🔮 资源威能 ×2</span>
-        <span class="tag tag-gold">🌀 通用威能 ×1</span>
-        <span class="tag tag-unique">✨ DLC2 全职业独特 ×15</span>
+        <span class="tag tag-demon">🆕 DLC2 新增 12 件</span>
+        <span class="tag tag-unique">✨ 术士专属 6 件</span>
+        <span class="tag tag-gold">⚔️ 淬炼威能变动</span>
       </div>
       <div class="hero-deco">術</div>
     </section>
@@ -602,8 +654,8 @@
       <div class="callout callout-key">
         <span class="callout-icon">✨</span>
         <div class="callout-body">
-          <strong>术士专属独特装备说明 · Class-Exclusive Ancestral Unique Items</strong>
-          以下三件装备均为<b>术士职业专属</b>的<b>先祖独特（Ancestral Unique）</b>装备，需达到<b>70级</b>方可装备，且仅在"恨之领主（Lord of Hatred）"赛季内掉落。每件装备携带<b>独特被动特效（Gold Text Affix）</b>，是术士核心BD架构的定义性装备。
+          <strong>DLC2 全职业独特装备说明 · All-Class Ancestral Unique Items</strong>
+          以下 <b>15 件装备</b> 涵盖 6 个职业。术士（Witch）有 6 件独特装备（含 3 件术士专属），其他职业各 2 件。使用上方筛选器可按职业/部位快速过滤。
         </div>
       </div>
 
@@ -670,7 +722,6 @@
             <div class="quick-filters" id="statusQuickFilters">
               <button class="quick-filter-btn active" data-status="all"><span class="qf-icon">📋</span>全部</button>
               <button class="quick-filter-btn" data-status="new"><span class="qf-icon">🆕</span>DLC2 新增</button>
-              <button class="quick-filter-btn" data-status="existing"><span class="qf-icon">✅</span>已有</button>
             </div>
           </div>
         </div>
@@ -678,24 +729,6 @@
 
       <!-- 术士专属快捷锚点 -->
       <div id="sec-witch-only" style="scroll-margin-top:80px;"></div>
-        <div class="filter-group">
-          <span class="filter-label">部位:</span>
-          <button class="filter-btn active" data-group="type" data-value="all">全部</button>
-          <button class="filter-btn" data-group="type" data-value="weapon">武器</button>
-          <button class="filter-btn" data-group="type" data-value="helm">头盔</button>
-          <button class="filter-btn" data-group="type" data-value="amulet">护身符</button>
-          <button class="filter-btn" data-group="type" data-value="ring">戒指</button>
-          <button class="filter-btn" data-group="type" data-value="chest">胸甲</button>
-          <button class="filter-btn" data-group="type" data-value="gloves">手套</button>
-          <button class="filter-btn" data-group="type" data-value="pants">裤子</button>
-        </div>
-        <div class="filter-group">
-          <span class="filter-label">状态:</span>
-          <button class="filter-btn active" data-group="status" data-value="all">全部</button>
-          <button class="filter-btn" data-group="status" data-value="new">DLC2 新增</button>
-          <button class="filter-btn" data-group="status" data-value="existing">已有</button>
-        </div>
-      </div>
 
       <div class="item-card unique-card" id="uq1">
         <div class="item-card-header unique-header">
@@ -2192,10 +2225,10 @@
 
 <section class="section" id="sec-tip">
       <div class="section-header">
-        <span class="section-icon">💡</span>
+        <span class="section-icon">📖</span>
         <div>
-          <div class="section-title">BUILD SYNERGY NOTES</div>
-          <div class="section-title-cn">搭配建议 · 核心协同思路</div>
+          <div class="section-title">DLC2 装备获取指南</div>
+          <div class="section-title-cn">掉落来源、使用建议与注意事项</div>
         </div>
         <div class="section-title-line"></div>
       </div>
@@ -2203,33 +2236,33 @@
       <div class="two-col">
         <div>
           <div class="callout callout-demon">
-            <span class="callout-icon">⚔️</span>
+            <span class="callout-icon">💀</span>
             <div class="callout-body">
-              <strong>召唤爆发流 · Summon Burst Build</strong>
-              <b>丰饶封印</b>（+召唤印记增伤+蜂群召唤）＋<b>恶魔压迫头盔</b>（大恶魔击倒→小恶魔追打62%增伤）构成召唤→CC→追打的完整爆发循环。建议搭配减少召唤冷却的神秘技能词条以维持召唤频率。
+              <strong>术士独特装备掉落 · Witch Unique Drops</strong>
+              术士的 6 件独特装备（丰饶封印、卡布拉克希斯之墙、塔萨美特之脊、赫拉松之种、冥狱护手、艾格罗姆的裂痕）需<b>70级</b>且仅限<b>术士职业</b>装备。在"恨之领主"赛季内从对应 Boss 掉落概率最高。
             </div>
           </div>
           <div class="callout callout-key">
-            <span class="callout-icon">🌀</span>
+            <span class="callout-icon">🌐</span>
             <div class="callout-body">
-              <strong>深渊隐身流 · Abyss Stealth Build</strong>
-              <b>阴险恶魔剑</b>（暗影形态叠层×隐身400%加成）＋<b>蝾螈之眼护符</b>（深渊技能→神秘技能RCR降低）形成高强度爆发窗口。堆叠暗影形态后进入隐身触发爆发，深渊技能同步降低神秘技能资源消耗。
+              <strong>全职业独特装备 · All-Class Uniques</strong>
+              其他 9 件全职业独特装备按对应职业等级需求解锁，掉落机制与各职业 Boss 和终局玩法挂钩。
             </div>
           </div>
         </div>
         <div>
           <div class="callout callout-tip">
-            <span class="callout-icon">🔮</span>
+            <span class="callout-icon">⚔️</span>
             <div class="callout-body">
-              <strong>地狱裂缝流 · Hell Fracture Build</strong>
-              <b>塔萨美特之脊</b>（120%增伤+第3次三重裂缝）＋<b>蝾螈之眼</b>（地狱火技能→神秘技能CDR缩减）打造高频三重裂缝循环。配合卡布拉克希斯之墙（痛苦之墙免费变体）可兼顾清怪与单体。
+              <strong>淬炼威能变动 · Temper Changes</strong>
+              本页面下方的攻击/防御/资源/通用威能章节列出了术士可使用的淬炼威能新增词条。淬炼系统允许你通过消耗材料为传奇/独特装备添加或替换词缀，是后期装备打造的核心途径。
             </div>
           </div>
           <div class="callout callout-warn">
             <span class="callout-icon">⚠️</span>
             <div class="callout-body">
-              <strong>术士专属独特注意事项 · Class-Unique Notes</strong>
-              三件术士专属独特装备（丰饶封印、卡布拉克希斯之墙、塔萨美特之脊）均需<b>70级</b>且仅限<b>术士职业</b>装备。农本赛季内从<b>恨之领主（Lord of Hatred）</b>BOSS掉落概率最高，也可通过大秘境超60层获取机会。
+              <strong>重要声明 · Disclaimer</strong>
+              本文所有内容基于测试版截图反推整理，不代表官方最终设定。正式上线后数值、词缀、机制可能调整，请以实际游戏内容为准。
             </div>
           </div>
         </div>
@@ -2239,7 +2272,6 @@
 
 
 
-    <!-- Footer -->
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
