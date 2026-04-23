@@ -757,6 +757,89 @@
   margin-top: 0.4rem;
 }
 
+/* 套装解读区块 */
+.set-analysis {
+  padding: 1.2rem 1.4rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  border: 1px solid rgba(218,165,32,0.2);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+.set-analysis h4 {
+  font-family: 'Cinzel', serif;
+  color: #DAA520;
+  font-size: 0.95rem;
+  margin-bottom: 0.6rem;
+}
+.set-analysis p {
+  color: #a09088;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+.set-analysis .analysis-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.set-analysis .analysis-tag {
+  padding: 0.25rem 0.6rem;
+  background: rgba(218,165,32,0.08);
+  border: 1px solid rgba(218,165,32,0.2);
+  border-radius: 6px;
+  font-size: 0.72rem;
+  color: #c8963e;
+}
+
+/* 套装功能标签 */
+.set-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+.set-badge-tag {
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.set-badge-tag.tag-5pc { background: rgba(218,165,32,0.15); color: #DAA520; border: 1px solid rgba(218,165,32,0.3); }
+.set-badge-tag.tag-farm { background: rgba(39,174,96,0.12); color: #27ae60; border: 1px solid rgba(39,174,96,0.25); }
+.set-badge-tag.tag-boss { background: rgba(231,76,60,0.12); color: #e74c3c; border: 1px solid rgba(231,76,60,0.25); }
+.set-badge-tag.tag-speed { background: rgba(52,152,219,0.12); color: #3498db; border: 1px solid rgba(52,152,219,0.25); }
+.set-badge-tag.tag-hc { background: rgba(155,89,182,0.12); color: #9b59b6; border: 1px solid rgba(155,89,182,0.25); }
+.set-badge-tag.tag-pet { background: rgba(34,139,34,0.12); color: #228B22; border: 1px solid rgba(34,139,34,0.25); }
+.set-badge-tag.tag-tank { background: rgba(192,192,192,0.12); color: #C0C0C0; border: 1px solid rgba(192,192,192,0.25); }
+.set-badge-tag.tag-trigger { background: rgba(139,0,0,0.12); color: #CD5C5C; border: 1px solid rgba(139,0,0,0.25); }
+
+/* 套装部件网格紧凑模式 */
+.set-charms.compact .set-charm-card {
+  border-width: 1px;
+  border-radius: 8px;
+}
+.set-charms.compact .set-charm-image {
+  max-height: 140px;
+  overflow: hidden;
+}
+.set-charms.compact .set-charm-image img {
+  width: 50%;
+  max-width: 260px;
+  margin: 0 auto;
+  display: block;
+}
+.set-charms.compact .set-charm-info {
+  padding: 0.6rem 0.8rem;
+}
+.set-charms.compact .set-charm-info .charm-name {
+  font-size: 0.75rem;
+}
+.set-charms.compact .set-charm-info .charm-stats {
+  font-size: 0.68rem;
+}
+
 /* 套装部件卡片 */
 .set-charms {
   display: grid;
