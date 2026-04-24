@@ -819,29 +819,14 @@
 .set-badge-tag.tag-tank { background: rgba(192,192,192,0.12); color: #C0C0C0; border: 1px solid rgba(192,192,192,0.25); }
 .set-badge-tag.tag-trigger { background: rgba(139,0,0,0.12); color: #CD5C5C; border: 1px solid rgba(139,0,0,0.25); }
 
-/* 套装部件网格紧凑模式 */
-.set-charms.compact .set-charm-card {
-  border-width: 1px;
-  border-radius: 8px;
+/* 5件套套装紧凑模式 */
+.set-charms.compact.set-charms-five {
+  grid-template-columns: repeat(5, 1fr) !important;
 }
-.set-charms.compact .set-charm-image {
-  max-height: 140px;
-  overflow: hidden;
-}
-.set-charms.compact .set-charm-image img {
-  width: 50%;
-  max-width: 260px;
-  margin: 0 auto;
-  display: block;
-}
-.set-charms.compact .set-charm-info {
-  padding: 0.6rem 0.8rem;
-}
-.set-charms.compact .set-charm-info .charm-name {
-  font-size: 0.75rem;
-}
-.set-charms.compact .set-charm-info .charm-stats {
-  font-size: 0.68rem;
+@media (max-width: 1200px) {
+  .set-charms.compact.set-charms-five {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
 
 /* 套装部件卡片 */
@@ -936,6 +921,38 @@
   font-weight: 600;
   font-family: 'Consolas', monospace;
   font-size: 0.72rem;
+}
+
+/* 套装部件网格紧凑模式（必须放在基础.set-charm-image img之后） */
+.set-charms.compact .set-charm-card {
+  border-width: 1px;
+  border-radius: 8px;
+}
+.set-charms.compact .set-charm-image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(0,0,0,0.2);
+}
+.set-charms.compact .set-charm-image img {
+  max-height: 150px !important;
+  max-width: 90% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain;
+  display: block;
+  cursor: zoom-in;
+}
+.set-charms.compact .set-charm-info {
+  padding: 0.6rem 0.8rem;
+}
+.set-charms.compact .set-charm-info .charm-name {
+  font-size: 0.75rem;
+}
+.set-charms.compact .set-charm-info .charm-stats {
+  font-size: 0.68rem;
 }
 
 /* 套装效果 */

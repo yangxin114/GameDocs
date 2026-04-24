@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
   <style>
     /* === D4-specific page styles === */
+    html { scroll-padding-top: 70px; }
     .page-container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
     /* === Ambient Background === */
@@ -92,6 +93,140 @@
       border: 2px solid #DAA520; box-shadow: 0 0 25px rgba(218,165,32,0.3);
     }
     .header-logo-d4 img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* === Countdown Timer === */
+    .countdown-section {
+      padding: 3.5rem 0 3rem; text-align: center; position: relative;
+    }
+    .countdown-section::before {
+      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 80%; height: 1px;
+      background: linear-gradient(90deg, transparent, #8B0000, var(--accent), #8B0000, transparent);
+    }
+    .countdown-frame {
+      position: relative; display: inline-block; width: 100%; max-width: 720px;
+      margin: 0 auto; padding: 2.5rem 2rem 2rem;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(139,0,0,0.12) 0%, transparent 60%),
+        linear-gradient(180deg, rgba(18,10,14,0.95), rgba(13,6,8,0.98));
+      border: 1px solid rgba(139,0,0,0.25); border-radius: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(218,165,32,0.08);
+    }
+    .countdown-frame::before {
+      content: ''; position: absolute; inset: -1px; border-radius: 16px;
+      border: 1px solid transparent;
+      background: linear-gradient(180deg, rgba(218,165,32,0.15), transparent 40%, transparent 60%, rgba(139,0,0,0.15)) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none;
+    }
+    .countdown-corner {
+      position: absolute; width: 20px; height: 20px;
+    }
+    .countdown-corner::before, .countdown-corner::after {
+      content: ''; position: absolute; background: var(--accent);
+    }
+    .countdown-corner-tl { top: -1px; left: -1px; }
+    .countdown-corner-tl::before { top: 0; left: 0; width: 12px; height: 2px; }
+    .countdown-corner-tl::after { top: 0; left: 0; width: 2px; height: 12px; }
+    .countdown-corner-tr { top: -1px; right: -1px; }
+    .countdown-corner-tr::before { top: 0; right: 0; width: 12px; height: 2px; }
+    .countdown-corner-tr::after { top: 0; right: 0; width: 2px; height: 12px; }
+    .countdown-corner-bl { bottom: -1px; left: -1px; }
+    .countdown-corner-bl::before { bottom: 0; left: 0; width: 12px; height: 2px; }
+    .countdown-corner-bl::after { bottom: 0; left: 0; width: 2px; height: 12px; }
+    .countdown-corner-br { bottom: -1px; right: -1px; }
+    .countdown-corner-br::before { bottom: 0; right: 0; width: 12px; height: 2px; }
+    .countdown-corner-br::after { bottom: 0; right: 0; width: 2px; height: 12px; }
+
+    .countdown-ember {
+      position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+      width: 36px; height: 8px;
+      background: radial-gradient(ellipse, rgba(218,165,32,0.5), transparent 70%);
+      animation: emberGlow 3s ease-in-out infinite;
+    }
+    @keyframes emberGlow {
+      0%,100% { opacity: 0.4; transform: translateX(-50%) scaleX(1); }
+      50% { opacity: 1; transform: translateX(-50%) scaleX(1.3); }
+    }
+
+    .countdown-label {
+      font-size: 0.65rem; color: rgba(139,0,0,0.7); letter-spacing: 4px; text-transform: uppercase;
+      margin-bottom: 0.4rem; font-family: 'Chakra Petch', sans-serif; font-weight: 600;
+    }
+    .countdown-title {
+      font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700;
+      color: #DAA520; margin-bottom: 1rem; letter-spacing: 3px;
+      text-shadow: 0 0 25px rgba(218,165,32,0.2), 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .countdown-target {
+      font-size: 0.68rem; color: #7a6a60; margin-bottom: 1.8rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
+    }
+    .countdown-divider {
+      color: rgba(218,165,32,0.25); margin: 0 0.25rem;
+    }
+    .countdown-timer {
+      display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .countdown-unit {
+      display: flex; flex-direction: column; align-items: center; min-width: 80px;
+    }
+    .countdown-value {
+      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 900;
+      color: #f0e8e0; line-height: 1; padding: 0.6rem 0.9rem;
+      background:
+        linear-gradient(180deg, rgba(18,10,14,0.98) 0%, rgba(26,15,20,0.95) 50%, rgba(18,10,14,0.98) 100%);
+      border: 1px solid rgba(139,0,0,0.35); border-radius: 8px;
+      position: relative; overflow: hidden; min-width: 72px; text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 15px rgba(139,0,0,0.15), inset 0 1px 0 rgba(218,165,32,0.1), inset 0 -1px 0 rgba(139,0,0,0.2);
+      transition: all 0.3s;
+    }
+    .countdown-value::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .countdown-value::after {
+      content: ''; position: absolute; top: 50%; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(139,0,0,0.12), transparent);
+    }
+    .countdown-unit-name {
+      font-size: 0.6rem; color: rgba(218,165,32,0.5); letter-spacing: 3px; text-transform: uppercase;
+      margin-top: 0.6rem; font-family: 'Chakra Petch', sans-serif; font-weight: 600;
+    }
+    .countdown-separator {
+      font-family: 'Cinzel', serif; font-size: 2rem;
+      color: rgba(139,0,0,0.5); padding: 0 0.1rem;
+      text-shadow: 0 0 8px rgba(139,0,0,0.3);
+    }
+    @keyframes digitShift {
+      0%, 100% {
+        color: #f0e8e0;
+        text-shadow: 0 0 8px rgba(218,165,32,0.05);
+      }
+      50% {
+        color: #e8d5b0;
+        text-shadow: 0 0 12px rgba(218,165,32,0.15);
+      }
+    }
+    .countdown-unit .countdown-value {
+      animation: digitShift 2s ease-in-out infinite;
+    }
+    .countdown-unit .countdown-value:hover {
+      border-color: rgba(218,165,32,0.4);
+      box-shadow: 0 4px 25px rgba(139,0,0,0.4), 0 0 20px rgba(218,165,32,0.1);
+    }
+    .countdown-ended {
+      font-family: 'Cinzel', serif; font-size: 1.4rem; color: #DAA520;
+      letter-spacing: 3px; padding: 1rem 0;
+      text-shadow: 0 0 30px rgba(218,165,32,0.4), 0 2px 4px rgba(0,0,0,0.5);
+      animation: endedGlow 2s ease-in-out infinite;
+    }
+    @keyframes endedGlow {
+      0%,100% { text-shadow: 0 0 30px rgba(218,165,32,0.4), 0 2px 4px rgba(0,0,0,0.5); }
+      50% { text-shadow: 0 0 50px rgba(218,165,32,0.6), 0 0 80px rgba(139,0,0,0.3), 0 2px 4px rgba(0,0,0,0.5); }
+    }
 
     /* === Section Label === */
     .section-label {
@@ -267,6 +402,29 @@
       box-shadow: 0 0 40px rgba(0,0,0,0.5);
     }
 
+    /* === Quick Section Nav === */
+    .section-nav {
+      position: fixed; right: 1.5rem; top: 50%; transform: translateY(-50%);
+      display: flex; flex-direction: column; gap: 0.5rem; z-index: 100;
+    }
+    .section-nav-item {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(18,10,14,0.85); backdrop-filter: blur(8px);
+      border: 1px solid rgba(58,32,40,0.5);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent, #DAA520); text-decoration: none;
+      transition: all 0.25s; opacity: 0.6;
+    }
+    .section-nav-item:hover {
+      opacity: 1; border-color: rgba(218,165,32,0.4);
+      box-shadow: 0 0 15px rgba(218,165,32,0.15); transform: scale(1.1);
+    }
+    .section-nav-item.active {
+      opacity: 1; border-color: var(--accent, #DAA520);
+      background: rgba(139,0,0,0.3);
+      box-shadow: 0 0 20px rgba(218,165,32,0.2);
+    }
+
     /* === Responsive === */
     @media (max-width: 768px) {
       .page-container { padding: 0 1rem; }
@@ -275,36 +433,19 @@
       .content-grid { grid-template-columns: 1fr; }
       .d4-hero-content { flex-direction: column; align-items: center; }
       .header-logo-d4 { width: 60px; height: 60px; }
+      .countdown-frame { padding: 2rem 1rem 1.5rem; }
+      .countdown-value { font-size: 1.8rem; min-width: 55px; padding: 0.45rem 0.6rem; }
+      .countdown-timer { gap: 0.3rem; }
+      .countdown-unit { min-width: 60px; }
+      .countdown-separator { font-size: 1.5rem; }
+      .countdown-title { font-size: 1rem; }
+      .section-nav { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important; transition-duration: 0.01ms !important;
       }
-    }
-  
-    /* Site header & footer */
-    .footer {
-      padding: 2rem 0; border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.06));
-      text-align: center; color: #554444; font-size: 0.75rem;
-    }
-    .footer-qr {
-      width: 48px; height: 48px; border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
-      background: #fff; padding: 2px; cursor: pointer; transition: all 0.2s;
-    }
-    .footer-qr:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.15); }
-    .qr-preview-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(0,0,0,0.85);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden; transition: all 0.3s; cursor: pointer;
-    }
-    .qr-preview-overlay.open { opacity: 1; visibility: visible; }
-    .qr-preview-overlay img {
-      width: 200px; height: 200px; border-radius: 12px;
-      background: #fff; padding: 10px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
     }
 
 </style>
@@ -328,12 +469,12 @@
   </nav>
 
       <!-- 站点 Header -->
-    <section class="site-header-section" style="padding:5rem 0 1rem;">
+    <section class="site-header-section">
       <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
         <div style="display:flex;align-items:center;gap:0.85rem;">
-          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--accent,#DAA520);box-shadow:0 0 12px rgba(218,165,32,0.3);">
           <div>
-            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--accent,#DAA520);">看雲起雲落</div>
             <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
           </div>
         </div>
@@ -350,7 +491,7 @@
     <section class="d4-hero">
       <div class="season-badge">
         <span class="pulse"></span>
-        资料片 · 憎恨之王
+        国服 · 即将开启
       </div>
       <div class="d4-hero-content">
         <div class="header-logo-d4">
@@ -358,14 +499,54 @@
         </div>
         <div>
           <h1 class="d4-title">暗黑破坏神 <span class="accent">IV</span></h1>
-          <p class="d4-subtitle">《憎恨之王》扩展包已上线 · 术士职业&全新系统 · DLC2开发中 · 攻略持续更新</p>
+          <p class="d4-subtitle">4月28日国服正式开启 · 新赛季内容 · 术士职业详解 · 全职业攻略持续更新</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== 憎恨之王 & DLC2 ===== -->
+    <!-- ===== 开服倒计时 ===== -->
+    <section class="countdown-section">
+      <div class="countdown-frame">
+        <div class="countdown-ember"></div>
+        <div class="countdown-corner countdown-corner-tl"></div>
+        <div class="countdown-corner countdown-corner-tr"></div>
+        <div class="countdown-corner countdown-corner-bl"></div>
+        <div class="countdown-corner countdown-corner-br"></div>
+        <div class="countdown-label">SERVER COUNTDOWN</div>
+        <div class="countdown-title">暗黑破坏神 IV 开服倒计时</div>
+        <div class="countdown-target">
+          <span>国服：4月28日 07:30（北京时间）</span>
+          <span class="countdown-divider">&#x25C8;</span>
+          <span>国际服：4月27日 16:30（PDT）/ 4月28日 00:30（BST）</span>
+        </div>
+        <div class="countdown-timer" id="countdownTimer">
+          <div class="countdown-unit">
+            <span class="countdown-value" id="cdDays">00</span>
+            <span class="countdown-unit-name">天</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-value" id="cdHours">00</span>
+            <span class="countdown-unit-name">时</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-value" id="cdMinutes">00</span>
+            <span class="countdown-unit-name">分</span>
+          </div>
+          <span class="countdown-separator">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-value" id="cdSeconds">00</span>
+            <span class="countdown-unit-name">秒</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 憎恨之王 ===== -->
+    <section id="sec-dlc">
     <div class="section-label">
-      <h2>憎恨之王 · DLC2 前瞻</h2>
+      <h2>憎恨之王</h2>
       <span class="count">扩展包内容 & 未来规划</span>
     </div>
 
@@ -476,6 +657,7 @@
     </div>
 
     <!-- ===== 核心机制 ===== -->
+    <section id="sec-mechanics">
     <div class="section-label">
       <h2>核心机制</h2>
       <span class="count">基础必学</span>
@@ -501,8 +683,10 @@
         <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
+    </section>
 
     <!-- ===== 职业攻略 ===== -->
+    <section id="sec-classes">
     <div class="section-label">
       <h2>职业攻略</h2>
       <span class="count">术士BD & 其他职业</span>
@@ -553,8 +737,10 @@
         <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
+    </section>
 
     <!-- ===== 终局内容 ===== -->
+    <section id="sec-endgame">
     <div class="section-label">
       <h2>终局内容</h2>
       <span class="count">高层挑战</span>
@@ -597,6 +783,7 @@
         <div class="card-enter">阅读攻略<svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
       </a>
     </div>
+    </section>
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
@@ -616,8 +803,76 @@
     <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
       <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
     </div>
-</main>
+  </main>
+
+  <!-- 侧边快速导航 -->
+  <nav class="section-nav" id="sectionNav">
+    <a href="#sec-dlc" class="section-nav-item" data-target="sec-dlc" title="憎恨之王">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </a>
+    <a href="#sec-mechanics" class="section-nav-item" data-target="sec-mechanics" title="核心机制">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </a>
+    <a href="#sec-classes" class="section-nav-item" data-target="sec-classes" title="职业攻略">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+    </a>
+    <a href="#sec-endgame" class="section-nav-item" data-target="sec-endgame" title="终局内容">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    </a>
+  </nav>
 
   <script src="../../assets/js/main.js"></script>
+  <script>
+    (function() {
+      var target = new Date(2026, 3, 28, 7, 30, 0);
+      var daysEl = document.getElementById('cdDays');
+      var hoursEl = document.getElementById('cdHours');
+      var minutesEl = document.getElementById('cdMinutes');
+      var secondsEl = document.getElementById('cdSeconds');
+      var timerEl = document.getElementById('countdownTimer');
+
+      function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+      function update() {
+        var now = new Date();
+        var diff = target.getTime() - now.getTime();
+        if (diff <= 0) {
+          timerEl.innerHTML = '<span class="countdown-ended">&#x2694; 已开服 &#x2694;</span>';
+          return;
+        }
+        var d = Math.floor(diff / 864e5);
+        var h = Math.floor((diff % 864e5) / 36e5);
+        var m = Math.floor((diff % 36e5) / 6e4);
+        var s = Math.floor((diff % 6e4) / 1e3);
+        daysEl.textContent = pad(d);
+        hoursEl.textContent = pad(h);
+        minutesEl.textContent = pad(m);
+        secondsEl.textContent = pad(s);
+      }
+
+      update();
+      setInterval(update, 1000);
+    })();
+
+    // 侧边导航高亮
+    (function() {
+      var navItems = document.querySelectorAll('.section-nav-item');
+      var sections = [];
+      navItems.forEach(function(item) {
+        var target = document.getElementById(item.getAttribute('data-target'));
+        if (target) sections.push({ el: target, nav: item });
+      });
+      if (!sections.length) return;
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY + 200;
+        var current = sections[0];
+        sections.forEach(function(s) {
+          if (s.el.offsetTop <= scrollY) current = s;
+        });
+        navItems.forEach(function(n) { n.classList.remove('active'); });
+        current.nav.classList.add('active');
+      }, { passive: true });
+    })();
+  </script>
 </body>
 </html>

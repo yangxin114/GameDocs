@@ -27,7 +27,7 @@
 
   <!-- 灯箱 -->
   <div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')">
-    <img id="lightboxImage" src="" alt="图片预览">
+    <img loading="lazy" id="lightboxImage" src="" alt="图片预览">
   </div>
 
   <!-- Toast -->
@@ -44,13 +44,13 @@
   <section class="site-header-section" style="padding:5rem 0 1rem;">
     <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
       <div style="display:flex;align-items:center;gap:0.85rem;">
-        <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+        <img loading="lazy" src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
         <div>
           <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
           <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
         </div>
       </div>
-      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+      <img loading="lazy" src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
       <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
         <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
         space.bilibili.com/443078910
@@ -123,8 +123,8 @@
           <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.85rem 1rem;background:rgba(34,139,34,0.04);border-radius:8px;border-left:3px solid #228B22;">
             <span style="font-size:1.3rem;flex-shrink:0;">&#x1F396;&#xFE0F;</span>
             <div>
-              <div style="color:#228B22;font-size:0.85rem;font-family:'Cinzel',serif;margin-bottom:0.25rem;">&#x1F195; 全新 9 套套装 · 职业专属爆发</div>
-              <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">涵盖圣骑士、德鲁伊、术士等职业的 <strong style="color:#e74c3c;">9 套护身符套装</strong>——从术士的暗影形态控制，到圣骑士的正义仲裁者终极爆发（释放所有终极技能 + 天顶），再到德鲁伊的宠物流翻倍体系，每一套都代表一个完整的BD重构。</p>
+              <div style="color:#228B22;font-size:0.85rem;font-family:'Cinzel',serif;margin-bottom:0.25rem;">&#x1F195; 全新 13 套套装 · 职业专属爆发</div>
+              <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">涵盖圣骑士、德鲁伊、术士等职业的 <strong style="color:#e74c3c;">13 套护身符套装</strong>（术士独占 4 套专属）——从暗影形态控制到灵魂裂片全恶魔爆发，从圣骑士正义仲裁者终极爆发到德鲁伊宠物流翻倍体系，每一套都代表一个完整的BD重构。</p>
             </div>
           </div>
           <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.85rem 1rem;background:rgba(155,89,182,0.04);border-radius:8px;border-left:3px solid #9b59b6;">
@@ -168,7 +168,7 @@
           <div class="seal-slot filled"></div>
         </div>
         <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
-          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Bountiful Anger.png" alt="Vigorous Horadric Seal of Bountiful Anger" loading="lazy" style="width:100%;display:block;">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Bountiful Anger.jpg" alt="Vigorous Horadric Seal of Bountiful Anger" loading="lazy" style="max-height:180px;max-width:90%;height:auto;width:auto;display:block;margin:0 auto;">
         </div>
         <div class="seal-name">Vigorous Horadric Seal of Bountiful Anger</div>
         <div class="seal-quality legendary">传奇品质</div>
@@ -193,7 +193,7 @@
           <div class="seal-slot dimmed"></div>
         </div>
         <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
-          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Swiftness.png" alt="Vigorous Horadric Seal of Swiftness" loading="lazy" style="width:100%;display:block;">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Swiftness.jpg" alt="Vigorous Horadric Seal of Swiftness" loading="lazy" style="max-height:180px;max-width:90%;height:auto;width:auto;display:block;margin:0 auto;">
         </div>
         <div class="seal-name">Vigorous Horadric Seal of Swiftness</div>
         <div class="seal-quality legendary">传奇品质</div>
@@ -223,7 +223,7 @@
           <div class="seal-slot dimmed"></div>
         </div>
         <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
-          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Alchemy.png" alt="Vigorous Horadric Seal of Alchemy" loading="lazy" style="width:100%;display:block;">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Horadric Seal of Alchemy.jpg" alt="Vigorous Horadric Seal of Alchemy" loading="lazy" style="max-height:180px;max-width:90%;height:auto;width:auto;display:block;margin:0 auto;">
         </div>
         <div class="seal-name">Vigorous Horadric Seal of Alchemy</div>
         <div class="seal-quality rare">稀有品质</div>
@@ -253,7 +253,7 @@
           <div class="seal-slot filled"></div>
         </div>
         <div class="seal-image" onclick="openLightbox(this.querySelector('img').src)" style="cursor:zoom-in;border-radius:8px;overflow:hidden;margin-bottom:1rem;border:1px solid rgba(58,32,40,0.4);">
-          <img src="../../assets/images/diablo4/dlc2/charms/Ferocious_Horadric_Seal_of_Terror.png" alt="Ferocious Horadric Seal of Terror" loading="lazy" style="width:100%;display:block;">
+          <img src="../../assets/images/diablo4/dlc2/charms/Ferocious_Horadric_Seal_of_Terror.jpg" alt="Ferocious Horadric Seal of Terror" loading="lazy" style="max-height:180px;max-width:90%;height:auto;width:auto;display:block;margin:0 auto;">
         </div>
         <div class="seal-name">Ferocious Horadric Seal of Terror</div>
         <div class="seal-quality legendary">传奇品质</div>
@@ -855,7 +855,7 @@
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
-            <img src="../../assets/images/diablo4/dlc2/charms/Berú of Light's Epiphan.png" alt="Berú of Light's Epiphany" loading="lazy">
+            <img src="../../assets/images/diablo4/dlc2/charms/Berú of Light's Epiphan.jpg" alt="Berú of Light's Epiphany" loading="lazy">
           </div>
           <div class="set-charm-info">
             <div class="charm-name">Berú of Light's Epiphany</div>
@@ -946,7 +946,7 @@
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
-            <img src="../../assets/images/diablo4/dlc2/charms/Phoba of Righteous Will.png" alt="Phoba of Righteous Will" loading="lazy">
+            <img src="../../assets/images/diablo4/dlc2/charms/Phoba of Righteous Will.jpg" alt="Phoba of Righteous Will" loading="lazy">
           </div>
           <div class="set-charm-info">
             <div class="charm-name">Phoba of Righteous Will</div>
@@ -1040,7 +1040,7 @@
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
-            <img src="../../assets/images/diablo4/dlc2/charms/Mlor of Nafain's Bestiary.png" alt="Mlor of Nafain's Bestiary" loading="lazy">
+            <img src="../../assets/images/diablo4/dlc2/charms/Mlor of Nafain's Bestiary.jpg" alt="Mlor of Nafain's Bestiary" loading="lazy">
           </div>
           <div class="set-charm-info">
             <div class="charm-name">Mlor of Nafain's Bestiary</div>
@@ -1130,17 +1130,21 @@
 
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">赫拉森的锁链之声</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Chains of Horazon.jpg" alt="Chains of Horazon 部件1" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件1</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">赫拉森的锁链之魂</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Chains of Horazon.jpg" alt="Chains of Horazon 部件2" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件2</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="2">
@@ -1216,38 +1220,48 @@
 
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Phoba von Mefis' Angelpunkt</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Angelpunkt von Mefis.jpg" alt="Angelpunkt von Mefis 部件1" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件1</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Fer von Mefis' Angelpunkt</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Angelpunkt von Mefis.jpg" alt="Angelpunkt von Mefis 部件2" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件2</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Mlor von Mefis' Angelpunkt</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Angelpunkt von Mefis.jpg" alt="Angelpunkt von Mefis 部件3" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件3</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Linta von Mefis' Angelpunkt</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Angelpunkt von Mefis.jpg" alt="Angelpunkt von Mefis 部件4" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件4</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Berü von Mefis' Angelpunkt</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Angelpunkt von Mefis.jpg" alt="Angelpunkt von Mefis 部件5" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件5</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
       </div>
@@ -1302,39 +1316,50 @@
 
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Phoba of Abaddon's Flesh</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Flesh of Abaddon.jpg" alt="Flesh of Abaddon 部件1" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件1</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Fer of Abaddon's Flesh</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Flesh of Abaddon.jpg" alt="Flesh of Abaddon 部件2" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件2</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Mlor of Abaddon's Flesh</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Flesh of Abaddon.jpg" alt="Flesh of Abaddon 部件3" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件3</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Linta of Abaddon's Flesh</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Flesh of Abaddon.jpg" alt="Flesh of Abaddon 部件4" loading="lazy">
+          </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件4</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
           </div>
         </div>
         <div class="set-charm-card" data-bonus="1">
-          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
-            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
-            <div class="charm-name" style="color:#665555;">Berú of Abaddon's Flesh</div>
-            <div style="font-size:0.78rem;">截图中未展示</div>
+          <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
+            <img src="../../assets/images/diablo4/dlc2/charms/Flesh of Abaddon.jpg" alt="Flesh of Abaddon 部件5" loading="lazy">
           </div>
+          <div class="set-charm-info">
+            <div class="charm-name">部件5</div>
+            <div style="font-size:0.68rem;color:#665555;">具体名称待确认</div>
+          </div>
+        </div>
         </div>
       </div>
       <div class="set-bonuses">
@@ -1389,7 +1414,7 @@
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
-            <img src="../../assets/images/diablo4/dlc2/charms/Ritus der Namenlosen.png" alt="Phoba der Namenlosen" loading="lazy">
+            <img src="../../assets/images/diablo4/dlc2/charms/Ritus der Namenlosen.jpg" alt="Phoba der Namenlosen" loading="lazy">
           </div>
           <div class="set-charm-info">
             <div class="charm-name">Phoba der Namenlosen</div>
@@ -1456,7 +1481,7 @@
     <div class="unique-showcase">
       <div class="unique-card-main">
         <div class="unique-card-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Paingörger's Gauntlets.jpg" alt="Paingörger's Gauntlets" loading="lazy" style="width:100%;display:block;border-radius:8px;">
+          <img src="../../assets/images/diablo4/dlc2/charms/Paingörger's Gauntlets.jpg" alt="Paingörger's Gauntlets" loading="lazy" style="max-height:180px;max-width:90%;height:auto;width:auto;display:block;margin:0 auto;border-radius:8px;">
         </div>
         <div class="unique-card-details">
           <div class="unique-name-row">
@@ -1545,7 +1570,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Frigid Charm of Knowledge.png" alt="Frigid Charm of Knowledge" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Frigid Charm of Knowledge.jpg" alt="Frigid Charm of Knowledge" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Frigid Charm of Knowledge</div>
@@ -1563,7 +1588,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Charm of Grounding.png" alt="Vigorous Charm of Grounding" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Vigorous Charm of Grounding.jpg" alt="Vigorous Charm of Grounding" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Vigorous Charm of Grounding</div>
@@ -1581,7 +1606,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of Freezing.png" alt="Occult Charm of Freezing" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of Freezing.jpg" alt="Occult Charm of Freezing" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Occult Charm of Freezing</div>
@@ -1599,7 +1624,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Divine Charm of Restoration.png" alt="Divine Charm of Restoration" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Divine Charm of Restoration.jpg" alt="Divine Charm of Restoration" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Divine Charm of Restoration</div>
@@ -1617,7 +1642,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/ Brutal Charm of Greed.png" alt="Brutal Charm of Greed" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/ Brutal Charm of Greed.jpg" alt="Brutal Charm of Greed" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Brutal Charm of Greed</div>
@@ -1635,7 +1660,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of the Artisan.png" alt="Occult Charm of the Artisan" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Occult Charm of the Artisan.jpg" alt="Occult Charm of the Artisan" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Occult Charm of the Artisan</div>
@@ -1653,7 +1678,7 @@
           <svg viewBox="0 0 24 24" width="22" height="22"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
         <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm of Greed.png" alt="Resourceful Charm of Greed" loading="lazy">
+          <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm of Greed.jpg" alt="Resourceful Charm of Greed" loading="lazy">
         </div>
         <div class="rare-info">
           <div class="rare-name">Resourceful Charm of Greed</div>
@@ -1690,7 +1715,7 @@
 
     <div style="max-width:350px;padding:1.2rem;background:rgba(26,15,20,0.5);border-radius:10px;border:1px solid rgba(100,149,237,0.2);">
       <div class="rare-image" onclick="openLightbox(this.querySelector('img').src)" style="margin-bottom:0.8rem;">
-        <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm.png" alt="Resourceful Charm" loading="lazy">
+        <img src="../../assets/images/diablo4/dlc2/charms/Resourceful Charm.jpg" alt="Resourceful Charm" loading="lazy">
       </div>
       <div class="rare-info">
         <div class="rare-name">Resourceful Charm</div>
@@ -1711,7 +1736,7 @@
     </div>
     <div class="cube-layout">
       <div class="cube-image-wrapper" onclick="openLightbox(this.querySelector('img').src)">
-        <img src="../../assets/images/diablo4/dlc2/charms/Rune Crafting.png" alt="符文制作界面" loading="lazy">
+        <img src="../../assets/images/diablo4/dlc2/charms/Rune Crafting.jpg" alt="符文制作界面" loading="lazy">
       </div>
       <div>
         <ul class="recipe-list">
@@ -1781,7 +1806,7 @@
             <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
             B站: @看雲起雲落
           </a>
-          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <img loading="lazy" src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
           <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
           <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
         </div>
@@ -1790,7 +1815,7 @@
 
     <!-- QR Code Preview -->
     <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
-      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+      <img loading="lazy" src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
     </div>
 
   </main>
