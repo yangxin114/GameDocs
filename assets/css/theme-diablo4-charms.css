@@ -697,6 +697,10 @@
 .set-tab .tab-dot.holy { background: #FFD700; }
 .set-tab .tab-dot.shield { background: #C0C0C0; }
 .set-tab .tab-dot.nature { background: #228B22; }
+.set-tab .tab-dot.chain { background: #4A90D9; }
+.set-tab .tab-dot.mephis { background: #00BFFF; }
+.set-tab .tab-dot.demon { background: #8B0000; }
+.set-tab .tab-dot.ritual { background: #800080; }
 
 .set-panel {
   display: none;
