@@ -74,19 +74,71 @@
     });
   }
 
-  /* ====== 套装Tab ====== */
+  /* ====== 套装Tab 筛选与切换 ====== */
   function initSetTabs() {
     var tabs = document.querySelectorAll('.set-tab');
     var panels = document.querySelectorAll('.set-panel');
+    var currentFilter = 'all';
+
+    function switchPanel(setName) {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      panels.forEach(function(p) { p.classList.remove('active'); });
+
+      var targetTab = document.querySelector('.set-tab[data-set="' + setName + '"]');
+      if (targetTab) targetTab.classList.add('active');
+
+      var targetPanel = document.getElementById('panel-' + setName);
+      if (targetPanel) targetPanel.classList.add('active');
+    }
+
     tabs.forEach(function(tab) {
       tab.addEventListener('click', function() {
-        var target = tab.dataset.set;
-        tabs.forEach(function(t) { t.classList.remove('active'); });
-        tab.classList.add('active');
-        panels.forEach(function(p) {
-          p.classList.toggle('active', p.id === 'panel-' + target);
-        });
+        switchPanel(tab.dataset.set);
       });
+    });
+
+    window._switchSetPanel = switchPanel;
+
+    // ====== 套装职业筛选 ======
+    var filterBar = document.getElementById('setFilterBar');
+    var tabsContainer = document.getElementById('setTabs');
+    if (!filterBar || !tabsContainer) return;
+
+    filterBar.addEventListener('click', function(e) {
+      var btn = e.target.closest('.set-filter-btn');
+      if (!btn) return;
+
+      currentFilter = btn.dataset.filter;
+      filterBar.querySelectorAll('.set-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      // 筛选 tabs
+      var allTabs = tabsContainer.querySelectorAll('.set-tab');
+      var firstVisible = null;
+      var activeTabVisible = false;
+
+      allTabs.forEach(function(tab) {
+        var show = currentFilter === 'all' || tab.dataset.class === currentFilter;
+        tab.classList.toggle('hidden-by-filter', !show);
+        if (show && !firstVisible) firstVisible = tab.dataset.set;
+        if (show && tab.classList.contains('active')) activeTabVisible = true;
+      });
+
+      // 筛选 panels - 用 CSS class 控制，不用 style.display
+      var allPanels = document.querySelectorAll('.set-panel');
+      var activePanelVisible = false;
+
+      allPanels.forEach(function(p) {
+        var pClass = p.getAttribute('data-class') || '';
+        var show = currentFilter === 'all' || pClass === currentFilter;
+        p.classList.toggle('hidden-by-filter', !show);
+        if (show && p.classList.contains('active')) activePanelVisible = true;
+      });
+
+      // 如果当前激活的 panel 被隐藏，切换到第一个可见的
+      if (!activePanelVisible && firstVisible) {
+        switchPanel(firstVisible);
+      }
     });
   }
 

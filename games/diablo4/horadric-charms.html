@@ -123,8 +123,8 @@
           <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.85rem 1rem;background:rgba(34,139,34,0.04);border-radius:8px;border-left:3px solid #228B22;">
             <span style="font-size:1.3rem;flex-shrink:0;">&#x1F396;&#xFE0F;</span>
             <div>
-              <div style="color:#228B22;font-size:0.85rem;font-family:'Cinzel',serif;margin-bottom:0.25rem;">&#x1F195; 全新 13 套套装 · 职业专属爆发</div>
-              <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">涵盖圣骑士、德鲁伊、术士等职业的 <strong style="color:#e74c3c;">13 套护身符套装</strong>（术士独占 4 套专属）——从暗影形态控制到灵魂裂片全恶魔爆发，从圣骑士正义仲裁者终极爆发到德鲁伊宠物流翻倍体系，每一套都代表一个完整的BD重构。</p>
+              <div style="color:#228B22;font-size:0.85rem;font-family:'Cinzel',serif;margin-bottom:0.25rem;">&#x1F195; 全新 17 套套装 · 全职业专属爆发</div>
+              <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">涵盖圣骑士、德鲁伊、术士、游侠等职业的 <strong style="color:#e74c3c;">17 套护身符套装</strong>——从暗影形态控制到灵魂裂片全恶魔爆发，从圣骑士正义仲裁者终极爆发到游侠射手流翻倍体系，每一套都代表一个完整的BD重构。</p>
             </div>
           </div>
           <div style="display:flex;gap:0.75rem;align-items:flex-start;padding:0.85rem 1rem;background:rgba(155,89,182,0.04);border-radius:8px;border-left:3px solid #9b59b6;">
@@ -278,68 +278,100 @@
   <section class="charm-section" id="sec-sets">
     <div class="charm-section-header">
       <div class="section-step">STEP 02</div>
-      <h2>套装护身符 — 截图中的十三套套装数据</h2>
+      <h2>套装护身符 — 截图中的十七套套装数据</h2>
       <p>多数套装由 Phoba、Fer、Mlor 三件组成（Dark Pact 与 Mastery 仅 2 件），凑够件数激活对应套装效果</p>
     </div>
 
-    <!-- Tab 切换器 -->
-    <div class="set-tabs">
-      <div class="set-tab active" data-set="slaughter">
+    <!-- 职业筛选器 -->
+    <div class="set-filter-bar" id="setFilterBar">
+      <div class="set-filter-btn active" data-filter="all">全部 <span class="set-filter-count">17</span></div>
+      <div class="set-filter-btn" data-filter="general">通用 <span class="set-filter-count">4</span></div>
+      <div class="set-filter-btn" data-filter="warlock">术士 <span class="set-filter-count">6</span></div>
+      <div class="set-filter-btn" data-filter="paladin">圣骑士 <span class="set-filter-count">4</span></div>
+      <div class="set-filter-btn" data-filter="rogue">游侠 <span class="set-filter-count">2</span></div>
+      <div class="set-filter-btn" data-filter="druid">德鲁伊 <span class="set-filter-count">1</span></div>
+    </div>
+
+    <!-- Tab 卡片网格 -->
+    <div class="set-tabs" id="setTabs">
+      <!-- 通用 -->
+      <div class="set-tab active" data-set="slaughter" data-class="general">
         <span class="tab-dot offense"></span>
-        杀戮套装（输出倾向）
+        杀戮套装
       </div>
-      <div class="set-tab" data-set="survival">
+      <div class="set-tab" data-set="survival" data-class="general">
         <span class="tab-dot defense"></span>
-        生存套装（防御倾向）
+        生存套装
       </div>
-      <div class="set-tab" data-set="practiced">
+      <div class="set-tab" data-set="practiced" data-class="general">
         <span class="tab-dot efficiency"></span>
-        熟练技法套装（效率倾向）
+        熟练技法
       </div>
-      <div class="set-tab" data-set="mastery">
+      <div class="set-tab" data-set="mastery" data-class="general">
         <span class="tab-dot skill"></span>
-        精通套装（技能倾向）
+        精通套装
       </div>
-      <div class="set-tab" data-set="harash">
+      <!-- 术士 -->
+      <div class="set-tab" data-set="harash" data-class="warlock">
         <span class="tab-dot shadow"></span>
-        哈拉什之影套装（暗影形态）
+        哈拉什之影
       </div>
-      <div class="set-tab" data-set="darkpact">
-        <span class="tab-dot pact"></span>
-        黑暗契约套装（触发流）
-      </div>
-      <div class="set-tab" data-set="epiphany">
-        <span class="tab-dot holy"></span>
-        圣光顿悟套装（圣骑士）
-      </div>
-      <div class="set-tab" data-set="righteous">
-        <span class="tab-dot shield"></span>
-        凯桑正义意志套装（圣骑士）
-      </div>
-      <div class="set-tab" data-set="bestiary">
-        <span class="tab-dot nature"></span>
-        纳法因动物寓言集（德鲁伊）
-      </div>
-      <div class="set-tab" data-set="horazon">
+      <div class="set-tab" data-set="horazon" data-class="warlock">
         <span class="tab-dot chain"></span>
-        赫拉森的锁链（术士）
+        赫拉森的锁链
       </div>
-      <div class="set-tab" data-set="mefis">
-        <span class="tab-dot mephis"></span>
-        梅菲斯的支点（术士）
-      </div>
-      <div class="set-tab" data-set="abaddon">
+      <div class="set-tab" data-set="abaddon" data-class="warlock">
         <span class="tab-dot demon"></span>
-        阿巴顿之血肉（术士）
+        阿巴顿之血肉
       </div>
-      <div class="set-tab" data-set="namenlosen">
+      <div class="set-tab" data-set="namenlosen" data-class="warlock">
         <span class="tab-dot ritual"></span>
-        无名者仪式（待确认）
+        无名者仪式
+      </div>
+      <div class="set-tab" data-set="mefis" data-class="warlock">
+        <span class="tab-dot mephis"></span>
+        梅菲斯的支点
+      </div>
+      <!-- 黑暗契约 - 通用/术士共用 -->
+      <div class="set-tab" data-set="darkpact" data-class="warlock">
+        <span class="tab-dot pact"></span>
+        黑暗契约
+      </div>
+      <!-- 圣骑士 -->
+      <div class="set-tab" data-set="epiphany" data-class="paladin">
+        <span class="tab-dot holy"></span>
+        圣光顿悟
+      </div>
+      <div class="set-tab" data-set="righteous" data-class="paladin">
+        <span class="tab-dot shield"></span>
+        正义意志
+      </div>
+      <div class="set-tab" data-set="radiant" data-class="paladin">
+        <span class="tab-dot paladin"></span>
+        天堂炽焰
+      </div>
+      <div class="set-tab" data-set="dauntless" data-class="paladin">
+        <span class="tab-dot paladin"></span>
+        无畏信仰
+      </div>
+      <!-- 游侠 -->
+      <div class="set-tab" data-set="nilfur" data-class="rogue">
+        <span class="tab-dot marksman"></span>
+        窄眼尼弗尔
+      </div>
+      <div class="set-tab" data-set="blurring" data-class="rogue">
+        <span class="tab-dot cutthroat"></span>
+        模糊之刃
+      </div>
+      <!-- 德鲁伊 -->
+      <div class="set-tab" data-set="bestiary" data-class="druid">
+        <span class="tab-dot nature"></span>
+        纳法因动物寓言集
       </div>
     </div>
 
     <!-- ===== 杀戮套装 ===== -->
-    <div class="set-panel active" id="panel-slaughter">
+    <div class="set-panel active" id="panel-slaughter" data-class="general">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -349,11 +381,13 @@
           </div>
           <h3>Slaughter — 杀戮套装</h3>
           <div class="set-type">输出倾向 · 通用 · 3件套 · 伤害加成与精英特攻</div>
-          <blockquote class="set-quote">
-            "Life can be most often characterized as meat ruled by instinct. Dumb flesh, Mlor alone. Disassembly is the most efficient, I find."
-            <span class="quote-author">— Zoltun Kulle</span>
-          </blockquote>
         </div>
+      </div>
+
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 伤害减免，x10% 伤害</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+10% 精英伤害减免，x15% 精英伤害</div>
       </div>
 
       <div class="set-analysis">
@@ -410,20 +444,17 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 伤害减免，x10% 伤害</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+10% 精英伤害减免，x15% 精英伤害</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
       </div>
+      <div class="set-quote-compact">"Life can be most often characterized as meat ruled by instinct. Dumb flesh, Mlor alone. Disassembly is the most efficient, I find." <span class="quote-author">— Zoltun Kulle</span></div>
     </div>
 
     <!-- ===== 生存套装 ===== -->
-    <div class="set-panel" id="panel-survival">
+    <div class="set-panel" id="panel-survival" data-class="general">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -433,13 +464,13 @@
           </div>
           <h3>Survival — 生存套装</h3>
           <div class="set-type">防御倾向 · 通用 · 3件套 · 护甲、抗性与全属性</div>
-          <blockquote class="set-quote">
-            "A body without armor is a soul without purpose. Let iron be your second skin."
-            <span class="quote-author">— Rathma</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+150 护甲，+15% 全抗性</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+200 全属性，+10% 伤害减免</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -455,7 +486,6 @@
           <span class="analysis-tag">&#x1F6AB; 无增伤，不适合速刷</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="2">
           <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
@@ -484,20 +514,13 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+150 护甲，+15% 全抗性</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+200 全属性，+10% 伤害减免</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
-      </div>
-    </div>
-
-    <!-- ===== 熟练技法套装 ===== -->
-    <div class="set-panel" id="panel-practiced">
+      </div></div>
+      <div class="set-quote-compact">"A body without armor is a soul without purpose. Let iron be your second skin." <span class="quote-author">— Rathma</span></div></div><div class="set-panel" id="panel-practiced" data-class="general">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -507,13 +530,13 @@
           </div>
           <h3>Practiced Technique — 熟练技法套装</h3>
           <div class="set-type">效率倾向 · 通用 · 3件套 · 攻速、金币与经验加成</div>
-          <blockquote class="set-quote">
-            "Speed is the measure of mastery. The slow hand learns, the swift hand teaches."
-            <span class="quote-author">— Horazon</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 攻击速度</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+25% 金币掉落，+50% 击杀经验加成（70级时+5%）</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -529,7 +552,6 @@
           <span class="analysis-tag">&#x1F6AB; 冲层不推荐</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -563,20 +585,13 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+5% 攻击速度</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>+25% 金币掉落，+50% 击杀经验加成（70级时+5%）</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg"></div>
+      
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 精通套装 ===== -->
-    <div class="set-panel" id="panel-mastery">
+      <div class="set-quote-compact">"Speed is the measure of mastery. The slow hand learns, the swift hand teaches." <span class="quote-author">— Horazon</span></div></div><div class="set-panel" id="panel-mastery" data-class="general">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -586,13 +601,12 @@
           </div>
           <h3>Mastery — 精通套装</h3>
           <div class="set-type">技能倾向 · 通用 · 2件套 · 全技能等级+2</div>
-          <blockquote class="set-quote">
-            "Phoba, Fer. Emotion and Mind. These form the root of a mage's intention, no matter the medium. Focus first upon these, and put all ambition aside."
-            <span class="quote-author">— Tal Rasha</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+2 所有技能</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -608,7 +622,6 @@
           <span class="analysis-tag">&#x1F9E9; 最佳槽位填充</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -637,19 +650,13 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>+2 所有技能</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg"></div>
+      
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 哈拉什之影套装 ===== -->
-    <div class="set-panel" id="panel-harash">
+      <div class="set-quote-compact">"Phoba, Fer. Emotion and Mind. These form the root of a mage's intention, no matter the medium. Focus first upon these, and put all ambition aside." <span class="quote-author">— Tal Rasha</span></div></div><div class="set-panel" id="panel-harash" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -659,13 +666,14 @@
           </div>
           <h3>Shadow of Harash — 哈拉什之影套装</h3>
           <div class="set-type">暗影形态 · 术士 · 5件套 · 暗影深渊毕业</div>
-          <blockquote class="set-quote">
-            "The shadow does not destroy — it reveals what was always there, hidden by light."
-            <span class="quote-author">— Harash</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>暗影形态区域内的敌人被<strong>支配（Dominated）</strong>最多7秒，无法行动，并随你的重施技能（Recast Skills）指令移动。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>暗影形态使你受到的伤害降低 <strong>25%</strong>，移动时身后留下<strong>颠覆印记（Sigil of Subversion）</strong>暗影轨迹。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>拥有暗影形态时，你的<strong>深渊技能（Abyss Skills）</strong>伤害提高 <strong>350%[x]</strong>，但每次施放消耗1层暗影形态。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -684,7 +692,6 @@
           <span class="analysis-tag">&#x1F6AB; 不适合开荒</span>
         </div>
       </div>
-
       <div class="set-charms set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -737,23 +744,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>暗影形态区域内的敌人被<strong>支配（Dominated）</strong>最多7秒，无法行动，并随你的重施技能（Recast Skills）指令移动。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>暗影形态使你受到的伤害降低 <strong>25%</strong>，移动时身后留下<strong>颠覆印记（Sigil of Subversion）</strong>暗影轨迹。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>拥有暗影形态时，你的<strong>深渊技能（Abyss Skills）</strong>伤害提高 <strong>350%[x]</strong>，但每次施放消耗1层暗影形态。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg"></div>
+      
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 黑暗契约套装 ===== -->
-    <div class="set-panel" id="panel-darkpact">
+      <div class="set-quote-compact">"The shadow does not destroy — it reveals what was always there, hidden by light." <span class="quote-author">— Harash</span></div></div><div class="set-panel" id="panel-darkpact" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -763,10 +762,6 @@
           </div>
           <h3>Dark Pact — 黑暗契约套装</h3>
           <div class="set-type">触发流 · 通用 · 2件套 · 多元素幸运一击伤害</div>
-          <blockquote class="set-quote">
-            "Berü... The purest, strongest, and most perilous aspect of the mage is their Soul. Our work demands that we risk it for the greater good. When and how is your choice."
-            <span class="quote-author">— Tal Rasha</span>
-          </blockquote>
           <div style="margin-top:0.75rem;padding:0.85rem 1rem;background:rgba(231,76,60,0.06);border-radius:8px;border-left:3px solid #e74c3c;">
             <div style="color:#e74c3c;font-family:'Cinzel',serif;font-size:0.78rem;margin-bottom:0.3rem;">&#x1F50E; 解读</div>
             <p style="color:#a09088;font-size:0.78rem;line-height:1.6;">
@@ -777,7 +772,19 @@
           </div>
         </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果（2件套）</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>幸运一击时同时触发三种元素伤害：</div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x2744;&#xFE0F; 冰霜伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 冰霜伤害
+        </div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x1F525; 火焰伤害 — 最高 40% 几率 <span class="var-range">1,550</span> 火焰伤害
+        </div>
+        <div class="set-bonus-item" style="padding-left:2rem;">
+          &#x26A1; 闪电伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 闪电伤害
+        </div>
+      </div>
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -799,27 +806,12 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果（2件套）</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>幸运一击时同时触发三种元素伤害：</div>
-        <div class="set-bonus-item" style="padding-left:2rem;">
-          &#x2744;&#xFE0F; 冰霜伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 冰霜伤害
-        </div>
-        <div class="set-bonus-item" style="padding-left:2rem;">
-          &#x1F525; 火焰伤害 — 最高 40% 几率 <span class="var-range">1,550</span> 火焰伤害
-        </div>
-        <div class="set-bonus-item" style="padding-left:2rem;">
-          &#x26A1; 闪电伤害 — 最高 40% 几率 <span class="var-range">1,500</span> 闪电伤害
-        </div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg"></div>
+      
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 圣光顿悟套装 ===== -->
-    <div class="set-panel" id="panel-epiphany">
+      <div class="set-quote-compact">"Berü... The purest, strongest, and most perilous aspect of the mage is their Soul. Our work demands that we risk it for the greater good. When and how is your choice." <span class="quote-author">— Tal Rasha</span></div></div><div class="set-panel" id="panel-epiphany" data-class="paladin">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -829,13 +821,14 @@
           </div>
           <h3>Light's Epiphany — 圣光顿悟套装</h3>
           <div class="set-type">圣骑士 · 5件套 · 正义仲裁者终极爆发体系</div>
-          <blockquote class="set-quote">
-            "No amount of faith or devotion can earn the Heaven's favor, but the Light is not theirs to bestow. We were born of it just as you were—in part."
-            <span class="quote-author">— Tyrael</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>戒律技能造成伤害时，减少<strong>正义仲裁者</strong>冷却0.1秒；若戒律技能本身有冷却，则减少0.5秒。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>正义仲裁者持续期间，获得<strong>30%最大生命</strong>和<strong>10%[x]移动速度</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放正义仲裁者时，<strong>释放所有终极技能</strong>，触发<strong>天堂之怒与堡垒</strong>，并将正义仲裁者替换为<strong>天顶（Zenith）</strong>，持续10秒。仲裁者持续期间，<strong>戒律技能伤害提高500%[x]</strong>。所有终极技能同时被视为<strong>戒律技能</strong>。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -851,7 +844,6 @@
           <span class="analysis-tag">&#x1F3AF; 适合Boss战</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -894,23 +886,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>戒律技能造成伤害时，减少<strong>正义仲裁者</strong>冷却0.1秒；若戒律技能本身有冷却，则减少0.5秒。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>正义仲裁者持续期间，获得<strong>30%最大生命</strong>和<strong>10%[x]移动速度</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放正义仲裁者时，<strong>释放所有终极技能</strong>，触发<strong>天堂之怒与堡垒</strong>，并将正义仲裁者替换为<strong>天顶（Zenith）</strong>，持续10秒。仲裁者持续期间，<strong>戒律技能伤害提高500%[x]</strong>。所有终极技能同时被视为<strong>戒律技能</strong>。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 凯桑的正义意志套装 ===== -->
-    <div class="set-panel" id="panel-righteous">
+      <div class="set-quote-compact">"No amount of faith or devotion can earn the Heaven's favor, but the Light is not theirs to bestow. We were born of it just as you were—in part." <span class="quote-author">— Tyrael</span></div></div><div class="set-panel" id="panel-righteous" data-class="paladin">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -920,13 +904,14 @@
           </div>
           <h3>Cathan's Righteous Will — 凯桑的正义意志套装</h3>
           <div class="set-type">圣骑士 · 5件套 · 决心系统与反控制爆发</div>
-          <blockquote class="set-quote">
-            "The Light has ever been my shield, now let it be my sword. As it allowed no darkness to touch me, let it suffer no evil to live."
-            <span class="quote-author">— Cathan, Lyrics of the Lightsong</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>敌人首次看见你或被你格挡时，陷入<strong>恐惧与定身</strong>0.5秒。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span><strong>反射</strong>击晕和击退效果。最小和最大<strong>决心</strong>各增加2点，每拥有1点最小决心，获得<strong>10%[+]伤害减免</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>当你尝试控制一个<strong>免疫控制</strong>的强敌时，获得<strong>500%[x]增伤</strong>，持续10秒。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -942,7 +927,6 @@
           <span class="analysis-tag">&#x1F9E0; 决心减伤体系</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -985,23 +969,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>敌人首次看见你或被你格挡时，陷入<strong>恐惧与定身</strong>0.5秒。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span><strong>反射</strong>击晕和击退效果。最小和最大<strong>决心</strong>各增加2点，每拥有1点最小决心，获得<strong>10%[+]伤害减免</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>当你尝试控制一个<strong>免疫控制</strong>的强敌时，获得<strong>500%[x]增伤</strong>，持续10秒。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 纳法因的动物寓言集套装 ===== -->
-    <div class="set-panel" id="panel-bestiary">
+      <div class="set-quote-compact">"The Light has ever been my shield, now let it be my sword. As it allowed no darkness to touch me, let it suffer no evil to live." <span class="quote-author">— Cathan, Lyrics of the Lightsong</span></div></div><div class="set-panel" id="panel-bestiary" data-class="druid">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -1011,13 +987,14 @@
           </div>
           <h3>Nafain's Bestiary — 纳法因的动物寓言集套装</h3>
           <div class="set-type">德鲁伊 · 5件套 · 纯宠物流核心套装</div>
-          <blockquote class="set-quote">
-            "Once in Farobru, I saw a druid come from the North—alongside the biggest bear I'd ever seen. Folk gasped and it gave a growl. But the druid huffed and the bear calmed. A conversation!"
-            <span class="quote-author">— Donan</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>召唤一只<strong>熊伙伴</strong>，攻击敌人造成5,853伤害，并可施放<strong>战斗怒吼</strong>，使所有伙伴伤害提高<strong>60%[x]</strong>，持续10秒。（15秒冷却）</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>你受到的伤害<strong>30%</strong>由熊伙伴分担。当你或熊伙伴<strong>受伤</strong>时，熊伙伴对敌人施放<strong>虚弱怒吼</strong>并<strong>完全回复生命</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>额外获得<strong>1只熊</strong>和所有其他类型的伙伴各1只。<strong>免费获得所有伙伴的侧边升级</strong>。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -1036,7 +1013,6 @@
           <span class="analysis-tag">&#x1F6AB; 不适合非召唤流派</span>
         </div>
       </div>
-
       <div class="set-charms compact">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -1079,23 +1055,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>召唤一只<strong>熊伙伴</strong>，攻击敌人造成5,853伤害，并可施放<strong>战斗怒吼</strong>，使所有伙伴伤害提高<strong>60%[x]</strong>，持续10秒。（15秒冷却）</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>你受到的伤害<strong>30%</strong>由熊伙伴分担。当你或熊伙伴<strong>受伤</strong>时，熊伙伴对敌人施放<strong>虚弱怒吼</strong>并<strong>完全回复生命</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>额外获得<strong>1只熊</strong>和所有其他类型的伙伴各1只。<strong>免费获得所有伙伴的侧边升级</strong>。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 赫拉森的锁链套装 ===== -->
-    <div class="set-panel" id="panel-horazon">
+      <div class="set-quote-compact">"Once in Farobru, I saw a druid come from the North—alongside the biggest bear I'd ever seen. Folk gasped and it gave a growl. But the druid huffed and the bear calmed. A conversation!" <span class="quote-author">— Donan</span></div></div><div class="set-panel" id="panel-horazon" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -1105,13 +1073,14 @@
           </div>
           <h3>Chains of Horazon — 赫拉森的锁链套装</h3>
           <div class="set-type">术士 · 5件套 · 灵魂裂片系统专属</div>
-          <blockquote class="set-quote">
-            "或许试图用锁链束缚住炼狱的我太过于愚蠢。无论我的手抓得多紧，它们注定还是会摆脱我的控制……摆脱所有人的控制。我们究竟还有什么选择？"
-            <span class="quote-author">— 赫拉森</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>根据每个作用中的<strong>灵魂裂片</strong>恶魔获得加成：<br>&bull; <strong>埃格隆</strong>：每拥有一个上级恶魔召唤物，使伤害提高 30%<br>&bull; <strong>阿巴迪</strong>：移动速度与攻击速度提高 25%<br>&bull; <strong>拉里许</strong>：攻击会魔法敌人<br>&bull; <strong>沃拉奇</strong>：统御力产生提高 50%</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>每拥有一个作用中的<strong>灵魂裂片</strong>恶魔，获得 <strong>8.5%</strong> 伤害减免。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放<strong>灵魂裂片</strong>技能后，获得<strong>所有灵魂裂片恶魔</strong>，并使伤害提高 <strong>200%</strong>，持续 10 秒。<strong>灵魂裂片</strong>技能消耗降低 <strong>35%</strong>。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -1127,7 +1096,6 @@
           <span class="analysis-tag">&#x1F3AF; 裂片流核心</span>
         </div>
       </div>
-
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -1169,23 +1137,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>根据每个作用中的<strong>灵魂裂片</strong>恶魔获得加成：<br>&bull; <strong>埃格隆</strong>：每拥有一个上级恶魔召唤物，使伤害提高 30%<br>&bull; <strong>阿巴迪</strong>：移动速度与攻击速度提高 25%<br>&bull; <strong>拉里许</strong>：攻击会魔法敌人<br>&bull; <strong>沃拉奇</strong>：统御力产生提高 50%</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>每拥有一个作用中的<strong>灵魂裂片</strong>恶魔，获得 <strong>8.5%</strong> 伤害减免。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放<strong>灵魂裂片</strong>技能后，获得<strong>所有灵魂裂片恶魔</strong>，并使伤害提高 <strong>200%</strong>，持续 10 秒。<strong>灵魂裂片</strong>技能消耗降低 <strong>35%</strong>。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 梅菲斯的支点套装 ===== -->
-    <div class="set-panel" id="panel-mefis">
+      <div class="set-quote-compact">"或许试图用锁链束缚住炼狱的我太过于愚蠢。无论我的手抓得多紧，它们注定还是会摆脱我的控制……摆脱所有人的控制。我们究竟还有什么选择？" <span class="quote-author">— 赫拉森</span></div></div><div class="set-panel" id="panel-mefis" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -1195,13 +1155,14 @@
           </div>
           <h3>Angelpunkt von Mefis — 梅菲斯的支点套装</h3>
           <div class="set-type">术士 · 5件套 · 施虐层数召唤流</div>
-          <blockquote class="set-quote">
-            "控制是憎恨的终极目标。进入灵魂之中！"
-            <span class="quote-author">— 梅菲斯</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>当你的恶魔受到伤害或死亡时，获得<strong>10秒施虐</strong>层数。每层施虐使你的恶魔受到的伤害提高 <strong>2%</strong>。你对敌人造成的伤害，基于你的恶魔从该敌人处所受的伤害，最高提高 <strong>200%</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>施虐将你所受伤害的 <strong>2%</strong> 转移给每个恶魔。施虐还会增加敌人对你恶魔的仇恨。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施虐每层使你的<strong>恶魔学技能</strong>伤害提高 <strong>2.0%</strong>。在拥有最大施虐层数时击杀敌人，有 <strong>25%</strong> 几率将该敌人转化为你已装备的<strong>小恶魔召唤物</strong>之一。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -1217,7 +1178,6 @@
           <span class="analysis-tag">&#x1F504; 滚雪球效应</span>
         </div>
       </div>
-
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -1265,23 +1225,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>当你的恶魔受到伤害或死亡时，获得<strong>10秒施虐</strong>层数。每层施虐使你的恶魔受到的伤害提高 <strong>2%</strong>。你对敌人造成的伤害，基于你的恶魔从该敌人处所受的伤害，最高提高 <strong>200%</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>施虐将你所受伤害的 <strong>2%</strong> 转移给每个恶魔。施虐还会增加敌人对你恶魔的仇恨。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施虐每层使你的<strong>恶魔学技能</strong>伤害提高 <strong>2.0%</strong>。在拥有最大施虐层数时击杀敌人，有 <strong>25%</strong> 几率将该敌人转化为你已装备的<strong>小恶魔召唤物</strong>之一。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 阿巴顿之血肉套装 ===== -->
-    <div class="set-panel" id="panel-abaddon">
+      <div class="set-quote-compact">"控制是憎恨的终极目标。进入灵魂之中！" <span class="quote-author">— 梅菲斯</span></div></div><div class="set-panel" id="panel-abaddon" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -1291,13 +1243,14 @@
           </div>
           <h3>Flesh of Abaddon — 阿巴顿之血肉套装</h3>
           <div class="set-type">术士 · 5件套 · 恶魔形态层数转换</div>
-          <blockquote class="set-quote">
-            "将巴尔之子引入体内，就是进入一场力量之争。你是它的敌人。你的血肉，是它的奖赏。引导它，否则就被吞噬。"
-            <span class="quote-author">— 维兹杰雷伪经</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>在<strong>恶魔形态</strong>下快速获取<strong>内部饥饿</strong>层数，每层使你受到的伤害提高 <strong>0.5%</strong>。击杀敌人或命中Boss将内部饥饿层数转化为<strong>恶魔力量</strong>，每层提供 <strong>2%</strong> 增伤，持续 <strong>20秒</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span><strong>恶魔形态</strong>使你的最大生命提高 <strong>10%</strong>，每层恶魔力量额外提供 <strong>0.25%</strong> 最大生命。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>恶魔力量的加成提高 <strong>150%</strong>，且在离开<strong>恶魔形态</strong>后仍然保留。在<strong>非恶魔形态</strong>下施放<strong>核心或基础地狱火技能</strong>时，消耗 1层恶魔力量在随机敌人处再次施放该技能。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -1313,7 +1266,6 @@
           <span class="analysis-tag">&#x26A0;&#xFE0F; 需要精确层数管理</span>
         </div>
       </div>
-
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -1361,23 +1313,15 @@
           </div>
         </div>
       </div>
-      <div class="set-bonuses">
-        <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>在<strong>恶魔形态</strong>下快速获取<strong>内部饥饿</strong>层数，每层使你受到的伤害提高 <strong>0.5%</strong>。击杀敌人或命中Boss将内部饥饿层数转化为<strong>恶魔力量</strong>，每层提供 <strong>2%</strong> 增伤，持续 <strong>20秒</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span><strong>恶魔形态</strong>使你的最大生命提高 <strong>10%</strong>，每层恶魔力量额外提供 <strong>0.25%</strong> 最大生命。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>恶魔力量的加成提高 <strong>150%</strong>，且在离开<strong>恶魔形态</strong>后仍然保留。在<strong>非恶魔形态</strong>下施放<strong>核心或基础地狱火技能</strong>时，消耗 1层恶魔力量在随机敌人处再次施放该技能。</div>
-      </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-
-    <!-- ===== 无名者仪式套装 ===== -->
-    <div class="set-panel" id="panel-namenlosen">
+      <div class="set-quote-compact">"将巴尔之子引入体内，就是进入一场力量之争。你是它的敌人。你的血肉，是它的奖赏。引导它，否则就被吞噬。" <span class="quote-author">— 维兹杰雷伪经</span></div></div><div class="set-panel" id="panel-namenlosen" data-class="warlock">
       <div class="set-intro">
         <div class="set-intro-text">
           <div class="set-badges">
@@ -1387,13 +1331,14 @@
           </div>
           <h3>Ritus der Namenlosen — 无名者仪式套装</h3>
           <div class="set-type">适用职业待确认 · 5件套 · 印记仪式免费施法</div>
-          <blockquote class="set-quote">
-            "Ritus... Das Ende aller Dinge ist der Anfang eines neuen."
-            <span class="quote-author">— 无名者</span>
-          </blockquote>
-        </div>
+          </div>
       </div>
-
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>施放<strong>印记技能</strong>开启一个持续 <strong>60秒</strong> 的仪式，初始提供 <strong>100%</strong> 伤害，并逐渐强化至最高 <strong>200%</strong> 额外伤害。完成印记让仪式推进 <strong>6秒</strong>。仪式结束时，下一次<strong>印记技能</strong>释放<strong>内在力量</strong>，让你 <strong>6秒</strong> 内免费施放<strong>神秘技能</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>仪式期间提供 <strong>20%</strong> 伤害减免，并随仪式强化。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放<strong>印记技能</strong>时，现在产生<strong>所有印记基础技能</strong>。你对<strong>印记基础技能</strong>造成的伤害额外提高 <strong>200%</strong>。</div>
+      </div>
       <div class="set-analysis">
         <h4>&#x1F50E; 套装解读</h4>
         <p>
@@ -1409,7 +1354,6 @@
           <span class="analysis-tag">&#x1F6E1;&#xFE0F; 20%减伤同步提升</span>
         </div>
       </div>
-
       <div class="set-charms compact set-charms-five">
         <div class="set-charm-card" data-bonus="1">
           <div class="set-charm-image" onclick="event.stopPropagation();openLightbox(this.querySelector('img').src)">
@@ -1452,23 +1396,327 @@
           </div>
         </div>
       </div>
+      <div class="set-progress">
+        <div class="set-progress-seg filled"></div>
+      
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+      <div class="set-quote-compact">"Ritus... Das Ende aller Dinge ist der Anfang eines neuen." <span class="quote-author">— 无名者</span></div></div><div class="set-panel" id="panel-nilfur" data-class="rogue">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <div class="set-badges">
+            <span class="set-badge-tag tag-5pc">5件套</span>
+            <span class="set-badge-tag tag-speed">&#x1F30A; 游侠·射手流</span>
+            <span class="set-badge-tag tag-boss">&#x1F3F9; Marksman 核心</span>
+          </div>
+          <h3>Nilfur's Narrow Eye — 窄眼尼弗尔套装</h3>
+          <div class="set-type">游侠 · 5件套 · 射手 Marksman 技能核心套装</div>
+          </div>
+      </div>
       <div class="set-bonuses">
         <h4>套装效果</h4>
-        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>施放<strong>印记技能</strong>开启一个持续 <strong>60秒</strong> 的仪式，初始提供 <strong>100%</strong> 伤害，并逐渐强化至最高 <strong>200%</strong> 额外伤害。完成印记让仪式推进 <strong>6秒</strong>。仪式结束时，下一次<strong>印记技能</strong>释放<strong>内在力量</strong>，让你 <strong>6秒</strong> 内免费施放<strong>神秘技能</strong>。</div>
-        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>仪式期间提供 <strong>20%</strong> 伤害减免，并随仪式强化。</div>
-        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>施放<strong>印记技能</strong>时，现在产生<strong>所有印记基础技能</strong>。你对<strong>印记基础技能</strong>造成的伤害额外提高 <strong>200%</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>施放射手基础技能时获得 <strong>复仇</strong> 层数，每层提供 <strong>+6%[+]</strong> 移速和 <strong>12%[x]</strong> 射手技能增伤。最高叠加 <strong>5</strong> 层，每 <strong>4</strong> 秒失去 1 层。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>复仇期间每 <strong>2</strong> 秒获得 1 层暗黑阴影。拥有至少 1 层暗黑阴影时获得 <strong>25%</strong> 伤害减免，失去阴影时击退附近敌人。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span><em>效果尚未揭晓</em>（???）</div>
+      </div>
+      <div class="set-analysis">
+        <h4>&#x1F50E; 套装解读</h4>
+        <p>
+          专为游侠射手流打造的套装。2件套在施放射手基础技能时获得<strong>复仇层数</strong>，每层提供移速和射手技能增伤。3件套与暗黑阴影联动——复仇期间自动获得暗黑阴影，同时提供伤害减免和击退效果。
+        </p>
+        <p style="margin-top:0.5rem;">
+          5件套效果目前尚未完全揭晓（???），但从2/3件套的设计来看，这套是典型的"<strong>叠层→爆发</strong>"循环。适合需要持续远距离输出的场景，尤其是需要频繁走位的Boss战和高层速刷。
+        </p>
+        <div class="analysis-tags">
+          <span class="analysis-tag">&#x1F3F9; 射手基础技能联动</span>
+          <span class="analysis-tag">&#x1F504; 复仇叠层循环</span>
+          <span class="analysis-tag">&#x1F577;&#xFE0F; 暗黑阴影联动</span>
+          <span class="analysis-tag">&#x2753; 5件套未完全揭晓</span>
+        </div>
+      </div>
+      <div class="set-charms compact set-charms-five">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of the Narrow Eye</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of the Narrow Eye</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of the Narrow Eye</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Linta of the Narrow Eye</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Beru of the Narrow Eye</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
       </div>
       <div class="set-progress">
         <div class="set-progress-seg filled"></div>
+      
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg filled"></div>
         <div class="set-progress-seg"></div>
         <div class="set-progress-seg"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ====== 独特护身符 ====== -->
+      <div class="set-quote-compact">"The eye that narrows is the heart that opens. See only what matters, and let the arrow carry the rest." <span class="quote-author">— Nilfur, the Silent Bow</span></div></div><div class="set-panel" id="panel-blurring" data-class="rogue">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <div class="set-badges">
+            <span class="set-badge-tag tag-5pc">5件套</span>
+            <span class="set-badge-tag tag-trigger">&#x1F5E1;&#xFE0F; 游侠·暗杀流</span>
+            <span class="set-badge-tag tag-tank">&#x2694; Cutthroat 背刺</span>
+          </div>
+          <h3>Way of the Blurring Blade — 模糊之刃之道套装</h3>
+          <div class="set-type">游侠 · 5件套 · 暗杀 Cutthroat 技能核心</div>
+          </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span><strong>Cutthroat 技能</strong> 伤害提高 <strong>45%</strong>。使用 Cutthroat 技能从背后刺击敌人时，暴击伤害额外提高 <strong>15%</strong>。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>施放敏捷技能后获得 <strong>30%</strong> 伤害减免，持续 8 秒。减缓附近敌方投射物 <strong>80%</strong>，持续 4 秒。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>从背后刺击或暴击敌人后，你的<em>感知增强</em>——所有命中效果提升（具体机制尚未完全揭晓 ???）。</div>
+      </div>
+      <div class="set-analysis">
+        <h4>&#x1F50E; 套装解读</h4>
+        <p>
+          游侠暗杀流的核心套装。2件套为 <strong>Cutthroat 技能</strong> 提供 <strong>45%</strong> 增伤，且从背后刺击时暴击伤害额外增加 <strong>15%</strong>。3件套在施放敏捷技能后获得 <strong>30% 减伤</strong> 并减速附近敌方投射物——这是非常实用的近战生存保障。
+        </p>
+        <p style="margin-top:0.5rem;">
+          5件套效果暗示了"<strong>感知增强</strong>"机制——背刺或暴击命中后，你的攻击会进入某种"洞察"状态，大幅提升后续命中质量。虽然具体效果未完全公布，但从设计方向看，这套鼓励持续围绕背刺和暴击构建输出循环，非常适合游侠近战暗杀流派。
+        </p>
+        <div class="analysis-tags">
+          <span class="analysis-tag">&#x1F5E1;&#xFE0F; Cutthroat +45% 增伤</span>
+          <span class="analysis-tag">&#x1F4A5; 背刺暴击 +15%</span>
+          <span class="analysis-tag">&#x1F6E1;&#xFE0F; 敏捷技后 30% 减伤</span>
+          <span class="analysis-tag">&#x2753; 5件套感知增强未揭晓</span>
+        </div>
+      </div>
+      <div class="set-charms compact set-charms-five">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of the Blurring Blade</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of the Blurring Blade</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of the Blurring Blade</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Linta of the Blurring Blade</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Beru of the Blurring Blade</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg filled"></div>
+      
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+      <div class="set-quote-compact">"The blade moves so fast it blurs into nothing. By the time you see it, it has already cut twice." <span class="quote-author">— Way of the Blurring Blade</span></div></div><div class="set-panel" id="panel-radiant" data-class="paladin">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <div class="set-badges">
+            <span class="set-badge-tag tag-5pc">5件套</span>
+            <span class="set-badge-tag tag-boss">&#x2694;&#xFE0F; 圣骑士·审判流</span>
+            <span class="set-badge-tag tag-tank">&#x2728; 审判日爆发</span>
+          </div>
+          <h3>Heaven's Radiant Fire — 天堂炽焰套装</h3>
+          <div class="set-type">圣骑士 · 5件套 · 审判 Judgement 扩散与审判日增伤</div>
+          </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>审判扩散到未感染的目标。审判敌人时获得<em>审判日</em>，伤害提高 <strong>12.5%[x]</strong>，持续 10 秒，最多叠加 <strong>5</strong> 层。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>审判日持续期间获得 <strong>25%</strong> 伤害减免，并每秒回复 <strong>3%</strong> 最大生命值。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span>审判日最大层数提升至 <strong>40</strong> 层。</div>
+      </div>
+      <div class="set-analysis">
+        <h4>&#x1F50E; 套装解读</h4>
+        <p>
+          圣骑士的审判扩散流套装。2件套让<strong>审判</strong>技能扩散到未感染的目标，同时被审判的敌人掉落审判日层数，每层提供 <strong>12.5%[x]</strong> 增伤，最多 5 层。
+        </p>
+        <p style="margin-top:0.5rem;">
+          3件套在审判日持续期间提供 <strong>25% 伤害减免</strong> 和每秒 <strong>3% 最大生命值回复</strong>。5件套将审判日最大层数提升至 <strong>40 层</strong>——这意味着完整的 500%[x] 增伤窗口。这套将"审判"这个单体控制技能改造成了群体传播的核心引擎，配合40层审判日爆发，是圣骑士<strong>持续战斗中最强的输出形态</strong>。
+        </p>
+        <div class="analysis-tags">
+          <span class="analysis-tag">&#x1F525; 审判自动扩散</span>
+          <span class="analysis-tag">&#x1F4A3; 最高 500%[x] 增伤</span>
+          <span class="analysis-tag">&#x1F6E1;&#xFE0F; 25%减伤+每秒回血</span>
+          <span class="analysis-tag">&#x1F3AF; 适合持续战斗/Boss</span>
+        </div>
+      </div>
+      <div class="set-charms compact set-charms-five">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of Radiant Fire</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of Radiant Fire</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of Radiant Fire</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Linta of Radiant Fire</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Beru of Radiant Fire</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg filled"></div>
+      
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+      <div class="set-quote-compact">"Heaven's fire does not discriminate — it burns the wicked and the righteous alike, and only the latter will rise from the ashes." <span class="quote-author">— Heaven's Radiant Fire</span></div></div><div class="set-panel" id="panel-dauntless" data-class="paladin">
+      <div class="set-intro">
+        <div class="set-intro-text">
+          <div class="set-badges">
+            <span class="set-badge-tag tag-5pc">5件套</span>
+            <span class="set-badge-tag tag-trigger">&#x26A1; 圣骑士·狂热流</span>
+            <span class="set-badge-tag tag-boss">&#x1F480; 高频触发爆发</span>
+          </div>
+          <h3>Cathan's Dauntless Faith — 卡桑的无畏信仰套装</h3>
+          <div class="set-type">圣骑士 · 5件套 · 狂热技能叠层与集会触发</div>
+          </div>
+      </div>
+      <div class="set-bonuses">
+        <h4>套装效果</h4>
+        <div class="set-bonus-item"><span class="bonus-count">2件套：</span>狂热技能命中时获得<em>Do or Die</em> 效果，暴击伤害提高 <strong>2.5%[x]</strong>，施法速度提高 <strong>+0.4%</strong>，持续 2 秒，最多叠加 <strong>25</strong> 层。</div>
+        <div class="set-bonus-item"><span class="bonus-count">3件套：</span>Do or Die 满层时每 <strong>6 秒</strong>自动触发集会。集会期间额外获得 <strong>30%</strong> 伤害减免。</div>
+        <div class="set-bonus-item"><span class="bonus-count">5件套：</span><em>效果尚未揭晓</em>（???）</div>
+      </div>
+      <div class="set-analysis">
+        <h4>&#x1F50E; 套装解读</h4>
+        <p>
+          圣骑士的狂热叠层套装。2件套的 <em>Do or Die</em> 机制让每次狂热技能命中都叠加暴击伤害和施法速度，最多 25 层。每层提供 <strong>2.5%[x]</strong> 暴击伤害和 <strong>+0.4%</strong> 施法速度。
+        </p>
+        <p style="margin-top:0.5rem;">
+          满层时效果极为恐怖：<strong>62.5%[x] 暴击伤害 + 10% 施法速度</strong>。3件套在满层时每 6 秒自动触发<em>集会</em>，并额外提供 <strong>30% 伤害减免</strong>。5件套效果尚未完全公布（???），但从套装设计思路来看，满层后的集会联动应该是非常强力的爆发窗口。这套适合高频施放狂热技能的流派，在持续战斗中叠层效果逐渐显现。
+        </p>
+        <div class="analysis-tags">
+          <span class="analysis-tag">&#x26A1; 满层 62.5%[x] 暴击伤害</span>
+          <span class="analysis-tag">&#x1F525; +10% 施法速度</span>
+          <span class="analysis-tag">&#x1F6E1;&#xFE0F; 集会自动触发+30%减伤</span>
+          <span class="analysis-tag">&#x2753; 5件套效果未揭晓</span>
+        </div>
+      </div>
+      <div class="set-charms compact set-charms-five">
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Phoba of Dauntless Faith</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Fer of Dauntless Faith</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Mlor of Dauntless Faith</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Linta of Dauntless Faith</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+        <div class="set-charm-card" data-bonus="1">
+          <div class="set-charm-info" style="padding:2rem;text-align:center;color:#554444;">
+            <div style="font-size:2rem;margin-bottom:0.5rem;">&#x1F512;</div>
+            <div class="charm-name" style="color:#665555;">Beru of Dauntless Faith</div>
+            <div style="font-size:0.78rem;">截图中未展示</div>
+          </div>
+        </div>
+      </div>
+      <div class="set-progress">
+        <div class="set-progress-seg filled"></div>
+      
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg filled"></div>
+        <div class="set-progress-seg"></div>
+        <div class="set-progress-seg"></div>
+      </div>
+      <div class="set-quote-compact">"To stand at the edge of fear and step forward without flinching — that is not bravery, that is the nature of Cathan's faithful." <span class="quote-author">— Cathan, Lyrics of the Lightsong</span></div></div><!-- ====== 独特护身符 ====== -->
   <section class="charm-section" id="sec-unique">
     <div class="charm-section-header">
       <div class="section-step">STEP 03</div>
