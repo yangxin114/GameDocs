@@ -1,0 +1,1047 @@
+[
+  {
+    "cn": "暗影猎手徽章",
+    "type": "Unique Amulet",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "使用双手钝器、双手利刃或双持武器施放技能时，使造成的伤害提高 x [22.5 - 30%]，持续 15 秒。当三种加成同时激活时，你获得 +25% 控制效果持续时间和攻击速度。",
+    "name": "Dark Stalker's Medallion"
+  },
+  {
+    "cn": "钢裂徽记",
+    "type": "Unique Amulet",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "狂化的伤害加成提高 x [85 - 110%]。非健康状态下，你始终处于狂化。",
+    "name": "Emblem of Staalbreak"
+  },
+  {
+    "cn": "夸尔切克之力",
+    "type": "Unique Gloves",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "强力投掷现在从冷却缩减中获得乘算伤害加成，而非冷却缩减加成，生效比例为 [75 - 100%]。",
+    "name": "Might of Qual-kehk"
+  },
+  {
+    "cn": "游牧者渴望之心",
+    "type": "Unique Amulet",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "核心技能造成的伤害提高 x [45 - 60%]，但怒火消耗增加 x25%。对抗受伤敌人时，该伤害翻倍。",
+    "name": "Nomad's Longing Heart"
+  },
+  {
+    "cn": "戈尔戈拉睁开的眼睛",
+    "type": "Unique Amulet",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "施加持续伤害时，你有一定几率使其伤害量提高 x [112.5 - 135%]，该几率等于你的暴击几率。",
+    "name": "The Open Eye of Gorgorra"
+  },
+  {
+    "cn": "无情之心",
+    "type": "Unique Chest Armor",
+    "class": "Barbarian",
+    "section": "new",
+    "new_effect": "先祖之锤对同一目标的连续命中每次使伤害提高 x [22.5 - 30%]，最多叠加 3 层。",
+    "name": "The Relentless Heart"
+  },
+  {
+    "cn": "十万步",
+    "type": "Unique Boots",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "激活行走的军火库后自动施放震地践踏并获得[50-100]怒火，每5秒一次。震地践踏x[20-25]%+距离增伤最高x[80-100]%",
+    "new_effect": "激活行走的军火库后自动施放震地践踏并获得[50-100]怒火。震地践踏x[20-25]%+距离增伤最高x[80-100]%",
+    "name": "100,000 Steps"
+  },
+  {
+    "cn": "亚瑞特之姿",
+    "type": "Unique Pants",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "先祖被强化：科尔力克产生地震，塔力克留下沙尘龙卷，莫达克点燃地面。非终极技能召唤额外先祖。召唤技能x[30-40]%增伤",
+    "new_effect": "先祖被强化。召唤先祖的技能造成x[30-40]%增伤",
+    "name": "Arreat's Bearing"
+  },
+  {
+    "cn": "阿贾德之灾",
+    "type": "Unique Gloves",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "每6秒下次强力投掷脉冲瞬间火焰引爆x[200-300]%增伤",
+    "new_effect": "每6秒下次强力投掷脉冲火焰引爆x[200-300]%增伤。引导旋风斩时周期性投掷强力投掷x[75-90]%增伤",
+    "name": "Bane of Ahjad-Den"
+  },
+  {
+    "cn": "绯红旷野",
+    "type": "Unique 2h Sword",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "撕裂产生血池持续6秒流血。血池中敌人x70%增伤。撕裂撕咬造成[75-100]%总流血并移除所有流血",
+    "new_effect": "撕裂产生血池。撕裂撕咬造成[75-100]%总流血并移除所有流血",
+    "name": "Fields of Crimson"
+  },
+  {
+    "cn": "戈尔的毁灭之握",
+    "type": "Unique Gloves",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "旋风斩每3秒火焰爆炸[300-600]%增伤，暴击缩短间隔至1秒。旋风斩x[75-90]%增伤并每2秒拉拽",
+    "new_effect": "旋风斩每3秒爆炸[300-600]%增伤暴击缩短间隔。旋风斩x[75-90]%增伤并每2秒拉拽",
+    "name": "Gohr's Devastating Grips"
+  },
+  {
+    "cn": "地狱之锤",
+    "type": "Unique 2h Mace",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "翻江倒海对燃烧x[75-150]%增伤并点燃地面。获得钢铁爆发变体并x[120-150]%增伤",
+    "new_effect": "翻江倒海对燃烧x[75-150]%增伤并点燃地面。获得钢铁爆发变体并x[120-150]%增伤",
+    "name": "Hellhammer"
+  },
+  {
+    "cn": "过度杀戮",
+    "type": "Unique 2h Mace",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "死亡打击冲击波[60-80]%基础伤害，击杀重置冷却。获得所有侧升级并x[120-150]%增伤",
+    "new_effect": "死亡打击冲击波[60-80]%基础伤害击杀重置冷却。获得所有侧升级并x[120-150]%增伤",
+    "name": "Overkill"
+  },
+  {
+    "cn": "双重打击",
+    "type": "Unique Gloves",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "4次双重挥砍后额外命中2次每次[110-140]%持续3秒。初始x[45-60]%增伤+易伤，后续x[90-120]%增伤+狂化",
+    "new_effect": "4次双重挥砍后额外命中2次。初始x[45-60]%增伤施加易伤，后续x[90-120]%增伤获得狂化",
+    "name": "Twin Strikes"
+  },
+  {
+    "cn": "丑陋混蛋头盔",
+    "type": "Unique Helm",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "施放狂战士之怒爆炸火焰伤害，期间直接伤害转火焰，x[40-60]%火焰增伤",
+    "new_effect": "施放狂战士之怒爆炸。期间直接伤害转火焰x[40-60]%火焰增伤",
+    "name": "Ugly Bastard Helm"
+  },
+  {
+    "cn": "不碎之链",
+    "type": "Unique Amulet",
+    "class": "Barbarian",
+    "section": "updated",
+    "old_effect": "钢铁抓握减少钢铁漩涡冷却[3.3-10]秒，漩涡伤害降低[20-40]%持续6秒。切换武器增加x[37.5-45]%最多3层",
+    "new_effect": "施放钢铁抓握减少钢铁漩涡冷却。切换武器增加x[37.5-45]%最多3层",
+    "name": "Unbroken Chain"
+  },
+  {
+    "cn": "荒野协定",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "你的同伴技能各自获得 1 个额外同伴，并造成 x [40 - 50%] 额外伤害。免费获得乌鸦、狼群和剧毒蔓藤的被动效果。",
+    "name": "Accord of the Wilds"
+  },
+  {
+    "cn": "秋季之冠",
+    "type": "Unique Helm",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "风切现在造成 [X] 毒素伤害，持续 4 秒。幸运一击：风切最高有 20% 几率回复 100 灵力。",
+    "name": "Autumnal Crown"
+  },
+  {
+    "cn": "艾里达挽歌",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "施放风暴技能可获得 1 点灵力并造成 x [25 - 35%] 额外伤害。对易伤、禁锢或减速敌人造成伤害时，该加成翻倍。",
+    "name": "Dirge of Airidah"
+  },
+  {
+    "cn": "碎裂符文石",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "你的大地技能造成的暴击伤害提高 x [40 - 50%]。当拥有至少 4 层强击时，该加成提高至 x [80 - 100%]。你每 10 秒被动获得 2 层强击。",
+    "name": "Fractured Runestone"
+  },
+  {
+    "cn": "荒野之怒",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "变形为狼人或熊人时，获得狂化，持续 [6 - 8] 秒。此外，狂化激活期间每 1 秒获得 1 层凶猛。狂化的伤害加成提高 x10%。",
+    "name": "Fury of the Wilds"
+  },
+  {
+    "cn": "绿行者誓言",
+    "type": "Unique Boots",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "剧毒蔓藤免费获得发芽变体，并造成 x [30 - 40%] 额外伤害。",
+    "name": "Greenwalker's Oath"
+  },
+  {
+    "cn": "绿行者印记",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "施放或引导人类形态技能时，有 15% 几率额外触发一次已装备的非终极人类形态技能。人类形态技能造成 x [40 - 50%] 额外伤害。",
+    "name": "Greenwalker's Signet"
+  },
+  {
+    "cn": "阿兹加之心脏",
+    "type": "Unique Chest Armor",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "用槌击命中至少 1 个敌人后，使其攻击速度 +3%，伤害提高 x [20 - 25%]，持续 5 秒，最多叠加 5 层。",
+    "name": "Heart of Azgar"
+  },
+  {
+    "cn": "伊费的恐狼图腾",
+    "type": "Unique Totem",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "灰熊之怒现在变为狼人技能，并将你变形为恐狼。恐狼获得 x [100 - 125%] 暴击伤害、x [100 - 125%] 额外毒素伤害和灵力消耗减免（取代护甲）。此外，击杀为你治疗 5% 最大生命。",
+    "name": "Ifeh's Dire Totem"
+  },
+  {
+    "cn": "老狼印记",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "获得 x [15 - 20%] 额外毒素伤害。狼人技能的直接伤害获得等同于你额外毒素伤害 x50% 的加成，最高 x50%。狼人技能的毒素伤害获得等同于你额外攻击速度和暴击几率各 x100% 的加成，最高 x50%。",
+    "name": "Mark of the Old Wolf"
+  },
+  {
+    "cn": "熊之力",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "处于熊人形态时，每层毅力使伤害提高 x [10 - 13%]。此外，处于熊人形态时每 1 秒自动获得 1 层毅力。",
+    "name": "Might of the Ursine"
+  },
+  {
+    "cn": "净化之光使者",
+    "type": "Unique 2h Mace",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "粉碎将远处的敌人拉向你。此外，粉碎造成的伤害提高 x [100 - 125%]。如果目标被拉向你、具有霸体效果或是首领，该伤害加成再提高 x [200 - 250%]。",
+    "name": "Purified Lightbringer"
+  },
+  {
+    "cn": "雷神祝福",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "对附近敌人造成闪电伤害时，有 25% 几率获得毅力，并使伤害提高 x [250 - 300%]。",
+    "name": "Thundergod's Blessing"
+  },
+  {
+    "cn": "岩石意志",
+    "type": "Unique Helm",
+    "class": "Druid",
+    "section": "new",
+    "new_effect": "地刺现在以投射物形式发射。命中时，投射物对目标造成 [X] 伤害，并额外召唤 2-4 根地刺。",
+    "name": "Will of Stone"
+  },
+  {
+    "cn": "艾里达不屈意志",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "施放终极技能及5秒后拉拽远距离敌人造成[X]物理，每点意志力x[10]%。风暴打击弹射双倍x[7-10]%",
+    "new_effect": "施放终极技能拉拽敌人。风暴打击弹射双倍x[7-10]%",
+    "name": "Airidah's Inexorable Will"
+  },
+  {
+    "cn": "巨石阵之石",
+    "type": "Unique Amulet",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "飓风期间巨石旋转，每个x[30-50]%增伤最多10个。到期爆炸额外伤害",
+    "new_effect": "飓风期间巨石旋转，每个x[30-50]%增伤最多10个",
+    "name": "Dolmen Stone"
+  },
+  {
+    "cn": "加斯伦的天赋",
+    "type": "Unique Helm",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "人类形态自然魔法暴击[300-150]次获得森林之灵15秒，获得完美风暴和大地之力。旋风护甲每[8-5]秒自动触发",
+    "new_effect": "人类形态自然魔法暴击获得森林之灵。旋风护甲自动触发不消耗冷却",
+    "name": "Gathlen's Birthright"
+  },
+  {
+    "cn": "巫婆大法杖",
+    "type": "Unique Staff",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "利爪也是风暴技能并施放风暴打击，x[100-250]%增伤。获得所有变体并x[30-40]%增伤",
+    "new_effect": "利爪也是风暴技能并施放风暴打击。获得所有变体",
+    "name": "Greatstaff of the Crone"
+  },
+  {
+    "cn": "猎人巅峰",
+    "type": "Unique Ring",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "每30秒动物形态后核心必定强击暴击x[30-60]%增伤。飓风结束爆炸x[40-60]%总伤害最多40次",
+    "new_effect": "每30秒动物形态后核心必定强击暴击。飓风结束爆炸",
+    "name": "Hunter's Zenith"
+  },
+  {
+    "cn": "无尽狂怒",
+    "type": "Unique Chest Armor",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "熊人变真实形态，所有熊人技能[2-5]等级。践踏后2秒再施放不消耗冷却x[150-200]%增伤",
+    "new_effect": "熊人变真实形态所有熊人技能[2-5]等级。践踏后可再施放x[150-200]%增伤",
+    "name": "Insatiable Fury"
+  },
+  {
+    "cn": "卡姆辛草原行者",
+    "type": "Unique Boots",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "自然魔法伤害[150-100]敌人后最大移速无障碍[4-8]秒，穿过禁锢1秒。大地碎片变体x[150-200]%",
+    "new_effect": "自然魔法伤害敌人后最大移速无障碍。大地碎片变体x[150-200]%",
+    "name": "Khamsin Steppewalkers"
+  },
+  {
+    "cn": "狂狼之乐",
+    "type": "Unique Chest Armor",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "狼人变真实形态所有狼人技能[4-7]等级。撕裂无冷却消耗100灵力x[80-100]%增伤但不再免疫，也是核心技能",
+    "new_effect": "狼人变真实形态所有狼人技能[4-7]等级。撕裂无冷却消耗100灵力x[80-100]%增伤但不再免疫也是核心",
+    "name": "Mad Wolf's Glee"
+  },
+  {
+    "cn": "邪恶新月",
+    "type": "Unique Amulet",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "狼性凶猛连续暴击x[150-200]%增伤。变狼和每4秒自动血嚎，触发x[40-60]%增伤4秒",
+    "new_effect": "狼性凶猛连续暴击x[150-200]%。变身狼人和每4秒自动血嚎",
+    "name": "Malefic Crescent"
+  },
+  {
+    "cn": "维赫姆之石",
+    "type": "Unique Totem",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "引导碎石期间和2秒后15%减伤，最终爆炸x[15-20]%每增大x[15-20]%。引导+40%全抗。最终爆炸x[250-300]%平分",
+    "new_effect": "引导碎石15%减伤。最终爆炸x[250-300]%平分",
+    "name": "Stone of Vehemen"
+  },
+  {
+    "cn": "石化蜥蜴",
+    "type": "Unique Staff",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "石化x[300-900]%物理伤害。大地技能使健康敌人石化3秒。石化敌人暴击+80-100%",
+    "new_effect": "石化x[300-900]%物理伤害。大地技能使健康敌人石化3秒",
+    "name": "The Basilisk"
+  },
+  {
+    "cn": "渐盈凸月",
+    "type": "Unique 1h Axe",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "撕碎击杀潜行2秒。打破潜行必定暴击[1-4]秒。撕碎x[20-25]%增伤25%额外命中最多4次",
+    "new_effect": "撕碎击杀潜行2秒打破潜行必定暴击。撕碎x[20-25]%增伤",
+    "name": "Waxing Gibbous"
+  },
+  {
+    "cn": "野性之心渴求",
+    "type": "Unique Boots",
+    "class": "Druid",
+    "section": "updated",
+    "old_effect": "变形时兽性狂暴+2-5%最高+20-50%每秒衰减0.5%。狂犬病传播+100%每次x10%增伤最高x[120-150]%",
+    "new_effect": "变形时兽性狂暴加成提高。狂犬病传播+100%每次x10%增伤",
+    "name": "Wildheart Hunger"
+  },
+  {
+    "cn": "血色尾迹",
+    "type": "Unique Boots",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "血雾会对周围的尸体施放尸体爆炸。当血雾引爆尸体时，其冷却时间缩减 1 秒，并获得 + [50 - 60%] 移动速度，持续 3 秒。",
+    "name": "Blood Wake"
+  },
+  {
+    "cn": "死亡之握",
+    "type": "Unique Gloves",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你的骷髅战士上限增加 6 个。骷髅战士的攻击具有顺劈效果且伤害提高 x [30 - 40%]。指挥骷髅战士集火目标时，该目标受到来自骷髅战士的伤害提高 x [30 - 40%]。",
+    "name": "Deathgrip"
+  },
+  {
+    "cn": "墓行者之手",
+    "type": "Unique Gloves",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你的精华回复提高 [30 - 40%]。施放骨骼技能时，每拥有 1 点精华，伤害提高 x0.5%，最高提高 x [60 - 80%]。",
+    "name": "Gravewalker's Hand"
+  },
+  {
+    "cn": "绞刑者之手",
+    "type": "Unique Gloves",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "肢解造成的伤害提高 x [10 - 15%]，并额外释放 1 个幽魂攻击附近敌人。",
+    "name": "Hangman's Hand"
+  },
+  {
+    "cn": "莱奥里克王之锤",
+    "type": "Unique 1h Mace",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你的魔像每 8 秒会吞噬一个骷髅法师或骷髅战士，回复满生命并获得 x [70 - 80%] 伤害加成，持续 10 秒。",
+    "name": "Mace of King Leoric"
+  },
+  {
+    "cn": "痛苦预兆",
+    "type": "Unique Ring",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你被黑暗光环环绕，对触碰的敌人施加衰老和铁处女。通过此方式施加的诅咒每 [1.3 - 1] 秒扩散到周围目标，在光环外持续 4 秒。",
+    "name": "Omen of Pain"
+  },
+  {
+    "cn": "骨之契约",
+    "type": "Unique Ring",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你的仆从获得 + [30 - 35%] 攻击速度和暴击几率。当一个仆从死亡时，其余仆从进入狂怒，伤害提高 x [30 - 35%]，持续 3 秒。",
+    "name": "Pact of Bone"
+  },
+  {
+    "cn": "血色祝福",
+    "type": "Unique Helm",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "健康状态下，获得 4 点最大强击。血球提供 2 层强击。每拥有 1 层强击，伤害提高 x [8 - 10%]。",
+    "name": "Red Blessing"
+  },
+  {
+    "cn": "幽暗守护",
+    "type": "Unique Shield",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "20% 格挡几率，使主手武器伤害的暗影伤害感染敌人暗影灾祸 2 秒。敌人在受暗影灾祸影响期间，每第 8 次受到来自你的暗影伤害时，额外承受 x [500 - 600%] 该伤害的腐蚀伤害，持续 4 秒。",
+    "name": "The Gloom Ward"
+  },
+  {
+    "cn": "地下王冠",
+    "type": "Unique Helm",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "你的骷髅战士和骷髅法师上限增加 [2 - 4] 个。指挥骷髅战士时，骷髅法师也会在 5 秒内集火同一目标。",
+    "name": "The Undercrown"
+  },
+  {
+    "cn": "复仇肌腱",
+    "type": "Unique Chest Armor",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "骨灵额外爆炸一次，造成 [35 - 45%] 的正常伤害。骨灵造成的伤害提高 x [30 - 40%]。",
+    "name": "Vengeful Sinew"
+  },
+  {
+    "cn": "拉斯玛之意志",
+    "type": "Unique Amulet",
+    "class": "Necromancer",
+    "section": "new",
+    "new_effect": "易伤、虚弱、被控制或腐蚀的敌人变为被折磨状态，受到你的伤害提高 40%。对受折磨敌人施加诅咒技能时，造成 [X] 暗影伤害。",
+    "name": "Will of Rathma"
+  },
+  {
+    "cn": "血之拥抱",
+    "type": "Unique Gloves",
+    "class": "Necromancer",
+    "section": "updated",
+    "old_effect": "血涌消耗尸体产生新星，每个消耗x10%最高50%每个尸体x20%。拾取4血球[50-60]%伤害",
+    "new_effect": "血涌拾取4个血球造成[50-60]%伤害",
+    "name": "Cruor's Embrace"
+  },
+  {
+    "cn": "黑暗穿透者",
+    "type": "Unique Amulet",
+    "class": "Necromancer",
+    "section": "updated",
+    "old_effect": "枯萎额外发射4个穿透弹体造成[X]腐蚀伤害持续3秒",
+    "new_effect": "枯萎额外发射4个穿透弹体每个造成[40-50]%区域伤害",
+    "name": "Ebonpiercer"
+  },
+  {
+    "cn": "虔信者福音",
+    "type": "Unique Focus",
+    "class": "Necromancer",
+    "section": "updated",
+    "old_effect": "基础技能强化，命中x[20-40]%增伤。收割加速分解出尸体出血爆发骨刺穿透",
+    "new_effect": "基础技能获得所有强化效果，命中x[30-40]%增伤持续10秒",
+    "name": "Gospel of the Devotee"
+  },
+  {
+    "cn": "渎魂戒指",
+    "type": "Unique Ring",
+    "class": "Necromancer",
+    "section": "updated",
+    "old_effect": "自动对尸体施放复苏尸爆尸藤，尸藤获得所有强化每[8-6]秒一次",
+    "new_effect": "复苏尸爆自动施放。尸藤获得所有强化并每[8-6]秒自动施放",
+    "name": "Ring of the Sacrilegious Soul"
+  },
+  {
+    "cn": "纳兹之手",
+    "type": "Unique Gloves",
+    "class": "Necromancer",
+    "section": "updated",
+    "old_effect": "牺牲战士和魔像额外获得法师，法师25次升级大法师受击传送碎裂x[50-100]%增伤",
+    "new_effect": "法师上限+4并全部升级大法师。大法师受击传送攻击碎裂x[50-60]%增伤",
+    "name": "The Hand of Naz"
+  },
+  {
+    "cn": "卡西亚的恩赐",
+    "type": "Unique Bow",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "你的箭雨持续缩短 2 秒，伤害提高 x [120 - 180%]，并且在生成时有 50% 几率在附近目标上额外生成一个箭雨。",
+    "name": "Cassia's Grace"
+  },
+  {
+    "cn": "绝望行军",
+    "type": "Unique Boots",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "闪避会留下尖刺陷阱。尖刺陷阱范围 +50%，伤害提高 x [75 - 90%]。",
+    "name": "Desperate March"
+  },
+  {
+    "cn": "埃特纳遗失匕首",
+    "type": "Unique 1h Dagger",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "造成 2 种不同的非物理伤害可使灌注技能的威力提高 x [45 - 60%]，非物理伤害提高 x [45 - 60%]，持续 8 秒。基础技能现在可灌注。",
+    "name": "Etna's Lost Dagger"
+  },
+  {
+    "cn": "铁玫瑰之拳",
+    "type": "Unique Gloves",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "使用射手或暗杀技能对附近敌人造成伤害时，各自获得 +15% 攻击速度加成，持续 8 秒。当两种攻击速度加成同时激活时，对附近敌人造成的伤害提高 x [45 - 60%]。",
+    "name": "Fist of the Iron Rose"
+  },
+  {
+    "cn": "角斗士凯旋",
+    "type": "Unique Gloves",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "对敌人造成的首次直接伤害必定暴击。当射手技能首次暴击时，伤害提高 x [90 - 120%]，并获得 1 层强击。此效果可叠加至最大强击之上最多 4 层。",
+    "name": "Gladiator's Triumph"
+  },
+  {
+    "cn": "仁慈之刃",
+    "type": "Unique 1h Sword",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "幸运一击：对受陷阱技能影响的敌人造成伤害时，最高有 40% 几率：- 减少陷阱技能激活中的冷却时间 30% - 使陷阱技能伤害提高 x [9 - 12%]，持续 10 秒，最高提高 x [45 - 60%]。",
+    "name": "Misericorde"
+  },
+  {
+    "cn": "海领主手套",
+    "type": "Unique Gloves",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "施放或引导暗杀技能时获得 1 层动量，最多 10 层。施放射手技能消耗 1 层动量。每层动量提供：- [2.5 - 3%] 最大能量 - x [2.5 - 3%] 能量回复 - x [5 - 6%] 伤害提高",
+    "name": "Sea Lord's Fine Gloves"
+  },
+  {
+    "cn": "隐秘之礼",
+    "type": "Unique Pants",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "每次获得潜行时，同时获得隐蔽。潜行期间以及潜行被打破后 8 秒内，获得 [25 - 30%] 伤害减免。",
+    "name": "Shrouded Gift"
+  },
+  {
+    "cn": "大师",
+    "type": "Unique 1h Dagger",
+    "class": "Rogue",
+    "section": "new",
+    "new_effect": "旋转刀刃会将额外的刀刃刺入目标，伤害提高 x [24 - 30%]，并产生额外的刀刃飞回你身边。",
+    "name": "The Maestro"
+  },
+  {
+    "cn": "脓血玫瑰之环",
+    "type": "Unique Gloves",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "毒素陷阱满伤害并x[50-150]%强化。连击点内视无冷却。毒冰灌注35%几率部署陷阱。渗透者x[75-90]%",
+    "new_effect": "陷阱获得渗透者变体并x[75-90]%增伤",
+    "name": "Bands of Ichorous Rose"
+  },
+  {
+    "cn": "兽陨之靴",
+    "type": "Unique Boots",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "施放终极后核心消耗全部能量每[0.25-0.75]%增伤。冷却回复25能量",
+    "new_effect": "非引导终极消耗全部能量x[0.6-0.75]%增伤。冷却回复25能量",
+    "name": "Beastfall Boots"
+  },
+  {
+    "cn": "无名者兜帽",
+    "type": "Unique Helm",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "被控敌人+20-40%幸运一击",
+    "new_effect": "幸运一击：灌注最高40%几率爆炸造成75%伤害x[120-150]%威能强度",
+    "name": "Cowl of the Nameless"
+  },
+  {
+    "cn": "破坏者印记",
+    "type": "Unique Ring",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "核心[15-45]%几率眩晕手雷，+50%范围x[75-90]%增伤，易伤或虚弱4秒",
+    "new_effect": "核心施放眩晕手雷。手雷+50%范围x[75-90]%增伤，敌人易伤或虚弱4秒",
+    "name": "Saboteur's Signet"
+  },
+  {
+    "cn": "恶棍之吻",
+    "type": "Unique Ring",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "连珠箭爆炸箭[50-70]%增伤",
+    "new_effect": "附近无敌人每2秒获得凶猛每层射手x[12-15]%增伤",
+    "name": "Scoundrel's Kiss"
+  },
+  {
+    "cn": "恶棍皮甲",
+    "type": "Unique Chest Armor",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "陷阱每10秒死亡陷阱x[10-30]%增伤5秒",
+    "new_effect": "陷阱可投掷并x[45-60]%增伤",
+    "name": "Scoundrel's Leathers"
+  },
+  {
+    "cn": "天空猎手",
+    "type": "Unique Bow",
+    "class": "Rogue",
+    "section": "updated",
+    "old_effect": "首次直接伤害必暴击，消耗精准x[20-60]%暴击+30-60能量",
+    "new_effect": "连续连珠箭每次+2箭最多6支x[80-100]%增伤",
+    "name": "Skyhunter"
+  },
+  {
+    "cn": "德罗格南的痛苦",
+    "type": "Unique Ring",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "施放火焰魔法技能会对你造成燃烧，在 10 秒内消耗 5% 最大生命。你施加的燃烧伤害根据你的燃烧生命比例提高，最高提高 x [200 - 250%]。",
+    "name": "Drognan's Anguish"
+  },
+  {
+    "cn": "余烬之怒",
+    "type": "Unique Amulet",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "强击使火焰魔法技能伤害提高 x [20 - 25%]，技能范围增大，法力消耗和冷却时间增加 10%。",
+    "name": "Emberfury"
+  },
+  {
+    "cn": "毒蛇法师之牙",
+    "type": "Unique 1h Dagger",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "地狱之火额外收紧区域 2 次，伤害提高 x [20 - 25%]。",
+    "name": "Fang of the Vipermagi"
+  },
+  {
+    "cn": "霜之馈赠",
+    "type": "Unique Boots",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "冰甲免费获得永冻变体，威力提高 [20 - 25%]。",
+    "name": "Gift of Frost"
+  },
+  {
+    "cn": "闪电之握",
+    "type": "Unique Gloves",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "电火花对敌人额外电击 1-9 次，伤害提高 x [20 - 30%]。",
+    "name": "Levin Grasp"
+  },
+  {
+    "cn": "熔岩之戒",
+    "type": "Unique Ring",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "对健康敌人时，火焰魔法暴击伤害提高 x [60 - 80%]；对受伤敌人时，火焰魔法暴击几率提高 x [40 - 60%]。以暴击击杀敌人后，对所有敌人获得上述两种加成，并获得 +50% 攻击速度，持续 4 秒。",
+    "name": "Molten Band"
+  },
+  {
+    "cn": "玛瑙之魂",
+    "type": "Unique Focus",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "寒冰球体现在会飞回你身边，伤害提高 x [80 - 100%]。",
+    "name": "Onyx Soul"
+  },
+  {
+    "cn": "海洋法袍",
+    "type": "Unique Chest Armor",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "暴雪的残留效果持续时间延长 [100 - 120%]。",
+    "name": "Raiment of the Sea"
+  },
+  {
+    "cn": "霜血",
+    "type": "Unique Gloves",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "冰霜飞弹穿透被控制和霸体敌人，伤害提高 x [80 - 100%]。",
+    "name": "Rimeblood"
+  },
+  {
+    "cn": "沙纳尔的共鸣",
+    "type": "Unique Focus",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "极寒的最终爆炸伤害提高 x [400 - 500%]。",
+    "name": "Shanar's Resonance"
+  },
+  {
+    "cn": "泽雷法杖",
+    "type": "Unique Staff",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "不稳定电流使护甲和全抗性 +100%，击杀使伤害提高 x [4 - 5%]，持续整个技能期间。",
+    "name": "Staff of Zerae"
+  },
+  {
+    "cn": "雷神祝福",
+    "type": "Unique Ring",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "对附近敌人造成闪电伤害时，有 25% 几率获得毅力，并使伤害提高 x [250 - 300%]。",
+    "name": "Thundergod's Blessing"
+  },
+  {
+    "cn": "火焰风暴幻象",
+    "type": "Unique Helm",
+    "class": "Sorcerer",
+    "section": "new",
+    "new_effect": "火焰之墙伤害提高 x [80 - 100%]，范围超出上限 100%。",
+    "name": "Vision of the Firestorm"
+  },
+  {
+    "cn": "轴向通道",
+    "type": "Unique Pants",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "闪电链弹射返回消耗6法力66爆炸。施放50%额外[2-5]次",
+    "new_effect": "闪电链50%几率额外激活[2-5]次",
+    "name": "Axial Conduit"
+  },
+  {
+    "cn": "蓝玫瑰",
+    "type": "Unique Ring",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "幸运30%冰刺爆炸[X]冰冷冻结三倍",
+    "new_effect": "冰刺技能x[40-60]%增伤。幸运15%冰刺爆炸",
+    "name": "Blue Rose"
+  },
+  {
+    "cn": "艾莎多娜溢出的浮雕",
+    "type": "Unique Amulet",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "静电每级闪x10%增伤2%回复满快速释放x[40-80]%",
+    "new_effect": "静电释放攻速影响伤害x[100-120]%增伤每次命中25%减随机1秒冷却",
+    "name": "Esadora's Overflowing Cameo"
+  },
+  {
+    "cn": "火焰疤痕",
+    "type": "Unique Wand",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "引导焚化射出灰烬吸引敌人[X]火焰",
+    "new_effect": "焚化最终充能周围x[200-300]%增伤每秒额外消耗50法力",
+    "name": "Flamescar"
+  },
+  {
+    "cn": "碎裂冬之玻璃",
+    "type": "Unique Amulet",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "冰球每个召唤x[4-8]%增伤65%随机召唤。幸运召唤90%发射冰球",
+    "new_effect": "核心技能25%召唤同元素。每个召唤x[3-6]%增伤每秒1法力+5%移速+3%减伤",
+    "name": "Fractured Winterglass"
+  },
+  {
+    "cn": "电流蓝铜矿",
+    "type": "Unique Ring",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "闪电磁化4秒释放静电x[40-60]%闪易伤两磁化拉近",
+    "new_effect": "闪电磁化4秒释放静电x[40-60]%增伤",
+    "name": "Galvanic Azurite"
+  },
+  {
+    "cn": "薄冰冰雹",
+    "type": "Unique Helm",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "冰刺+2每次x[1.5-2]%增伤5秒最高x[75-100]%。穿透寒冷",
+    "new_effect": "获得穿透寒冷。冰刺x[30-50]%增伤",
+    "name": "Hail of Verglas"
+  },
+  {
+    "cn": "冰心裤",
+    "type": "Unique Pants",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "冻结死亡[21-40]%冰霜新星",
+    "new_effect": "召唤物周期性冰霜新星。冰霜新星影响x[20-30]%增伤",
+    "name": "Iceheart Brais"
+  },
+  {
+    "cn": "毒蛇虹膜",
+    "type": "Unique Amulet",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "九头蛇变核心3头蛇攻击爆炸每多一个x[50-100]%",
+    "new_effect": "九头蛇变核心消耗法力增加攻击爆炸x[100-125]%增伤",
+    "name": "Ophidian Iris"
+  },
+  {
+    "cn": "精灵束缚",
+    "type": "Unique Gloves",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "同时召唤三元素x[25-50]%持续冷却-2充能-1。附魔x[60-80]%",
+    "new_effect": "魔宠获得附魔和x[60-80]%威力",
+    "name": "Sidhe Bindings"
+  },
+  {
+    "cn": "星落王冠",
+    "type": "Unique Helm",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "陨石CD[5-2.5]秒3层施放额外3颗附魔+1。消耗强击每2额外1颗x[50-70]%",
+    "new_effect": "陨石[5-2.5]秒冷却3层额外3颗。消耗强击额外掉落x[50-70]%增伤",
+    "name": "Starfall Coronet"
+  },
+  {
+    "cn": "风暴角打击",
+    "type": "Unique Focus",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "闪电球爆炸[260-300]%眩晕1秒超级球更大x125%3秒",
+    "new_effect": "闪电球x[40-60]%增伤消散爆炸40%",
+    "name": "Strike of Stormhorn"
+  },
+  {
+    "cn": "万物之音",
+    "type": "Unique Staff",
+    "class": "Sorcerer",
+    "section": "updated",
+    "old_effect": "核心额外发射2弹匹配元素x[30-90]%",
+    "new_effect": "核心触发随机基础技能攻击x[300-360]%增伤",
+    "name": "Vox Omnium"
+  },
+  {
+    "cn": "夸特利的回声",
+    "type": "Unique Amulet",
+    "class": "Spiritborn",
+    "section": "new",
+    "new_effect": "对易伤敌人造成的伤害提高 x [80 - 100%]。使敌人进入易伤后，你对该敌人造成的下一次直接伤害：为你治疗 5% 最大生命、产生 10 点活力、移除易伤效果。",
+    "name": "Echo of Kwatli"
+  },
+  {
+    "cn": "千变之心",
+    "type": "Unique Amulet",
+    "class": "Spiritborn",
+    "section": "new",
+    "new_effect": "施放技能的基础之灵提供：鹰：+ [25 - 30%] 移动速度；大猩猩：[25 - 30%] 伤害减免；美洲豹：[25 - 30%] 攻击速度；蜈蚣：[25 - 30%] 每秒回复生命。施放不同基础之灵的技能时：切换到新的加成并使全属性 +100%，持续 7 秒。",
+    "name": "Protean Heart"
+  },
+  {
+    "cn": "雷神祝福",
+    "type": "Unique Ring",
+    "class": "Spiritborn",
+    "section": "new",
+    "new_effect": "对附近敌人造成闪电伤害时，有 25% 几率获得毅力，并使伤害提高 x [250 - 300%]。",
+    "name": "Thundergod's Blessing"
+  },
+  {
+    "cn": "寡妇之网",
+    "type": "Unique Amulet",
+    "class": "Spiritborn",
+    "section": "new",
+    "new_effect": "你的暴击使敌人身上的毒素爆发，瞬间对其造成 [250 - 300%] 的总毒素伤害，并将爆发伤害的 10% 扩散到周围敌人，然后移除主要目标的毒素效果。",
+    "name": "Widow's Web"
+  },
+  {
+    "cn": "使者之路",
+    "type": "Unique Boots",
+    "class": "Spiritborn",
+    "section": "updated",
+    "old_effect": "每[12-4]米触发主要核心技能",
+    "new_effect": "每[6-4]米触发主要基础核心技能。狂暴期间突进到目标",
+    "name": "Path of the Emissary"
+  },
+  {
+    "cn": "大地的蔑视",
+    "type": "Unique Boots",
+    "class": "Spiritborn",
+    "section": "updated",
+    "old_effect": "闪避变翱翔[50-100]%增伤",
+    "new_effect": "闪避变翱翔x[125-150]%增伤并触发漩涡",
+    "name": "Scorn of the Earth"
+  },
+  {
+    "cn": "正义之剑·艾尔德鲁因",
+    "type": "Mythic Unique 1h Sword",
+    "class": "All Classes",
+    "section": "new",
+    "new_effect": "不可摧毁 200 全属性 37.5% 所有伤害加成 37.5 全抗性 3 全技能 击杀精英群体后 12 秒内技能冷却时间缩减 10 秒。",
+    "name": "El'druin, Sword of Justice"
+  },
+  {
+    "cn": "佩尔盖恩印记",
+    "type": "Unique Ring",
+    "class": "All Classes",
+    "section": "new",
+    "new_effect": "你的冰冻效果使敌人被冰冻期间，每秒受到你的伤害永久提高 x [15 - 20%]。",
+    "name": "Signet of Pelghain"
+  },
+  {
+    "cn": "放逐领主护符",
+    "type": "Unique Amulet",
+    "class": "All Classes",
+    "section": "updated",
+    "old_effect": "消耗275主资源后下一个核心技能必定强击，强击暴击造成[20-60]%增伤",
+    "new_effect": "消耗275主资源后获得4层强击，每层强击暴击x[15-18]%增伤",
+    "name": "Banished Lord's Talisman"
+  },
+  {
+    "cn": "霜燃",
+    "type": "Unique Gloves",
+    "class": "All Classes",
+    "section": "updated",
+    "old_effect": "对受冻敌人造成x[15-35]%火焰增伤，对燃烧敌人造成x[15-35]%冰冷增伤",
+    "new_effect": "幸运一击：最高50%几率冻结敌人1秒。对冻结敌人造成x[40-50]%增伤",
+    "name": "Frostburn"
+  },
+  {
+    "cn": "假死裹布",
+    "type": "Mythic Unique Chest Armor",
+    "class": "All Classes",
+    "section": "updated",
+    "old_effect": "2秒内未造成伤害时获得潜行和+40%移速",
+    "new_effect": "2秒内未造成伤害时获得潜行和+40%移速。受到致命伤害时恢复满生命并获得100%最大生命的屏障3秒，击退附近敌人，每300秒触发一次",
+    "name": "Shroud of False Death"
+  },
+  {
+    "cn": "艾格罗姆的分裂",
+    "type": "Unique Chest Armor",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "艾格罗姆及其召唤物造成的伤害提高 x [30 - 50%]。你额外召唤艾格罗姆的另一半，并获得第二次指挥艾格罗姆的充能。",
+    "name": "Ae'grom's Schism"
+  },
+  {
+    "cn": "疯狂牢笼",
+    "type": "Unique Helm",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "你的闪避会将你变为愤怒的狂人，持续最多 15 秒，期间爆炸造成指挥堕魔的伤害，且每变形一秒增加 100%。处于愤怒狂人状态时，移动速度 +60%，周期性生成追踪敌人的迷你狂人。指挥堕魔造成的伤害提高 x [340%]。",
+    "name": "Cage of Madness"
+  },
+  {
+    "cn": "邪恶折磨兜帽",
+    "type": "Unique Helm",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "诅咒对生命值低于阈值的敌人施加末日，维持诅咒并每秒造成末日伤害的一部分，直到目标死亡。末日造成的伤害提高。",
+    "name": "Cowl of Malefic Torment"
+  },
+  {
+    "cn": "巴尔之眼",
+    "type": "Unique Focus",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "灵魂碎片技能及其恶魔造成的伤害提高 x [60 - 80%]。施放灵魂碎片技能使所有伤害提高 x10%，持续 15 秒，最高叠加至 x50%。",
+    "name": "Eye of Baal"
+  },
+  {
+    "cn": "阴间护手",
+    "type": "Unique Gloves",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "召唤阿巴顿魔兽会献祭其他所有大型恶魔召唤物，在它们周围造成阿巴顿魔兽的伤害，并且每击杀一个恶魔使其伤害提高 x [23 - 33%]。",
+    "name": "Gauntlets of Sheol"
+  },
+  {
+    "cn": "地狱猎犬护腿",
+    "type": "Unique Boots",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "阿博迪安造成的伤害提高。指挥阿博迪安结束后，你被火焰锁链连接，周期性造成指挥阿博迪安拖拽的伤害，并在有限时间内获得移动速度加成。",
+    "name": "地狱猎犬护腿"
+  },
+  {
+    "cn": "卡布拉克斯之墙",
+    "type": "Unique Pants",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "痛苦之墙免费获得堕落军队变体，伤害提高 x [20 - 30%]。",
+    "name": "Kabraxis' Wall"
+  },
+  {
+    "cn": "欧法宁之印",
+    "type": "Unique Ring",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "亵渎哨兵造成的伤害提高，并额外召唤一只眼睛跟随你 10 秒。",
+    "name": "Seal of the Ophanim"
+  },
+  {
+    "cn": "赫拉森的种子",
+    "type": "Unique Amulet",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "你的恶魔学技能每拥有 1 点愤怒，伤害提高 x [0.6 - 0.75%]，每拥有 1 点统治力，受到的伤害减少 + [0.2 - 0.25%]。",
+    "name": "Seed of Horazon"
+  },
+  {
+    "cn": "塔萨麦特的脊骨",
+    "type": "Unique 1h Mace",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "地狱裂伤伤害提高 x [100 - 120%]，每第 3 次施放产生三重裂伤。",
+    "name": "Spine of Tathamet"
+  },
+  {
+    "cn": "丰饶之印",
+    "type": "Unique Ring",
+    "class": "Warlock",
+    "section": "new",
+    "new_effect": "召唤法印伤害提高 x [80 - 100%]，你可以在仪式外击杀时额外召唤最多 3 个恶魔虫群。",
+    "name": "The Fecund Seal"
+  }
+]

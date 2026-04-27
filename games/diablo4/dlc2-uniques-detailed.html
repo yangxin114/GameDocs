@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《憎恨之王》暗金装备详解 | 全职业新增/更新独特装备图鉴 | Diablo IV 攻略</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+:root{--bg-deep:#07080f;--bg-item:#0a0c18;--gold:#c8963e;--gold-bright:#f0c060;--gold-dim:#7a5a25;--demon:#cc4422;--demon-dim:#7a2010;--text-main:#ddd4c0;--text-dim:#8a8070;--text-white:#efe8d8;--border:#2a2820;--border-gold:#40321a;--green:#40b870;--blue:#4488dd;--red:#e04040}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg-deep);color:var(--text-main);font-family:'Noto Sans SC',sans-serif;font-weight:400;line-height:1.7;min-height:100vh;background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(160,40,10,.13) 0%,transparent 70%),radial-gradient(ellipse 60% 60% at 80% 80%,rgba(100,30,120,.08) 0%,transparent 60%),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.012) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.012) 40px)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-deep)}::-webkit-scrollbar-thumb{background:var(--demon-dim);border-radius:3px}
+.page-wrap{display:flex;min-height:100vh}.page-content{flex:1;min-width:0;display:flex;flex-direction:column}
+.sidebar{width:210px;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto;background:rgba(7,8,15,.96);border-right:1px solid var(--border-gold);padding:24px 0 40px;display:flex;flex-direction:column;gap:2px;backdrop-filter:blur(12px)}
+.sidebar-logo{padding:0 18px 18px;border-bottom:1px solid var(--border-gold);margin-bottom:12px}
+.sidebar-logo .game-title{font-family:'Cinzel',serif;font-size:10px;color:var(--demon-dim);letter-spacing:2px;text-transform:uppercase}
+.sidebar-logo .build-title{font-family:'Cinzel',serif;font-size:13px;color:var(--demon);font-weight:600;line-height:1.4;margin-top:4px}
+.sidebar-logo .build-sub{font-size:11px;color:var(--text-dim);margin-top:2px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:7px 18px;color:var(--text-dim);text-decoration:none;font-size:12.5px;font-weight:400;transition:all .2s;cursor:pointer;border-left:2px solid transparent}
+.nav-item:hover{color:var(--gold);background:rgba(200,150,62,.06);border-left-color:var(--gold)}
+.nav-item.active{color:var(--gold);background:rgba(200,150,62,.08);border-left-color:var(--gold);font-weight:500}
+.nav-item .nav-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0}
+.nav-sep{height:1px;background:var(--border);margin:8px 18px}
+.nav-section-label{padding:4px 18px;font-size:10px;color:var(--text-dim);letter-spacing:2px;text-transform:uppercase;opacity:.6}
+.sidebar-footer{margin-top:auto;padding:16px 18px 0;border-top:1px solid var(--border);font-size:11px;color:var(--text-dim);text-align:center;line-height:1.6}
+.sidebar-footer a{color:var(--gold);text-decoration:none}.sidebar-footer a:hover{text-decoration:underline}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:56px;background:rgba(7,8,15,.95);border-bottom:1px solid var(--border-gold);backdrop-filter:blur(12px)}
+.nav-back{color:var(--gold);text-decoration:none;font-size:.8rem;font-weight:500}.nav-back:hover{color:var(--gold-bright)}
+.nav-title{font-family:'Cinzel',serif;font-size:.85rem;color:var(--text-white);letter-spacing:1px}
+.nav-breadcrumb{font-size:.7rem;color:var(--text-dim)}.nav-breadcrumb a{color:var(--text-dim);text-decoration:none}.nav-breadcrumb a:hover{color:var(--gold)}
+.main{flex:1 1 auto;min-width:0;overflow-x:hidden}
+.hero{position:relative;padding:80px 60px 52px;overflow:hidden;border-bottom:1px solid var(--border-gold)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 100% 200% at 60% 50%,rgba(180,50,20,.18) 0%,transparent 60%),radial-gradient(ellipse 50% 100% at 95% 50%,rgba(100,30,120,.1) 0%,transparent 50%);pointer-events:none}
+.hero-eyebrow{font-family:'Cinzel',serif;font-size:11px;letter-spacing:4px;color:var(--demon-dim);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow .dot{width:6px;height:6px;background:var(--demon);border-radius:50%}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:var(--gold);line-height:1.2;margin-bottom:12px}
+.hero-desc{max-width:700px;color:var(--text-dim);font-size:.9rem;line-height:1.8}
+.hero-stats{display:flex;gap:2rem;margin-top:24px;flex-wrap:wrap}
+.hero-disclaimer{margin-top:16px;font-size:.72rem;color:var(--text-dim);font-style:italic;line-height:1.6}
+.hero-stat{text-align:center}.hero-stat .num{font-family:'Cinzel',serif;font-size:1.8rem;font-weight:700;color:var(--gold-bright)}
+.hero-stat .label{font-size:.7rem;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase}
+.section{padding:48px 30px;border-bottom:1px solid rgba(42,40,32,.5)}.section:last-of-type{border-bottom:none}
+.section-header{margin-bottom:24px}
+.section-title{font-family:'Cinzel',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--gold);margin-bottom:4px}
+.section-desc{color:var(--text-dim);font-size:.85rem}
+.class-badge{display:inline-block;padding:3px 10px;border-radius:4px;font-size:.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.class-barbarian{background:rgba(200,60,40,.15);color:#c84040;border:1px solid rgba(200,60,40,.3)}
+.class-druid{background:rgba(60,180,80,.15);color:#40b870;border:1px solid rgba(60,180,80,.3)}
+.class-necro{background:rgba(140,80,180,.15);color:#a060d0;border:1px solid rgba(140,80,180,.3)}
+.class-rogue{background:rgba(60,140,200,.15);color:#4488cc;border:1px solid rgba(60,140,200,.3)}
+.class-sorc{background:rgba(200,160,40,.15);color:#c8a030;border:1px solid rgba(200,160,40,.3)}
+.class-spirit{background:rgba(40,160,140,.15);color:#30b090;border:1px solid rgba(40,160,140,.3)}
+.class-warlock{background:rgba(200,60,30,.15);color:#cc4422;border:1px solid rgba(200,60,30,.3)}
+.class-all{background:rgba(200,150,62,.15);color:var(--gold);border:1px solid rgba(200,150,62,.3)}
+.section-subtitle{font-size:.75rem;color:var(--text-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.filter-bar{padding:24px 30px;border-bottom:1px solid rgba(42,40,32,.5);background:rgba(7,8,15,.9);backdrop-filter:blur(12px)}
+.filter-row{display:flex;align-items:flex-start;gap:32px;flex-wrap:wrap}
+.filter-group{display:flex;flex-direction:column;gap:8px}
+.filter-group-label{font-size:.7rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-weight:600;margin-bottom:2px}
+.filter-options{display:flex;flex-wrap:wrap;gap:6px}
+.filter-opt{display:flex;align-items:center;gap:4px;font-size:.72rem;color:var(--text-dim);cursor:pointer;transition:color .2s}
+.filter-opt:hover{color:var(--text-main)}
+.filter-opt input{accent-color:var(--gold);cursor:pointer;margin:0}
+.filter-opt.sel{color:var(--text-main)}
+.filter-opt-radio{display:flex;align-items:center;gap:4px;font-size:.72rem;color:var(--text-dim);cursor:pointer;transition:color .2s;padding:4px 10px;border:1px solid var(--border);border-radius:4px}
+.filter-opt-radio:hover{color:var(--text-main);border-color:var(--border-gold)}
+.filter-opt-radio input{accent-color:var(--gold);cursor:pointer;margin:0}
+.filter-opt-radio.active{color:var(--gold);border-color:var(--gold);background:rgba(200,150,62,.08)}
+.filter-reset{font-size:.7rem;color:var(--demon);cursor:pointer;border:1px solid rgba(204,68,34,.3);padding:4px 12px;border-radius:4px;background:transparent;transition:all .2s}
+.filter-reset:hover{background:rgba(204,68,34,.1);color:var(--demon)}
+.filter-count{font-size:.7rem;color:var(--text-dim);margin-left:auto}
+.items-grid{display:grid;grid-template-columns:repeat(auto-fill,550px);gap:20px;width:100%;max-width:100%;justify-content:start}
+.eq-card{background:transparent;border:none;border-radius:10px;transition:all .3s;position:relative;overflow:visible;width:550px;max-width:550px;box-sizing:border-box}
+.eq-card.hidden{display:none}
+.eq-card:hover{transform:translateY(-3px);filter:drop-shadow(0 4px 16px rgba(200,150,62,.12));z-index:10}
+.eq-frame{position:relative;width:100%;max-width:100%;min-width:0;padding:4px 8px 2px;border:38px solid transparent;background-clip:padding-box;background:var(--bg-item);box-sizing:border-box;overflow-wrap:break-word;word-break:break-word}
+.eq-frame-mythic{border-image:url('../../assets/images/diablo4/frame-mythic.4695b2a7.webp') 76 fill stretch;max-width:100%;box-sizing:border-box}
+.eq-frame-unique{border-image:url('../../assets/images/diablo4/frame-unique.867dc987.webp') 76 fill stretch}
+.eq-frame>*{position:relative;z-index:1}
+.eq-header{margin-bottom:4px}
+.eq-name{display:block;font-size:.9rem;font-weight:700;color:var(--gold-bright);text-shadow:0 0 10px rgba(200,150,62,.4);line-height:1.2}.eq-name.mythic{color:#c080e0;text-shadow:0 0 12px rgba(192,128,224,.5)}
+.eq-meta{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.eq-icon{position:absolute;top:21px;right:21px;z-index:2}
+.eq-icon img{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(200,150,62,.3));transition:filter .3s}
+.eq-icon img:hover{filter:drop-shadow(0 0 16px rgba(200,150,62,.5))}
+.eq-type{font-size:.6rem;color:var(--text-dim);background:rgba(10,12,24,.8);padding:2px 8px;border-radius:3px;letter-spacing:.5px;border:1px solid rgba(42,40,32,.6)}
+.tag-new{font-size:.55rem;color:var(--green);background:rgba(64,184,112,.1);border:1px solid rgba(64,184,112,.3);padding:1px 5px;border-radius:3px;font-weight:600}
+.tag-upd{font-size:.55rem;color:var(--blue);background:rgba(68,136,221,.1);border:1px solid rgba(68,136,221,.3);padding:1px 5px;border-radius:3px;font-weight:600}
+.eq-en{font-size:.55rem;color:var(--text-main);font-family:'Cinzel',serif;font-style:italic;opacity:.75}
+.eq-imgs{display:flex;gap:12px;margin-top:6px;flex-wrap:wrap;justify-content:center}
+.eq-img-box{text-align:center;flex:1;min-width:120px;max-width:180px}
+.eq-img-label{font-size:.65rem;color:var(--text-dim);margin-bottom:6px;letter-spacing:1px;text-transform:uppercase}
+.eq-img-placeholder{width:100%;height:120px;background:linear-gradient(145deg,rgba(26,15,20,.9),rgba(13,6,8,.95));border:1px solid rgba(42,40,32,.6);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#554444;font-size:.75rem;margin:0 auto}
+.eq-img-placeholder.has-img{cursor:pointer;transition:border-color .2s}.eq-img-placeholder.has-img:hover{border-color:var(--gold)}
+.eq-img-placeholder img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;pointer-events:none}
+.eq-effect{margin-top:6px}
+.eq-effect-title{font-size:.6rem;color:var(--text-dim);margin-bottom:2px;letter-spacing:.5px}
+.item-effect{font-size:.78rem;line-height:1.5;padding:6px 8px;background:rgba(10,12,24,.7);border-left:2px solid var(--gold-dim);border-radius:0 4px 4px 0}
+.item-effect p{margin:0 0 2px 0}
+.item-effect .val{color:var(--text-white);font-weight:700}
+.item-effect .num{color:var(--text-white);font-weight:700}
+.item-effect .key{color:var(--gold)}
+.item-effect .special{color:var(--demon)}
+.item-effect.old{background:rgba(100,100,100,.05);border-left-color:#555;color:#666!important;text-decoration:line-through}
+.item-effect.old .val,.item-effect.old .num,.item-effect.old .key,.item-effect.old .special{color:#666!important;text-decoration:line-through}
+.item-effect-mythic{border-left-color:#7a40b0;background:rgba(40,15,60,.3)}
+.item-effect-mythic .key{color:#c080e0}
+.item-effect-unique{border-left-color:var(--gold-dim);background:rgba(200,150,62,.03)}
+.item-effect-unique .key{color:var(--gold-bright)}
+.eq-affixes{margin-top:6px;padding:6px 8px;background:rgba(10,12,24,.7);border-left:2px solid rgba(200,150,62,.25);border-radius:0 4px 4px 0}
+.eq-affix-title{font-size:.65rem;color:var(--text-dim);margin-bottom:6px;letter-spacing:.5px}
+.eq-affix-row{display:block;padding:2px 0;font-size:.78rem;line-height:1.5;color:var(--text-main)}
+.eq-affix-row .val{color:var(--text-white);font-weight:700}
+.eq-affix-row .num{color:var(--text-white);font-weight:700}
+.eq-affix-row .key{color:var(--gold)}
+.eq-affix-row.old{color:#666}.eq-affix-row.old .val,.eq-affix-row.old .num,.eq-affix-row.old .key{color:#666;text-decoration:line-through}
+.eq-affix-mythic{border-left-color:rgba(192,128,224,.3)}
+.eq-affix-mythic .key{color:#c080e0}
+.eq-affix-unique{border-left-color:rgba(200,150,62,.25)}
+.page-footer{padding:40px 60px;text-align:center;border-top:1px solid var(--border-gold);background:rgba(7,8,15,.5)}
+.page-footer .author{font-family:'Cinzel',serif;color:var(--gold);font-size:.85rem;margin-bottom:8px}
+.page-footer .copy{font-size:.7rem;color:var(--text-dim)}
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;cursor:pointer}.lightbox.open{display:flex}
+.lightbox img{max-width:90%;max-height:90%;object-fit:contain;border-radius:8px;pointer-events:none}
+@media(max-width:768px){.sidebar{display:none}.hero,.section,.filter-bar{padding:20px 15px}.items-grid{grid-template-columns:1fr !important}.eq-frame{padding:4px 6px 2px}.eq-img-placeholder{height:120px}.hero-stats{gap:1rem}}
+</style>
+</head>
+<body>
+<nav class="top-nav">
+  <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+  <span class="nav-title">Diablo IV &#xB7; 暗金装备详解</span>
+  <span class="nav-breadcrumb"><a href="../../index.html">首页</a> &gt; <a href="index.html">暗黑4</a> &gt; 暗金装备</span>
+</nav>
+<div class="page-wrap">
+<nav class="sidebar" id="sidebar"></nav>
+<div class="page-content"><main class="main">
+<section class="hero" id="sec-hero">
+  <div class="hero-eyebrow"><span class="dot"></span> LORD OF HATRED &#xB7; S13</div>
+  <h1 class="hero-title">《憎恨之王》暗金装备详解</h1>
+  <p class="hero-desc" id="heroDesc">加载中...</p>
+  <div class="hero-stats" id="heroStats"></div>
+  <p class="hero-disclaimer">&#x26A0; 本页数据结合互联网信息整合，可能存在误差，仅供参考，请以游戏内实际为准。</p>
+</section>
+<div class="filter-bar" id="filterBar">
+  <div class="filter-row">
+    <div class="filter-group">
+      <div class="filter-group-label">筛选</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">
+        <label class="filter-opt-radio active" data-filter="all" onclick="setMainFilter('all',this)"><input type="radio" name="mainFilter" checked> 全部</label>
+        <label class="filter-opt-radio" data-filter="new" onclick="setMainFilter('new',this)"><input type="radio" name="mainFilter"> 新增</label>
+        <label class="filter-opt-radio" data-filter="updated" onclick="setMainFilter('updated',this)"><input type="radio" name="mainFilter"> 重做</label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-label">暗金类型</div>
+      <div class="filter-options" id="filterRarity">
+        <label class="filter-opt sel" onclick="toggleRarity(this)"><input type="checkbox" checked value="mythic"> 🌟 神话暗金</label>
+        <label class="filter-opt sel" onclick="toggleRarity(this)"><input type="checkbox" checked value="unique"> 普通暗金</label>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-label">装备类型</div>
+      <div class="filter-options" id="filterType">
+        <label class="filter-opt sel" onclick="toggleType(this)"><input type="checkbox" checked value="all"> 全选</label>
+      </div>
+    </div>
+    <div style="display:flex;align-items:flex-end;gap:12px">
+      <button class="filter-reset" onclick="resetFilters()">重置筛选</button>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
+  </div>
+</div>
+<div id="sections"></div>
+</main>
+<footer class="page-footer">
+  <div class="author">&#xA9; 看雲起雲落</div>
+  <div class="copy">Diablo IV Lord of Hatred 暗金装备详解 &#xB7; 数据截至 2026 年 4 月</div>
+  <div class="copy" style="margin-top:8px"><a href="index.html" style="color:var(--gold);text-decoration:none">&#x2190; 返回D4首页</a></div>
+</footer>
+</div>
+</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')"><img id="lightboxImg" src="" alt="图片预览"></div>
+
+<script src="../../assets/js/uniques-data.js"></script>
+<script>
+(function(){
+var TYPECN={'Amulet':'护符','Ring':'戒指','Gloves':'手套','Chest Armor':'胸甲','Helm':'头盔','Boots':'靴子','Shield':'盾牌','2h Sword':'双手剑','2h Mace':'双手锤','1h Sword':'单手剑','1h Mace':'单手锤','1h Dagger':'匕首','1h Axe':'单手斧','Bow':'弓','Staff':'法杖','Totem':'图腾','Focus':'法器','Wand':'魔杖','Pants':'裤子','Glaive':'剑刃戟','Unknown':'未知'};
+var CNAME={'All Classes':'全职业','Barbarian':'野蛮人','Druid':'德鲁伊','Necromancer':'死灵法师','Rogue':'游侠','Sorcerer':'法师','Spiritborn':'灵巫','Warlock':'术士','Paladin':'圣骑士'};
+var CICON={'All Classes':'&#x2694;','Barbarian':'&#x1F5E1;','Druid':'&#x1F333;','Necromancer':'&#x1F480;','Rogue':'&#x1F3F9;','Sorcerer':'&#x1F525;','Spiritborn':'&#x1F43A;','Warlock':'&#x1F47F;','Paladin':'&#x26E8;'};
+var CTAG={'All Classes':'class-all','Barbarian':'class-barbarian','Druid':'class-druid','Necromancer':'class-necro','Rogue':'class-rogue','Sorcerer':'class-sorc','Spiritborn':'class-spirit','Warlock':'class-warlock','Paladin':'class-all'};
+function getTypeCn(t){var p=t.indexOf('Mythic')!==-1?'🌟 ':'';var c=t.replace(/Mythic Unique /i,'').replace(/Unique /i,'').trim();return p+(TYPECN[c]||c)}
+function esc(s){if(!s)return'';return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+if(typeof DATA==='undefined'){document.getElementById('sections').innerHTML='<p style="text-align:center;padding:60px;color:var(--text-dim)">数据加载失败</p>';return;}
+
+var total=DATA.length,tN=DATA.filter(function(i){return i.section==='new'}).length,tU=DATA.filter(function(i){return i.section==='updated'||i.section==='reworked'}).length;
+document.getElementById('heroDesc').innerHTML='S13 憎恨之王为全部职业带来了大量新增与更新的暗金装备。本页收录所有 <strong>'+total+'</strong> 件已知装备数据（新增 <strong>'+tN+'</strong> 件 + 更新 <strong>'+tU+'</strong> 件）。更新装备的属性与词缀对比旧版本。';
+document.getElementById('heroStats').innerHTML='<div class="hero-stat"><div class="num">'+tN+'</div><div class="label">新增暗金</div></div><div class="hero-stat"><div class="num">'+tU+'</div><div class="label">更新暗金</div></div><div class="hero-stat"><div class="num">'+total+'</div><div class="label">总计装备</div></div><div class="hero-stat"><div class="num">8</div><div class="label">覆盖职业</div></div>';
+
+var order=['All Classes','Warlock','Paladin','Barbarian','Druid','Necromancer','Rogue','Sorcerer','Spiritborn'];
+var sb='<div class="sidebar-logo"><div class="game-title">Diablo IV &middot; Lord of Hatred</div><div class="build-title">S13 暗金装备<br>详 解</div><div class="build-sub">Lord of Hatred Expansion</div></div>';
+sb+='<a class="nav-item active" href="#sec-hero"><span class="nav-icon">&#x1F3E0;</span> 封面</a><div class="nav-sep"></div><div class="nav-section-label">全职业装备</div>';
+var secHtml='';
+
+order.forEach(function(cls){
+  var ci=DATA.filter(function(i){return i.class===cls});if(!ci.length)return;
+  var ni=ci.filter(function(i){return i.section==='new'}),ui=ci.filter(function(i){return i.section==='updated'});
+  var id='sec-'+cls.toLowerCase().replace(' ','-'),tag=CTAG[cls]||'class-all',cn=CNAME[cls]||cls,icon=CICON[cls]||'&#x2694;';
+  sb+='<a class="nav-item" href="#'+id+'"><span class="nav-icon">'+icon+'</span> '+cn+'</a>';
+
+  var h='<section class="section" id="'+id+'"><div class="section-header"><span class="class-badge '+tag+'">'+cn+'</span><h2 class="section-title">'+cn+'</h2><p class="section-desc">新增 '+ni.length+' 件 + 重做 '+ui.length+' 件暗金装备</p></div>';
+  h+='<div class="items-grid">';
+  ci.forEach(function(it){h+=card(it)});
+  h+='</div></section>';secHtml+=h;
+});
+
+sb+='<div class="sidebar-footer"><a href="index.html">&#x2190; 返回D4首页</a><br><span>&#xA9;</span> 2026 看雲起雲落</div>';
+document.getElementById('sidebar').innerHTML=sb;
+document.getElementById('sections').innerHTML=secHtml;
+
+// Init filter count
+setTimeout(function(){applyFilters()},100);
+
+var links=document.querySelectorAll('#sidebar .nav-item'),secs=[];
+links.forEach(function(l){var id=l.getAttribute('href').replace('#',''),s=document.getElementById(id);if(s)secs.push({l:l,s:s})});
+function upd(){var y=window.pageYOffset+120,c=null;secs.forEach(function(x){if(x.s.offsetTop<=y)c=x.l});links.forEach(function(l){l.classList.remove('active')});if(c)c.classList.add('active')}
+window.addEventListener('scroll',upd,{passive:true});upd();
+
+// ====== FILTER LOGIC ======
+var currentMainFilter='all';
+var selectedRarities=['mythic','unique'];
+
+// Build equipment type checkboxes
+var typeNames=['Helm','Chest Armor','Gloves','Pants','Boots','Amulet','Ring','Shield','1h Sword','2h Sword','1h Mace','2h Mace','1h Axe','1h Dagger','Bow','Staff','Totem','Focus','Wand','Glaive'];
+var typeContainer=document.getElementById('filterType');
+typeNames.forEach(function(t){
+  var lbl=document.createElement('label');
+  lbl.className='filter-opt sel';
+  lbl.setAttribute('onclick','toggleType(this)');
+  lbl.innerHTML='<input type="checkbox" checked value="'+esc(t)+'"> '+(TYPECN[t]||t);
+  typeContainer.appendChild(lbl);
+});
+
+function getTypeFromTypeStr(t){return t.replace(/Mythic Unique /i,'').replace(/Unique /i,'').trim();}
+function getRarityFromTypeStr(t){return t.indexOf('Mythic')!==-1?'mythic':'unique';}
+
+window.setMainFilter=function(val,el){
+  currentMainFilter=val;
+  document.querySelectorAll('.filter-opt-radio').forEach(function(r){r.classList.remove('active')});
+  el.classList.add('active');
+  applyFilters();
+};
+
+window.toggleRarity=function(lbl){
+  var cb=lbl.querySelector('input');
+  if(cb.checked)lbl.classList.add('sel');else lbl.classList.remove('sel');
+  selectedRarities=[];
+  document.querySelectorAll('#filterRarity input:checked').forEach(function(c){selectedRarities.push(c.value)});
+  applyFilters();
+};
+
+window.toggleType=function(lbl){
+  var cb=lbl.querySelector('input');
+  if(cb.value==='all'){
+    var allChecked=cb.checked;
+    document.querySelectorAll('#filterType input').forEach(function(c){c.checked=allChecked});
+    document.querySelectorAll('#filterType .filter-opt').forEach(function(o){if(allChecked)o.classList.add('sel');else o.classList.remove('sel')});
+  }else{
+    if(cb.checked)lbl.classList.add('sel');else lbl.classList.remove('sel');
+    var all=document.querySelector('#filterType input[value="all"]');
+    var allChecked=document.querySelectorAll('#filterType input:not([value="all"])').length===document.querySelectorAll('#filterType input:not([value="all"]):checked').length;
+    all.checked=allChecked;
+    if(allChecked)all.parentElement.classList.add('sel');else all.parentElement.classList.remove('sel');
+  }
+  applyFilters();
+};
+
+window.resetFilters=function(){
+  currentMainFilter='all';
+  document.querySelectorAll('.filter-opt-radio').forEach(function(r){r.classList.remove('active')});
+  document.querySelector('.filter-opt-radio[data-filter="all"]').classList.add('active');
+  document.querySelectorAll('#filterRarity input').forEach(function(c){c.checked=true});
+  document.querySelectorAll('#filterRarity .filter-opt').forEach(function(o){o.classList.add('sel')});
+  document.querySelectorAll('#filterType input').forEach(function(c){c.checked=true});
+  document.querySelectorAll('#filterType .filter-opt').forEach(function(o){o.classList.add('sel')});
+  selectedRarities=['mythic','unique'];
+  applyFilters();
+};
+
+function applyFilters(){
+  var cards=document.querySelectorAll('.eq-card');
+  var visibleCount=0;
+  cards.forEach(function(card){
+    var section=card.getAttribute('data-section')||'';
+    var rarity=card.getAttribute('data-rarity')||'';
+    var eqType=card.getAttribute('data-type')||'';
+    var typeMatch=true;
+    var typeChecked=document.querySelectorAll('#filterType input:not([value="all"]):checked');
+    if(typeChecked.length>0){
+      var typeValues=[];
+      typeChecked.forEach(function(c){typeValues.push(c.value)});
+      typeMatch=typeValues.indexOf(eqType)!==-1;
+    }
+    var rarityMatch=selectedRarities.indexOf(rarity)!==-1;
+    var mainMatch=currentMainFilter==='all'||section===currentMainFilter;
+    var show=mainMatch&&rarityMatch&&typeMatch;
+    if(show){card.classList.remove('hidden');visibleCount++}else{card.classList.add('hidden')}
+  });
+  document.getElementById('filterCount').textContent='显示 '+visibleCount+' / '+cards.length+' 件';
+}
+
+function fmt(text){
+  if(!text)return '';
+  // 括号数值 -> 白色加粗
+  text=text.replace(/\[([^\]]+)\]/g,'<span class="num">[$1]</span>');
+  // x 倍率数值 -> 白色加粗
+  text=text.replace(/x([\d.]+%?)/g,'<span class="num">x$1</span>');
+  // +数值（如 +18.0%, +33%, +3, +66, +30 等）-> 白色加粗
+  text=text.replace(/\+([\d,.]+%?)/g,'<span class="num">+$1</span>');
+  // -数值（负数属性）-> 白色加粗
+  text=text.replace(/-([\d,.]+%?)/g,'<span class="num">-$1</span>');
+  // 独立数字（如 3,454、20秒、15秒等）-> 白色加粗
+  text=text.replace(/([\d,]+\.?\d*)/g,'<span class="num">$1</span>');
+  return text;
+}
+function card(it){
+  var nc=it.is_mythic?'eq-name mythic':'eq-name';
+  var fc=it.is_mythic?'eq-frame eq-frame-mythic':'eq-frame eq-frame-unique';
+  var ec=it.is_mythic?'item-effect item-effect-mythic':'item-effect item-effect-unique';
+  var ac=it.is_mythic?'eq-affixes eq-affix-mythic':'eq-affixes eq-affix-unique';
+  var tag=(it.section==='updated'||it.section==='reworked')?'<span class="tag-upd">重做</span>':'<span class="tag-new">NEW</span>';
+  var eqTypeBase=getTypeFromTypeStr(it.type||'');
+  var eqRarity=getRarityFromTypeStr(it.type||'');
+  var imgHtml=it.img?'<div class="eq-icon"><img src="../../assets/images/diablo4/unique/'+esc(it.img.replace(/ /g,'_'))+'" alt="'+esc(it.cn)+'" onerror="this.parentElement.style.display=\'none\'"></div>':'';
+  var h='<div class="eq-card" data-section="'+esc(it.section||'new')+'" data-rarity="'+esc(eqRarity)+'" data-type="'+esc(eqTypeBase)+'"><div class="'+fc+'">'+imgHtml+'<div class="eq-header"><span class="'+nc+'">'+esc(it.cn)+'</span></div>';
+  h+='<div class="eq-meta"><span class="eq-type">'+esc(getTypeCn(it.type))+'</span>'+tag;
+  h+='<span class="eq-en">'+esc(it.name)+'</span></div>';
+
+  // Affixes - show old/new comparison for updated items
+  if(it.section==='updated'&&it.old_affixes&&it.old_affixes.length){
+    h+='<div class="'+ac+'"><p class="eq-affix-title">&#x1F527; 词缀对比</p>';
+    // Show old affixes
+    h+='<p class="eq-effect-title">&#x1F4DC; 更新前</p>';
+    it.old_affixes.forEach(function(a){h+='<p class="eq-affix-row old">'+fmt(esc(a))+'</p>'});
+    // Show new affixes
+    h+='<p class="eq-effect-title" style="margin-top:6px;color:'+(it.is_mythic?'#c080e0':'var(--gold)')+'">&#x2728; 更新后</p>';
+    if(it.affixes&&it.affixes.length){
+      it.affixes.forEach(function(a){h+='<p class="eq-affix-row">'+fmt(esc(a))+'</p>'});
+    }else{
+      h+='<p class="eq-affix-row" style="font-style:italic;color:var(--text-dim)">词缀属性未知，待定</p>';
+    }
+    h+='</div>';
+  }else if(it.affixes&&it.affixes.length){
+    h+='<div class="'+ac+'"><p class="eq-affix-title">&#x1F527; 词缀</p>';
+    it.affixes.forEach(function(a){h+='<p class="eq-affix-row">'+fmt(esc(a))+'</p>'});
+    h+='</div>';
+  }else{
+    h+='<div class="'+ac+'"><p class="eq-affix-row" style="font-style:italic;color:var(--text-dim)">词缀属性未知，待定</p></div>';
+  }
+
+  // Effects - show old/new comparison for updated items
+  var tc=it.is_mythic?'color:#c080e0':'color:var(--gold)';
+  h+='<div class="eq-effect">';
+  if(it.section==='updated'||it.section==='reworked'){
+    var ef=it.old_effect||'';
+    if(ef)h+='<p class="eq-effect-title">&#x1F4DC; 更新前</p><p class="item-effect old">'+fmt(ef)+'</p>';
+    if(it.effect)h+='<p class="eq-effect-title" style="margin-top:6px;color:'+tc+'">&#x2728; 更新后</p><p class="'+ec+'">'+fmt(it.effect)+'</p>';
+  }else if(it.effect){
+    h+='<p class="'+ec+'">'+fmt(it.effect)+'</p>';
+  }
+  h+='</div>';
+
+  return h+'</div></div></div>';
+}
+})();
+</script>
+</body>
+</html>

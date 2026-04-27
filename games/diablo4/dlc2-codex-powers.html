@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《憎恨之王》术士传奇威能图鉴 | Diablo IV 攻略</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+:root {
+  --bg-deep:    #07080f;
+  --bg-card:    #0d0e1a;
+  --bg-panel:   #111220;
+  --bg-item:    #0a0c18;
+  --gold:       #c8963e;
+  --gold-bright:#f0c060;
+  --gold-dim:   #7a5a25;
+  --purple:     #9966cc;
+  --red:        #c84040;
+  --green:      #40b870;
+  --blue:       #4488dd;
+  --demon:      #cc4422;
+  --demon-dim:  #7a2010;
+  --text-main:  #ddd4c0;
+  --text-dim:   #8a8070;
+  --text-white: #efe8d8;
+  --border:     #2a2820;
+  --border-gold:#40321a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'Noto Sans SC', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(160,40,10,0.13) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 60% at 80% 80%, rgba(100,30,120,0.08) 0%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px);
+}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--demon-dim); border-radius: 3px; }
+
+/* Layout */
+.page-wrap { display: flex; min-height: 100vh; }
+.page-content { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+/* Sidebar */
+.sidebar {
+  width: 210px; flex-shrink: 0;
+  position: sticky; top: 0; height: 100vh;
+  overflow-y: auto;
+  background: rgba(7,8,15,0.96);
+  border-right: 1px solid var(--border-gold);
+  padding: 24px 0 40px;
+  display: flex; flex-direction: column; gap: 2px;
+  backdrop-filter: blur(12px);
+}
+.sidebar-logo { padding: 0 18px 18px; border-bottom: 1px solid var(--border-gold); margin-bottom: 12px; }
+.sidebar-logo .game-title {
+  font-family: 'Cinzel', serif; font-size: 10px;
+  color: var(--demon-dim); letter-spacing: 2px; text-transform: uppercase;
+}
+.sidebar-logo .build-title {
+  font-family: 'Cinzel', serif; font-size: 13px;
+  color: var(--demon); font-weight: 600; line-height: 1.4; margin-top: 4px;
+}
+.sidebar-logo .build-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.nav-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 18px; color: var(--text-dim);
+  text-decoration: none; font-size: 12.5px; font-weight: 400;
+  transition: all 0.2s; cursor: pointer;
+  border-left: 2px solid transparent;
+}
+.nav-item:hover { color: var(--gold); background: rgba(200,150,62,0.06); border-left-color: var(--gold); }
+.nav-item.active { color: var(--gold); background: rgba(200,150,62,0.08); border-left-color: var(--gold); font-weight: 500; }
+.nav-item .nav-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-sep { height: 1px; background: var(--border); margin: 8px 18px; }
+.nav-section-label {
+  padding: 4px 18px; font-size: 10px;
+  color: var(--text-dim); letter-spacing: 2px;
+  text-transform: uppercase; opacity: 0.6;
+}
+.sidebar-footer {
+  margin-top: auto; padding: 16px 18px 0;
+  border-top: 1px solid var(--border);
+  font-size: 11px; color: var(--text-dim);
+  text-align: center; line-height: 1.6;
+}
+.sidebar-footer a { color: var(--gold); text-decoration: none; }
+.sidebar-footer a:hover { text-decoration: underline; }
+
+/* Top Nav */
+.top-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 1.5rem; height: 56px;
+  background: rgba(7,8,15,0.95); border-bottom: 1px solid var(--border-gold);
+  backdrop-filter: blur(12px);
+}
+.nav-back { color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 500; }
+.nav-back:hover { color: var(--gold-bright); }
+.nav-title {
+  font-family: 'Cinzel', serif; font-size: 0.85rem;
+  color: var(--text-white); letter-spacing: 1px;
+}
+.nav-breadcrumb { font-size: 0.7rem; color: var(--text-dim); }
+.nav-breadcrumb a { color: var(--text-dim); text-decoration: none; }
+.nav-breadcrumb a:hover { color: var(--gold); }
+
+/* Main */
+.main { flex: 1; min-width: 0; overflow-x: hidden; }
+
+/* Hero */
+.hero {
+  position: relative; padding: 80px 60px 52px;
+  overflow: hidden; border-bottom: 1px solid var(--border-gold);
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 100% 200% at 60% 50%, rgba(180,50,20,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 100% at 95% 50%, rgba(100,30,120,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-family: 'Cinzel', serif; font-size: 11px;
+  letter-spacing: 4px; color: var(--demon-dim);
+  text-transform: uppercase; margin-bottom: 12px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow .dot { width: 6px; height: 6px; background: var(--demon); border-radius: 50%; }
+.hero-title {
+  font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900; color: var(--gold); line-height: 1.2; margin-bottom: 12px;
+}
+.hero-desc {
+  max-width: 700px; color: var(--text-dim); font-size: 0.9rem; line-height: 1.8;
+}
+.hero-stats {
+  display: flex; gap: 2rem; margin-top: 24px; flex-wrap: wrap;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+  font-family: 'Cinzel', serif; font-size: 1.8rem;
+  font-weight: 700; color: var(--gold-bright);
+}
+.hero-stat .label { font-size: 0.7rem; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+
+/* Section */
+.section { padding: 48px 60px; border-bottom: 1px solid rgba(42,40,32,0.5); }
+.section:last-of-type { border-bottom: none; }
+.section-header { margin-bottom: 32px; }
+.section-label {
+  font-family: 'Cinzel', serif; font-size: 0.7rem;
+  color: var(--demon); letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.section-title {
+  font-family: 'Cinzel', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  font-weight: 700; color: var(--gold); margin-bottom: 8px;
+}
+.section-desc { color: var(--text-dim); font-size: 0.85rem; max-width: 600px; }
+
+/* Class Badge */
+.class-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 4px;
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 1px;
+  text-transform: uppercase; margin-bottom: 12px;
+}
+.class-general { background: rgba(200,150,62,0.15); color: var(--gold); border: 1px solid rgba(200,150,62,0.3); }
+.class-warlock { background: rgba(200,60,30,0.15); color: #cc4422; border: 1px solid rgba(200,60,30,0.3); }
+.class-paladin { background: rgba(255,215,0,0.15); color: #ffd700; border: 1px solid rgba(255,215,0,0.3); }
+.class-rogue { background: rgba(60,140,200,0.15); color: #4488cc; border: 1px solid rgba(60,140,200,0.3); }
+.class-druid { background: rgba(60,180,80,0.15); color: #40b870; border: 1px solid rgba(60,180,80,0.3); }
+
+/* Codex Power Card */
+.codex-card {
+  display: grid; grid-template-columns: 80px 1fr;
+  gap: 16px; padding: 16px;
+  background: var(--bg-item); border: 1px solid var(--border);
+  border-radius: 10px; margin-bottom: 12px;
+  transition: all 0.3s;
+}
+.codex-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: 0 4px 20px rgba(200,150,62,0.08);
+}
+.codex-icon {
+  width: 80px; height: 80px;
+  background: rgba(13,14,26,0.8); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.codex-icon .slot-icon {
+  width: 56px; height: 56px; border-radius: 8px;
+  object-fit: contain;
+}
+/* Slot type border colors */
+.codex-icon.slot-ring { border: 2px solid #8866cc; }
+.codex-icon.slot-ring .slot-icon { background: rgba(136,102,204,0.12); }
+.codex-icon.slot-defensive { border: 2px solid #40b870; }
+.codex-icon.slot-defensive .slot-icon { background: rgba(64,184,112,0.12); }
+.codex-icon.slot-offensive { border: 2px solid #cc4422; }
+.codex-icon.slot-offensive .slot-icon { background: rgba(204,68,34,0.12); }
+.codex-icon.slot-utility { border: 2px solid #4488dd; }
+.codex-icon.slot-utility .slot-icon { background: rgba(68,136,221,0.12); }
+
+.codex-name {
+  font-family: 'Cinzel', serif; font-size: 0.9rem;
+  font-weight: 700; color: var(--gold);
+}
+.codex-name-en {
+  font-family: 'Cinzel', serif; font-size: 0.75rem;
+  font-weight: 400; color: var(--text-dim);
+  margin-left: 6px; opacity: 0.6;
+}
+.codex-slot {
+  font-size: 0.6rem; color: var(--text-dim);
+  background: rgba(42,40,32,0.5); padding: 2px 8px;
+  border-radius: 3px; margin-left: 8px;
+}
+.codex-effect {
+  font-size: 0.85rem; color: var(--text-main); line-height: 1.6;
+  margin-top: 6px;
+}
+.codex-effect .stat { color: var(--gold-bright); font-weight: 600; }
+
+/* Footer */
+.page-footer {
+  padding: 40px 60px; text-align: center;
+  border-top: 1px solid var(--border-gold);
+  background: rgba(7,8,15,0.5);
+}
+.page-footer .author { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.85rem; margin-bottom: 8px; }
+.page-footer .copy { font-size: 0.7rem; color: var(--text-dim); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.9); display: none;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.lightbox.open { display: flex; }
+.lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar { display: none; }
+  .hero, .section { padding: 60px 20px; }
+  .codex-card { grid-template-columns: 1fr; }
+  .codex-icon { width: 60px; height: 60px; }
+  .hero-stats { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Nav -->
+<nav class="top-nav">
+  <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+  <span class="nav-title">Diablo IV &#xB7; 威能详解</span>
+  <span class="nav-breadcrumb"><a href="../../index.html">首页</a> &gt; <a href="index.html">暗黑4</a> &gt; 威能详解</span>
+</nav>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightboxImg" src="" alt="图片预览">
+</div>
+
+<div class="page-wrap">
+
+<!-- Sidebar -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="game-title">Diablo IV · Lord of Hatred</div>
+    <div class="build-title">DLC2 术士传奇威能</div>
+    <div class="build-sub">Warlock Codex Powers</div>
+  </div>
+  <a class="nav-item active" href="#sec-hero"><span class="nav-icon">&#x1F3E0;</span> 封面</a>
+  <div class="nav-sep"></div>
+  <div class="nav-section-label">传奇威能</div>
+  <a class="nav-item" href="#sec-codex"><span class="nav-icon">&#x1F4DC;</span> 威能列表</a>
+  <a class="nav-item" href="#sec-legend-explain"><span class="nav-icon">&#x2753;</span> 机制说明</a>
+  <div class="sidebar-footer">
+    <a href="index.html">&#x2190; 返回D4首页</a><br>
+    <span>&#xA9;</span> 2026 看雲起雲落
+  </div>
+</nav>
+
+<!-- Content -->
+<div class="page-content">
+<main class="main">
+
+<!-- Hero -->
+<section class="hero" id="sec-hero">
+  <div class="hero-eyebrow"><span class="dot"></span> LORD OF HATRED &#xB7; S13</div>
+  <h1 class="hero-title">《憎恨之王》术士传奇威能图鉴</h1>
+  <p class="hero-desc">术士（Warlock）拥有专属的传奇威能（Codex Powers），可刻印到对应装备槽位。威能根据装备部位分为四种类型：攻击（武器/手套）、防御（头盔/胸甲/腿甲/盾牌）、辅助（靴子）、戒指。本页详解所有已知的术士传奇威能数据。</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">13</div><div class="label">传奇威能</div></div>
+    <div class="hero-stat"><div class="num">4</div><div class="label">威能类型</div></div>
+    <div class="hero-stat"><div class="num">5</div><div class="label">可刻印槽位</div></div>
+  </div>
+</section>
+
+<!-- ========== 术士传奇威能 ========== -->
+<section class="section" id="sec-codex">
+  <div class="section-header">
+    <span class="class-badge class-warlock">术士</span>
+    <h2 class="section-title">术士传奇威能</h2>
+    <p class="section-desc">术士专属的 Codex 传奇威能，可刻印到对应装备槽位</p>
+  </div>
+
+  <!-- Slot Type Legend -->
+  <div class="set-card" style="margin-bottom:24px;">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:6px;border:2px solid #cc4422;background:rgba(204,68,34,0.12);display:flex;align-items:center;justify-content:center;font-size:14px;">&#x2694;</div>
+        <span style="font-size:0.75rem;color:var(--text-dim);">攻击 — 手套/武器</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:6px;border:2px solid #40b870;background:rgba(64,184,112,0.12);display:flex;align-items:center;justify-content:center;font-size:14px;">&#x1F6E1;</div>
+        <span style="font-size:0.75rem;color:var(--text-dim);">防御 — 头盔/胸甲/裤子/盾牌</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:6px;border:2px solid #8866cc;background:rgba(136,102,204,0.12);display:flex;align-items:center;justify-content:center;font-size:14px;">&#x1F48D;</div>
+        <span style="font-size:0.75rem;color:var(--text-dim);">戒指 — 戒指</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:32px;height:32px;border-radius:6px;border:2px solid #4488dd;background:rgba(68,136,221,0.12);display:flex;align-items:center;justify-content:center;font-size:14px;">&#x1F45E;</div>
+        <span style="font-size:0.75rem;color:var(--text-dim);">辅助 — 靴子</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ring type -->
+  <div class="codex-card">
+    <div class="codex-icon slot-ring"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/mobility.webp" alt="ring"></div>
+    <div>
+      <div><span class="codex-name">威能权威</span><span class="codex-name-en">Aspect of Authority</span><span class="codex-slot">戒指</span></div>
+      <div class="codex-effect">获得 <span class="stat">10 点最大支配力（Dominance）</span>。</div>
+    </div>
+  </div>
+
+  <!-- Defensive type -->
+  <div class="codex-card">
+    <div class="codex-icon slot-defensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/defensive.webp" alt="defensive"></div>
+    <div>
+      <div><span class="codex-name">恶魔装甲威能</span><span class="codex-name-en">Aspect of Diabolical Armor</span><span class="codex-slot">头盔/胸甲/裤子/盾牌/项链 +50%</span></div>
+      <div class="codex-effect">恶魔形态提供 <span class="stat">20% 伤害减免</span>，之后每次受到火焰伤害时额外获得 <span class="stat">[0.5-1.0%]</span>（5秒），最多 <span class="stat">[5-10%]</span>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-defensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/defensive.webp" alt="defensive"></div>
+    <div>
+      <div><span class="codex-name">恶魔压迫威能</span><span class="codex-name-en">Aspect of Fiendish Oppression</span><span class="codex-slot">头盔/胸甲/裤子/盾牌/项链 +50%</span></div>
+      <div class="codex-effect">召唤大恶魔时<strong>击倒</strong>附近敌人 5 秒。你的小恶魔技能对被控制敌人造成额外增伤。</div>
+    </div>
+  </div>
+
+  <!-- Utility type (boots) -->
+  <div class="codex-card">
+    <div class="codex-icon slot-utility"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/utility.webp" alt="utility"></div>
+    <div>
+      <div><span class="codex-name">冲势威能</span><span class="codex-name-en">Aspect of Impetus</span><span class="codex-slot">靴子/项链 +50%</span></div>
+      <div class="codex-effect">在恶魔附近时获得 <span class="stat">[30-50%]</span> 额外移动速度。</div>
+    </div>
+  </div>
+
+  <!-- Offensive type -->
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">熔岩威能</span><span class="codex-name-en">Aspect of Lava</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">硫磺爆炸为岩浆池，在 5 秒内额外造成 <span class="stat">+[100-150%]</span> 伤害。站在岩浆中获得<strong>挥发性</strong>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-defensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/defensive.webp" alt="defensive"></div>
+    <div>
+      <div><span class="codex-name">恶意威能</span><span class="codex-name-en">Aspect of Malevolence</span><span class="codex-slot">头盔/胸甲/裤子/盾牌/项链 +50%</span></div>
+      <div class="codex-effect">在最大怒火时，每获得 <span class="stat">[30-10]</span> 点怒火获得 1 层<strong>Overpower</strong>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-defensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/defensive.webp" alt="defensive"></div>
+    <div>
+      <div><span class="codex-name">厄运威能</span><span class="codex-name-en">Aspect of Misfortune</span><span class="codex-slot">头盔/胸甲/裤子/盾牌/项链 +50%</span></div>
+      <div class="codex-effect">被施加<strong>厄运</strong>的敌人尝试攻击你时，有 <span class="stat">[15-22.5%]</span> 几率被<strong>击倒</strong> 3 秒。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">复活威能</span><span class="codex-name-en">Aspect of Reanimation</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">召唤物存活期间伤害逐渐增加，10 秒后最高达到 <span class="stat">x[60-90%]</span>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-ring"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/mobility.webp" alt="ring"></div>
+    <div>
+      <div><span class="codex-name">仪式合成威能</span><span class="codex-name-en">Aspect of Ritual Synthesis</span><span class="codex-slot">戒指</span></div>
+      <div class="codex-effect">施放地狱火技能使秘术技能获得 <span class="stat">[30-45%]</span> 冷却缩减（3秒）。施放深渊技能使秘术技能获得 <span class="stat">[30-45%]</span> 资源消耗减免（3秒）。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">地狱指挥官威能</span><span class="codex-name-en">Hellbent Commander Aspect</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">召唤伤害提高 <span class="stat">x[50-70%]</span>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">邪恶威能</span><span class="codex-name-en">Insidious Aspect</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">每拥有 1 层暗影形态，深渊技能造成 <span class="stat">[X-X%]</span> 额外伤害。潜行期间此加成提高 <span class="stat">400%</span>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">恶毒威能</span><span class="codex-name-en">Malicious Aspect</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">恶魔形态期间，每个附近敌人使你造成 <span class="stat">[X-X%]</span> 额外伤害，最高 <span class="stat">[X-X%]</span>。</div>
+    </div>
+  </div>
+
+  <div class="codex-card">
+    <div class="codex-icon slot-offensive"><img class="slot-icon" src="../../assets/images/diablo4/codex_powers/offensive.webp" alt="offensive"></div>
+    <div>
+      <div><span class="codex-name">无情威能</span><span class="codex-name-en">Remorseless Aspect</span><span class="codex-slot">手套/副手/盾牌/单手/双手 +100%，戒指/项链 +50%</span></div>
+      <div class="codex-effect">10 秒内击杀至少 30 个敌人或恶魔时，伤害提高 <span class="stat">[X-X%]</span>，持续 10 秒。</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ========== 机制说明 ========== -->
+<section class="section" id="sec-legend-explain">
+  <div class="section-header">
+    <h2 class="section-title">传奇威能机制说明</h2>
+    <p class="section-desc">了解威能的刻印、萃取与数值规则</p>
+  </div>
+
+  <div class="set-card">
+    <div class="set-analysis">
+      <p><strong>刻印规则：</strong></p>
+      <p style="margin-top:8px;">术士威能可刻印到指定的装备槽位。刻印在秘术师处进行，刻印后装备变为账号绑定。每件装备只能有一个威能。</p>
+      <p style="margin-top:8px;"><strong>数值加成差异：</strong>不同槽位对同一威能的加成倍率不同——武器/手套/副手通常为 <strong>+100%</strong>，戒指/项链为 <strong>+50%</strong>。攻击类威能优先刻印到武器或手套以获得最大收益。</p>
+      <p style="margin-top:8px;"><strong>获取方式：</strong>从术士专属的传奇装备中萃取威能，数值随机（可能高于法典最低值）。能量法典中永久解锁的数值为最低档，可无限次使用。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <div class="author">&#xA9; 看雲起雲落</div>
+  <div class="copy">Diablo IV Lord of Hatred 威能详解 · 数据截至 2026 年 4 月</div>
+  <div class="copy" style="margin-top:8px;"><a href="index.html" style="color:var(--gold);text-decoration:none;">&#x2190; 返回D4首页</a></div>
+</footer>
+
+</div>
+</div>
+
+<script>
+// Lightbox
+function openLightbox(src) {
+  var el = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  el.classList.add('open');
+}
+
+// Sidebar active state
+(function() {
+  var links = document.querySelectorAll('.sidebar .nav-item');
+  if (!links.length) return;
+  var sections = [];
+  links.forEach(function(link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var sec = document.getElementById(id);
+    if (sec) sections.push({ link: link, el: sec });
+  });
+  function update() {
+    var scrollY = window.pageYOffset + 120;
+    var current = null;
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollY) current = s.link;
+    });
+    links.forEach(function(l) { l.classList.remove('active'); });
+    if (current) current.classList.add('active');
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+</script>
+
+</body>
+</html>
