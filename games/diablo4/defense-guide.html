@@ -276,16 +276,16 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <div class="section-body">
 <div class="section-content content">
 
-<p>护甲是暗黑4中<strong style="color:var(--gold)">最核心</strong>的减伤属性。它对物理伤害<strong>全额生效</strong>，对元素伤害仅生效<strong style="color:var(--red)">50%</strong>。S13护甲机制不变，<strong>违抗威能</strong>仍是核心来源。</p>
+<p>护甲是暗黑4中<strong style="color:var(--gold)">最核心</strong>的减伤属性。S11装备重铸赛季后护甲改为评级系统(Rating)，对物理和元素伤害<strong>统一减伤</strong>，不再有50%元素惩罚。S13延续此机制，<strong>违抗威能</strong>仍是护甲核心来源。</p>
 
-<!-- 修正: 公式删除0.9系数 -->
-<h4>减伤公式（S13修正）</h4>
+<!-- 修正: S11后护甲统一减伤，无50%元素惩罚 -->
+<h4>减伤公式</h4>
 <div class="formula-box">
-  <div class="formula-label">护甲物理减伤率</div>
-  <div class="formula-code">物理减伤 <span class="hl">=</span> 护甲 <span class="hl">/</span> (护甲 <span class="hl">+</span> <span class="num">4500</span>)<br>元素减伤 <span class="hl">=</span> 物理减伤 <span class="hl">&#x00D7;</span> <span class="num">50%</span></div>
+  <div class="formula-label">护甲减伤率（评级系统）</div>
+  <div class="formula-code">减伤率 <span class="hl">=</span> 护甲 <span class="hl">/</span> (护甲 <span class="hl">+</span> <span class="num">4500</span>)<br>适用于<strong>所有伤害类型</strong>（物理+元素统一公式）</div>
 </div>
 
-<p>物理减伤<strong>硬上限为85%</strong>，元素减伤硬上限42.5%。要达到85%物理上限需<strong style="color:var(--gold)">25,500护甲</strong>。6575护甲约50%物理减伤。注意护甲减伤<strong>针对同等级怪物</strong>，高等级怪物需要更多护甲。<br><span style="color:var(--text-dim);font-size:.72rem">&#x26A0; 以上基于当前版本已知公式。自S11起护甲/抗性改为评级系统(Rating)，实际减伤以游戏面板显示为准。</span></p>
+<p>减伤<strong>硬上限为85%</strong>，需约25,500护甲达到。6575护甲约50%减伤。护甲减伤针对同等级怪物，高难度怪物等级提升需更多护甲。<br><span style="color:var(--text-dim);font-size:.72rem">&#x26A0; S11起护甲/抗性改为评级系统，具体减伤以游戏面板为准。</span></p>
 
 <h4>减伤效果可视化</h4>
 <div class="stat-bars" data-animate>
@@ -338,11 +338,9 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
     </div>
   </div>
   <div class="sim-damage">
-    原始 <span class="val">10,000</span> &#x2192; 物理减免 <span class="reduced" id="simResult">4,091</span> &#x2192; 物理减伤 <strong id="simDrPercent" style="color:var(--gold)">59%</strong>
+    原始 <span class="val">10,000</span> &#x2192; 护甲减免后 <span class="reduced" id="simResult">4,091</span> &#x2192; 减伤 <strong id="simDrPercent" style="color:var(--gold)">59%</strong>
   </div>
-  <div style="font-size:.72rem;color:var(--text-dim);margin-bottom:.5rem">
-    &#x1F525; 元素减免后: <span id="simEleResult">7,045</span> &#x2192; 元素减伤 <span id="simElePct" style="color:var(--gold)">30%</span>
-  </div>
+  <div style="font-size:.72rem;color:var(--text-dim)">S11后护甲统一减伤，不再区分物理/元素</div>
   <button class="sim-btn" onclick="simulateDamage()">&#x2694; 模拟攻击</button>
 </div>
 
@@ -366,11 +364,11 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <div class="section-body">
 <div class="section-content content">
 
-<p>抗性专门针对<strong style="color:var(--purple)">五种元素伤害</strong>：火焰、冰霜、闪电、毒素、暗影。<strong>物理伤害不受抗性影响</strong>。S13中抗性上限可突破至<strong style="color:var(--gold)">85%</strong>。</p>
+<p>抗性针对<strong style="color:var(--purple)">六种伤害类型</strong>：火焰、冰霜、闪电、毒素、暗影、以及<strong style="color:var(--gold)">物理</strong>。S11装备重铸赛季后，抗性系统改为评级系统，并新增了物理抗性。S13中所有六种抗性上限可突破至<strong style="color:var(--gold)">85%</strong>。</p>
 
 <div class="formula-box">
-  <div class="formula-label">抗性计算</div>
-  <div class="formula-code">最终抗性 <span class="hl">=</span> (基础 <span class="hl">+</span> 智力抗性 <span class="hl">+</span> 装备抗性) <span class="hl">&#x00D7;</span> (<span class="num">1</span> <span class="hl">+</span> 抗性百分比加成)<br>每 <span class="num">100</span> 智力 <span class="hl">=</span> <span class="num">5%</span> 全抗</div>
+  <div class="formula-label">抗性计算（评级系统）</div>
+  <div class="formula-code">最终抗性 <span class="hl">=</span> (基础 <span class="hl">+</span> 智力抗性 <span class="hl">+</span> 装备抗性) <span class="hl">&#x00D7;</span> (<span class="num">1</span> <span class="hl">+</span> 抗性百分比加成)<br>每 <span class="num">100</span> 智力 <span class="hl">=</span> <span class="num">5%</span> 全抗（含物理）</div>
 </div>
 
 <h4>关键数据</h4>
@@ -668,26 +666,20 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <div class="section-body">
 <div class="section-content content">
 
-<p>伤害经过多层逐步削减。<strong>物理与元素伤害的路径不同</strong>：</p>
-
-<!-- 修正: 伤害类型切换 -->
-<div class="toggle-row">
-  <button class="toggle-btn active" id="dmgTypePhys" onclick="setDmgType('phys')">&#x2694; 物理伤害</button>
-  <button class="toggle-btn" id="dmgTypeEle" onclick="setDmgType('ele')">&#x1F525; 元素伤害</button>
-</div>
+<p>S11后护甲对所有伤害类型<strong>统一减伤</strong>，抗性系统覆盖物理+五种元素，总计六种伤害类型。</p>
 
 <div class="pipeline-anim" id="pipeAnim">
   <div class="pipe-node"><div class="icon">&#x1F5E1;</div><div class="label">原始</div><div class="val" id="pipeBase">100K</div></div>
   <div class="pipe-arrow">&#x279C;</div>
   <div class="pipe-node"><div class="icon">&#x2694;</div><div class="label">护甲</div><div class="val" id="pipeArmor">-59%</div></div>
   <div class="pipe-arrow">&#x279C;</div>
-  <div class="pipe-node" id="pipeResistNode"><div class="icon">&#x1F52E;</div><div class="label">抗性</div><div class="val" id="pipeResist">-70%</div></div>
-  <div class="pipe-arrow" id="pipeResistArrow">&#x279C;</div>
+  <div class="pipe-node"><div class="icon">&#x1F52E;</div><div class="label">抗性</div><div class="val" id="pipeResist">-70%</div></div>
+  <div class="pipe-arrow">&#x279C;</div>
   <div class="pipe-node"><div class="icon">&#x1F6E1;</div><div class="label">减伤词缀</div><div class="val" id="pipeDR">-60%</div></div>
   <div class="pipe-arrow">&#x279C;</div>
   <div class="pipe-node"><div class="icon">&#x2714;</div><div class="label">最终</div><div class="pipe-final" id="pipeFinal">6.6K</div></div>
 </div>
-<div class="pipe-info" id="pipeInfo">物理管道: 护甲全额 &rarr; 抗性不生效</div>
+<div class="pipe-info" id="pipeInfo">护甲统一减伤 &#x2192; 抗性含物理 &#x2192; DR词缀</div>
 
 <h4>交互式管道调节器</h4>
 <div class="pipe-interactive">
@@ -958,8 +950,6 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 
 <script src="../../assets/js/main.js"></script>
 <script>
-var dmgType = 'phys';
-
 function toggleSection(h) {
   h.closest('.section-card').classList.toggle('open');
   updateProgress();
@@ -980,19 +970,15 @@ function updateProgress() {
   o.forEach(function(el){obs.observe(el);});
 })();
 
-// 修正: 护甲公式无0.9系数
+// 修正: S11后护甲统一减伤公式
 function updateArmorSim(val) {
   var a=parseInt(val);
   document.getElementById('armorValDisplay').textContent=a.toLocaleString();
-  var drPhys=a/(a+4500);
-  if(drPhys>0.85)drPhys=0.85;
-  var drEle=drPhys*0.5;
-  var physRed=Math.round(10000*drPhys);
-  var eleRed=Math.round(10000*(1-drPhys*0.5));
-  document.getElementById('simResult').textContent=(10000-physRed).toLocaleString();
-  document.getElementById('simDrPercent').textContent=Math.round(drPhys*100)+'%';
-  document.getElementById('simEleResult').textContent=(10000-eleRed).toLocaleString();
-  document.getElementById('simElePct').textContent=Math.round(drEle*100)+'%';
+  var dr=a/(a+4500);
+  if(dr>0.85)dr=0.85;
+  var reduced=Math.round(10000*(1-dr));
+  document.getElementById('simResult').textContent=(10000-reduced).toLocaleString();
+  document.getElementById('simDrPercent').textContent=Math.round(dr*100)+'%';
 }
 function simulateDamage() {
   var m=document.getElementById('monster'),p=document.getElementById('player'),s=document.getElementById('shield');
@@ -1136,8 +1122,7 @@ function simulateDodge(){
   document.getElementById('dodgeExp').textContent=dodged+'/10';
 }
 
-// 修正: 管道区分物理/元素
-function setDmgType(t){dmgType=t;document.querySelectorAll('.toggle-btn').forEach(function(b){b.classList.remove('active');});document.getElementById('dmgType'+(t==='phys'?'Phys':'Ele')).classList.add('active');updatePipeline();}
+// 管道更新: S11后护甲统一减伤+抗性含物理
 function updatePipeline(){
   var armor=parseInt(document.querySelector('.pipe-interactive .pipe-controls:nth-child(1) input').value);
   var resist=parseInt(document.querySelector('.pipe-interactive .pipe-controls:nth-child(2) input').value);
@@ -1147,20 +1132,16 @@ function updatePipeline(){
   document.getElementById('pDRVal').textContent=dr+'%';
   var base=100000;
   var armorDR=armor/(armor+4500);if(armorDR>0.85)armorDR=0.85;
-  var isEle=dmgType==='ele';
-  var effectiveArmorDR=isEle?armorDR*0.5:armorDR;
-  var resistDR=isEle?resist/100:0;
+  var resistDR=resist/100;
   var drDR=dr/100;
-  var a=base*(1-effectiveArmorDR);
+  var a=base*(1-armorDR);
   var b=a*(1-resistDR);
   var fin=Math.round(b*(1-drDR));
-  document.getElementById('pipeArmor').textContent='-'+(isEle?Math.round(effectiveArmorDR*100):Math.round(armorDR*100))+'%';
-  document.getElementById('pipeResist').textContent=isEle?'-'+resist+'%':'&#x2716; 无视';
+  document.getElementById('pipeArmor').textContent='-'+Math.round(armorDR*100)+'%';
+  document.getElementById('pipeResist').textContent='-'+resist+'%';
   document.getElementById('pipeDR').textContent='-'+dr+'%';
   document.getElementById('pipeFinal').textContent=fin>=1000?Math.round(fin/1000)+'K':fin;
-  document.getElementById('pipeInfo').innerHTML=isEle?'&#x1F525; 元素管道: 护甲50% &#x2192; 抗性'+resist+'% &#x2192; DR词缀'+dr+'%':'&#x2694; 物理管道: 护甲全额'+Math.round(armorDR*100)+'% &#x2192; 抗性不生效 &#x2192; DR词缀'+dr+'%';
-  if(isEle)document.getElementById('pipeResistNode').style.opacity='1';else document.getElementById('pipeResistNode').style.opacity='0.3';
-  if(isEle)document.getElementById('pipeResistArrow').style.opacity='1';else document.getElementById('pipeResistArrow').style.opacity='0.3';
+  document.getElementById('pipeInfo').textContent='护甲统一减伤'+Math.round(armorDR*100)+'% &#x2192; 抗性含物理'+resist+'% &#x2192; DR词缀'+dr+'%';
 }
 
 // 修正: 计算器含躲闪+一击线
