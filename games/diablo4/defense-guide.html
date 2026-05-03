@@ -242,7 +242,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <a href="index.html" class="back-link">&#x2190; 返回暗黑破坏神 IV 攻略目录</a>
 
 <h1>&#x1F6E1; 防御机制完全解析</h1>
-<p class="subtitle">第13赛季版 &#xB7; 七大防御层全拆解 &#xB7; 交互式模拟器</p>
+<p class="subtitle">第13赛季版 &#xB7; 八大防御层全拆解 &#xB7; 交互式模拟器</p>
 
 <div class="level-bar">
   <div class="level-badge">7</div>
@@ -285,7 +285,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <div class="formula-code">物理减伤 <span class="hl">=</span> 护甲 <span class="hl">/</span> (护甲 <span class="hl">+</span> <span class="num">4500</span>)<br>元素减伤 <span class="hl">=</span> 物理减伤 <span class="hl">&#x00D7;</span> <span class="num">50%</span></div>
 </div>
 
-<p>物理减伤<strong>硬上限为85%</strong>，元素减伤硬上限42.5%。要达到85%物理上限需<strong style="color:var(--gold)">25,500护甲</strong>。6575护甲约50%物理减伤。注意护甲减伤<strong>针对同等级怪物</strong>，高等级怪物需要更多护甲：<code>护甲需求 &#x2248; 怪物等级 &#x00D7; 45 + 4500</code>。</p>
+<p>物理减伤<strong>硬上限为85%</strong>，元素减伤硬上限42.5%。要达到85%物理上限需<strong style="color:var(--gold)">25,500护甲</strong>。6575护甲约50%物理减伤。注意护甲减伤<strong>针对同等级怪物</strong>，高等级怪物需要更多护甲。<br><span style="color:var(--text-dim);font-size:.72rem">&#x26A0; 以上基于当前版本已知公式。自S11起护甲/抗性改为评级系统(Rating)，实际减伤以游戏面板显示为准。</span></p>
 
 <h4>减伤效果可视化</h4>
 <div class="stat-bars" data-animate>
@@ -312,7 +312,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <li><strong>装备基底</strong>：胸甲、头盔、裤子提供最高基础护甲</li>
   <li><strong>力量</strong>：每100力量 = 2护甲</li>
   <li><strong>违抗威能</strong>：叠层后提升大量护甲（核心）</li>
-  <li><strong>皇家头骨宝石</strong>：防具镶嵌</li>
+  <li><strong>抗性宝石</strong>：防具镶嵌对应元素抗性宝石</li>
 </ul>
 
 <!-- 修正: 护甲模拟器同步删除0.9系数，计算使用正确公式 -->
@@ -376,8 +376,8 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <h4>关键数据</h4>
 <ul>
   <li>基础上限: <strong style="color:var(--gold)">70%</strong>（S13可提升至<strong style="color:var(--gold)">85%</strong>）</li>
-  <li>折磨4（T4）中，非物理抗性降低 <strong style="color:var(--red)">30%</strong>。欲维持70%上限需堆到约100%</li>
-  <li>80级应将全抗堆到70%基础最大值</li>
+  <li>S13为T1-T12十二档难度体系。高难度下怪物等级提升，<strong>抗性需求随之增加</strong>，无固定惩罚值</li>
+  <li>80级应将全抗堆到70%基础最大值，随难度提升逐步补强</li>
 </ul>
 
 <h4>&#x1F3AF; 交互式雷达图</h4>
@@ -394,7 +394,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
     <div class="radar-row clr-shadow"><label>&#x1F31F; 暗影</label><input type="range" min="0" max="85" value="70" oninput="updateRadar()"><span class="val" id="rShadow">70%</span></div>
   </div>
 </div>
-<div class="radar-result">平均: <strong id="avgResist">63%</strong>&#x2022;低于上限 <strong id="capGap" style="color:var(--red)">-7%</strong>&#x2022;元素减伤 <strong id="eleDR">99.6%</strong></div>
+<div class="radar-result">平均: <strong id="avgResist">63%</strong>&#x2022;低于上限 <strong id="capGap" style="color:var(--red)">-7%</strong>&#x2022;各元素独立减伤，互不影响</div>
 
 <h4>抗性来源</h4>
 <ul>
@@ -493,9 +493,10 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <h4>强固 (Fortify) — S13重做机制</h4>
 <ul>
   <li>显示为血条上的<strong style="color:rgba(200,200,200,.6)">白色薄膜</strong></li>
-  <li><strong>自动治疗</strong>：生命不满时，强固池自动转化为生命恢复</li>
+  <li><strong>自动治疗</strong>：生命不满时，强固池<strong>缓慢转化为生命</strong>。每秒治疗量 ≈ 1.8% × 强固值 + 0.2% × 最大生命，强固越高回血越快但消耗也越快</li>
   <li><strong>强固状态</strong>：当强固值 &#x2265; 当前生命值时，获得<strong style="color:var(--gold)">10%全局减伤</strong></li>
   <li>强固值上限 = 最大生命值，获取方式：技能/巅峰/药剂</li>
+  <li style="margin-top:.3rem;padding:.35rem .5rem;background:rgba(200,150,62,.06);border-radius:4px;font-size:.78rem;list-style:none">&#x26A0; 实战提醒：HP=8000、强固=7999就<strong>不触发</strong>减伤。维持强固生成速度超过消耗才是关键</li>
 </ul>
 
 <!-- 修正: 模拟器展示屏障吸收伤害+强固治疗+强固状态减伤 -->
@@ -696,6 +697,54 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 </div>
 
 <!-- 修正: 计算器新增一击线计算 -->
+<h4>&#x1F4CA; 坚韧(Toughness) 面板指标</h4>
+<p>S11引入的综合防御指标，整合护甲/抗性/减伤/生命为一个数字，方便横向对比装备。<strong style="color:var(--gold)">Toughness越高说明硬吃一击的能力越强</strong>。S13中坚韧已纳入角色面板，当你更换装备时观察Toughness变化比只看护甲或抗性更直观。</p>
+
+<p style="margin-top:.5rem;padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px;font-size:.82rem;color:var(--text-dim)">
+估算公式: Toughness &#x2248; 总生命 &#x00F7; (1 &#x2212; 总减伤) &#x00D7; (1 + 躲闪等效倍率)
+</p>
+
+<h4>&#x1F3AF; 格挡(Block) — 第8防御层</h4>
+<p>格挡是持盾角色独有的防御层。<strong>圣骑士</strong>、部分<strong>死灵法师</strong>、使用盾牌的<strong>术士</strong>可用。</p>
+<ul>
+  <li><strong>格挡率</strong>：装备/技能提供，上限约60%+。多源格挡率词缀之间加算</li>
+  <li><strong>格挡值</strong>：格挡成功后减免的固定伤害值，受盾牌基底和词缀影响</li>
+  <li><strong>触发时机</strong>：怪物攻击命中判定后、减伤计算前。格挡成功则直接按格挡值减伤</li>
+  <li>格挡<strong>不能规避控制效果</strong>，仅减免伤害</li>
+</ul>
+
+<h4>&#x1F4A1; S13核心防御装备</h4>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.6rem 0">
+  <div style="padding:.5rem;background:rgba(0,0,0,.25);border-radius:8px;border-left:3px solid var(--gold)">
+    <strong style="color:var(--gold)">耐久信念 (Endurant Faith)</strong>
+    <p style="font-size:.72rem;color:var(--text-dim);margin:2px 0">手套 &#x2022; 进攻格挡换生存的神器</p>
+    <p style="font-size:.72rem;color:var(--text-dim)">将部分进攻词缀转化为屏障，持续保持高额屏障吸收</p>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.25);border-radius:8px;border-left:3px solid #3498db">
+    <strong style="color:#3498db">骄狂 (Temerity)</strong>
+    <p style="font-size:.72rem;color:var(--text-dim);margin:2px 0">裤子 &#x2022; 过量治疗转屏障</p>
+    <p style="font-size:.72rem;color:var(--text-dim)">S13主流防御件，高回复Build下屏障几乎不断</p>
+  </div>
+</div>
+
+<h4>&#x1F3C6; 不同阶段防御优先级框架</h4>
+<div class="dr-cat">
+  <strong>&#x1F51C; 80级初期（T1-T4）</strong>
+  <span style="display:block;font-size:.72rem;color:var(--text-dim)">护甲&#x2192;50%减伤 &#x2022; 全抗&#x2192;70%基础最大值 &#x2022; 生命&#x2192;6K+</span>
+</div>
+<div class="dr-cat">
+  <strong>&#x1F51C; 中期（T5-T8）</strong>
+  <span style="display:block;font-size:.72rem;color:var(--text-dim)">补全各元素抗性平衡 &#x2022; DR词缀开始堆叠多样化 &#x2022; 寻找核心防御暗金</span>
+</div>
+<div class="dr-cat">
+  <strong>&#x1F51C; 后期（T8-T10）</strong>
+  <span style="display:block;font-size:.72rem;color:var(--text-dim)">强固生成速度&#x2192;确保常驻10%减伤 &#x2022; 屏障厚度 &#x2022; 躲闪辅助</span>
+</div>
+<div class="dr-cat">
+  <strong>&#x1F51C; 大后期（T10-T12）</strong>
+  <span style="display:block;font-size:.72rem;color:var(--text-dim)">全防御层联动 &#x2022; 特定Boss调整抗性分配 &#x2022; 躲闪/格挡生存兜底</span>
+</div>
+
 <h4>&#x1F4CA; 坚韧计算器</h4>
 <div class="calc-grid">
   <div class="calc-inputs">
@@ -966,8 +1015,7 @@ function updateRadar() {
   var avg=Math.round(vals.reduce(function(a,b){return a+b;},0)/vals.length);
   document.getElementById('avgResist').textContent=avg+'%';
   document.getElementById('capGap').textContent='-'+(cap-avg)+'%';
-  var eleDR=1;vals.forEach(function(v){eleDR*=(1-v/100);});
-  document.getElementById('eleDR').textContent=Math.round((1-eleDR)*100)+'%';
+  // 元素减伤各抗独立，不乘积计算
   var svg=document.getElementById('radarSvg'),cx=140,cy=140,r=100;
   var html='';
   for(var i=0;i<5;i++){var a=Math.PI/2+(2*Math.PI/5)*i;html+='<line x1="'+cx+'" y1="'+cy+'" x2="'+(cx+r*Math.cos(-a))+'" y2="'+(cy+r*Math.sin(-a))+'" stroke="#2a2820" stroke-width="1"/>';}
@@ -1007,16 +1055,17 @@ function updateLifeSim() {
   document.getElementById('lifeStack').innerHTML=html;
 }
 
-// 修正: 屏障吸收伤害，强固不挡伤
+// 修正: 屏障吸收伤害，强固缓慢治疗（非瞬间）
 var fState={hp:8000,barrier:2400,fortify:4000};
 function simFortify() {
   var dmg=2500;
   if(fState.barrier>=dmg){fState.barrier-=dmg;}
   else{dmg-=fState.barrier;fState.barrier=0;fState.hp-=dmg;if(fState.hp<0)fState.hp=0;}
-  // 强固自动治疗（生命不满时）
+  // 强固缓慢治疗 — 模拟1次tick治疗 (约0.25秒的一次结算)
   if(fState.hp<8000&&fState.fortify>0){
-    var heal=Math.min(8000-fState.hp,fState.fortify);
-    fState.hp+=heal;fState.fortify-=heal;
+    var tickHeal=Math.round(0.018*fState.fortify+0.002*8000);
+    tickHeal=Math.min(tickHeal,8000-fState.hp,fState.fortify);
+    fState.hp+=tickHeal;fState.fortify-=tickHeal;
   }
   updateFortifyUI();
 }
@@ -1064,13 +1113,18 @@ function renderDR(){
 
 // Dodge simulator
 function updateDodgeSim(v){document.getElementById('dodgePctDisplay').textContent=v+'%';document.getElementById('dodgeExp').textContent=Math.round(v/10)+'/10';document.getElementById('dodgeEquiv').textContent=v+'%';}
+// 修正: 使用PRD(伪随机分布)模拟躲闪
+var dodgeMissStreak=0;
 function simulateDodge(){
   var pct=parseInt(document.querySelector('#sec-dodge input[type=range]').value);
   var container=document.getElementById('dodgeResult');container.innerHTML='';
   var dodged=0;
+  // PRD: 基础概率 = pct/5, 每连续失败一次增加该基础值
+  var baseC=pct/5;var miss=0;
   for(var i=0;i<10;i++){
-    var d=Math.random()*100<pct;
-    if(d)dodged++;
+    var realP=Math.min(baseC*(1+miss),100);
+    var d=Math.random()*100<realP;
+    if(d){dodged++;miss=0;}else{miss++;}
     var el=document.createElement('span');
     el.style.cssText='width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;';
     el.style.background=d?'rgba(64,184,112,.2)':'rgba(231,76,60,.12)';
