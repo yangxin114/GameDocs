@@ -7,7 +7,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你每有一个激活的仆从，获得 [7.0 - 10.0] 点最大精魂值。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828447.webp",
     "img_file": "assets/images/aspects/安魂威能.webp"
   },
@@ -19,7 +19,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "使用治疗药水会使你的全元素抗性提高 [20 - 30]%[+]，持续 8 秒。 你现在可在生命值全满时饮用治疗药水。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656106353.webp",
     "img_file": "assets/images/aspects/暗影覆身威能.webp"
   },
@@ -31,7 +31,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "站在亵渎之地中以及离开后的 6 秒内，你的移动速度提高 [20 - 40]%[+] 并且获得无束。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1501975311.webp",
     "img_file": "assets/images/aspects/暗影浸染威能.webp"
   },
@@ -43,7 +43,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "疾行斩能够召唤出一个同样会施放疾行斩的暗影分身，造成基础伤害的 [150 - 350]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003873.webp",
     "img_file": "assets/images/aspects/暗影切割威能.webp"
   },
@@ -55,7 +55,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你的掌控技能在激活期间提供 [20 - 30]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960619455.webp",
     "img_file": "assets/images/aspects/奥术结界之威能.webp"
   },
@@ -67,7 +67,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "在非健康状态下遭到命中时，你会生成一个护体气泡，使其中所有玩家获得免疫效果。气泡持续 [4.0 - 6.0] 秒，且每 90 秒只能触发一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808198.webp",
     "img_file": "assets/images/aspects/保护威能.webp"
   },
@@ -79,7 +79,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放终极技能使你的伤害提高 [35 - 55]%[x]，持续 8 秒。终极技能级别额外提高 2 级。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156674005.webp",
     "img_file": "assets/images/aspects/暴烈拳师的威能.webp"
   },
@@ -91,7 +91,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 对受你陷阱技能影响的敌人造成伤害有 [15 - 35]% 几率产生爆炸, 造成 [75 - 105] 点暗影伤害并对其施加易伤，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004891.webp",
     "img_file": "assets/images/aspects/爆炸捕手的威能.webp"
   },
@@ -103,7 +103,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 对受你陷阱技能影响的敌人造成伤害有 [15 - 35]% 几率产生爆炸，造成 [75 - 105] 点暗影伤害并对其施加易伤，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902822.webp",
     "img_file": "assets/images/aspects/爆炸捕手的威能.webp"
   },
@@ -115,19 +115,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "冰刺和陨石术造成的伤害提高 [60 - 90]%[x] 并且范围提高 50%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518029.webp",
     "img_file": "assets/images/aspects/爆炸威能.webp"
   },
   {
     "cn": "壁垒的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你不再躲闪，但你获得 [20 - 30]% 格挡伤害减免和 15%[+] 格挡几率。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951809226.webp",
     "img_file": "assets/images/aspects/壁垒的威能.webp"
   },
@@ -139,7 +139,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的形态加成提高 [60 - 80]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291677.webp",
     "img_file": "assets/images/aspects/变形者的威能.webp"
   },
@@ -151,7 +151,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当近距范围内没有敌人时，你的寒霜技能造成的伤害提高 [60 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3564401437.webp",
     "img_file": "assets/images/aspects/冰霜审判之威能.webp"
   },
@@ -163,7 +163,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每隔 4 秒，你的骷髅法师会施放一阵暴风雪，在 8 秒内造成 [135 - 180] 点冰霜伤害并持续对敌人造成 6% 冻伤效果。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961763.webp",
     "img_file": "assets/images/aspects/冰霜使者的威能.webp"
   },
@@ -175,7 +175,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "当你拥有屏障时，获得 [20 - 30]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960620546.webp",
     "img_file": "assets/images/aspects/冰雪帷幕威能.webp"
   },
@@ -187,7 +187,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "附近每有一名受到你的持续性伤害效果影响的敌人，移动速度和持续性伤害速度最多提高 [1.0 - 1.5]%[+]，最多可叠加 25 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4073491598.webp",
     "img_file": "assets/images/aspects/病足的威能.webp"
   },
@@ -199,7 +199,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的控制持续时间延长 50%[+]。对不可阻挡的敌人造成的伤害提高 [30 - 50]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666757.webp",
     "img_file": "assets/images/aspects/剥削者的威能.webp"
   },
@@ -211,7 +211,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "每损失 1% 生命上限，护甲值就会提高 4%[+] 并获得 [145 - 218] 点荆棘。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045217.webp",
     "img_file": "assets/images/aspects/搏击者的威能.webp"
   },
@@ -223,7 +223,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "亡者大军激活时，你的仆从受到的伤害降低 90%，同时你的召唤伤害提高 [70 - 110]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001775.webp",
     "img_file": "assets/images/aspects/不屈指挥官的威能.webp"
   },
@@ -235,7 +235,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放技能为你恢复 [2.0 - 3.0]% 生命上限。在受伤状态时，此加成翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666765.webp",
     "img_file": "assets/images/aspects/不死威能.webp"
   },
@@ -247,7 +247,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "陷阱技能对处于易伤状态的敌人造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502408.webp",
     "img_file": "assets/images/aspects/布陷高手的威能.webp"
   },
@@ -259,7 +259,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的骷髅祭司现在会以 [55 - 75]% 的效果对你施加强化。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961899.webp",
     "img_file": "assets/images/aspects/采血者的威能.webp"
   },
@@ -271,7 +271,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的残暴层数上限提高 [4 - 6]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331587.webp",
     "img_file": "assets/images/aspects/残暴威能.webp"
   },
@@ -283,7 +283,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每当你消灭一只自己的恶魔时，有 [30 - 50]% 几率将其视为两次消灭。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666757.webp",
     "img_file": "assets/images/aspects/残酷成性威能.webp"
   },
@@ -295,7 +295,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你获得攻击速度 [165 - 185]% 的伤害加成，但不再提高攻击速度。 当前加成: 0.00%",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673048.webp",
     "img_file": "assets/images/aspects/残忍威能.webp"
   },
@@ -307,7 +307,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "变形时，你的灵力生成量提高 [20 - 30]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2785156208.webp",
     "img_file": "assets/images/aspects/残伤威能.webp"
   },
@@ -319,7 +319,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的风暴技能伤害会使敌人陷入易伤状态，持续 4 秒。你对易伤敌人造成的伤害提高 [15.0 - 20.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997784.webp",
     "img_file": "assets/images/aspects/超载威能.webp"
   },
@@ -331,7 +331,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你处于被强固状态时，你的压制上限提高 [2 - 4]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002705.webp",
     "img_file": "assets/images/aspects/潮汐威能.webp"
   },
@@ -343,19 +343,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "旋风斩会留下尘魔，对沿路敌人造成 [120 - 210] 点伤害。 受到尘魔攻击的敌人受到你其他方式的攻击时受到的伤害增加 25%[x]，持续时间 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502448.webp",
     "img_file": "assets/images/aspects/尘魔的威能.webp"
   },
   {
     "cn": "炽热威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 野蛮人",
     "class_cn": "巫师, 野蛮人",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "被消灭的燃烧敌人有 10% 几率使你获得压制。你的火焰伤害提高 [15.0 - 20.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1632509696.webp",
     "img_file": "assets/images/aspects/炽热威能.webp"
   },
@@ -367,7 +367,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "吸收爆裂电花会使你获得 [4.0 - 6.0] 法力回复速度，持续 2 秒，最多叠加 5 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376446.webp",
     "img_file": "assets/images/aspects/充能威能.webp"
   },
@@ -379,7 +379,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的压制每 4 秒制造一次撼地重击，在 4 秒内造成 [300 - 702] 点物理伤害。你每拥有 100 点力量，你的撼地重击伤害就会提高 5%[x]，最多可提高 100%[x]。 当前加成: 0%[x]",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2536386944.webp",
     "img_file": "assets/images/aspects/处刑者的威能.webp"
   },
@@ -391,7 +391,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每个德鲁伊形态额外获得一项被动加成: - 人类: 对远距敌人造成的伤害提高 [40 - 55]%[x]。 - 狼人: 对近距敌人造成的暴击伤害提高 [40 - 55]%[x]。 - 熊人: 拥有决断时造成的伤害提高 [30 - 45]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331585.webp",
     "img_file": "assets/images/aspects/大德鲁伊的威能.webp"
   },
@@ -403,7 +403,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "收集爆裂电花也会使你的移动速度提高 [15 - 30]%[+], 持续 8 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4073490577.webp",
     "img_file": "assets/images/aspects/带电威能.webp"
   },
@@ -415,7 +415,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "如果你在过去 10 秒内剔骨过敌人，你的强固提高 [30 - 50]%[+]，并且强固效果使你的生命恢复速度提高 200%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902880.webp",
     "img_file": "assets/images/aspects/啖肉狂威能.webp"
   },
@@ -427,7 +427,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "回旋刀锋回到你身边后环绕你一小段时间，每次命中造成回旋刀锋返回伤害的 [100 - 140]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003868.webp",
     "img_file": "assets/images/aspects/刀锋舞者的威能.webp"
   },
@@ -439,7 +439,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对中毒敌人造成的暴击伤害提高 [20 - 40]%[+]。同伴技能获得双倍加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330730.webp",
     "img_file": "assets/images/aspects/毒蚀威能.webp"
   },
@@ -451,7 +451,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 刺杀技能最多有 50% 几率斩杀敌人。 刺杀技能造成的伤害提高 [30 - 45]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004990.webp",
     "img_file": "assets/images/aspects/断颈强盗的威能.webp"
   },
@@ -463,7 +463,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "被你施毒的敌人受到的治疗效果降低 100%。此外，你对其施放的天鹰技能的暴击几率提高 [30 - 50]%[+]，造成的伤害提高 30%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909992.webp",
     "img_file": "assets/images/aspects/夺魂者的威能.webp"
   },
@@ -475,7 +475,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "消灭一名处于易伤或虚弱状态的敌人可以使你的能量回复速度提高 [75.0 - 115.0]%[x]，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3551830607.webp",
     "img_file": "assets/images/aspects/恶馋威能.webp"
   },
@@ -487,7 +487,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "狂犬撕咬感染敌人后，其冷却时间缩短 [0.20 - 1.00] 秒。当感染对象为精英敌人时，冷却时间缩减变为原来的三倍。此外，你对受到狂犬撕咬影响的敌人额外造成 [25 - 50]%[x] 增伤伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331650.webp",
     "img_file": "assets/images/aspects/恶毒威能.webp"
   },
@@ -499,7 +499,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "处于恶魔形态时，近距范围内每有一名恶魔或敌人，你造成的伤害就会提高 [2.5 - 4.5]%[x]，最多提高 [50 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3868016484.webp",
     "img_file": "assets/images/aspects/恶毒威能.webp"
   },
@@ -511,7 +511,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "恶魔学技能每次命中都会使你用恶魔学技能造成的伤害提高 [2.3 - 3.3]%[x]，持续 10 秒，最多提高 [45 - 65]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673938.webp",
     "img_file": "assets/images/aspects/恶魔的威能.webp"
   },
@@ -523,7 +523,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "对近距敌人造成电冲伤害使你获得 [30 - 45]% 伤害减免，持续 6 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960620604.webp",
     "img_file": "assets/images/aspects/法师领主的威能.webp"
   },
@@ -535,7 +535,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 神射手技能最多有 40% 几率造成 [20 - 30]%[x] 额外伤害，并使一名敌人定身 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4049846230.webp",
     "img_file": "assets/images/aspects/妨害威能.webp"
   },
@@ -547,19 +547,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "白骨技能对处于易伤状态的敌人造成的伤害提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001642.webp",
     "img_file": "assets/images/aspects/分裂威能.webp"
   },
   {
     "cn": "焚炉的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 野蛮人, 灵巫, 术士",
     "class_cn": "巫师, 野蛮人, 灵巫, 术士",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你拥有 4 层或更多压制时，你施放的火焰技能伤害提高 [70 - 100]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517990.webp",
     "img_file": "assets/images/aspects/焚炉的威能.webp"
   },
@@ -571,7 +571,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的非引导类电冲技能造成的伤害提高 [30 - 45]%[x]，并在施放时有 15% 几率再次触发自身。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518060.webp",
     "img_file": "assets/images/aspects/风暴分裂者的威能.webp"
   },
@@ -583,7 +583,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "渡鸦现在造成闪电伤害且伤害提高 [60 - 100]%。渡鸦的主动效果造成全额伤害所需的时间减半，还会击昏技能范围内的敌人。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844605.webp",
     "img_file": "assets/images/aspects/风暴乌鸦的威能.webp"
   },
@@ -595,7 +595,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放双重横扫时会生成一个尘魔，对其路径上的敌人造成 [53 - 83] 点伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502479.webp",
     "img_file": "assets/images/aspects/风笞之威能.webp"
   },
@@ -607,7 +607,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "分解可以捆绑并引爆至多 4 个额外目标。来自分解的爆炸伤害增加 [15 - 35]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001673.webp",
     "img_file": "assets/images/aspects/腐烂威能.webp"
   },
@@ -619,19 +619,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的箭镞风暴造成的伤害提高 [90 - 120]%[x]，并且效果范围扩大 50%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004895.webp",
     "img_file": "assets/images/aspects/复仇威能.webp"
   },
   {
     "cn": "钢鬃背威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "躲闪或格挡攻击时，你会对攻击者触发一次 [200 - 300]% 的荆棘攻击。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909999.webp",
     "img_file": "assets/images/aspects/钢鬃背威能.webp"
   },
@@ -643,7 +643,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "乱射的箭矢现在会刺穿 1 名敌人。 乱射的攻击速度提高 [10.0 - 30.0]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004965.webp",
     "img_file": "assets/images/aspects/高速急射威能.webp"
   },
@@ -655,7 +655,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "神射手技能造成的伤害提高 [40 - 55]%[x]。该加成对健康敌人提高至 [58 - 80]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004890.webp",
     "img_file": "assets/images/aspects/高速急射威能.webp"
   },
@@ -667,7 +667,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "白骨风暴消耗最多 8 具亡骸，其持续时间延长最多 [5.0 - 15.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002698.webp",
     "img_file": "assets/images/aspects/骨质强风威能.webp"
   },
@@ -679,19 +679,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "引导时获得 [1,813 - 5,439] 点荆棘，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3612550176.webp",
     "img_file": "assets/images/aspects/固执己见威能.webp"
   },
   {
     "cn": "裹覆威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "冻结敌人会使你获得 [6.0 - 8.0]% 伤害减免，持续 8 秒，最多叠加 5 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1851460028.webp",
     "img_file": "assets/images/aspects/裹覆威能.webp"
   },
@@ -703,19 +703,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 暗影伤害最多有 75% 几率释放一次爆炸，对目标和周围敌人造成 150 点冰霜伤害，使其冻伤 25%，并陷入虚弱状态 [3.0 - 6.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961763.webp",
     "img_file": "assets/images/aspects/寒冰炼金师的威能.webp"
   },
   {
     "cn": "寒颤威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "根据冻伤或踉跄的效果强度，被冻伤或陷入踉跄的敌人受到的伤害最多提高 [60 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3264320619.webp",
     "img_file": "assets/images/aspects/寒颤威能.webp"
   },
@@ -727,7 +727,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 刺杀技能最多有 [45 - 65]% 几率为你恢复 3% 的生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/虹吸打击之威能.webp"
   },
@@ -739,7 +739,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "爆裂电花有 25% 几率保留充能，并且造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3953449074.webp",
     "img_file": "assets/images/aspects/护震者的威能.webp"
   },
@@ -751,7 +751,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在技能上消耗生命时，使你获得 [5.0 - 15.0]% 暴击几率和 [35 - 55]%[x] 暴击伤害，持续 0 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556168.webp",
     "img_file": "assets/images/aspects/悔罪者的威能.webp"
   },
@@ -763,7 +763,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "硫磺爆炸范围扩大 50%，并且造成的伤害提高 [10 - 15]%[x]。当你在恶魔形态下跑过硫磺时，会使其立即引爆。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962851.webp",
     "img_file": "assets/images/aspects/火山碎屑威能.webp"
   },
@@ -775,19 +775,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "劫掠者不再具有持续时间限制，但每秒都会消耗 [14 - 4] 点精力，直至精力耗尽为止。此外，延长劫掠者持续时间的效果现在会生成精力。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910026.webp",
     "img_file": "assets/images/aspects/饥饿劫掠者的_威能.webp"
   },
   {
     "cn": "急速冻结威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "幸运一击: 造成冰霜伤害最多有 20% 几率生成一道相当于你 [6.5 - 10.0]% 生命上限的屏障，持续 5 秒，最多叠加至 [19.5 - 30.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107509.webp",
     "img_file": "assets/images/aspects/急速冻结威能.webp"
   },
@@ -799,19 +799,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用核心技能造成暴击会使你的攻击速度提高 [30.0 - 50.0]%[+]，持续 5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673965.webp",
     "img_file": "assets/images/aspects/加速威能.webp"
   },
   {
     "cn": "坚定狂战士的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 野蛮人",
     "class_cn": "德鲁伊, 野蛮人",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "在狂暴状态下造成直接伤害时，获得 [4.0 - 6.0]% 生命上限的强固值。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495231.webp",
     "img_file": "assets/images/aspects/坚定狂战士的威能.webp"
   },
@@ -823,7 +823,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "变形为狼人或人类时，获得 [20 - 30]%[x] 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1889434129.webp",
     "img_file": "assets/images/aspects/精力威能.webp"
   },
@@ -835,7 +835,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每次搏斗技能对一名敌人造成直接伤害时，你的冲锋、腾空斩或踢击技能造成的伤害提高 [4.0 - 10.0]%[x]，持续 5 秒，最多提高 [20 - 50]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502538.webp",
     "img_file": "assets/images/aspects/精英拳师之威能.webp"
   },
@@ -847,7 +847,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 暗影伤害最多有 75% 几率引发一次毒素爆炸，使目标和周围敌人在 5 秒内受到 75 点毒素伤害。你对受到该中毒效果影响的敌人造成的非物理伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003870.webp",
     "img_file": "assets/images/aspects/剧毒炼金师的威能.webp"
   },
@@ -859,7 +859,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用单手武器时，你的攻击速度提高 [30 - 50]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2536386944.webp",
     "img_file": "assets/images/aspects/决斗家的威能.webp"
   },
@@ -871,7 +871,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每 [3.5 - 1.5] 秒，远距敌人会被拉拽向你，且在 3 秒内受到来自你的伤害提高 15%[x]。处于潜行状态时此效果不会触发。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3612550174.webp",
     "img_file": "assets/images/aspects/狂雷弹威能.webp"
   },
@@ -883,7 +883,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的傀儡有 [2 - 18]% 几率使其剩余冷却时间缩短 2 秒, 并且傀儡有 [1.0 - 9.0]% 几率在用普通攻击对敌人造成伤害时生成一具亡骸。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962820.webp",
     "img_file": "assets/images/aspects/魁梧威能.webp"
   },
@@ -895,7 +895,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的猎豹技能的暴击几率提高 [30 - 50]%[+]，对受伤敌人造成的伤害提高 30%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909958.webp",
     "img_file": "assets/images/aspects/冷酷威能.webp"
   },
@@ -907,7 +907,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你造成的召唤伤害提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/692805291.webp",
     "img_file": "assets/images/aspects/冷面指挥官威能.webp"
   },
@@ -919,7 +919,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对易伤敌人造成的寒霜伤害提高 [50 - 75]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518028.webp",
     "img_file": "assets/images/aspects/裂冰威能.webp"
   },
@@ -931,7 +931,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "当你拥有屏障时，每秒获得 [15 - 25] 点主要资源。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828443.webp",
     "img_file": "assets/images/aspects/灵狐的威能.webp"
   },
@@ -943,7 +943,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你本应受到伤害的 [10.0 - 20.0]% 会转移给你的同伴。 你的同伴不会死亡。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2583317578.webp",
     "img_file": "assets/images/aspects/灵魂羁绊威能.webp"
   },
@@ -955,19 +955,19 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击: 使用机动技能对敌人造成伤害时，最多有 [25 - 45]% 几率恢复 50 点能量。 你的能量上限提高 [20 - 30] 点。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3551830702.webp",
     "img_file": "assets/images/aspects/流电砍杀者的威能.webp"
   },
   {
     "cn": "流电威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 德鲁伊, 灵巫",
     "class_cn": "巫师, 德鲁伊, 灵巫",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 闪电伤害最多有 15% 几率对最多 2 个近距敌人回响 [50 - 75]% 伤害。落单的目标会重复触发回响。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518058.webp",
     "img_file": "assets/images/aspects/流电威能.webp"
   },
@@ -979,7 +979,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当你使一个健康的敌人中毒时，恢复 [10 - 15]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666791.webp",
     "img_file": "assets/images/aspects/掠夺者的威能.webp"
   },
@@ -991,19 +991,19 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "施放一个敏捷技能使你的移动速度提高 [20 - 30]%[x]，躲闪几率提高 10%，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2768978534.webp",
     "img_file": "assets/images/aspects/敏捷威能.webp"
   },
   {
     "cn": "命运守护的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 德鲁伊, 灵巫",
     "class_cn": "巫师, 德鲁伊, 灵巫",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 闪电伤害最多有 [25 - 35]% 几率击昏敌人 1.5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1456161667.webp",
     "img_file": "assets/images/aspects/命运守护的威能.webp"
   },
@@ -1015,7 +1015,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "生成 100 点怒气后，你的下一次直接攻击会生成 2 个尘魔，对其路径上的敌人造成 [60 - 105] 点伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503504.webp",
     "img_file": "assets/images/aspects/魔怒威能.webp"
   },
@@ -1027,7 +1027,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每有一个同伴，同伴技能造成的伤害就会提高 [5.0 - 13.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330756.webp",
     "img_file": "assets/images/aspects/牧羊人的威能.webp"
   },
@@ -1039,7 +1039,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "大地技能对被控制的敌人造成的伤害提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330561.webp",
     "img_file": "assets/images/aspects/碾石威能.webp"
   },
@@ -1051,7 +1051,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "处于强固状态下时，你造成的伤害提高 [45 - 65]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330633.webp",
     "img_file": "assets/images/aspects/碾碎威能.webp"
   },
@@ -1063,7 +1063,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "铁蒺藜、烟雾手雷和索命陷阱会获得你的昏迷手雷增益，还会扔出昏迷手雷，对敌人造成 [120 - 270] 点物理伤害，并将其击昏 1 秒。 你的昏迷手雷造成的伤害提高 [25 - 45]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003843.webp",
     "img_file": "assets/images/aspects/骗术师的威能.webp"
   },
@@ -1075,7 +1075,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "陷阱和手雷技能造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003843.webp",
     "img_file": "assets/images/aspects/骗术师的威能.webp"
   },
@@ -1087,7 +1087,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你获得 [15.0 - 20.0]%[+] 伤害减免，移动速度提高 10%[+]。 低于 50% 生命上限时，获得双倍加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107472.webp",
     "img_file": "assets/images/aspects/骗子的威能.webp"
   },
@@ -1099,7 +1099,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放一个勇气技能会使你的伤害提升 [40.0 - 60.0]%[x]，持续0 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556326.webp",
     "img_file": "assets/images/aspects/品格高尚的威能.webp"
   },
@@ -1111,19 +1111,19 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的灵力上限提高 50 点。施放带有冷却时间的技能后，灵力生成提高 [20 - 35]，持续 8 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2785156401.webp",
     "img_file": "assets/images/aspects/平衡威能.webp"
   },
   {
     "cn": "破地者的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "野蛮人, 游侠",
     "class_cn": "野蛮人, 游侠",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每次切换武器时获得 1 层压制。当你拥有压制时，造成的伤害提高 [15.5 - 20.5]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997749.webp",
     "img_file": "assets/images/aspects/破地者的威能.webp"
   },
@@ -1135,7 +1135,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使用带有冷却时间的技能后，你获得 [20 - 30] 法力回复速度，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376476.webp",
     "img_file": "assets/images/aspects/奇才的威能.webp"
   },
@@ -1147,7 +1147,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "狂热者技能造成的伤害提高 [12.5 - 32.5]%[x]，当热忱层数达到 3 或以上时，该加成翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556299.webp",
     "img_file": "assets/images/aspects/启示者的威能.webp"
   },
@@ -1159,7 +1159,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "大地之力关键被动也会作用于你的风暴技能。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331616.webp",
     "img_file": "assets/images/aspects/强力风暴的威能.webp"
   },
@@ -1171,7 +1171,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "附近每有一名受到妨碍的敌人，你的移动速度便提高 [1.0 - 1.5]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680274.webp",
     "img_file": "assets/images/aspects/怯懦威能.webp"
   },
@@ -1183,7 +1183,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "移动时，获得 [8.0 - 12.0]%[x] 伤害加成，持续 2 秒，最多提高 [40 - 60]%[x]。命中近距敌人会刷新该效果的持续时间。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004965.webp",
     "img_file": "assets/images/aspects/侵略性威能.webp"
   },
@@ -1195,7 +1195,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的爆焰技能对远距或定身敌人造成的伤害提高 [40 - 60]%[x]。这些加成可以叠加。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3564401439.webp",
     "img_file": "assets/images/aspects/轻蔑的威能.webp"
   },
@@ -1207,7 +1207,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "敌人在受到踢击或冲锋伤害后, 若在接下来的 2 秒内死亡，就会发生爆炸, 对周围敌人造成 [375 - 488] 点伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502447.webp",
     "img_file": "assets/images/aspects/拳师的威能.webp"
   },
@@ -1219,7 +1219,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "敌人每受到一秒持续性伤害，其受到的持续性伤害就提高 [7.5 - 12.5]%，最高持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517992.webp",
     "img_file": "assets/images/aspects/蠕动威能.webp"
   },
@@ -1231,7 +1231,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "飘舞霹雳造成的伤害提高 [100 - 145]%[x] 且移动速度提高 50%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331619.webp",
     "img_file": "assets/images/aspects/闪电舞者的威能.webp"
   },
@@ -1243,19 +1243,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "强固流失率提高 [100 - 150]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666727.webp",
     "img_file": "assets/images/aspects/身经百战威能.webp"
   },
   {
     "cn": "神经毒素威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 游侠, 灵巫",
     "class_cn": "德鲁伊, 游侠, 灵巫",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对受到妨碍或虚弱影响的敌人造成的非物理伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330728.webp",
     "img_file": "assets/images/aspects/神经毒素威能.webp"
   },
@@ -1267,7 +1267,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "神射手技能造成的暴击伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003834.webp",
     "img_file": "assets/images/aspects/神射手的威能.webp"
   },
@@ -1279,7 +1279,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "剧毒陷阱没有部署时间，且不再打破潜行，并且当你处于潜行状态时不会触发冷却时间。离开潜行状态后且剧毒陷阱进入冷却时，所有剧毒陷阱都会激活。剧毒陷阱的冷却时间减少 [10.0 - 50.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997749.webp",
     "img_file": "assets/images/aspects/渗透者的威能.webp"
   },
@@ -1291,7 +1291,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "消耗一具亡骸会使你的伤害提高 [9 - 13]%[x]，持续 5 秒，最多提高 [45 - 65]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002738.webp",
     "img_file": "assets/images/aspects/尸气威能.webp"
   },
@@ -1303,7 +1303,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "地壳尖刺造成的伤害提高 [80 - 100]%[x]，范围扩大 50%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331615.webp",
     "img_file": "assets/images/aspects/石工的威能.webp"
   },
@@ -1315,7 +1315,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "能够召唤先祖的技能造成的伤害提高 [40.0 - 60.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503535.webp",
     "img_file": "assets/images/aspects/始祖的威能.webp"
   },
@@ -1327,7 +1327,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "使敌人陷入易伤状态时，有 [20 - 40]% 几率还会使其 虚弱 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902882.webp",
     "img_file": "assets/images/aspects/衰弱威能.webp"
   },
@@ -1339,7 +1339,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "敌人在被你的昏迷手雷命中后，有相当于你暴击几率的几率立即被冻结，持续 2 秒。 你对被冻结或被击昏的敌人造成的暴击伤害提高 [50 - 75]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004959.webp",
     "img_file": "assets/images/aspects/霜噬威能.webp"
   },
@@ -1351,7 +1351,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "如果你的技能或仆从生成了一具亡骸，强固你 [5 - 7]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961794.webp",
     "img_file": "assets/images/aspects/死疽甲壳威能.webp"
   },
@@ -1363,7 +1363,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "所有持续性伤害的持续时间和伤害提高 [20 - 30]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503530.webp",
     "img_file": "assets/images/aspects/肆意割裂威能.webp"
   },
@@ -1375,7 +1375,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "白骨技能造成的伤害提高 [60 - 100]%[x]。后续每命中一名敌人，该加成便降低 10%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001646.webp",
     "img_file": "assets/images/aspects/碎骨者的威能.webp"
   },
@@ -1387,7 +1387,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使流血的敌人丧失行动能力时，会将其总流血量的 [40 - 60]% 作为物理伤害施加。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502409.webp",
     "img_file": "assets/images/aspects/碎颅者的威能.webp"
   },
@@ -1399,7 +1399,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "受到周围敌人的伤害后, 你丢出一枚烟雾手雷, 在 5 秒内躲闪接下来的 [2 - 10] 次攻击。该效果每 10 秒只能生效一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107445.webp",
     "img_file": "assets/images/aspects/逃脱大师的威能.webp"
   },
@@ -1411,7 +1411,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "附近每有一名流血的敌人, 获得 [3.9 - 5.9]%伤害减免, 最多获得 [20 - 30]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2932604959.webp",
     "img_file": "assets/images/aspects/铁血之威能.webp"
   },
@@ -1423,7 +1423,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "进入或打破潜行时，你会在周围扔下一串会爆炸的昏迷手雷，对敌人造成总计 [180 - 270] 点物理伤害，并将其击昏 1.00 秒。 你的昏迷手雷造成的伤害提高 [90 - 120]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004899.webp",
     "img_file": "assets/images/aspects/投机者的威能.webp"
   },
@@ -1435,7 +1435,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的战吼也会使盟友每秒恢复 [4.0 - 6.0]%[x] 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054573.webp",
     "img_file": "assets/images/aspects/团战领袖的威能.webp"
   },
@@ -1447,7 +1447,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "闪避期间，躲闪几率提高 60%[+]。 每次闪避或使用一个非基础机动技能时，你获得 [40 - 60]%[x] 暴击几率和 [10 - 15]%[x] 移动速度，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909995.webp",
     "img_file": "assets/images/aspects/万翎归羽威能.webp"
   },
@@ -1459,19 +1459,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "（重新设计）滚石现在也被视作核心技能，施放时会消耗 40 点灵力，造成 [120 - 160]% 普通伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331622.webp",
     "img_file": "assets/images/aspects/_重新设计_变形石之威能.webp"
   },
   {
     "cn": "阿卡拉特的祝福之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "格挡有 [10 - 15]% 几率使所有冷却时间缩短 1 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2103383195.webp",
     "img_file": "assets/images/aspects/阿卡拉特的祝福之威能.webp"
   },
@@ -1483,7 +1483,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "挫志咆哮现在是狼人技能。此外, 挫志咆哮会定身中毒的敌人, 持续 [2.5 - 4.5] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291670.webp",
     "img_file": "assets/images/aspects/暗嚎之威能.webp"
   },
@@ -1495,7 +1495,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的电冲技能对近距或被击昏敌人造成的伤害提高 [30 - 45]%[x]。这些加成可以叠加。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3564401438.webp",
     "img_file": "assets/images/aspects/傲慢之威能.webp"
   },
@@ -1507,7 +1507,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "对精英敌人造成伤害会使你获得一个可以吸收相当于你生命上限 [70 - 100]% 伤害的屏障，持续 10 秒。该效果每 20 秒只能生效一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808129.webp",
     "img_file": "assets/images/aspects/保护者之威能.webp"
   },
@@ -1519,19 +1519,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的精魂上限每有 1 点，白骨技能的伤害便提高 [0.30 - 0.40]%[x]，最多提高 200。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002697.webp",
     "img_file": "assets/images/aspects/爆裂白骨之威能.webp"
   },
   {
     "cn": "北境守卫之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "格挡有 [25 - 45]% 几率冻结攻击者，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3174516250.webp",
     "img_file": "assets/images/aspects/北境守卫之威能.webp"
   },
@@ -1543,7 +1543,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "岩石爆发造成的伤害提高 [15 - 35]%[x]。若在其效果范围达到最大后引爆，则必定造成压制。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844608.webp",
     "img_file": "assets/images/aspects/背斜爆发之威能.webp"
   },
@@ -1555,7 +1555,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "控制一名敌人时有 25% 几率生成 [1 - 5] 点决断。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4228555651.webp",
     "img_file": "assets/images/aspects/彼消我长之威能.webp"
   },
@@ -1567,7 +1567,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "控制一名敌人会提供 [1 - 2] 层决断。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291677.webp",
     "img_file": "assets/images/aspects/彼消我长之威能.webp"
   },
@@ -1579,7 +1579,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "施放一个防御技能会使你的全抗性提高 [30 - 50]%[+]，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951809226.webp",
     "img_file": "assets/images/aspects/庇护之威能.webp"
   },
@@ -1591,7 +1591,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对中毒敌人造成的熊人技能伤害，或对受到控制效果影响的敌人造成的狼人技能伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330599.webp",
     "img_file": "assets/images/aspects/变身索债之威能.webp"
   },
@@ -1603,19 +1603,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当你变形为其他形态时，将保留你的形态加成，并且造成的伤害提高 [12.0 - 18.0]%，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291670.webp",
     "img_file": "assets/images/aspects/变形者之威能.webp"
   },
   {
     "cn": "冰冻回忆之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "对被冻伤的敌人造成的冰霜伤害提高 [30 - 45]%[x]，该加成对被冻结的敌人变为三倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518092.webp",
     "img_file": "assets/images/aspects/冰冻回忆之威能.webp"
   },
@@ -1627,7 +1627,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "生成冰刺会使其伤害提高 [2.0 - 3.0]%[x]，持续 2 秒，最多叠加 30 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517999.webp",
     "img_file": "assets/images/aspects/冰霜尾流之威能.webp"
   },
@@ -1639,7 +1639,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的防御技能额外获得 [1 - 2] 次使用次数。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376541.webp",
     "img_file": "assets/images/aspects/驳斥之威能.webp"
   },
@@ -1651,19 +1651,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放狂猿技能会提高你的武器伤害，数值相当于你护甲值的 [20 - 30]%，加成效果持续 3 秒。武器伤害加成最高可达 2,000。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909962.webp",
     "img_file": "assets/images/aspects/不屈猛击之威能.webp"
   },
   {
     "cn": "不屈者之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "根据你的格挡几率，获得最多 [30 - 45]% 的伤害减免和损伤抗性。 当前加成: 0%",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658845.webp",
     "img_file": "assets/images/aspects/不屈者之威能.webp"
   },
@@ -1675,7 +1675,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放一个灌注技能时，在你周围触发一场爆炸，造成 165 点同类型伤害并施加同类型的灌注效果，其强度提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003867.webp",
     "img_file": "assets/images/aspects/不稳灌注之威能.webp"
   },
@@ -1687,7 +1687,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "审判者技能有 40% 几率链接到近距敌人，造成相当于其伤害的 [50 - 150]%[x]。如果范围内没有敌人，则对初始目标造成伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2736069365.webp",
     "img_file": "assets/images/aspects/布道之威能.webp"
   },
@@ -1699,7 +1699,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "腾空斩制造一次撼地重击，在 4 秒内造成 [206 - 326] 点物理伤害。站在撼地重击范围时和离开后 4 秒内, 你额外获得 30% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2932605026.webp",
     "img_file": "assets/images/aspects/布尔凯索之威能.webp"
   },
@@ -1711,7 +1711,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "如果你未能对敌人造成剔骨，你仍然会施加相当于其 [15.0 - 25.0]% 流血伤害的伤害，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002730.webp",
     "img_file": "assets/images/aspects/残毁之威能.webp"
   },
@@ -1723,7 +1723,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "电冲技能暴击后，提供 [2.00 - 3.00]%[x] 电冲伤害加成，持续 4 秒。叠加该效果不会刷新持续时间。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518030.webp",
     "img_file": "assets/images/aspects/超强电流之威能.webp"
   },
@@ -1735,7 +1735,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的带有冷却时间的虔信者技能根据你使用该技能移动的距离获得最多 [20 - 60] 点信念。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2103381811.webp",
     "img_file": "assets/images/aspects/朝圣者进程之威能.webp"
   },
@@ -1747,7 +1747,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "风剪在 4 秒内造成 [165 - 345] 点毒素伤害。 幸运一击: 风剪最多有 [6.0 - 14.0]% 几率恢复 100 点灵力。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2785156236.webp",
     "img_file": "assets/images/aspects/沉着微风之威能.webp"
   },
@@ -1759,7 +1759,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "闪避后，你的下一个核心技能会向目标冲刺，并使你的移动速度提高 [25 - 35]%[x]，持续 5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/889916399.webp",
     "img_file": "assets/images/aspects/乘胜追击之威能.webp"
   },
@@ -1771,7 +1771,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "远距敌人击中你时有 20% 几率被击昏 2 秒。你对远距敌人造成的伤害提高 [15 - 25]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666764.webp",
     "img_file": "assets/images/aspects/惩戒之威能.webp"
   },
@@ -1783,7 +1783,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放核心技能造成伤害时，会使你的一个技能冷却时间缩短 [0.7 - 1.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376506.webp",
     "img_file": "assets/images/aspects/橙红传令官之威能.webp"
   },
@@ -1795,7 +1795,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "使用踢击或大地践踏对一名敌人造成伤害会重置腾空斩的冷却时间。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3045477098.webp",
     "img_file": "assets/images/aspects/持久践踏之威能.webp"
   },
@@ -1807,7 +1807,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的亡骸和白骨技能的暴击几率提高 5%[+]，暴击伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001714.webp",
     "img_file": "assets/images/aspects/齿状骨刺之威能.webp"
   },
@@ -1819,7 +1819,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "冲锋额外获得一次使用次数。同时，每个被其击中的敌人都会发生爆炸，对周围敌人造成 [104 - 194] 点火焰伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3095703207.webp",
     "img_file": "assets/images/aspects/炽燃冲撞之威能.webp"
   },
@@ -1831,7 +1831,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "爆裂电花有 20% 几率传递至额外一名敌人，并且造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518093.webp",
     "img_file": "assets/images/aspects/充沛能量之威能.webp"
   },
@@ -1843,19 +1843,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "染疫虫群现在也会在 6 秒内造成相当于其普通伤害 [125 - 175]% 的毒素伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909964.webp",
     "img_file": "assets/images/aspects/虫毒感染之威能.webp"
   },
   {
     "cn": "刺骨冰霜之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "冰霜伤害提高 [15.0 - 20.0]% 并使敌人易伤，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997750.webp",
     "img_file": "assets/images/aspects/刺骨冰霜之威能.webp"
   },
@@ -1867,7 +1867,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "获得 [20.0 - 80.0]%[+] 移动速度。施放任意防御技能的 10 秒后，此加成会被移除。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4073491726.webp",
     "img_file": "assets/images/aspects/脆弱灵动之威能.webp"
   },
@@ -1879,7 +1879,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "当你没有装备防御技能时，获得 [20 - 30]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045311.webp",
     "img_file": "assets/images/aspects/脆弱生存之威能.webp"
   },
@@ -1891,7 +1891,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每隔 20 秒，你下一次施放扬石飞沙必定造成压制，并且伤害提高 [50 - 70]%[x]。对精英敌人打出扬石飞沙暴击时，该效果的触发间隔缩短 1 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503531.webp",
     "img_file": "assets/images/aspects/地裂之威能.webp"
   },
@@ -1903,7 +1903,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你造成的腐化和霜噬伤害提高 [65 - 85]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002703.webp",
     "img_file": "assets/images/aspects/凋零之威能.webp"
   },
@@ -1915,7 +1915,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "靠近你的恶魔时，你的移动速度提高 [30 - 50]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4073490577.webp",
     "img_file": "assets/images/aspects/动量充沛之威能.webp"
   },
@@ -1927,7 +1927,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放一个非基础机动技能会获得 3 层决断。 拥有 8 层决断时施放一个防御技能会使其造成的伤害提高 [100 - 150]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1660971902.webp",
     "img_file": "assets/images/aspects/动能抑制之威能.webp"
   },
@@ -1939,7 +1939,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "被冻伤的敌人由于毒素灌注中毒时, 会继续每秒被冻伤 20%。你对被冻结的敌人造成的毒素伤害提高 [20 - 40]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004930.webp",
     "img_file": "assets/images/aspects/毒冰之威能.webp"
   },
@@ -1951,7 +1951,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "染疫虫群造成的伤害提高 [70 - 100]%[x]，持续时间延长 50%，并且会向外盘旋扩散。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909996.webp",
     "img_file": "assets/images/aspects/毒虫之威能.webp"
   },
@@ -1963,7 +1963,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 在装备剧毒陷阱的情况下使用被毒素灌注的技能时，有最多 [15 - 35]% 几率布下一个剧毒陷阱。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003876.webp",
     "img_file": "assets/images/aspects/毒素爆发之威能.webp"
   },
@@ -1975,7 +1975,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "进入潜行状态时会生成一团云雾，在 6 秒内造成 [900 - 1,170] 点毒素伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2648935917.webp",
     "img_file": "assets/images/aspects/毒云之威能.webp"
   },
@@ -1987,19 +1987,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "进入潜行状态时会生成一团云雾，在 6 秒内造成 [900 - 1,170] 点毒素伤害并使敌人定身。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962851.webp",
     "img_file": "assets/images/aspects/毒云之威能.webp"
   },
   {
     "cn": "多层结界之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你的格挡伤害减免提高 [30 - 40]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045311.webp",
     "img_file": "assets/images/aspects/多层结界之威能.webp"
   },
@@ -2011,7 +2011,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "恶魔形态提供 20% 伤害减免，并且每当你受到火焰伤害时，额外获得 [0.5 - 1.0]% 伤害减免，持续 5 秒，最多提高 [5 - 10]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658682.webp",
     "img_file": "assets/images/aspects/恶魔护甲之威能.webp"
   },
@@ -2023,7 +2023,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对易伤敌人造成的伤害提高 [40 - 55]%[x]，对被击倒敌人造成的伤害提高 [15 - 20]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003868.webp",
     "img_file": "assets/images/aspects/恶意之威能.webp"
   },
@@ -2035,7 +2035,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "格挡几率提高 10%[+]。 格挡敌人的攻击时，有 [30 - 70]% 几率对其施放一次免费的震荡践踏。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902822.webp",
     "img_file": "assets/images/aspects/反应装甲之威能.webp"
   },
@@ -2047,7 +2047,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "消耗一具亡骸有 25% 几率生成一颗生命球。生命球的治疗效果提高 [30 - 45]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604496288.webp",
     "img_file": "assets/images/aspects/防腐师之威能.webp"
   },
@@ -2059,7 +2059,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放一个可赋予仲裁官形态的技能会使你的伤害提高 [5.0 - 7.0]%[x]，最多叠加 10 次。脱离仲裁官形态时会失去所有层数。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557315.webp",
     "img_file": "assets/images/aspects/飞升之威能.webp"
   },
@@ -2071,7 +2071,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的电冲技能造成的伤害提高 [120.0 - 180.0]%[x]，但后续每命中一次，该加成都会降低 10%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518057.webp",
     "img_file": "assets/images/aspects/分裂能量之威能.webp"
   },
@@ -2083,19 +2083,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击：命中或消灭一名被冻结敌人时，最多有 100% 几率在其位置生成数枚激射而出的裂冰碎片，对接触到的目标造成 [38 - 68] 点冰霜伤害和 [20 - 30]% 的冻伤效果。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004989.webp",
     "img_file": "assets/images/aspects/分裂碎片之威能.webp"
   },
   {
     "cn": "愤怒掌控之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 野蛮人",
     "class_cn": "德鲁伊, 野蛮人",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "主要资源高于 50 时，造成的伤害提高 [15.0 - 20.0]%[x] 并获得狂暴，但会失去 3 主要资源回复速度。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495231.webp",
     "img_file": "assets/images/aspects/愤怒掌控之威能.webp"
   },
@@ -2107,7 +2107,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "每 10 次消耗审判时获得 [5 - 25] 点信念。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2103383989.webp",
     "img_file": "assets/images/aspects/奉献之威能.webp"
   },
@@ -2119,7 +2119,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的灌注技能的强度提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004926.webp",
     "img_file": "assets/images/aspects/腐蚀之威能.webp"
   },
@@ -2131,7 +2131,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你获得 [15.0 - 20.0]% 附魔强度。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1632510915.webp",
     "img_file": "assets/images/aspects/附魔师之威能.webp"
   },
@@ -2143,7 +2143,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "报复现在会在前方形成余波，额外对敌人造成 [100 - 150]% 的荆棘伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909997.webp",
     "img_file": "assets/images/aspects/复仇涌波之威能.webp"
   },
@@ -2155,7 +2155,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "近距敌人或受到你间接伤害的敌人会被减速 [50 - 70]%，持续 3 秒。你对被减速敌人造成的伤害提高 [20 - 30]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909966.webp",
     "img_file": "assets/images/aspects/缚足泥沼之威能.webp"
   },
@@ -2167,7 +2167,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "蛮力投掷造成的伤害提高 [25 - 45]%[x]，同时会额外掷出 2 把武器。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503535.webp",
     "img_file": "assets/images/aspects/盖世神力之威能.webp"
   },
@@ -2179,7 +2179,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "钢铁之肤也会使你获得不可阻挡, 以及 [20 - 40]%伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2932604962.webp",
     "img_file": "assets/images/aspects/钢铁战士之威能.webp"
   },
@@ -2191,7 +2191,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你的决断上限提高 2，并且每拥有一层决断会获得 [2.5 - 4]% 的伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658646.webp",
     "img_file": "assets/images/aspects/格林铁砧之威能.webp"
   },
@@ -2203,7 +2203,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "大地践踏制造一次撼地重击，在 4 秒内对敌人造成 [167 - 287] 点物理伤害。站在撼地重击范围内以及之后的 4 秒内，你造成 [20 - 60]%[x] 增伤伤害。 你的撼地重击造成 [20 - 60]% 增伤伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502408.webp",
     "img_file": "assets/images/aspects/撼地重击之威能.webp"
   },
@@ -2215,7 +2215,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你对精英敌人获得 [15.0 - 20.0]%[x] 幸运一击几率。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1632510816.webp",
     "img_file": "assets/images/aspects/好运之威能.webp"
   },
@@ -2227,31 +2227,31 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "压制层数使你的主要资源上限提高 [6 - 8] 点，回复速度提高 2 点。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828329209.webp",
     "img_file": "assets/images/aspects/洪流之威能.webp"
   },
   {
     "cn": "呼号充能之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 野蛮人",
     "class_cn": "德鲁伊, 野蛮人",
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的吼叫技能激活期间使你获得 [10.0 - 15.0] 点主要资源回复速度。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328124.webp",
     "img_file": "assets/images/aspects/呼号充能之威能.webp"
   },
   {
     "cn": "化劲之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "提升你的暴击伤害，数值相当于你格挡几率的 [40 - 60]%[x]。成功格挡攻击会使该加成在 10 秒内翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910024.webp",
     "img_file": "assets/images/aspects/化劲之威能.webp"
   },
@@ -2263,7 +2263,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击：击中一名敌人时，最多有 [20 - 35]% 几率使闪避的冷却时间减少 5 秒。每拥有一层残暴，该几率提高 5%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1672768375.webp",
     "img_file": "assets/images/aspects/欢欣之威能.webp"
   },
@@ -2275,7 +2275,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "刺杀技能造成的伤害提高 [40 - 55]%[x]。该加成对受伤敌人提高至 [51 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003835.webp",
     "img_file": "assets/images/aspects/环绕刀锋之威能.webp"
   },
@@ -2287,7 +2287,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的同伴技能冷却时间缩短 [5.0 - 7.5] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828329209.webp",
     "img_file": "assets/images/aspects/荒原怒火之威能.webp"
   },
@@ -2299,7 +2299,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "审判的引爆效果可以提前引爆其他审判。 审判造成的伤害提高 [60 - 100]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/60917217.webp",
     "img_file": "assets/images/aspects/黄金时刻之威能.webp"
   },
@@ -2311,19 +2311,19 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "反击激活时，会将飞回的剃刀飞翼再次反射出去，并使其造成的伤害提高 [30 - 50]%。其余的小型飞行道具也会被反射回敌人处，在命中时造成反击 [30 - 50]% 的基础伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045309.webp",
     "img_file": "assets/images/aspects/回风拂羽之威能.webp"
   },
   {
     "cn": "回火打击之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "野蛮人, 游侠",
     "class_cn": "野蛮人, 游侠",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "切换武器 5 次后，获得 [20 - 30]% 伤害减免，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2932606048.webp",
     "img_file": "assets/images/aspects/回火打击之威能.webp"
   },
@@ -2335,7 +2335,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的终极技能在激活期间使你造成的对应元素伤害提高 [150.0 - 225.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517036.webp",
     "img_file": "assets/images/aspects/毁天灭地之威能.webp"
   },
@@ -2347,7 +2347,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "进入潜行状态或处于潜行状态时，每秒恢复 [10.5 - 15.0]% 生命上限。打破潜行状态会强固你 [7.0 - 10.0]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054573.webp",
     "img_file": "assets/images/aspects/晦暗疗愈之威能.webp"
   },
@@ -2359,7 +2359,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "幸运一击: 造成暴击时，有最高 25% 几率根据你拥有的每层热忱为你强固 [0.25 - 0.50]% 的生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658812.webp",
     "img_file": "assets/images/aspects/激战之威能.webp"
   },
@@ -2371,7 +2371,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放终极技能使你的终极技能伤害提高 [6.0 - 10.0]%[x]，最多提高 [60 - 100]%[x]。叠加至 10 层时，此加成和你的冷却时间重置。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156674004.webp",
     "img_file": "assets/images/aspects/极点狂暴之威能.webp"
   },
@@ -2383,7 +2383,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放终极技能会使你其他技能的冷却时间缩短 [6.5 - 10.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1847532386.webp",
     "img_file": "assets/images/aspects/极点狂暴之威能.webp"
   },
@@ -2395,7 +2395,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你在疾行斩结束后自动丢出一枚烟雾手雷。烟雾手雷每命中一名敌人, 疾行斩的冷却时间就会缩短 [0.50 - 0.70] 秒, 最多缩短 [1.50 - 2.10] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997714.webp",
     "img_file": "assets/images/aspects/急速烟尘之威能.webp"
   },
@@ -2407,19 +2407,19 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "在移动时，每秒获得 [20 - 30]%[+] 的移动速度加成，持续 1.5 秒，最多可提升至 [60 - 90]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/889916400.webp",
     "img_file": "assets/images/aspects/急速之威能.webp"
   },
   {
     "cn": "急性高热之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 野蛮人",
     "class_cn": "巫师, 野蛮人",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "附近每有一个燃烧的敌人，每秒为你恢复 [2.0 - 3.0]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918665837.webp",
     "img_file": "assets/images/aspects/急性高热之威能.webp"
   },
@@ -2431,19 +2431,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每第3次施放穿刺飞刀都会施加毒素灌注，强度为正常效果的 [105 - 165]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004962.webp",
     "img_file": "assets/images/aspects/疾疫刀尖之威能.webp"
   },
   {
     "cn": "尖刺护甲之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "获得 [40 - 60]%[+] 总护甲值、1,813 荆棘和 15%[+] 格挡几率。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2932605026.webp",
     "img_file": "assets/images/aspects/尖刺护甲之威能.webp"
   },
@@ -2455,7 +2455,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "审判一名敌人会为你提供 [20 - 30]% 的伤害减免，持续 8 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658650.webp",
     "img_file": "assets/images/aspects/坚定法令之威能.webp"
   },
@@ -2467,7 +2467,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "精力达到上限后，每获得 [25 - 15] 点精力，便会获得一层决断。该效果可以使你的决断层数超出上限，最多 5 层。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1660971897.webp",
     "img_file": "assets/images/aspects/坚韧之威能.webp"
   },
@@ -2479,7 +2479,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每当你生成一场箭镞风暴，它们的伤害便会提高 [22.5 - 30.0]%[x]，最高可达 [90.0 - 120.0]%[x]，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003875.webp",
     "img_file": "assets/images/aspects/箭镞风暴之威能.webp"
   },
@@ -2491,7 +2491,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "风暴打击造成连锁攻击时，影响的目标数量翻倍。并且，你的其他技能将在接下来的 6 秒内对这些目标额外造成 [30 - 50]%[x] 伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1193134172.webp",
     "img_file": "assets/images/aspects/将倾暴雨之威能.webp"
   },
@@ -2503,7 +2503,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的地狱火技能造成的伤害提高，数值相当于你火焰抗性伤害减免的 [60 - 80]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517992.webp",
     "img_file": "assets/images/aspects/焦灼之威能.webp"
   },
@@ -2515,7 +2515,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你释放的昏迷手雷数量增加 50% 个。昏迷手雷造成的伤害提高 [25.0 - 30.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004963.webp",
     "img_file": "assets/images/aspects/狡诈花招之威能.webp"
   },
@@ -2527,7 +2527,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的手雷技能被算作陷阱技能。每当你埋设一个陷阱或是扔出手雷, 你获得 [10 - 30]%[+] 移动速度加成, 持续 3秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997683.webp",
     "img_file": "assets/images/aspects/精力爆发之威能.webp"
   },
@@ -2539,7 +2539,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "每当你埋设一个陷阱或是扔出手雷，你获得 [25 - 35]%[+] 移动速度加成，持续 6秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1501976402.webp",
     "img_file": "assets/images/aspects/精力爆发之威能.webp"
   },
@@ -2551,7 +2551,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使敌人虚弱或对敌人使用群体控制时，你的刺杀技能造成的伤害提高 [40 - 60]%[x]，持续 6 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004898.webp",
     "img_file": "assets/images/aspects/精力偷取之威能.webp"
   },
@@ -2563,7 +2563,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放终极技能将重置你先前施放的最后一个不同的增威、防御或念力技能的冷却时间，并使其在接下来的 10 秒内最多可以免费施放 [3 - 5] 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376506.webp",
     "img_file": "assets/images/aspects/精微之威能.webp"
   },
@@ -2575,19 +2575,19 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "每次消耗审判时，使你其中一个技能的剩余冷却时间缩短 [0.10 - 0.20] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2103382965.webp",
     "img_file": "assets/images/aspects/静思之威能.webp"
   },
   {
     "cn": "拒止之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每拥有一层决断，格挡几率提高 [2.0 - 3.0]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1456161667.webp",
     "img_file": "assets/images/aspects/拒止之威能.webp"
   },
@@ -2599,7 +2599,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使敌人陷入易伤状态时，你对其造成的伤害提高 [2.0 - 3.4]%[x]，最多提高 [40 - 68]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3868016484.webp",
     "img_file": "assets/images/aspects/绝境之威能.webp"
   },
@@ -2611,7 +2611,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的冰霜直接伤害使敌人受到的冰霜伤害提高 [10.0 - 15.0]%，持续 4 秒，最多叠加 10 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517005.webp",
     "img_file": "assets/images/aspects/绝情严寒之威能.webp"
   },
@@ -2623,7 +2623,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "在熊人形态下，你从所有来源获得的治疗效果提高 15%。此外，每 [4.0 - 2.0] 秒获得 1 层压制。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856290783.webp",
     "img_file": "assets/images/aspects/恐怖熊人之威能.webp"
   },
@@ -2635,7 +2635,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "旋风斩每引导一秒，其暴击几率和暴击伤害就会提高 [5.5 - 10]%[x]，最多提高 [28 - 50]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502477.webp",
     "img_file": "assets/images/aspects/恐怖旋风之威能.webp"
   },
@@ -2647,7 +2647,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的黑暗技能对受到控制效果影响的敌人造成的伤害提高 [25.0 - 35.0]%[x]，对精英敌人造成的伤害提高 [25.0 - 35.0]%[x]。这些加成可以叠加。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002700.webp",
     "img_file": "assets/images/aspects/恐惧之威能.webp"
   },
@@ -2659,7 +2659,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的召唤物在存活期间造成的伤害提高，10 秒后最高可达 [60 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002737.webp",
     "img_file": "assets/images/aspects/控尸之威能.webp"
   },
@@ -2671,7 +2671,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 灌注技能有最高 100% 几率使造成的伤害提高 [80 - 120]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/628179068.webp",
     "img_file": "assets/images/aspects/苦痛感染之威能.webp"
   },
@@ -2683,7 +2683,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "每消耗 100 点精魂, 你的白骨技能的冷却时间缩短 [2 - 4] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828478.webp",
     "img_file": "assets/images/aspects/快速骨化之威能.webp"
   },
@@ -2695,7 +2695,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "狂暴状态下每秒获得 [7.0 - 11.0] 点怒气。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328185.webp",
     "img_file": "assets/images/aspects/狂暴怒气之威能.webp"
   },
@@ -2707,7 +2707,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在狂暴状态下，你的直接伤害会在 5 秒内造成 [40 - 60]% 额外流血伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/678284105.webp",
     "img_file": "assets/images/aspects/狂暴撕裂之威能.webp"
   },
@@ -2719,7 +2719,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的召唤物获得 [35 - 50]%[+] 攻击速度。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001609.webp",
     "img_file": "assets/images/aspects/狂乱之威能.webp"
   },
@@ -2731,7 +2731,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "狂热者誓约的额外攻击造成的伤害提高 [100.0 - 120.0]%[x]。 你的热忱上限提高 1 层，且其持续时间提高 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3464617464.webp",
     "img_file": "assets/images/aspects/狂热者契约之威能.webp"
   },
@@ -2743,7 +2743,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "当你使用重殴击中至少 1 个敌人时，它的攻击速度会提升 [1.0 - 3.0]%[+]，你将获得 [1.0 - 5.0]%[x] 伤害减免，持续 5 秒，最多叠加 5 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1889434199.webp",
     "img_file": "assets/images/aspects/狂热重殴之威能.webp"
   },
@@ -2755,7 +2755,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用猎豹技能击中敌人会使你对其造成的伤害提升 [0.60 - 0.80]%[x]，最多可提升至 [60.00 - 80.00]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909961.webp",
     "img_file": "assets/images/aspects/狂野爪击之威能.webp"
   },
@@ -2767,7 +2767,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "毒素伤害提高 [40 - 80]%[x]，变形时，你的直接伤害转化为毒素伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844604.webp",
     "img_file": "assets/images/aspects/狂躁野兽之威能.webp"
   },
@@ -2779,19 +2779,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "虔信者技能造成的伤害提高 [40.0 - 60.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557222.webp",
     "img_file": "assets/images/aspects/拉格拉领袖之威能.webp"
   },
   {
     "cn": "拉帕圣言之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "死灵法师, 灵巫, 圣骑士",
     "class_cn": "死灵法师, 灵巫, 圣骑士",
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "失去决断使你获得 [392 - 718] 荆棘伤害，持续 10 秒。最多叠加 20 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556130.webp",
     "img_file": "assets/images/aspects/拉帕圣言之威能.webp"
   },
@@ -2803,7 +2803,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你处于被强固状态时，鲜血技能的攻击速度提高 [40 - 60]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002730.webp",
     "img_file": "assets/images/aspects/拉斯玛的钦选者之威能.webp"
   },
@@ -2815,7 +2815,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "你的击退和拉拽效果使你获得 [25 - 35]%[x] 移动速度，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3045477137.webp",
     "img_file": "assets/images/aspects/来势汹汹之威能.webp"
   },
@@ -2827,7 +2827,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放飓风还会在你的群狼身边生成一道小型飓风，持续 8 秒。每有一只激活的狼，这些小型飓风就会造成 [15.0 - 25.0]% 的飓风伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331681.webp",
     "img_file": "assets/images/aspects/狼雨之威能.webp"
   },
@@ -2839,7 +2839,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "在易爆状态下受到直接伤害时，有 75% 几率受到相当于你生命上限 3% 的火焰伤害，或获得相当于 [3.00 - 6.00]% 生命上限的 强固。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666727.webp",
     "img_file": "assets/images/aspects/烙印之威能.webp"
   },
@@ -2851,7 +2851,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使用敏捷技能会使随机一个诡诈技能的冷却时间缩短 [5.0 - 7.5] 秒，反之亦然。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2785156236.webp",
     "img_file": "assets/images/aspects/联动之威能.webp"
   },
@@ -2863,7 +2863,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "造成非物理伤害时，你的攻击速度和幸运一击几率提高 [4.0 - 6.0]%[+]，持续 8 秒，最多提高 [40.0 - 60.0]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2824844608.webp",
     "img_file": "assets/images/aspects/炼金优势之威能.webp"
   },
@@ -2875,7 +2875,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "大地技能首次造成伤害会强固你 [4.00 - 6.00]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054573.webp",
     "img_file": "assets/images/aspects/疗愈石之威能.webp"
   },
@@ -2887,7 +2887,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的战吼技能会生成 3 只尘魔，对它们沿途遇到的敌人造成 [60 - 120] 点伤害。 你的尘魔将变大 [5 - 25]%，并且每变大 1%，伤害也将提升 1%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503532.webp",
     "img_file": "assets/images/aspects/烈风之威能.webp"
   },
@@ -2899,7 +2899,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的爆焰技能对燃烧敌人造成的暴击伤害提高 [70.0 - 100.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518098.webp",
     "img_file": "assets/images/aspects/烈焰爆燃之威能.webp"
   },
@@ -2911,7 +2911,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放念力技能会将附近的风暴之羽全部召回，造成 [300 - 450] 点闪电伤害，并使敌人陷入易伤状态，持续 4 秒。 如果你没有召回任何风暴之羽，则在你周围生成 10 根。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666726.webp",
     "img_file": "assets/images/aspects/落羽还巢之威能.webp"
   },
@@ -2923,7 +2923,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "使用机动技能或闪避进行移动会在你身后生成风暴之羽。 生成的风暴之羽现在会从天空中落下，每根落地时造成 [375 - 525] 点闪电伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1660971901.webp",
     "img_file": "assets/images/aspects/落羽之威能.webp"
   },
@@ -2935,7 +2935,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你第一次对敌人施加的审判会使其迷惑，持续 [1.0 - 3.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3174518359.webp",
     "img_file": "assets/images/aspects/迷惑光芒之威能.webp"
   },
@@ -2947,7 +2947,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "利爪撕扯会发动第 4 次疾行攻击，横扫周围所有敌人，造成 [20 - 60]%[x] 的额外伤害，同时将敌人击倒 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1586837394.webp",
     "img_file": "assets/images/aspects/敏捷恶狼之威能.webp"
   },
@@ -2959,7 +2959,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "健康状态下，你的鲜血技能造成的伤害提高 [50.0 - 70.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001681.webp",
     "img_file": "assets/images/aspects/凝结之血之威能.webp"
   },
@@ -2971,7 +2971,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "每次切换武器时获得 [7 - 11] 点怒气。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1947920226.webp",
     "img_file": "assets/images/aspects/怒意冲动之威能.webp"
   },
@@ -2983,7 +2983,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "消耗 100 点怒气后，你造成的搏斗技能伤害提高 [40 - 60]%[x]，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502472.webp",
     "img_file": "assets/images/aspects/怒意渐生之威能.webp"
   },
@@ -2995,7 +2995,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每当你受到伤害，你的躲闪几率提高 [20 - 30]%[+]。成功躲闪会重置该加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/飘忽威胁之威能.webp"
   },
@@ -3007,7 +3007,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 对受到持续性伤害影响的敌人或易伤敌人造成伤害，最多有 [20 - 30]% 几率将其击昏 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604496288.webp",
     "img_file": "assets/images/aspects/贫血之威能.webp"
   },
@@ -3019,7 +3019,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 25%[+] 几率生成一个神秘法阵，持续 10 秒。 在神秘法阵中施放的猎豹技能会被强化，以刷新残暴的持续时间，并且只要你身处其中，每层残暴会使你的伤害提高 [8.0 - 12.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910030.webp",
     "img_file": "assets/images/aspects/平原力量之威能.webp"
   },
@@ -3031,7 +3031,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用闪避或暗影步时，你会扔出一串会爆炸的昏迷手雷，对敌人造成总计 [90 - 270] 点物理伤害，并将其击昏 1.00 秒。 你的昏迷手雷造成的伤害提高 [80 - 120]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003842.webp",
     "img_file": "assets/images/aspects/奇袭之威能.webp"
   },
@@ -3043,7 +3043,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "获得 30%[+] 强固生成量提升，并在被强固时获得 [15 - 20]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107473.webp",
     "img_file": "assets/images/aspects/气息凝结之威能.webp"
   },
@@ -3055,7 +3055,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你的虔信者技能现在使会敌人虚弱 [2.0 - 6.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658811.webp",
     "img_file": "assets/images/aspects/虔信者之威能.webp"
   },
@@ -3067,7 +3067,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的虔信者技能现在会使敌人虚弱 8 秒。你受到来自被虚弱敌人的伤害降低 [10 - 15]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/虔信者之威能.webp"
   },
@@ -3079,7 +3079,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当敌人处于丧失行动能力或易伤状态时，你使用钝击武器的技能造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502539.webp",
     "img_file": "assets/images/aspects/强击之威能.webp"
   },
@@ -3091,7 +3091,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击: 天鹰技能最高有 [25 - 32]% 几率在你的目标位置生成一片风暴之羽。 你捡起的每片风暴之羽还会使你的机动技能冷却时间缩短 0.5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1672768510.webp",
     "img_file": "assets/images/aspects/强能飞羽之威能.webp"
   },
@@ -3103,7 +3103,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "当你失去至少 10% 生命上限时，消灭你的低阶恶魔，每个被消灭的低阶恶魔最多能吸收相当于你生命上限 [6 - 10]% 的伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1889434166.webp",
     "img_file": "assets/images/aspects/轻蔑之威能.webp"
   },
@@ -3115,7 +3115,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "移动时，你的防御和机动技能获得 [50 - 75]% 的冷却速率。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1672768512.webp",
     "img_file": "assets/images/aspects/轻盈之威能.webp"
   },
@@ -3127,7 +3127,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "腾空斩每命中一名敌人, 其冷却时间缩短 [1.3 - 3.5] 秒, 最多缩短 7 秒。使用腾空斩命中首领后, 获得最大缩短效果。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328150.webp",
     "img_file": "assets/images/aspects/擎天步之威能.webp"
   },
@@ -3139,7 +3139,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 [30 - 45]% 几率斩杀敌人。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557255.webp",
     "img_file": "assets/images/aspects/驱魔之_威能.webp"
   },
@@ -3151,7 +3151,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "获得 1 个额外同伴。此外，你的同伴技能造成 [15 - 35]%[x] 额外伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331621.webp",
     "img_file": "assets/images/aspects/群奔之威能.webp"
   },
@@ -3163,7 +3163,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "拥有激活的仆从时，你的召唤物造成的伤害提高 [35 - 55]%[x]，但每个仆从都会使你每秒损失 2 点精魂。 如果没有激活的仆从，则你的伤害提高 [35 - 55]%[x]，且每秒损失 14 点精魂。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2700471744.webp",
     "img_file": "assets/images/aspects/群体盛宴之威能.webp"
   },
@@ -3175,7 +3175,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的撼地重击造成 [40 - 60]%[x] 增伤伤害，且该伤害会变为火焰伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/904677608.webp",
     "img_file": "assets/images/aspects/燃烧裂隙之威能.webp"
   },
@@ -3187,7 +3187,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在狂暴状态下, 你每秒对周围敌人造成 [68 - 124] 点火焰伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503503.webp",
     "img_file": "assets/images/aspects/燃烧怒火之威能.webp"
   },
@@ -3199,19 +3199,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "人类技能的首次命中会将近距敌人拉向被命中的敌人，并使其定身 2 秒。每 5 秒只能触发一次。 受到妨碍的敌人受到你的人类技能伤害提高 [35 - 50]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330727.webp",
     "img_file": "assets/images/aspects/人类智慧之威能.webp"
   },
   {
     "cn": "忍耐之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "游侠, 灵巫",
     "class_cn": "游侠, 灵巫",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "被敌人击中时，你身上每有一层残暴，就有 [8 - 12]% 几率不消耗决断。获得 10% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045284.webp",
     "img_file": "assets/images/aspects/忍耐之威能.webp"
   },
@@ -3223,7 +3223,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "硫磺石爆炸并形成熔岩池，在 5 秒内造成 [260 - 340]% 的伤害。站在熔岩池中会使你获得易爆。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517036.webp",
     "img_file": "assets/images/aspects/熔岩之威能.webp"
   },
@@ -3235,7 +3235,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "每移动 20 米会触发一个随机装备的亡骸技能。消耗一具亡骸会使你的移动速度提高 [10 - 15]%，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1501976400.webp",
     "img_file": "assets/images/aspects/蠕行亡体之威能.webp"
   },
@@ -3247,7 +3247,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 25%[+] 几率生成一个神秘法阵，持续 10 秒。 在神秘法阵中施放的狂猿技能会被增强，可以使你周期性地获得一个屏障，吸收生命上限 20% 的伤害。此外，屏障激活时，你的护甲值提高 [20 - 30]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045313.webp",
     "img_file": "assets/images/aspects/森林力量之威能.webp"
   },
@@ -3259,7 +3259,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对被诅咒的敌人造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002798.webp",
     "img_file": "assets/images/aspects/伤害增效之威能.webp"
   },
@@ -3271,7 +3271,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的带有冷却时间的爆焰技能每经过一秒冷却，造成的伤害提高 [20 - 30]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517991.webp",
     "img_file": "assets/images/aspects/上古火焰之威能.webp"
   },
@@ -3283,7 +3283,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "陨石术在 4 秒内额外造成 [60.0 - 90.0]% 燃烧伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517996.webp",
     "img_file": "assets/images/aspects/烧灼冲击之威能.webp"
   },
@@ -3295,7 +3295,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "暗影形态的层数上限增加 [2 - 6]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/649212451.webp",
     "img_file": "assets/images/aspects/深邃暗影之威能.webp"
   },
@@ -3307,7 +3307,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "神圣和火焰伤害提高 [40.0 - 60.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557317.webp",
     "img_file": "assets/images/aspects/神圣惩罚之威能.webp"
   },
@@ -3319,7 +3319,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "当审判引爆时，使你的移动速度提高 [25.0 - 35.0]%[x]，持续 8 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1320530859.webp",
     "img_file": "assets/images/aspects/神圣韵律之威能.webp"
   },
@@ -3331,7 +3331,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使审判的爆炸伤害和范围提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556167.webp",
     "img_file": "assets/images/aspects/审判者之威能.webp"
   },
@@ -3343,7 +3343,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "消耗审判会为你和附近盟友恢复 [2.5 - 3.5]% 生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918665837.webp",
     "img_file": "assets/images/aspects/圣光疗愈之威能.webp"
   },
@@ -3355,7 +3355,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "施放终极技能将重置你先前施放的最后一个不同的增威、防御或念力技能的冷却时间，并使其在接下来的 10 秒内最多可以免费施放 [2 - 4] 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/777045316.webp",
     "img_file": "assets/images/aspects/时间切片之威能.webp"
   },
@@ -3367,19 +3367,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放白骨技能会提供 2 层决断。当你拥有决断时，全抗性提高 [20 - 30]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902882.webp",
     "img_file": "assets/images/aspects/守护白骨之威能.webp"
   },
   {
     "cn": "衰弱毒素之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 游侠, 灵巫",
     "class_cn": "德鲁伊, 游侠, 灵巫",
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你获得 [20.0 - 30.0]% 伤害减免，并且中毒的敌人对你造成的伤害降低 15%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107442.webp",
     "img_file": "assets/images/aspects/衰弱毒素之威能.webp"
   },
@@ -3391,7 +3391,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的亵渎之地造成的伤害提高 [15 - 25]%[x]，并且会使敌人陷入易伤状态。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997718.webp",
     "img_file": "assets/images/aspects/衰弱黑暗之威能.webp"
   },
@@ -3403,7 +3403,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "钢铁之握和钢铁漩涡至多可射出 10 枚金属碎片，对敌人造成 [120 - 420] 点物理伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3868016484.webp",
     "img_file": "assets/images/aspects/碎钢之威能.webp"
   },
@@ -3415,7 +3415,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "召唤魔法造成的伤害会使敌人易伤，持续 4 秒。你对易伤敌人造成的伤害提高 [15.0 - 20.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/碎切刀锋之威能.webp"
   },
@@ -3427,7 +3427,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "仲裁官的飞翼打击现在会寻找附近敌人，造成的伤害提高 [160 - 240]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557289.webp",
     "img_file": "assets/images/aspects/泰瑞尔的管辖之威能.webp"
   },
@@ -3439,7 +3439,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使用利爪撕扯对敌人造成暴击后，你会获得 15 点灵力。灵力达到 100 点时，狼人技能造成的伤害提高 [20.0 - 40.0]%[x]，灵力降至 30 点以下时，此加成消失。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1162458253.webp",
     "img_file": "assets/images/aspects/贪婪狼性之威能.webp"
   },
@@ -3451,7 +3451,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使用核心技能消灭一名敌人可以返还其 [20.0 - 30.0]% 的基础消耗。每次施放技能只能触发一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328153.webp",
     "img_file": "assets/images/aspects/贪噬暴怒之威能.webp"
   },
@@ -3463,7 +3463,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "在仲裁官形态下，你的全抗性提高 [100.0 - 140.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207658745.webp",
     "img_file": "assets/images/aspects/天界精造之威能.webp"
   },
@@ -3475,7 +3475,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在仲裁官状态下，消灭敌人会获得 [1.0 - 1.5]%[x] 易伤伤害加成，最多可达到 [50 - 75]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557189.webp",
     "img_file": "assets/images/aspects/天界争斗之威能.webp"
   },
@@ -3487,7 +3487,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "幸运一击: 最多有 25%[+] 几率生成一个神秘法阵，持续 10 秒。 在神秘法阵中施放的天鹰技能可以在你闪避时跟随你移动并发生爆炸，造成 [150 - 225] 点闪电伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/889916401.webp",
     "img_file": "assets/images/aspects/天空力量之威能.webp"
   },
@@ -3499,7 +3499,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的主宰者技能对首领和被控制的敌人造成的伤害提高 [55 - 75]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556136.webp",
     "img_file": "assets/images/aspects/天谴之威能.webp"
   },
@@ -3511,7 +3511,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "装备双手武器时，获得 [30 - 40]% 的伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207659736.webp",
     "img_file": "assets/images/aspects/天堂之力之威能.webp"
   },
@@ -3523,7 +3523,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "烟雾手雷有 100% 几率在爆炸位置制造一场箭镞风暴，在 3 秒内造成 [120 - 360] 点物理伤害。 你的箭镞风暴可持续施加易伤。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004992.webp",
     "img_file": "assets/images/aspects/铁雨之威能.webp"
   },
@@ -3535,7 +3535,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的箭镞风暴造成的伤害提高 [15.0 - 25.0]%[x] 并且会持续施加易伤。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962788.webp",
     "img_file": "assets/images/aspects/铁雨之威能.webp"
   },
@@ -3547,19 +3547,19 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "支配力上限提高 [5 - 15][+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1847532386.webp",
     "img_file": "assets/images/aspects/统御之威能.webp"
   },
   {
     "cn": "透体寒冰之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 游侠, 死灵法师",
     "class_cn": "巫师, 游侠, 死灵法师",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你施加的冻伤效果提高 [30.0 - 50.0]%[x]，并且对被冻伤的敌人造成的伤害提高 20%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961763.webp",
     "img_file": "assets/images/aspects/透体寒冰之威能.webp"
   },
@@ -3571,7 +3571,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的爆裂电花充能使你的暴击伤害提高 [4.0 - 6.0]%，攻击速度提高 2.5%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870516936.webp",
     "img_file": "assets/images/aspects/透体静电之威能.webp"
   },
@@ -3583,7 +3583,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "你获得 [30.0 - 45.0]%[+] 移动速度加成。受到近距敌人的伤害会使你减速 30%，持续 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680277.webp",
     "img_file": "assets/images/aspects/屠戮之威能.webp"
   },
@@ -3595,7 +3595,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 25%[+] 几率生成一个神秘法阵，持续 10 秒。 在神秘法阵中施放的巨虫技能会被增强，可以周期性地侵蚀踏入法阵的敌人，在 6 秒内造成 [300 - 450] 点毒素伤害并延长其所受到的控制效果的持续时间。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902882.webp",
     "img_file": "assets/images/aspects/土壤力量之威能.webp"
   },
@@ -3607,7 +3607,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "正义技能造成的伤害提高 [60.0 - 80.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870516936.webp",
     "img_file": "assets/images/aspects/瓦林提尔之威能.webp"
   },
@@ -3619,7 +3619,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你和你的仆从生命上限提高 [20 - 30]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960620638.webp",
     "img_file": "assets/images/aspects/亡者防御之威能.webp"
   },
@@ -3631,7 +3631,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "躲闪攻击时，获得 1 层决断。你的增威技能会消耗 2 层决断，造成 [20 - 30]%[x] 的额外伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1660971935.webp",
     "img_file": "assets/images/aspects/威势交换之威能.webp"
   },
@@ -3643,7 +3643,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你的持续性伤害会使你获得 [1.0 - 1.5]% 伤害减免，持续 2 秒，最多叠加 30 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808200.webp",
     "img_file": "assets/images/aspects/违抗之威能.webp"
   },
@@ -3655,7 +3655,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "飞空会在其着陆位置施放漩涡，造成的伤害提高 [25 - 45]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902856.webp",
     "img_file": "assets/images/aspects/紊流之威能.webp"
   },
@@ -3667,7 +3667,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的审判者技能对受审判影响的敌人造成的伤害提高 [45.0 - 65.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556227.webp",
     "img_file": "assets/images/aspects/沃特金斯法则之威能.webp"
   },
@@ -3679,7 +3679,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "毒素伤害暴击后，你造成的非物理伤害提高 [40 - 60]%[x]，持续 9 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1959807487.webp",
     "img_file": "assets/images/aspects/污染之威能.webp"
   },
@@ -3691,7 +3691,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的深渊技能造成的伤害提高，数值相当于你暗影抗性伤害减免的 [60 - 80]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003873.webp",
     "img_file": "assets/images/aspects/无底暗渊之威能.webp"
   },
@@ -3703,7 +3703,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你每生成一点怒气，就会使你的伤害提高 [1.00 - 1.50]%[x]。该加成在 4 秒后消失。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503528.webp",
     "img_file": "assets/images/aspects/无尽怒火之威能.webp"
   },
@@ -3715,7 +3715,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的灵魂风暴会对敌人造成电击，在离开后 3 秒内额外造成相当于灵魂风暴总伤害 [80 - 100]% 的伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1961153219.webp",
     "img_file": "assets/images/aspects/无尽刃爪之威能.webp"
   },
@@ -3727,7 +3727,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "从人形兵器关键被动中获得的所有伤害加成激活时, 怒气生成量提高 [35.0 - 75.0]%[x], 怒气消耗降低 15%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328184.webp",
     "img_file": "assets/images/aspects/无情武师之威能.webp"
   },
@@ -3739,7 +3739,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当至少有 5 名近距敌人时, 击昏他们 [2.5 - 4.5] 秒。每 20 秒只能触发一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666759.webp",
     "img_file": "assets/images/aspects/无畏之威能.webp"
   },
@@ -3751,7 +3751,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "处于健康状态时，你的爆焰技能造成的伤害提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870516909.webp",
     "img_file": "assets/images/aspects/无瑕烈焰之威能.webp"
   },
@@ -3763,7 +3763,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放冲锋会召唤出 4 位先祖和你一起冲锋，每位先祖造成 [20 - 40]%[x] 普通伤害。 你的召唤物造成的伤害提高 [20 - 40]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503529.webp",
     "img_file": "assets/images/aspects/先祖冲锋之威能.webp"
   },
@@ -3775,7 +3775,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 腾空斩、扬石飞沙和旋风斩最多有 [45 - 65]% 几率召唤出一位先祖，施放相同的技能。此效果每 5 秒只能生效一次。 你的召唤物造成的伤害提高 [20 - 40]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502443.webp",
     "img_file": "assets/images/aspects/先祖回响之威能.webp"
   },
@@ -3787,7 +3787,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "先祖之锤向周围释放出震荡能量，并且伤害提高 [30 - 60]%[x]。在面对首领时该加成翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502539.webp",
     "img_file": "assets/images/aspects/先祖力量之威能.webp"
   },
@@ -3799,7 +3799,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "闪避会使你化身成一团蝙蝠，对路径上的敌人造成 300 点物理伤害，并施加吸血鬼诅咒。闪避的冷却时间增加 [10.0 - 4.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680306.webp",
     "img_file": "assets/images/aspects/鲜血变身之威能.webp"
   },
@@ -3811,7 +3811,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 鲜血技能最多有 [30 - 50]% 几率在目标位置生成一个生命球。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962851.webp",
     "img_file": "assets/images/aspects/鲜血输送之威能.webp"
   },
@@ -3823,7 +3823,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当你拥有易爆或恶魔形态的其中一种效果时，另一种效果的持续时间延长 [160 - 200]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1632510785.webp",
     "img_file": "assets/images/aspects/献祭之威能.webp"
   },
@@ -3835,7 +3835,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的暗影分身和阴影也会模仿施加到你技能上的灌注效果。 施放一个灌注技能会使你造成的非物理伤害提高 [40 - 60]%[x]，持续 9 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003804.webp",
     "img_file": "assets/images/aspects/效法灌注之威能.webp"
   },
@@ -3847,7 +3847,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击: 施放基础技能最多有 [35.0 - 50.0]% 几率使你的下一次核心技能不消耗主要资源，最多可叠加 3 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376476.webp",
     "img_file": "assets/images/aspects/效能之威能.webp"
   },
@@ -3859,7 +3859,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "每有一个激活的召唤物，你的移动速度提高 [1.0 - 1.5]%[+]。施放召唤技能会使该加成翻倍，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1501976372.webp",
     "img_file": "assets/images/aspects/邪盟之威能.webp"
   },
@@ -3871,7 +3871,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放的技能会根据其元素类型提供加成: - 爆焰技能可使敌人定身 [1.0 - 2.0] 秒 - 电冲技能可使移动速度提高 [10 - 20]%，持续 4 秒 - 寒霜技能可使你获得一层相当于自身 1.0% 生命上限的屏障，持续 4 秒 如果你在过去 4 秒内分别用每种元素造成过伤害，技能将同时提供所有加成，不受元素限制。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1456161763.webp",
     "img_file": "assets/images/aspects/心灵觉醒之威能.webp"
   },
@@ -3883,7 +3883,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "静止不动时，造成的伤害最多提高 [50 - 75]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156672880.webp",
     "img_file": "assets/images/aspects/心如止水之威能.webp"
   },
@@ -3895,7 +3895,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "召唤一个高阶恶魔会将其周围敌人击倒 5 秒。你的低阶恶魔技能对受到控制效果影响的敌人造成的伤害提高 [10 - 20]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4049846230.webp",
     "img_file": "assets/images/aspects/凶魔压制之威能.webp"
   },
@@ -3907,7 +3907,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "黑暗技能会使敌人虚弱 4 秒。黑暗技能对被虚弱的敌人造成的伤害提高 [10 - 15]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355961734.webp",
     "img_file": "assets/images/aspects/虚空之威能.webp"
   },
@@ -3919,7 +3919,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "基础技能使造成的伤害提高 [4.0 - 6.0]%[x]，持续 4 秒，最多叠加 10 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673048.webp",
     "img_file": "assets/images/aspects/蓄势待击之威能.webp"
   },
@@ -3931,7 +3931,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放血矛将消耗生命球并且从中召唤血矛。每支额外的血矛造成 [60 - 100]% 的普通伤害, 优先瞄准未中血矛的敌人。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002765.webp",
     "img_file": "assets/images/aspects/血肉刺之威能.webp"
   },
@@ -3943,7 +3943,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在基础变形形态下施放技能造成的伤害提高 [45 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330528.webp",
     "img_file": "assets/images/aspects/循迹之威能.webp"
   },
@@ -3955,7 +3955,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的天鹰技能造成的伤害提高，数值相当于你的移动速度的 [20.0 - 30.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910027.webp",
     "img_file": "assets/images/aspects/迅风飞翼之威能.webp"
   },
@@ -3967,7 +3967,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "失去决断时，使你获得 [3.0 - 5.0]%[x] 移动速度，持续 10 秒，最多叠加 5 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1320530889.webp",
     "img_file": "assets/images/aspects/迅捷灵魂之威能.webp"
   },
@@ -3979,7 +3979,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每层热忱使你获得 [15.0 - 20.0]%[x] 额外暴击伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117556128.webp",
     "img_file": "assets/images/aspects/雅克热忱之威能.webp"
   },
@@ -3991,7 +3991,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "蛮力投掷和钢铁之握现在将根据冷却时间缩减效果改为获得积数级的伤害加成（而非冷却时间），且伤害额外提高 25%[x]。此外，武器精通技能获得 [15 - 35]%[x] 伤害加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/788865516.webp",
     "img_file": "assets/images/aspects/延迟绝灭威能.webp"
   },
@@ -4003,7 +4003,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "根据你的受伤程度，获得最多 [40 - 60]% 的伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3626489493.webp",
     "img_file": "assets/images/aspects/要塞之威能.webp"
   },
@@ -4015,7 +4015,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "基础技能每施放至第 3 次时，都有 [10 - 30]% 几率额外释放一次报复。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910029.webp",
     "img_file": "assets/images/aspects/一心复仇之威能.webp"
   },
@@ -4027,7 +4027,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放地狱火技能会使秘术技能的冷却时间缩短 [30 - 50]%，持续 3 秒。施放深渊技能会使秘术技能的资源消耗降低 [30 - 50]%，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828440.webp",
     "img_file": "assets/images/aspects/仪祭同调之威能.webp"
   },
@@ -4039,7 +4039,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每次施放与前一次不同的秘术技能，都会使你造成的所有伤害提高 [10.0 - 14.0]%[x]，持续 15 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909964.webp",
     "img_file": "assets/images/aspects/异端之威能.webp"
   },
@@ -4051,7 +4051,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "被灌注的技能每提升一级，会使暗影灌注造成的伤害提高 10%[x]。 每 10 秒，被灌注的技能命中一名敌人时，引发一次大爆炸，造成 [113 - 173] 暗影伤害，对命中的每个敌人施加暗影灌注。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566003837.webp",
     "img_file": "assets/images/aspects/易爆暗影之威能.webp"
   },
@@ -4063,7 +4063,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用黑暗技能对敌人造成伤害时，你的黑暗技能对其造成的伤害提高 [10 - 15]%[x]，持续 2 秒，最多叠加 4 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001712.webp",
     "img_file": "assets/images/aspects/阴霾之威能.webp"
   },
@@ -4075,7 +4075,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "引导技能期间，造成的伤害提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518124.webp",
     "img_file": "assets/images/aspects/引导之威能.webp"
   },
@@ -4087,7 +4087,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "受易爆强化的技能额外造成 40%[x] 的伤害，并且施放受强化的技能时，你有 [24.0 - 40.0]% 几率保留易爆效果。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518098.webp",
     "img_file": "assets/images/aspects/引燃之威能.webp"
   },
@@ -4099,7 +4099,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "基础技能会产生 [15 - 25] 点额外主要资源，每次施放只能生效一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1847532386.webp",
     "img_file": "assets/images/aspects/应变之威能.webp"
   },
@@ -4111,7 +4111,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放勇气技能时生成 [1 - 6] 点决断",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3174517509.webp",
     "img_file": "assets/images/aspects/英勇之威能.webp"
   },
@@ -4123,7 +4123,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你获得 [15 - 25]% 伤害减免提高。当你受到伤害时，有 [5 - 15]% 几率生成一具亡骸。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1389105282.webp",
     "img_file": "assets/images/aspects/硬化白骨之威能.webp"
   },
@@ -4135,7 +4135,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "基础技能给予 [20 - 30]% 伤害减免，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808104.webp",
     "img_file": "assets/images/aspects/勇力之威能.webp"
   },
@@ -4147,7 +4147,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "生命球提供 [20 - 30] 点精魂。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828443.webp",
     "img_file": "assets/images/aspects/涌能鲜血之威能.webp"
   },
@@ -4159,7 +4159,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当敌人受到的减速效果达到 80% 或以上时会陷入恐惧，持续 3 秒。你对被恐惧的敌人额外造成 [30 - 40]%[x] 伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902880.webp",
     "img_file": "assets/images/aspects/忧惧之威能.webp"
   },
@@ -4171,7 +4171,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "受到陷阱或手雷技能伤害的敌人受到你的伤害提高 [8.0 - 12.0]%[x]，最高提高至 [40 - 60]%[x]，持续 0 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331655.webp",
     "img_file": "assets/images/aspects/诱捕之威能.webp"
   },
@@ -4183,7 +4183,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放终极技能时，每有一级技能级别，获得 [5.0 - 8.0] 点能量。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1672768510.webp",
     "img_file": "assets/images/aspects/余劲尚存之威能.webp"
   },
@@ -4195,7 +4195,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击: 最多有 20% 几率使你的一个防御技能冷却时间缩短 [8.0 - 10.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828440.webp",
     "img_file": "assets/images/aspects/元素调和之威能.webp"
   },
@@ -4207,7 +4207,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "施放爆焰、电冲或寒霜技能会使你获得 [6 - 9] 法力回复速度，持续 4 秒，每种元素可叠加一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376541.webp",
     "img_file": "assets/images/aspects/元素敏锐之威能.webp"
   },
@@ -4219,7 +4219,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "其中一组伤害类型的伤害提高 [40 - 60]%[x]，持续 7 秒。该效果会在 2 组伤害类型之间随机交替: - 火焰、闪电、神圣和物理。 - 冰霜、毒素和暗影。 命运可能眷顾你，给予至少一次相同的加成，最多叠加 6 次。达到最大值时，今天就是你的幸运日！",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673969.webp",
     "img_file": "assets/images/aspects/元素命运之威能.webp"
   },
@@ -4231,7 +4231,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你装备的寒霜、爆焰和电冲技能数量相等时，你造成的伤害提高 [80.0 - 120.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3953449075.webp",
     "img_file": "assets/images/aspects/元素星阵之威能.webp"
   },
@@ -4243,7 +4243,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "愤怒达到上限时，每获得 [30 - 10] 点愤怒值，你获得一层压制。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/怨毒之威能.webp"
   },
@@ -4255,7 +4255,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用基础技能对敌人造成伤害会使你的攻击速度提高 4%，持续 10 秒，该效果至多可叠加 5 次。在达到最大层数时进入吸血鬼血怒状态，获得 [40 - 60]%[x] 基础技能伤害和 15% 移动速度，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673998.webp",
     "img_file": "assets/images/aspects/月升之威能.webp"
   },
@@ -4267,7 +4267,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使敌人丧失行动能力会产生 [4.0 - 6.0] 点主要资源。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1847531325.webp",
     "img_file": "assets/images/aspects/月蚀之威能.webp"
   },
@@ -4279,7 +4279,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "被妖术的敌人试图攻击你时，有 [15.0 - 30.0]% 几率被击倒 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666725.webp",
     "img_file": "assets/images/aspects/灾厄之威能.webp"
   },
@@ -4291,7 +4291,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每层妖术使你对敌人造成的暴击几率提高 [10.0 - 20.0]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004891.webp",
     "img_file": "assets/images/aspects/灾祸之威能.webp"
   },
@@ -4303,7 +4303,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 25% 几率在目标位置生成一具亡骸。你的亡骸技能造成的伤害提高 [15.0 - 20.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962851.webp",
     "img_file": "assets/images/aspects/凿削血肉之威能.webp"
   },
@@ -4315,7 +4315,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每恢复 10% 的生命上限，使你的鲜血技能造成的伤害提高 [60 - 90]%[x]，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002731.webp",
     "img_file": "assets/images/aspects/早亡之威能.webp"
   },
@@ -4327,7 +4327,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "基于你的强固，你的鲜血技能造成的伤害最多提高 [60 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299001682.webp",
     "img_file": "assets/images/aspects/粘稠之血之威能.webp"
   },
@@ -4339,7 +4339,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "幸运一击: 你的腐化效果有 [50.0 - 80.0]% 几率生成 3 点精魂。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828477.webp",
     "img_file": "assets/images/aspects/长影之威能.webp"
   },
@@ -4351,7 +4351,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "使用白骨技能造成暴击会使你的精魂回复速度提高 [300.0 - 500.0]%[x], 持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828407.webp",
     "img_file": "assets/images/aspects/折磨之威能.webp"
   },
@@ -4363,7 +4363,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对被心眼标记的敌人造成的伤害提高 [120 - 200]%[x]。当心眼充满时，你造成的伤害提高 [60 - 100]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2259888338.webp",
     "img_file": "assets/images/aspects/真视之威能.webp"
   },
@@ -4375,7 +4375,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当你控制敌人或对首领施加踉跄时，有 [60 - 80]% 几率获得 1 层残暴。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/723145871.webp",
     "img_file": "assets/images/aspects/振奋逆袭之威能.webp"
   },
@@ -4387,7 +4387,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "昏迷手雷的范围提高 [[30 - 45]%[+]，且控制持续时间提高 [60 - 90]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902882.webp",
     "img_file": "assets/images/aspects/震荡合剂之威能.webp"
   },
@@ -4399,7 +4399,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的战吼技能效果持续时间延长 [20 - 30]%[+]，并使敌人虚弱 5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054599.webp",
     "img_file": "assets/images/aspects/震耳嗓音之威能.webp"
   },
@@ -4411,7 +4411,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你拥有压制层数时，你的钝击武器攻击造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842503531.webp",
     "img_file": "assets/images/aspects/征途之威能.webp"
   },
@@ -4423,7 +4423,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在健康状态下，你的技能造成的伤害提高 [20 - 35]%[x]。对虚弱敌人造成伤害时此加成翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557251.webp",
     "img_file": "assets/images/aspects/至高荣耀之威能.webp"
   },
@@ -4435,19 +4435,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "终极技能生效期间消灭的敌人会使你获得一层至尊效果，每层效果使你的伤害提高 [6.0 - 9.0]%[x]，最多提高 [60.0 - 90.0]%[x]。终极技能结束时，你会获得 5 层至尊效果，但每秒都会失去一层。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518122.webp",
     "img_file": "assets/images/aspects/至尊之威能.webp"
   },
   {
     "cn": "致残黑暗之威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "游侠, 死灵法师, 术士",
     "class_cn": "游侠, 死灵法师, 术士",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 暗影伤害最多有 15% 几率使造成的伤害提高 [20 - 30]%[x]，并使敌人恐惧及定身，持续 1 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962788.webp",
     "img_file": "assets/images/aspects/致残黑暗之威能.webp"
   },
@@ -4459,7 +4459,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "闪避穿过受暗影灌注影响的敌人时，获得潜行，持续 4 秒。打破潜行状态会为你恢复 [10 - 30]% 的生命上限。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2656107504.webp",
     "img_file": "assets/images/aspects/致命黄昏之威能.webp"
   },
@@ -4471,7 +4471,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的亵渎之地造成的伤害提高 [80 - 120]%[x]，并且会使敌人减速 50%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002763.webp",
     "img_file": "assets/images/aspects/终极暗影之威能.webp"
   },
@@ -4483,7 +4483,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "仲裁官的闪避冷却时间缩短 [1.0 - 3.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1320530919.webp",
     "img_file": "assets/images/aspects/仲裁官和风之威能.webp"
   },
@@ -4495,7 +4495,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "使用主宰者誓约消耗决断层数时，额外造成 [60 - 100]%[x] 伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557223.webp",
     "img_file": "assets/images/aspects/主宰者契约之威能.webp"
   },
@@ -4507,7 +4507,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "旋风斩每 [6.0 - 3.0] 秒会将敌人拉向你。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495362.webp",
     "img_file": "assets/images/aspects/抓力旋风之威能.webp"
   },
@@ -4519,7 +4519,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "施放召唤魔法技能使你获得 [15.0 - 30.0]%[x] 伤害减免，持续 5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960620612.webp",
     "img_file": "assets/images/aspects/专注之威能.webp"
   },
@@ -4531,7 +4531,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "失去 0 层决断会使圣光惩戒几率提高 [30 - 50]%，持续 10 秒。 圣光惩戒的范围扩大 50%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997718.webp",
     "img_file": "assets/images/aspects/卓越之威能.webp"
   },
@@ -4543,7 +4543,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "治疗药水可使移动速度提高 [20 - 30]%[x]，持续 8 秒。你每移动 80 米会补充一瓶治疗药水。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2768978592.webp",
     "img_file": "assets/images/aspects/浊酒之威能.webp"
   },
@@ -4555,7 +4555,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每个德鲁伊形态每 [7.0 - 5.0] 秒获得一个加成: - 狼 1 层残暴。 - 熊 1 层压制。 - 人 1 层决断。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856290783.webp",
     "img_file": "assets/images/aspects/自然本能之威能.webp"
   },
@@ -4567,7 +4567,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "施放一个风暴技能会使你的大地技能造成的暴击伤害提高 [50.0 - 70.0]%[x]，持续 4 秒。 施放一个大地技能会使风暴技能的暴击几率提高 [10.0 - 20.0]%[+]，持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330567.webp",
     "img_file": "assets/images/aspects/自然平衡之威能.webp"
   },
@@ -4579,7 +4579,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你只有 1 种激活的仆从时，这种仆从造成的伤害提高 [50 - 70]%[x]，生命上限提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002795.webp",
     "img_file": "assets/images/aspects/自然选择之威能.webp"
   },
@@ -4591,7 +4591,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "一股黑暗气息笼罩在你周围，对接触到的敌人施加衰老和铁处女效果。 以这种方式施加的诅咒每隔 [2.5 - 4] 秒便会扩散至周围的目标，且在离开黑暗气息之后，还会持续 4 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4049846230.webp",
     "img_file": "assets/images/aspects/诅咒光环之威能.webp"
   },
@@ -4603,7 +4603,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 最多有 [30.0 - 40.0]% 几率对敌人施加吸血鬼诅咒。带有吸血鬼诅咒的敌人也会陷入易伤状态。 吸血鬼诅咒储存的灵魂造成的伤害提高 [40.0 - 60.0]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666791.webp",
     "img_file": "assets/images/aspects/诅咒之触之威能.webp"
   },
@@ -4615,7 +4615,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每次使用与前一次不同的基础技能，都会使你造成的所有伤害提高 [25 - 35]%[x]，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909963.webp",
     "img_file": "assets/images/aspects/组合打击之威能.webp"
   },
@@ -4627,7 +4627,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "命中精英敌人会使造成的伤害提高 [80 - 120]%[x]，但需要消耗 4 层 压制。如果敌人中了妖术，则不会消耗任何层数。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502448.webp",
     "img_file": "assets/images/aspects/威势威能.webp"
   },
@@ -4639,19 +4639,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "灾虫会在 [5.0 - 9.0] 秒内持续影响你周围的敌人。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902881.webp",
     "img_file": "assets/images/aspects/威胁威能.webp"
   },
   {
     "cn": "无光威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "游侠, 死灵法师, 术士",
     "class_cn": "游侠, 死灵法师, 术士",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "暗影伤害的幸运一击几率提高 [20 - 30]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962855.webp",
     "img_file": "assets/images/aspects/无光威能.webp"
   },
@@ -4663,7 +4663,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "施放武器精通技能会强固相当于你生命上限 5% 的数值。你的生命上限提高 [30 - 45]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1052197035.webp",
     "img_file": "assets/images/aspects/无惧威压威能.webp"
   },
@@ -4675,7 +4675,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "在 10 秒内消灭至少 30 名敌人或恶魔后，你造成的伤害提高 [40 - 60]%[x]，持续 10 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502447.webp",
     "img_file": "assets/images/aspects/无悯威能.webp"
   },
@@ -4687,19 +4687,19 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的击倒会使敌人受到来自你的 [50 - 60]%[x] 伤害，持续 6 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909994.webp",
     "img_file": "assets/images/aspects/无情威能.webp"
   },
   {
     "cn": "无畏酋长的威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "德鲁伊, 野蛮人",
     "class_cn": "德鲁伊, 野蛮人",
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你的战吼技能冷却时间缩短 [8.0 - 10.0] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828328289.webp",
     "img_file": "assets/images/aspects/无畏酋长的威能.webp"
   },
@@ -4711,7 +4711,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "巨虫技能造成的伤害提高 [30.0 - 45.0]%[x]，对受到控制效果影响的敌人进一步提高至 [60.0 - 90.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981909998.webp",
     "img_file": "assets/images/aspects/无餍贪欲威能.webp"
   },
@@ -4723,7 +4723,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "武器精通技能使敌人击昏 [1.0 - 1.5] 秒。敌人每 5 秒只能以此方式被击昏一次。你的武器精通技能额外获得一次使用次数，并且造成的伤害提高 [10 - 15]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495201.webp",
     "img_file": "assets/images/aspects/武器大师的威能.webp"
   },
@@ -4735,7 +4735,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的牺牲加成效果提高 [50 - 80]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002735.webp",
     "img_file": "assets/images/aspects/牺牲威能.webp"
   },
@@ -4747,7 +4747,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "造成暴击给予 [30.0 - 50.0]%[+] 移动速度加成, 持续 1 秒, 最多 6 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064679189.webp",
     "img_file": "assets/images/aspects/袭风者威能.webp"
   },
@@ -4759,7 +4759,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "主宰者技能对前 3 个被击中的敌人造成的伤害提高 [100 - 140]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502447.webp",
     "img_file": "assets/images/aspects/先锋的威能.webp"
   },
@@ -4771,7 +4771,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "每 6 秒获得 1 层压制。获得压制时，会生成 1 个易爆血滴，收集后会引发爆炸，对周围的敌人造成 [675 - 974] 点物理伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2743902856.webp",
     "img_file": "assets/images/aspects/鲜血沸腾威能.webp"
   },
@@ -4783,7 +4783,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 狂热者技能最多有 20% 几率治疗你 [4.0 - 6.0]% 已损失的生命。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3685139154.webp",
     "img_file": "assets/images/aspects/鲜血领主的威能.webp"
   },
@@ -4795,7 +4795,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你拥有压制层数时，鲜血技能造成的伤害提高 [25 - 35]%[x]。该加成在你处于健康状态下翻倍。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002704.webp",
     "img_file": "assets/images/aspects/鲜血之潮威能.webp"
   },
@@ -4807,7 +4807,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "静止不动时，你对远距敌人造成的伤害提高 [10.0 - 14.0]%[x]，持续 2 秒，最多提高 [50 - 70]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3953449074.webp",
     "img_file": "assets/images/aspects/险恶威能.webp"
   },
@@ -4819,7 +4819,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "铁蒺藜现在也被视作神射手技能, 在其生效时间内还会掷出 [5 - 25] 枚可以穿透的匕首。每把匕首造成 15 点暗影伤害并施加易伤，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997784.webp",
     "img_file": "assets/images/aspects/陷步神射手之威能.webp"
   },
@@ -4831,7 +4831,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "剧毒藤蔓激活时还会在你周围一圈施放山崩。大地技能对中毒的敌人造成的伤害提高 [15 - 35]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331648.webp",
     "img_file": "assets/images/aspects/陷地威能.webp"
   },
@@ -4843,7 +4843,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你有激活的屏障时, 你造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156672916.webp",
     "img_file": "assets/images/aspects/嚣狂威能.webp"
   },
@@ -4855,7 +4855,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "在暗影形态下被控制时，消耗一层暗影形态，将控制效果反弹给攻击者，并使暗影形态适应该效果类型，使你在接下来 [4.0 - 8.0] 秒内对控制免疫。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/327997718.webp",
     "img_file": "assets/images/aspects/邪祟威能.webp"
   },
@@ -4867,7 +4867,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "你每恢复 10% 的生命，就能获得 [20 - 30]% 的主要资源消耗减免，持续 2 秒，最多持续 6 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1847531264.webp",
     "img_file": "assets/images/aspects/星光威能.webp"
   },
@@ -4879,7 +4879,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "人形兵器关键被动的所有伤害加成激活时，幸运一击的几率提高 [10 - 30]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604496292.webp",
     "img_file": "assets/images/aspects/幸运使者威能.webp"
   },
@@ -4891,19 +4891,19 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "施放化身技能会使你周围的敌人陷入易伤状态，持续 5 秒。消灭一名易伤敌人时，还会对附近的另一名敌人造成连带伤害，数值相当于该次致命攻击伤害的 [70 - 100]%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1660971901.webp",
     "img_file": "assets/images/aspects/凶恶预言者的威能.webp"
   },
   {
     "cn": "汹涌风暴威能",
     "tag": "萃取威能",
-    "class": "All Classes",
+    "class": "巫师, 德鲁伊, 灵巫",
     "class_cn": "巫师, 德鲁伊, 灵巫",
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "幸运一击: 闪电伤害最多有 15% 几率使你获得一层残暴。 当你拥有残暴时，获得 [10.0 - 15.0]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3856291677.webp",
     "img_file": "assets/images/aspects/汹涌风暴威能.webp"
   },
@@ -4915,7 +4915,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "在狂暴状态下消灭敌人，会使你的搏斗技能冷却时间缩减率提高 [50 - 75]%，持续 2 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3828329213.webp",
     "img_file": "assets/images/aspects/熊族狂战的威能.webp"
   },
@@ -4927,7 +4927,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "打破潜行状态会使你获得 4 层决断。当你有决断时，护甲值额外提高 [20 - 30]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604496288.webp",
     "img_file": "assets/images/aspects/蓄势突袭者的威能.webp"
   },
@@ -4939,7 +4939,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的持续性伤害效果对易伤敌人造成的伤害提高 [40.0 - 60.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/788865516.webp",
     "img_file": "assets/images/aspects/削骨威能.webp"
   },
@@ -4951,7 +4951,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "附近每有一名受到你的持续性伤害效果影响的敌人，每秒获得 [1.0 - 1.5] 点主要资源。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/561376408.webp",
     "img_file": "assets/images/aspects/削弱威能.webp"
   },
@@ -4963,7 +4963,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "神射手技能对远距敌人造成的伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004960.webp",
     "img_file": "assets/images/aspects/巡游侠的威能.webp"
   },
@@ -4975,7 +4975,7 @@
     "type": "Resource",
     "type_cn": "资源",
     "slots": "护符[+50%], 戒指",
-    "effect": "",
+    "effect": "生命球使你的终极技能的冷却时间缩短 [2.00 - 3.00] 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2284828440.webp",
     "img_file": "assets/images/aspects/迅血威能.webp"
   },
@@ -4987,7 +4987,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "急促爪击造成的伤害提高 [10 - 30]%[x]，同时会根据其在施放时拥有的充能层数获得额外强化: - 1 层: 恢复 15% 的生命上限。 - 2 层: 必定造成压制。 - 3 层: 必定暴击。 - 4 层及以上: 额外攻击一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3292781660.webp",
     "img_file": "assets/images/aspects/野蛮撕扯威能.webp"
   },
@@ -4999,7 +4999,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "每当你变身进入不同形态时，获得 [10.0 - 13.8]%[x] 的伤害加成，持续 6 秒。最多可叠加 4 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331649.webp",
     "img_file": "assets/images/aspects/野性变形威能.webp"
   },
@@ -5011,7 +5011,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "阴影技能造成的伤害提高 [40 - 60]%[x]，并且有 50% 几率额外生成一个阴影。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1842502443.webp",
     "img_file": "assets/images/aspects/夜行者的威能.webp"
   },
@@ -5023,7 +5023,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "在受伤状态下受到控制效果影响时，会使你获得不可阻挡，持续 4 秒。此效果有 [6 - 4] 秒冷却时间。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2918666726.webp",
     "img_file": "assets/images/aspects/逸脱威能.webp"
   },
@@ -5035,7 +5035,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的深渊技能对过去 2 秒内未命中你的敌人，造成的伤害提高 [60.0 - 80.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1566004895.webp",
     "img_file": "assets/images/aspects/阴险威能.webp"
   },
@@ -5047,7 +5047,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "附近每有一名受到控制效果影响的敌人，便使你获得 [2.0 - 3.0]% 伤害减免，最多计算 13 名敌人。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3960620638.webp",
     "img_file": "assets/images/aspects/永生威能.webp"
   },
@@ -5059,7 +5059,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "技能施放时, 基于你可用的主要资源量最多可造成 [40 - 60]%[x] 增伤, 主要资源全满时获得最大加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673044.webp",
     "img_file": "assets/images/aspects/优势大师的威能.webp"
   },
@@ -5071,7 +5071,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "当处于不可阻挡以及效果结束后的 4 秒内，你获得 [10.0 - 20.0]%[x] 移动速度加成，并且进入无束状态。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1064680239.webp",
     "img_file": "assets/images/aspects/幽灵行者威能.webp"
   },
@@ -5083,7 +5083,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "当你使用白骨技能造成 10 次暴击后，你的白骨技能造成的伤害提高 [50 - 70]%[x]，持续 5 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/299002771.webp",
     "img_file": "assets/images/aspects/有创骨折之威能.webp"
   },
@@ -5095,7 +5095,7 @@
     "type": "Mobility",
     "type_cn": "机动",
     "slots": "护符[+50%], 靴子",
-    "effect": "",
+    "effect": "静止不动时，机动技能的冷却时间每秒缩短 [10.0 - 14.0]%。经过 5 秒后，此类技能变为免费施放。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4073491726.webp",
     "img_file": "assets/images/aspects/有序威能.webp"
   },
@@ -5107,7 +5107,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "法力等于或高于 100 点时施放技能，会获得 [25.0 - 45.0]%[+] 暴击几率加成。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518063.webp",
     "img_file": "assets/images/aspects/元素使的威能.webp"
   },
@@ -5119,7 +5119,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "你的熊人技能伤害使敌人击昏 [2.0 - 3.0] 秒。敌人每 5 秒只能以此方式被击昏一次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054568.webp",
     "img_file": "assets/images/aspects/原始之力威能.webp"
   },
@@ -5131,7 +5131,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "当你使妖术状态下的敌人陷入易伤时，其会被减速 [50 - 70]%，持续 3 秒；当你使其减速时，它们会陷入易伤状态，持续 3 秒。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3355962855.webp",
     "img_file": "assets/images/aspects/灾厄之链威能.webp"
   },
@@ -5143,7 +5143,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "如果你在过去 5 秒拥有不超过 1 只激活恶魔，你的生命上限提高 [20 - 40]%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/951808198.webp",
     "img_file": "assets/images/aspects/憎世威能.webp"
   },
@@ -5155,7 +5155,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "幸运一击: 召唤魔法伤害最多有 15% 几率使其伤害提高 [5.0 - 6.5]%，且幸运一击几率提高 2.5%[+]，持续 8 秒，最多叠加 10 次。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518096.webp",
     "img_file": "assets/images/aspects/战斗法师的威能.webp"
   },
@@ -5167,7 +5167,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "搏斗技能首次命中时使你获得狂暴，持续 5 秒。在狂暴状态下获得 [10.0 - 15.0]% 伤害减免。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3019054600.webp",
     "img_file": "assets/images/aspects/战斗狂热的威能.webp"
   },
@@ -5179,7 +5179,7 @@
     "type": "Utility",
     "type_cn": "通用",
     "slots": "护符[+50%], 靴子, 胸甲, 手套, 裤子, 头盔, 副手",
-    "effect": "",
+    "effect": "切换武器 5 次后获得狂暴，持续 4 秒。此外，在狂暴状态下你造成的伤害提高 [15.0 - 20.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/604495201.webp",
     "img_file": "assets/images/aspects/战斗狂威能.webp"
   },
@@ -5191,7 +5191,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的召唤魔法最大数量提高 1 并且你的召唤魔法伤害提高 [40 - 60]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517009.webp",
     "img_file": "assets/images/aspects/召唤魔法大师的威能.webp"
   },
@@ -5203,7 +5203,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的中毒效果会使敌人每秒受到相当于你荆棘伤害 [150 - 200]% 的伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3981910023.webp",
     "img_file": "assets/images/aspects/折磨者的威能.webp"
   },
@@ -5215,7 +5215,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "造成的荆棘伤害有 [40 - 60]% 几率对你和你仆从周围的所有敌人造成伤害。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/4156673938.webp",
     "img_file": "assets/images/aspects/针刺暴突威能.webp"
   },
@@ -5227,7 +5227,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的大地技能对健康敌人造成的伤害提高 [120 - 180]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330631.webp",
     "img_file": "assets/images/aspects/震动变换威能.webp"
   },
@@ -5239,7 +5239,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你对丧失行动能力的敌人造成的伤害提高 [60 - 90]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870518065.webp",
     "img_file": "assets/images/aspects/征服威能.webp"
   },
@@ -5251,7 +5251,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "手雷技能造成的伤害提高 [35 - 50]%[x]。该加成对受到控制效果影响的敌人提高至 [52.5 - 75.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/117557252.webp",
     "img_file": "assets/images/aspects/掷弹兵的威能.webp"
   },
@@ -5263,7 +5263,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的掌控技能在激活期间每秒造成的伤害提高 [20.0 - 30.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/2870517997.webp",
     "img_file": "assets/images/aspects/滞留威能.webp"
   },
@@ -5275,7 +5275,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "你的技能在生成铁制碎片，地震或尘魔时，造成的伤害提高 [40.0 - 60.0]%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/3868016484.webp",
     "img_file": "assets/images/aspects/重击威能.webp"
   },
@@ -5287,7 +5287,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "",
+    "effect": "龙卷风会拖拽非精英敌人，且造成的伤害提高 [20.0 - 40.0]%[x]。龙卷风内每有一个敌人或物体，伤害额外提高 10%[x]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799331614.webp",
     "img_file": "assets/images/aspects/逐风者的威能.webp"
   },
@@ -5299,7 +5299,7 @@
     "type": "Defensive",
     "type_cn": "防御",
     "slots": "护符[+50%], 胸甲, 头盔, 裤子, 副手",
-    "effect": "",
+    "effect": "你获得 [100 - 150]%[+] 总护甲值，但闪避的冷却时间增加 100%。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/1207659771.webp",
     "img_file": "assets/images/aspects/主宰的威能.webp"
   },
@@ -5311,7 +5311,7 @@
     "type": "Offensive",
     "type_cn": "攻击",
     "slots": "护符[+50%], 手套, 戒指, 单手武器, 双手武器[+100%], 副手",
-    "effect": "人类技能对远距敌人额外造成 [40 - 60]%[x] 的伤害。如果目标也处于妨碍状态，此加成额外提高 25%[+]。没有更多数据了",
+    "effect": "人类技能对远距敌人额外造成 [40 - 60]%[x] 的伤害。如果目标也处于妨碍状态，此加成额外提高 25%[+]。",
     "img_url": "https://cloudstorage.d2core.com/data_img/d4/aspect/799330731.webp",
     "img_file": "assets/images/aspects/自然延伸威能.webp"
   }
