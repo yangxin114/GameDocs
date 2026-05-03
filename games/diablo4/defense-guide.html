@@ -276,7 +276,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <div class="section-body">
 <div class="section-content content">
 
-<p>护甲是暗黑4中<strong style="color:var(--gold)">最核心</strong>的减伤属性。S11装备重铸赛季后护甲改为评级系统(Rating)，对物理和元素伤害<strong>统一减伤</strong>，不再有50%元素惩罚。S13延续此机制，<strong>违抗威能</strong>仍是护甲核心来源。</p>
+<p>护甲是暗黑4中<strong style="color:var(--gold)">最核心</strong>的减伤属性。S11装备重铸赛季后护甲改为评级系统(Rating)，对物理和元素伤害<strong>统一减伤</strong>，不再有50%元素惩罚。<strong>主宰的威能</strong>是护甲核心来源（提供100-150%总护甲），违抗威能已改为伤害减免。</p>
 
 <!-- 修正: S11后护甲统一减伤，无50%元素惩罚 -->
 <h4>减伤公式</h4>
@@ -284,7 +284,6 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <div class="formula-label">护甲减伤率（评级系统）</div>
   <div class="formula-code">减伤率 <span class="hl">=</span> 护甲 <span class="hl">/</span> (护甲 <span class="hl">+</span> <span class="num">4500</span>)<br>适用于<strong>所有伤害类型</strong>（物理+元素统一公式）</div>
 </div>
-
 <p>减伤<strong>硬上限为85%</strong>，需约25,500护甲达到。6575护甲约50%减伤。护甲减伤针对同等级怪物，高难度怪物等级提升需更多护甲。<br><span style="color:var(--text-dim);font-size:.72rem">&#x26A0; S11起护甲/抗性改为评级系统，具体减伤以游戏面板为准。</span></p>
 
 <h4>减伤效果可视化</h4>
@@ -310,9 +309,9 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 <h4>护甲来源</h4>
 <ul>
   <li><strong>装备基底</strong>：胸甲、头盔、裤子提供最高基础护甲</li>
-  <li><strong>力量</strong>：每100力量 = 2护甲</li>
-  <li><strong>违抗威能</strong>：叠层后提升大量护甲（核心）</li>
-  <li><strong>抗性宝石</strong>：防具镶嵌对应元素抗性宝石</li>
+  <li><strong>主宰的威能</strong>：获得100-150%总护甲加成，是当前版本核心护甲威能（全职业通用）</li>
+  <li><strong>各职业防御技能</strong>：圣骑士圣盾术、法师冰甲等提供临时护甲倍率</li>
+  <li><strong>抗性宝石</strong>：防具镶嵌提供对应抗性</li>
 </ul>
 
 <!-- 修正: 护甲模拟器同步删除0.9系数，计算使用正确公式 -->
@@ -526,7 +525,8 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
 
 <h4>主要来源</h4>
 <ul>
-  <li><strong>屏障</strong>：法师冰甲/火焰盾、死灵骨甲、圣骑士圣盾术、通用违抗威能</li>
+  <li><strong>屏障</strong>：法师冰甲/火焰盾、死灵骨甲、圣骑士圣盾术</li>
+  <li><strong>保护者之威能</strong>（核心屏障威能）：对精英造成伤害获得70-100%生命上限的屏障</li>
   <li><strong>强固</strong>：野蛮人挑战怒吼、德鲁伊熊人形态、各类药剂</li>
 </ul>
 
@@ -593,6 +593,43 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <li><strong>受伤减伤</strong>：生命<35%时触发</li>
   <li><strong>格挡减伤</strong>：持盾格挡减免</li>
 </ul>
+
+<h4>&#x2728; S13核心防御威能一览</h4>
+<p style="font-size:.78rem;color:var(--text-dim);margin-bottom:.5rem">以下为S13版本实际使用的关键防御威能，标注「通用」者为全职业可用：</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem">
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--gold)">
+    <strong style="color:var(--gold);font-size:.82rem">违抗之威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">持续性伤害使获得1-1.5%减伤，叠30层=最大45%减伤</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid #3498db">
+    <strong style="color:#3498db;font-size:.82rem">保护者之威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">对精英造成伤害后获得70-100%生命上限屏障（20秒CD）</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--red)">
+    <strong style="color:var(--red);font-size:.82rem">要塞之威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">根据受伤程度获得最多40-60%减伤</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--purple)">
+    <strong style="color:var(--purple);font-size:.82rem">永生威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">被控敌人每个提供2-3%减伤，最多13层≈39%</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--green)">
+    <strong style="color:var(--green);font-size:.82rem">勇力之威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">基础技能给予20-30%减伤持续4秒</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--gold)">
+    <strong style="color:var(--gold);font-size:.82rem">主宰的威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">100-150%总护甲，是目前最强护甲威能</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid #3498db">
+    <strong style="color:#3498db;font-size:.82rem">冰雪帷幕威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">拥有屏障时获得20-30%减伤</div>
+  </div>
+  <div style="padding:.5rem;background:rgba(0,0,0,.2);border-radius:8px;border-left:3px solid var(--gold)">
+    <strong style="color:var(--gold);font-size:.82rem">庇护之威能</strong> <span style="font-size:.6rem;color:var(--text-dim);background:rgba(200,150,62,.12);padding:1px 5px;border-radius:3px">通用</span>
+    <div style="font-size:.7rem;color:var(--text-dim);margin-top:2px">施放防御技能后全抗提升30-50%，持续10秒</div>
+  </div>
+</div>
 
 </div>
 </div>
@@ -802,7 +839,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <div class="skill-tags"><span class="skill-tag">挑战怒吼</span><span class="skill-tag">钢铁皮肤</span><span class="skill-tag">坚韧被动</span><span class="skill-tag">强固增生</span></div>
   <ul class="tips-list">
     <li>挑战怒吼是游戏最强群体减伤，S13冷却流更频繁覆盖</li>
-    <li>违抗威能+钢铁皮肤叠护甲，搭配强固状态10%减伤双重保障</li>
+    <li>主宰的威能提供大量总护甲，搭配钢铁皮肤和强固状态10%减伤双重保障</li>
     <li>S13技能等级上限提升至15级，防御技能效果大幅增强</li>
   </ul>
 </div>
@@ -917,7 +954,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900
   <ul class="tips-list">
     <li>恶魔召唤物可吸收部分伤害，S13高技能等级下吸收量更大</li>
     <li>生命分流以法力换生命，S13分支可强化回复效率</li>
-    <li>暗影护甲提供护甲加成，需配合违抗威能达到护甲上限</li>
+    <li>暗影护甲提供护甲加成，可搭配主宰威能达到护甲上限</li>
   </ul>
 </div>
 
