@@ -1,1579 +1,1166 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>防御机制完全解析 - 暗黑破坏神 IV</title>
-  <link rel="stylesheet" href="../../assets/css/base.css">
-  <link rel="stylesheet" href="../../assets/css/components.css">
-  <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
-  <style>
-    /* === Page Layout === */
-    .page-container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* === Progress Bar === */
-    .progress-track {
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      z-index: 99;
-      height: 4px;
-      background: rgba(255,255,255,0.05);
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #DAA520, #f0c060);
-      border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-
-    /* === Level Indicator === */
-    .level-bar {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 3rem;
-      padding: 1rem 1.5rem;
-      background: rgba(26, 15, 20, 0.8);
-      border: 1px solid var(--border-color);
-      border-radius: 14px;
-      backdrop-filter: blur(12px);
-    }
-
-    .level-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-      color: var(--bg-main);
-      font-family: 'Cinzel', serif;
-      font-weight: 900;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    .level-info { flex: 1; }
-
-    .level-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .level-name {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .level-dots {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .level-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid var(--border-color);
-      transition: all 0.3s ease;
-    }
-
-    .level-dot.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 10px var(--shadow-color);
-    }
-
-    /* === Section Styles === */
-    .defense-section {
-      margin-bottom: 4rem;
-      padding-top: 80px;
-    }
-
-    .section-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-
-    .section-header {
-      padding: 2rem 2.5rem;
-      border-bottom: 1px solid var(--border-color);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      user-select: none;
-    }
-
-    .section-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .section-icon.armor { background: rgba(218, 165, 32, 0.12); }
-    .section-icon.resist { background: rgba(152, 104, 216, 0.12); }
-    .section-icon.hp { background: rgba(231, 76, 60, 0.12); }
-    .section-icon.fortify { background: rgba(52, 152, 219, 0.12); }
-    .section-icon.dmg { background: rgba(39, 174, 96, 0.12); }
-    .section-icon.dodge { background: rgba(230, 126, 34, 0.12); }
-
-    .section-title-group { flex: 1; }
-
-    .section-number {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section-title-text {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-top: 0.15rem;
-    }
-
-    .section-toggle {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    .section-card.open .section-toggle {
-      transform: rotate(180deg);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .section-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .section-card.open .section-body {
-      max-height: 5000px;
-    }
-
-    .section-content {
-      padding: 2rem 2.5rem 2.5rem;
-    }
-
-    /* === Content Typography === */
-    .content p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-
-    .content h4 {
-      font-family: 'Noto Sans SC', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin: 1.5rem 0 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .content h4::before {
-      content: '';
-      width: 3px;
-      height: 16px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .content ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    .content li {
-      color: var(--text-secondary);
-      font-size: 0.88rem;
-      line-height: 1.9;
-      margin-bottom: 0.3rem;
-    }
-
-    .content li strong {
-      color: var(--text-primary);
-    }
-
-    /* === Formula Box === */
-    .formula-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin: 1rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .formula-box::before {
-      content: 'FORMULA';
-      position: absolute;
-      top: 0.5rem;
-      right: 0.75rem;
-      font-size: 0.55rem;
-      letter-spacing: 2px;
-      color: var(--text-muted);
-    }
-
-    .formula-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-bottom: 0.4rem;
-    }
-
-    .formula-code {
-      font-family: 'Consolas', 'Courier New', monospace;
-      font-size: 0.85rem;
-      color: var(--accent);
-      line-height: 1.7;
-    }
-
-    /* === Stat Bars === */
-    .stat-bars {
-      margin: 1.25rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .stat-bar-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .stat-bar-label {
-      width: 90px;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      flex-shrink: 0;
-      text-align: right;
-    }
-
-    .stat-bar-track {
-      flex: 1;
-      height: 28px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .stat-bar-fill {
-      height: 100%;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 0.6rem;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: rgba(255,255,255,0.9);
-      width: 0;
-      transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .stat-bar-fill.animated {
-      /* width set by JS */
-    }
-
-    .stat-bar-fill.armor { background: linear-gradient(90deg, #8B6914, #DAA520); }
-    .stat-bar-fill.resist { background: linear-gradient(90deg, #6c3483, #9868d8); }
-    .stat-bar-fill.hp { background: linear-gradient(90deg, #922b21, #e74c3c); }
-    .stat-bar-fill.dmg { background: linear-gradient(90deg, #1e8449, #27ae60); }
-
-    /* === Damage Pipeline === */
-    .pipeline {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 14px;
-    }
-
-    .pipe-node {
-      text-align: center;
-      padding: 0.75rem;
-      min-width: 80px;
-    }
-
-    .pipe-icon {
-      font-size: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .pipe-label {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .pipe-value {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-top: 0.15rem;
-    }
-
-    .pipe-arrow {
-      color: var(--text-muted);
-      font-size: 1.2rem;
-    }
-
-    .pipe-damage {
-      background: rgba(26, 15, 20, 0.9);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      text-align: center;
-      min-width: 100px;
-    }
-
-    .pipe-damage .amount {
-      font-size: 1.3rem;
-      font-weight: 900;
-      font-family: 'Cinzel', serif;
-    }
-
-    .pipe-damage .amount.start { color: #e74c3c; }
-    .pipe-damage .amount.end { color: #27ae60; }
-
-    .pipe-damage .label {
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-top: 0.2rem;
-    }
-
-    /* === Interactive Calculator === */
-    .calc-widget {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 2rem 0;
-    }
-
-    .calc-header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .calc-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      color: var(--accent);
-      margin-bottom: 0.25rem;
-    }
-
-    .calc-subtitle {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .calc-inputs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .input-group label {
-      display: block;
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      margin-bottom: 0.4rem;
-    }
-
-    .input-group input {
-      width: 100%;
-      padding: 0.65rem 0.85rem;
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      font-family: 'Chakra Petch', 'Noto Sans SC', sans-serif;
-      transition: border-color 0.2s;
-    }
-
-    .input-group input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.1);
-    }
-
-    .calc-results {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .result-card {
-      text-align: center;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-    }
-
-    .result-value {
-      font-size: 1.6rem;
-      font-weight: 900;
-      font-family: 'Cinzel', serif;
-      color: var(--accent);
-      line-height: 1.2;
-    }
-
-    .result-label {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-top: 0.25rem;
-    }
-
-    .calc-explain {
-      padding: 0.85rem 1.1rem;
-      background: rgba(218, 165, 32, 0.04);
-      border-radius: 10px;
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      border-left: 3px solid var(--accent);
-      line-height: 1.8;
-    }
-
-    /* === Damage Simulator === */
-    .simulator {
-      margin: 2rem 0;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
-      text-align: center;
-    }
-
-    .sim-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .sim-arena {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      margin: 1.5rem 0;
-    }
-
-    .sim-character {
-      text-align: center;
-    }
-
-    .sim-monster {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      transition: transform 0.2s ease;
-    }
-
-    .sim-monster.attacking {
-      animation: attack 0.4s ease;
-    }
-
-    @keyframes attack {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-20px) scale(1.1); }
-      50% { transform: translateX(10px); }
-      100% { transform: translateX(0); }
-    }
-
-    .sim-player {
-      font-size: 3rem;
-      position: relative;
-    }
-
-    .sim-player.hit {
-      animation: hit 0.5s ease;
-    }
-
-    @keyframes hit {
-      0%, 100% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(5px); }
-      60% { transform: translateX(-3px); }
-      80% { transform: translateX(2px); }
-    }
-
-    .sim-shield {
-      position: absolute;
-      inset: -15px;
-      border: 2px solid rgba(218, 165, 32, 0.4);
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .sim-shield.active {
-      opacity: 1;
-      animation: shieldPulse 1.5s ease infinite;
-    }
-
-    @keyframes shieldPulse {
-      0%, 100% { transform: scale(1); opacity: 0.6; }
-      50% { transform: scale(1.1); opacity: 1; }
-    }
-
-    .sim-damage {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      margin-top: 0.5rem;
-    }
-
-    .sim-damage .val {
-      color: #e74c3c;
-      font-weight: 700;
-    }
-
-    .sim-damage .reduced {
-      color: #27ae60;
-      font-weight: 700;
-    }
-
-    .sim-btn {
-      padding: 0.65rem 2rem;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
-      color: var(--bg-main);
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: 'Chakra Petch', 'Noto Sans SC', sans-serif;
-    }
-
-    .sim-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 15px var(--shadow-color);
-    }
-
-    /* === Class Cards === */
-    .class-tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .class-tab {
-      padding: 0.5rem 1rem;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 0.8rem;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .class-tab:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .class-tab.active {
-      background: rgba(218, 165, 32, 0.1);
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    .class-panel {
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-
-    .class-panel.active { display: block; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .class-header-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1.25rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
-    .class-icon {
-      font-size: 2rem;
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(218, 165, 32, 0.1);
-      flex-shrink: 0;
-    }
-
-    .class-name {
-      font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
-      color: var(--accent);
-      margin-bottom: 0.15rem;
-    }
-
-    .class-desc {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-
-    .class-stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0.6rem;
-      margin: 1rem 0;
-    }
-
-    .class-stat {
-      text-align: center;
-      padding: 0.6rem;
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
-    }
-
-    .class-stat .val {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .class-stat .label {
-      font-size: 0.6rem;
-      color: var(--text-muted);
-      margin-top: 0.1rem;
-      letter-spacing: 0.5px;
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin: 0.5rem 0;
-    }
-
-    .skill-tag {
-      padding: 0.25rem 0.65rem;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      font-weight: 500;
-    }
-
-    .skill-tag.defense {
-      background: rgba(39, 174, 96, 0.12);
-      color: #27ae60;
-      border: 1px solid rgba(39, 174, 96, 0.25);
-    }
-
-    .skill-tag.core {
-      background: rgba(218, 165, 32, 0.12);
-      color: var(--accent);
-      border: 1px solid rgba(218, 165, 32, 0.25);
-    }
-
-    .tips-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 0.75rem;
-    }
-
-    .tips-list li {
-      padding: 0.6rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      line-height: 1.7;
-    }
-
-    .tips-list li:last-child { border-bottom: none; }
-
-    .tips-list li .icon {
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    /* === Priority Table === */
-    .priority-table {
-      margin: 1.5rem 0;
-    }
-
-    .priority-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.85rem 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      transition: background 0.2s;
-    }
-
-    .priority-row:hover {
-      background: rgba(218, 165, 32, 0.03);
-    }
-
-    .priority-rank {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.75rem;
-      flex-shrink: 0;
-    }
-
-    .priority-rank.s { background: rgba(218, 165, 32, 0.15); color: var(--accent); }
-    .priority-rank.a { background: rgba(39, 174, 96, 0.15); color: #27ae60; }
-    .priority-rank.b { background: rgba(52, 152, 219, 0.15); color: #3498db; }
-
-    .priority-name {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--text-primary);
-      min-width: 120px;
-    }
-
-    .priority-desc {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* === Responsive === */
-    @media (max-width: 768px) {
-      .page-container { padding: 0 1rem; }
-      .section-header { padding: 1.25rem 1.5rem; }
-      .section-content { padding: 1.25rem 1.5rem 1.5rem; }
-      .section-icon { width: 44px; height: 44px; font-size: 1.2rem; }
-      .section-title-text { font-size: 1.05rem; }
-
-      .pipeline { flex-direction: column; gap: 0.75rem; }
-      .pipe-arrow { transform: rotate(90deg); }
-
-      .calc-results { grid-template-columns: 1fr; }
-      .calc-inputs { grid-template-columns: 1fr 1fr; }
-
-      .class-stats-row { grid-template-columns: repeat(2, 1fr); }
-
-      .sim-arena { flex-direction: column; gap: 1rem; }
-
-      .level-bar { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      .calc-inputs { grid-template-columns: 1fr; }
-      .class-stats-row { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  
-    /* Site header & footer */
-    .footer {
-      padding: 2rem 0; border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.06));
-      text-align: center; color: #554444; font-size: 0.75rem;
-    }
-    .footer-qr {
-      width: 48px; height: 48px; border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
-      background: #fff; padding: 2px; cursor: pointer; transition: all 0.2s;
-    }
-    .footer-qr:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.15); }
-    .qr-preview-overlay {
-      position: fixed; inset: 0; z-index: 2000;
-      background: rgba(0,0,0,0.85);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; visibility: hidden; transition: all 0.3s; cursor: pointer;
-    }
-    .qr-preview-overlay.open { opacity: 1; visibility: visible; }
-    .qr-preview-overlay img {
-      width: 200px; height: 200px; border-radius: 12px;
-      background: #fff; padding: 10px;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>防御机制完全解析 - 暗黑破坏神 IV S13</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+:root{
+  --bg-deep:#07080f;--bg-item:#0a0c18;--gold:#c8963e;--gold-bright:#f0c060;
+  --gold-dim:#7a5a25;--demon:#cc4422;--demon-dim:#7a2010;
+  --text-main:#ddd4c0;--text-dim:#8a8070;--text-white:#efe8d8;
+  --border:#2a2820;--border-gold:#40321a;
+  --green:#40b870;--blue:#4488dd;--red:#e04040;--purple:#9868d8;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  background:var(--bg-deep);color:var(--text-main);
+  font-family:'Noto Sans SC',sans-serif;font-weight:400;line-height:1.7;
+  min-height:100vh;
+  background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(160,40,10,.13) 0%,transparent 70%),
+    radial-gradient(ellipse 60% 60% at 80% 80%,rgba(100,30,120,.08) 0%,transparent 60%),
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.012) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.012) 40px);
+}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--demon-dim);border-radius:3px}
+
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;padding:0 1.5rem;height:56px;background:rgba(7,8,15,.96);border-bottom:1px solid var(--border-gold);backdrop-filter:blur(12px)}
+.nav-inner{display:flex;align-items:center;gap:1rem;width:100%;max-width:960px;margin:0 auto}
+.nav-back{color:var(--gold);text-decoration:none;font-size:.8rem;font-weight:500;white-space:nowrap}
+.nav-back:hover{color:var(--gold-bright)}
+.nav-game-name{font-family:'Cinzel',serif;font-size:.85rem;color:var(--text-white);letter-spacing:1px;flex:1}
+.nav-breadcrumb{font-size:.7rem;color:var(--text-dim)}
+
+.page-wrap{display:flex;min-height:100vh;padding-top:56px}
+.page-content{flex:1;min-width:0;max-width:960px;margin:0 auto;padding:0 2rem 3rem}
+
+h1{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--gold);margin:2rem 0 .5rem;text-align:center}
+.subtitle{text-align:center;color:var(--text-dim);font-size:.85rem;margin-bottom:2rem}
+.back-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--gold);text-decoration:none;font-size:.8rem;margin:1.5rem 0 0}
+.back-link:hover{color:var(--gold-bright)}
+
+/* Level Bar */
+.level-bar{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;padding:.85rem 1.25rem;background:rgba(26,15,20,.85);border:1px solid var(--border);border-radius:14px}
+.level-badge{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-dim));color:var(--bg-deep);font-family:'Cinzel',serif;font-weight:900;font-size:1rem;flex-shrink:0}
+.level-info{flex:1}
+.level-label{font-size:.65rem;color:var(--text-dim);letter-spacing:2px}
+.level-name{font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold)}
+.level-dots{display:flex;gap:.4rem}
+.level-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--border);transition:all .3s}
+.level-dot.active{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px rgba(200,150,62,.4)}
+
+/* Section Card */
+.defense-section{margin-bottom:2.5rem;padding-top:70px}
+.section-card{background:rgba(10,12,24,.85);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .3s}
+.section-card:hover{border-color:var(--border-gold)}
+
+.section-header{padding:1.5rem 2rem;border-bottom:1px solid var(--border);cursor:pointer;display:flex;align-items:center;gap:1rem;user-select:none}
+.section-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.4rem}
+.section-icon.armor{background:rgba(200,150,62,.12)}
+.section-icon.resist{background:rgba(152,104,216,.12)}
+.section-icon.hp{background:rgba(231,76,60,.12)}
+.section-icon.fortify{background:rgba(52,152,219,.12)}
+.section-icon.dmg{background:rgba(64,184,112,.12)}
+.section-icon.pipe{background:rgba(230,126,34,.12)}
+
+.section-title-group{flex:1}
+.section-number{font-size:.6rem;color:var(--text-dim);letter-spacing:2px}
+.section-title-text{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--text-white);margin-top:2px}
+
+.section-toggle{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-dim);transition:all .3s;flex-shrink:0}
+.section-card.open .section-toggle{transform:rotate(180deg);border-color:var(--gold);color:var(--gold)}
+
+.section-body{max-height:0;overflow:hidden;transition:max-height .6s cubic-bezier(.4,0,.2,1)}
+.section-card.open .section-body{max-height:10000px}
+.section-content{padding:2rem 2rem 2.5rem}
+
+/* Content */
+.content p{color:var(--text-dim);font-size:.88rem;line-height:1.9;margin-bottom:.8rem}
+.content h4{font-size:.95rem;font-weight:600;color:var(--gold);margin:1.2rem 0 .6rem;display:flex;align-items:center;gap:.5rem}
+.content h4::before{content:'';width:3px;height:16px;background:var(--gold);border-radius:2px}
+.content ul{padding-left:1.25rem;margin-bottom:.8rem}
+.content li{color:var(--text-dim);font-size:.85rem;line-height:1.8;margin-bottom:.25rem}
+.content li strong{color:var(--text-white)}
+
+/* Formula */
+.formula-box{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin:.8rem 0;position:relative;overflow:hidden}
+.formula-box::before{content:'FORMULA';position:absolute;top:.5rem;right:.75rem;font-size:.5rem;letter-spacing:2px;color:var(--text-dim);opacity:.5}
+.formula-label{font-size:.7rem;color:var(--text-dim);margin-bottom:.3rem}
+.formula-code{font-family:'Consolas','Courier New',monospace;font-size:.82rem;color:var(--gold);line-height:1.6}
+.formula-code .hl{color:var(--green)}
+.formula-code .num{color:var(--text-white);font-weight:700}
+
+/* Stat Bars */
+.stat-bars{margin:1rem 0;display:flex;flex-direction:column;gap:.6rem}
+.stat-bar-row{display:flex;align-items:center;gap:.75rem}
+.stat-bar-label{width:80px;font-size:.75rem;color:var(--text-dim);flex-shrink:0;text-align:right}
+.stat-bar-track{flex:1;height:26px;background:rgba(0,0,0,.35);border-radius:6px;overflow:hidden;position:relative}
+.stat-bar-fill{height:100%;width:0;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.65rem;font-weight:700;color:var(--text-white);transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+.stat-bar-fill.armor{background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+.stat-bar-fill.resist{background:linear-gradient(90deg,rgba(100,50,180,.6),var(--purple))}
+.stat-bar-fill.hp{background:linear-gradient(90deg,rgba(150,30,30,.6),var(--red))}
+.stat-bar-fill.dmg{background:linear-gradient(90deg,rgba(30,130,70,.6),var(--green))}
+
+/* Simulator */
+.simulator{background:rgba(0,0,0,.3);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin:1rem 0;text-align:center}
+.sim-title{font-family:'Cinzel',serif;font-size:.9rem;color:var(--gold);margin-bottom:1rem}
+.sim-arena{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:1rem}
+.sim-character{text-align:center;position:relative}
+.sim-monster{font-size:2.5rem;transition:transform .3s}
+.sim-monster.attacking{animation:monsterAttack .5s ease}
+.sim-player{font-size:2.5rem;position:relative;transition:transform .3s}
+.sim-player.hit{animation:playerHit .5s ease}
+.sim-shield{position:absolute;inset:-8px;border:3px solid var(--gold);border-radius:50%;opacity:0}
+.sim-shield.active{animation:shieldPulse 1.5s ease infinite}
+@keyframes monsterAttack{0%{transform:translateX(0)}40%{transform:translateX(20px)}100%{transform:translateX(0)}}
+@keyframes playerHit{0%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}100%{transform:translateX(0)}}
+@keyframes shieldPulse{0%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}100%{opacity:.6;transform:scale(1)}}
+
+.sim-damage{font-size:.85rem;color:var(--text-dim);margin-bottom:.5rem}
+.sim-damage .val{color:var(--red);font-weight:700}
+.sim-damage .reduced{color:var(--green);font-weight:700}
+.sim-btn{padding:.5rem 1.5rem;background:linear-gradient(135deg,var(--gold-dim),var(--gold));border:none;border-radius:8px;color:var(--bg-deep);font-family:'Cinzel',serif;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s}
+.sim-btn:hover{transform:translateY(-2px);box-shadow:0 4px 15px rgba(200,150,62,.3)}
+.sim-slider-row{display:flex;align-items:center;gap:1rem;margin:.8rem 0}
+.sim-slider-row label{font-size:.78rem;color:var(--text-dim);min-width:80px;text-align:right}
+.sim-slider-row input[type=range]{flex:1;height:6px;appearance:none;background:var(--border);border-radius:3px;outline:none;cursor:pointer}
+.sim-slider-row input[type=range]::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);border:2px solid var(--bg-deep);cursor:pointer}
+.sim-slider-value{font-size:.82rem;color:var(--text-white);font-weight:700;min-width:50px;text-align:left}
+
+/* Radar Chart */
+.radar-wrap{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;margin:1.2rem 0}
+.radar-svg{width:280px;height:280px}
+.radar-controls{display:flex;flex-direction:column;gap:.5rem}
+.radar-row{display:flex;align-items:center;gap:.6rem}
+.radar-row label{font-size:.75rem;min-width:50px}
+.radar-row input[type=range]{flex:1;width:120px;height:5px;appearance:none;background:var(--border);border-radius:3px;outline:none;cursor:pointer}
+.radar-row input[type=range]::-webkit-slider-thumb{appearance:none;width:16px;height:16px;border-radius:50%;border:2px solid var(--bg-deep);cursor:pointer}
+.radar-row .val{font-size:.75rem;font-weight:700;min-width:35px}
+.clr-fire{color:#e74c3c}.clr-fire input[type=range]::-webkit-slider-thumb{background:#e74c3c}
+.clr-ice{color:#3498db}.clr-ice input[type=range]::-webkit-slider-thumb{background:#3498db}
+.clr-ltng{color:#f1c40f}.clr-ltng input[type=range]::-webkit-slider-thumb{background:#f1c40f}
+.clr-poison{color:#27ae60}.clr-poison input[type=range]::-webkit-slider-thumb{background:#27ae60}
+.clr-shadow{color:#9b59b6}.clr-shadow input[type=range]::-webkit-slider-thumb{background:#9b59b6}
+.radar-result{font-size:.82rem;color:var(--text-dim);text-align:center;margin-top:.5rem}
+.radar-result strong{color:var(--gold)}
+
+/* Life Pool Viz */
+.life-viz{margin:1rem 0;padding:1rem;background:rgba(0,0,0,.25);border-radius:10px}
+.life-bar-outer{height:32px;background:rgba(30,10,10,.6);border-radius:6px;overflow:hidden;border:1px solid rgba(231,76,60,.2);position:relative;margin-bottom:.8rem}
+.life-bar-fill{height:100%;background:linear-gradient(90deg,rgba(180,30,30,.6),#e74c3c);border-radius:6px;transition:width .5s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:8px;font-size:.7rem;font-weight:700;color:var(--text-white)}
+.life-bar-base{position:absolute;top:0;left:0;height:100%;border-right:2px dashed rgba(255,255,255,.15);z-index:1;transition:left .5s ease}
+.life-stack{margin-top:.5rem}
+.life-stack-row{display:flex;align-items:center;gap:.5rem;padding:.15rem 0;font-size:.75rem;color:var(--text-dim)}
+.life-stack-row .mult{color:var(--green);font-weight:700;font-family:monospace}
+.life-stack-row .total{color:var(--text-white);font-weight:700;margin-left:auto}
+
+/* Fortify Animation */
+.fortify-viz{margin:1rem 0;padding:1.2rem;background:rgba(0,0,0,.25);border-radius:10px;text-align:center}
+.fortify-arena{display:flex;align-items:center;justify-content:center;gap:2rem;margin-bottom:.8rem}
+.fortify-hp{width:200px;height:36px;background:rgba(30,10,10,.6);border-radius:6px;border:1px solid rgba(231,76,60,.2);position:relative;overflow:hidden}
+.fortify-hp-fill{height:100%;background:linear-gradient(90deg,rgba(180,30,30,.6),#e74c3c);transition:width .4s ease}
+.fortify-barrier{position:absolute;top:-2px;left:0;height:calc(100% + 4px);background:rgba(52,152,219,.35);border:2px solid rgba(52,152,219,.5);border-radius:4px;transition:width .4s ease;z-index:2}
+.fortify-num{font-size:.72rem;color:var(--text-dim);margin-top:.3rem}
+.fortify-attack-btn{padding:.4rem 1.2rem;background:rgba(231,76,60,.2);border:1px solid rgba(231,76,60,.4);border-radius:6px;color:var(--red);font-size:.78rem;cursor:pointer;transition:all .2s}
+.fortify-attack-btn:hover{background:rgba(231,76,60,.35)}
+
+/* DR Diminish Viz */
+.dr-viz{margin:1rem 0;padding:1rem;background:rgba(0,0,0,.25);border-radius:10px}
+.dr-viz-row{display:flex;align-items:center;gap:.6rem;padding:.25rem 0;font-size:.78rem;color:var(--text-dim)}
+.dr-viz-row .source{min-width:100px;text-align:right}
+.dr-viz-row .bar-track{flex:1;height:22px;background:rgba(0,0,0,.3);border-radius:4px;overflow:hidden}
+.dr-viz-row .bar-fill{height:100%;border-radius:4px;transition:width .5s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:.6rem;font-weight:700;color:var(--text-white)}
+.dr-viz-row .bar-fill.additive{background:linear-gradient(90deg,rgba(100,100,100,.5),rgba(150,150,150,.6))}
+.dr-viz-row .bar-fill.multiplicative{background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+.dr-viz-row .result{min-width:50px;text-align:right;font-weight:700}
+.dr-total{text-align:center;font-size:.85rem;color:var(--gold);margin-top:.6rem;padding:.4rem;background:rgba(200,150,62,.08);border-radius:6px}
+
+/* Pipeline Animated */
+.pipeline-anim{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1.2rem 0;padding:1rem;background:rgba(0,0,0,.25);border-radius:10px}
+.pipe-node{text-align:center;padding:.4rem .6rem;border-radius:8px;border:1px solid var(--border);background:rgba(10,12,24,.7);transition:all .3s;min-width:70px}
+.pipe-node .icon{font-size:1.2rem}
+.pipe-node .label{font-size:.6rem;color:var(--text-dim)}
+.pipe-node .val{font-size:.9rem;font-weight:700;color:var(--text-white);font-family:monospace;transition:color .3s}
+.pipe-node .val.active{animation:pipeGlow .5s ease}
+@keyframes pipeGlow{0%,100%{color:var(--text-white)}50%{color:var(--gold)}}
+.pipe-arrow{font-size:1.2rem;color:var(--text-dim)}
+.pipe-final{font-size:1.1rem;font-weight:700;font-family:monospace}
+
+/* Calculator */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.2rem 0}
+.calc-inputs{display:flex;flex-direction:column;gap:.6rem}
+.calc-row{display:flex;align-items:center;gap:.5rem}
+.calc-row label{font-size:.78rem;color:var(--text-dim);min-width:90px;text-align:right}
+.calc-row input{flex:1;padding:.35rem .5rem;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:6px;color:var(--text-white);font-size:.8rem;outline:none;font-family:monospace}
+.calc-row input:focus{border-color:var(--gold)}
+.calc-results{background:rgba(0,0,0,.3);border-radius:10px;padding:1rem}
+.calc-result-row{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;font-size:.78rem;color:var(--text-dim);border-bottom:1px solid rgba(255,255,255,.04)}
+.calc-result-row:last-child{border-bottom:none}
+.calc-result-row strong{color:var(--gold)}
+.calc-result-row .val{font-weight:700;font-size:.9rem;color:var(--text-white);font-family:monospace}
+.calc-explain{font-size:.72rem;color:var(--text-dim);margin-top:.6rem;line-height:1.6;padding:.5rem;background:rgba(0,0,0,.2);border-radius:6px}
+
+/* Pipeline Interactive */
+.pipe-interactive{margin:1rem 0}
+.pipe-controls{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:.5rem}
+.pipe-controls label{font-size:.75rem;color:var(--text-dim)}
+.pipe-controls input[type=range]{width:140px;height:5px;appearance:none;background:var(--border);border-radius:3px;outline:none;cursor:pointer}
+.pipe-controls input[type=range]::-webkit-slider-thumb{appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);border:2px solid var(--bg-deep);cursor:pointer}
+.pipe-controls .val{font-size:.8rem;font-weight:700;color:var(--text-white);min-width:35px}
+
+/* Class Section */
+.class-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.class-tab{padding:.3rem .8rem;border-radius:6px;font-size:.72rem;cursor:pointer;border:1px solid var(--border);color:var(--text-dim);background:transparent;transition:all .2s;font-family:inherit}
+.class-tab:hover{border-color:var(--gold);color:var(--gold)}
+.class-tab.active{background:rgba(200,150,62,.12);border-color:var(--gold);color:var(--gold)}
+
+.class-panel{display:none;animation:fadeIn .3s ease}
+.class-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.class-header-card{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;background:rgba(0,0,0,.3);border-radius:10px;margin-bottom:.8rem}
+.class-icon-box{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+.class-name{font-family:'Cinzel',serif;font-size:.95rem;font-weight:700;color:var(--gold)}
+.class-desc{font-size:.72rem;color:var(--text-dim)}
+
+.class-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.8rem}
+.class-stat{padding:.5rem;text-align:center;border-radius:8px;background:rgba(0,0,0,.2);border:1px solid var(--border)}
+.class-stat .grade{font-family:'Cinzel',serif;font-size:1rem;font-weight:900}
+.class-stat .label{font-size:.6rem;color:var(--text-dim);margin-top:.15rem}
+.grade-s{color:#e74c3c}.grade-a{color:var(--gold)}.grade-b{color:#4a90e2}.grade-c{color:var(--text-dim)}
+
+.skill-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.6rem}
+.skill-tag{padding:.15rem .5rem;border-radius:4px;font-size:.65rem;background:rgba(200,150,62,.08);border:1px solid rgba(200,150,62,.15);color:var(--text-dim)}
+
+.tips-list{list-style:none;padding:0}
+.tips-list li{padding:.25rem 0;font-size:.78rem;color:var(--text-dim);display:flex;align-items:flex-start;gap:.4rem}
+.tips-list li::before{content:'★';color:var(--gold);font-size:.65rem;flex-shrink:0;margin-top:.15rem}
+
+@media(max-width:768px){
+  .page-content{padding:0 1rem 2rem}
+  .section-header{padding:1rem 1.25rem}
+  .section-content{padding:1.25rem}
+  .radar-wrap{flex-direction:column;gap:1rem}
+  .calc-grid{grid-template-columns:1fr}
+  .pipeline-anim{gap:.3rem}
+  .pipe-node{min-width:55px;padding:.3rem .4rem}
+  .class-stats{grid-template-columns:repeat(2,1fr)}
+  .fortify-arena{flex-direction:column;gap:1rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
 </style>
 </head>
 <body>
-  <nav class="top-nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
-      <span class="nav-game-name">防御机制解析</span>
-      <span class="nav-breadcrumb">首页 > 暗黑破坏神 IV > 防御机制</span>
-    </div>
-  </nav>
 
-  <!-- Progress Bar -->
-  <div class="progress-track">
-    <div class="progress-fill" id="progressFill"></div>
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+    <span class="nav-game-name">Diablo IV &#xB7; 防御机制完全解析</span>
+    <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 防御机制</span>
   </div>
+</nav>
 
-      <!-- 站点 Header -->
-    <section class="site-header-section" style="padding:5rem 0 1rem;">
-      <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:0.85rem;">
-          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
-          <div>
-            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
-            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
-          </div>
-        </div>
-        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
-        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
-          <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
-          space.bilibili.com/443078910
-        </a>
+<div class="page-wrap">
+<div class="page-content">
+
+<a href="index.html" class="back-link">&#x2190; 返回暗黑破坏神 IV 攻略目录</a>
+
+<h1>&#x1F6E1; 防御机制完全解析</h1>
+<p class="subtitle">第13赛季版 &#xB7; 六大防御层全拆解 &#xB7; 交互式模拟器</p>
+
+<div class="level-bar">
+  <div class="level-badge">6</div>
+  <div class="level-info">
+    <div class="level-label">DEFENSE LEVELS</div>
+    <div class="level-name">六大防御层 + 坚韧计算器</div>
+  </div>
+  <div class="level-dots" id="levelDots">
+    <div class="level-dot active"></div>
+    <div class="level-dot"></div>
+    <div class="level-dot"></div>
+    <div class="level-dot"></div>
+    <div class="level-dot"></div>
+    <div class="level-dot"></div>
+  </div>
+</div>
+
+<!-- ===== LEVEL 1: 护甲 ===== -->
+<section class="defense-section" id="sec-armor">
+<div class="section-card open" data-level="1">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon armor">&#x2694;</div>
+  <div class="section-title-group">
+    <div class="section-number">LEVEL 01</div>
+    <div class="section-title-text">护甲 (Armor)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
+
+<p>护甲是暗黑4中<strong style="color:var(--gold)">最核心</strong>的减伤属性，同时对物理和元素伤害提供减免。元素伤害的减伤效果只有物理的<strong style="color:var(--red)">50%</strong>。S13赛季护甲机制没有大改，但装备词缀池有所调整，<strong>违抗威能</strong>仍是护甲核心来源。</p>
+
+<h4>减伤公式</h4>
+<div class="formula-box">
+  <div class="formula-label">护甲减伤率（S13）</div>
+  <div class="formula-code">减伤率 <span class="hl">=</span> <span class="num">0.9</span> <span class="hl">&#x00D7;</span> 护甲 <span class="hl">/</span> (护甲 <span class="hl">+</span> <span class="num">4500</span>)</div>
+</div>
+
+<p>护甲达到 <strong style="color:var(--gold)">6,575</strong> 时获得约 <strong style="color:var(--gold)">50%</strong> 物理减伤。公式中的0.9系数锁死上限——永远无法达到90%。S13版本装备护甲上限与之前一致，但新职业<strong>圣骑士</strong>拥有额外的护甲加成机制。</p>
+
+<h4>减伤效果可视化</h4>
+<div class="stat-bars" data-animate>
+  <div class="stat-bar-row">
+    <span class="stat-bar-label">1,000护甲</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="16">16%</div></div>
+  </div>
+  <div class="stat-bar-row">
+    <span class="stat-bar-label">3,000护甲</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="36">36%</div></div>
+  </div>
+  <div class="stat-bar-row">
+    <span class="stat-bar-label">6,575护甲</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="50">50%</div></div>
+  </div>
+  <div class="stat-bar-row">
+    <span class="stat-bar-label">10,000护甲</span>
+    <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="66">66%</div></div>
+  </div>
+</div>
+
+<h4>护甲来源</h4>
+<ul>
+  <li><strong>装备基底</strong>：胸甲、头盔、裤子提供最高基础护甲</li>
+  <li><strong>力量</strong>：每100力量 = 2护甲</li>
+  <li><strong>违抗威能</strong>：叠层后提升大量护甲（核心来源）</li>
+  <li><strong>皇家头骨宝石</strong>：防具镶嵌获得护甲加成</li>
+  <li><strong>圣骑士专属</strong>：圣盾术期间护甲翻倍（S13新增）</li>
+</ul>
+
+<!-- Interactive Armor Simulator -->
+<h4>&#x1F3AF; 护甲伤害模拟器</h4>
+<p>拖动滑块调整护甲值，点击怪物攻击查看实时减伤效果：</p>
+
+<div class="simulator">
+  <div class="sim-slider-row">
+    <label>护甲值</label>
+    <input type="range" id="armorSlider" min="0" max="15000" value="6575" oninput="updateArmorSim(this.value)">
+    <span class="sim-slider-value" id="armorValDisplay">6,575</span>
+  </div>
+  <div class="sim-arena">
+    <div class="sim-character">
+      <div class="sim-monster" id="monster">&#x1F479;</div>
+      <div style="font-size:.7rem;color:var(--text-dim)">怪物</div>
+    </div>
+    <div style="font-size:1.2rem;color:var(--text-dim)">&#x2694;</div>
+    <div class="sim-character">
+      <div class="sim-player" id="player">
+        <div class="sim-shield" id="shield"></div>
+        &#x1F6E1;
       </div>
-    </section>
+      <div style="font-size:.7rem;color:var(--text-dim)">你的护甲</div>
+    </div>
+  </div>
+  <div class="sim-damage">
+    原始 <span class="val">10,000</span> &#x2192; 护甲减免后 <span class="reduced" id="simResult">5,000</span> &#x2192; 减伤 <strong id="simDrPercent" style="color:var(--gold)">50%</strong>
+  </div>
+  <button class="sim-btn" onclick="simulateDamage()">&#x2694; 模拟攻击</button>
+</div>
 
-<main class="page-container page-content">
-    <a href="index.html" class="back-link">&#x2190; 返回暗黑破坏神 IV 攻略目录</a>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Level Indicator -->
-    <div class="level-bar">
-      <div class="level-badge">6</div>
-      <div class="level-info">
-        <div class="level-label">DEFENSE LEVELS</div>
-        <div class="level-name">六大防御层完全解析</div>
+<!-- ===== LEVEL 2: 抗性 ===== -->
+<section class="defense-section" id="sec-resist">
+<div class="section-card" data-level="2">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon resist">&#x1F52E;</div>
+  <div class="section-title-group">
+    <div class="section-number">LEVEL 02</div>
+    <div class="section-title-text">抗性 (Resistance)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
+
+<p>抗性专门针对<strong style="color:var(--purple)">五种元素伤害</strong>：火焰、冰霜、闪电、毒素、暗影。S13中抗性上限可突破至<strong style="color:var(--gold)">85%</strong>（通过巅峰盘和特定暗金），但需要投入大量资源。</p>
+
+<h4>计算公式</h4>
+<div class="formula-box">
+  <div class="formula-label">抗性计算</div>
+  <div class="formula-code">最终抗性 <span class="hl">=</span> (基础 <span class="hl">+</span> 智力抗性 <span class="hl">+</span> 装备抗性) <span class="hl">&#x00D7;</span> (<span class="num">1</span> <span class="hl">+</span> 抗性百分比加成)<br>每 <span class="num">100</span> 智力 <span class="hl">=</span> <span class="num">5%</span> 全抗</div>
+</div>
+
+<p>抗性叠加是<strong style="color:#e67e22">乘算递减</strong>：20%再获得20%，实际为 <strong>1-(1-0.2)(1-0.2) = 36%</strong>，而非40%。</p>
+
+<h4>关键数据</h4>
+<ul>
+  <li>基础上限: <strong style="color:var(--gold)">70%</strong>（S13可提升至<strong style="color:var(--gold)">85%</strong>）</li>
+  <li>折磨4（T4）中，非物理抗性降低 <strong style="color:var(--red)">30%</strong></li>
+  <li>80级应将全抗堆到70%基础最大值</li>
+</ul>
+
+<h4>&#x1F3AF; 交互式雷达图</h4>
+<p>拖动下方滑块调整各元素抗性，查看你的元素减伤覆盖：</p>
+
+<div class="radar-wrap">
+  <svg class="radar-svg" id="radarSvg" viewBox="0 0 280 280"></svg>
+  <div class="radar-controls">
+    <div class="radar-row clr-fire"><label>&#x1F525; 火焰</label><input type="range" min="0" max="85" value="70" oninput="updateRadar()"><span class="val" id="rFire">70%</span></div>
+    <div class="radar-row clr-ice"><label>&#x2744; 冰霜</label><input type="range" min="0" max="85" value="65" oninput="updateRadar()"><span class="val" id="rIce">65%</span></div>
+    <div class="radar-row clr-ltng"><label>&#x26A1; 闪电</label><input type="range" min="0" max="85" value="60" oninput="updateRadar()"><span class="val" id="rLtng">60%</span></div>
+    <div class="radar-row clr-poison"><label>&#x2620; 毒素</label><input type="range" min="0" max="85" value="50" oninput="updateRadar()"><span class="val" id="rPoison">50%</span></div>
+    <div class="radar-row clr-shadow"><label>&#x1F31F; 暗影</label><input type="range" min="0" max="85" value="70" oninput="updateRadar()"><span class="val" id="rShadow">70%</span></div>
+  </div>
+</div>
+<div class="radar-result">平均全抗: <strong id="avgResist">63%</strong> &#x2022; 元素减伤: <strong id="eleDR">63%</strong></div>
+
+<h4>抗性来源</h4>
+<ul>
+  <li><strong>护身符</strong>：固定带有"所有抗性"词缀</li>
+  <li><strong>戒指</strong>：随机两种元素抗性</li>
+  <li><strong>宝石</strong>：紫晶(暗影)、翡翠(毒素)、红宝石(火焰)、黄玉(闪电)、蓝宝石(冰霜)</li>
+  <li><strong>圣骑士光环</strong>：S13新增，提供团队元素抗性加成</li>
+</ul>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== LEVEL 3: 生命值 ===== -->
+<section class="defense-section" id="sec-hp">
+<div class="section-card" data-level="3">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon hp">&#x2764;</div>
+  <div class="section-title-group">
+    <div class="section-number">LEVEL 03</div>
+    <div class="section-title-text">生命值 (Life)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
+
+<p>60级角色基础生命值为<strong style="color:var(--red)">400</strong>。百分比加成之间是<strong>乘算</strong>而非加算！S13中生命上限可通过新暗金和巅峰盘进一步突破。</p>
+
+<div class="formula-box">
+  <div class="formula-label">总生命公式</div>
+  <div class="formula-code">总生命 <span class="hl">=</span> (基础 <span class="num">400</span> <span class="hl">+</span> 固定加成) <span class="hl">&#x00D7;</span> (1+加成1%) <span class="hl">&#x00D7;</span> (1+加成2%) <span class="hl">&#x00D7;</span> ...</div>
+</div>
+
+<h4>&#x1F3AF; 生命加成可视化</h4>
+<p>拖动滑块查看不同生命百分比加成如何乘算叠加：</p>
+
+<div class="life-viz">
+  <div class="life-bar-outer">
+    <div class="life-bar-fill" id="lifeBarFill" style="width:20%">400</div>
+    <div class="life-bar-base" id="lifeBarBase" style="left:20%"></div>
+  </div>
+  <div class="life-stack" id="lifeStack">
+    <div class="life-stack-row"><span>基础生命</span><span class="total">400</span></div>
+  </div>
+  <div style="text-align:center;margin-top:.5rem">
+    <div style="display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap">
+      <span style="font-size:.75rem;color:var(--text-dim)">额外生命%</span>
+      <input type="range" min="0" max="200" value="50" oninput="updateLifeSim(this.value)" style="width:200px;height:5px;appearance:none;background:var(--border);border-radius:3px;cursor:pointer">
+      <span class="sim-slider-value" id="lifePctDisplay">50%</span>
+    </div>
+  </div>
+  <div style="text-align:center;font-size:.85rem;color:var(--gold);margin-top:.4rem">总生命: <strong id="lifeTotal">600</strong></div>
+</div>
+
+<h4>主要来源</h4>
+<ul>
+  <li><strong>胸甲词缀</strong>：+最大生命（最常用）</li>
+  <li><strong>红宝石镶嵌</strong>：防具镶嵌增加生命</li>
+  <li><strong>巅峰盘</strong>：魔法节点和稀有节点的百分比生命</li>
+  <li><strong>莉莉丝祭坛</strong>：永久生命加成（全账号共享）</li>
+  <li><strong>灵巫被动</strong>：S13灵巫可以从活力中获得额外生命</li>
+</ul>
+
+<p>&#x26A0; 纯堆血量没有减伤支撑就是纸老虎。<strong style="color:var(--green)">有效血量(EHP)</strong>才是关键指标，详见第6层计算器。</p>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== LEVEL 4: 强固 & 屏障 ===== -->
+<section class="defense-section" id="sec-fortify">
+<div class="section-card" data-level="4">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon fortify">&#x1F6E1;</div>
+  <div class="section-title-group">
+    <div class="section-number">LEVEL 04</div>
+    <div class="section-title-text">强固 &amp; 屏障 (Fortify &amp; Barrier)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
+
+<p>S13中<strong style="color:#3498db">强固</strong>和<strong style="color:var(--gold)">屏障</strong>是两种独立的重要防御层。强固在血条上显示为白色薄膜，屏障为浅蓝色护盾。它们都能吸收伤害，但机制不同：</p>
+
+<ul>
+  <li><strong>强固</strong>：受到伤害时优先消耗，与最大生命挂钩，会随时间衰减</li>
+  <li><strong>屏障</strong>：临时护盾，通常由技能/暗金产生，不衰减但有持续时间</li>
+  <li><strong>关键区别</strong>：强固状态下部分技能获得额外加成（如野蛮人"坚韧"被动）</li>
+</ul>
+
+<h4>&#x1F3AF; 吸收效果模拟器</h4>
+<p>点击攻击按钮，观察强固和屏障如何先后吸收伤害：</p>
+
+<div class="fortify-viz">
+  <div class="fortify-arena">
+    <div style="font-size:2rem">&#x1F479;</div>
+    <div style="text-align:left;flex:1;max-width:300px">
+      <div style="font-size:.65rem;color:var(--text-dim);margin-bottom:.2rem">HP (红色) / 屏障 (蓝色)</div>
+      <div class="fortify-hp">
+        <div class="fortify-hp-fill" id="fortifyHp" style="width:100%"></div>
+        <div class="fortify-barrier" id="fortifyBarrier" style="width:40%"></div>
       </div>
-      <div class="level-dots">
-        <div class="level-dot active"></div>
-        <div class="level-dot"></div>
-        <div class="level-dot"></div>
-        <div class="level-dot"></div>
-        <div class="level-dot"></div>
-        <div class="level-dot"></div>
+      <div style="display:flex;justify-content:space-between;font-size:.7rem;color:var(--text-dim);margin-top:.2rem">
+        <span>HP: <strong id="fortifyHpNum" style="color:#e74c3c">8,000</strong></span>
+        <span>屏障: <strong id="fortifyBarNum" style="color:#3498db">3,200</strong></span>
+        <span>总有效: <strong id="fortifyTotal" style="color:var(--gold)">11,200</strong></span>
       </div>
     </div>
+  </div>
+  <button class="fortify-attack-btn" onclick="simulateFortify()">&#x2694; 受到攻击 (-2,500)</button>
+  <button class="fortify-attack-btn" style="background:rgba(52,152,219,.15);border-color:rgba(52,152,219,.3);color:#3498db;margin-left:.5rem" onclick="resetFortify()">&#x21BA; 重置</button>
+</div>
 
-    <!-- ===== LEVEL 1: 护甲 ===== -->
-    <section class="defense-section" id="sec-armor">
-      <div class="section-card open" data-level="1">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon armor">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DAA520" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">LEVEL 01</div>
-            <div class="section-title-text">护甲 (Armor)</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>护甲是暗黑4中<strong style="color:var(--accent)">最核心</strong>的减伤属性。它同时对物理伤害和元素伤害提供减免，但对元素伤害的减伤效果只有物理伤害的<strong style="color:#e74c3c">50%</strong>。</p>
+<h4>强固主要来源</h4>
+<ul>
+  <li><strong>野蛮人</strong>：挑战怒吼、坚韧被动</li>
+  <li><strong>德鲁伊</strong>：熊人形态天然获得强固</li>
+  <li><strong>圣骑士</strong>：圣盾术提供屏障（S13新增）</li>
+  <li><strong>通用</strong>：各类药剂、巅峰盘稀有节点</li>
+</ul>
 
-            <h4>减伤公式</h4>
-            <div class="formula-box">
-              <div class="formula-label">护甲减伤率</div>
-              <div class="formula-code">减伤率 = 0.9 × 护甲 / (护甲 + 4500) × 100%</div>
-            </div>
-            <p>当护甲达到 <strong style="color:var(--accent)">6575</strong> 时可获得最高约 <strong style="color:var(--accent)">50%</strong> 物理减伤。公式中的0.9系数锁死了上限——你永远无法达到90%。</p>
+</div>
+</div>
+</div>
+</section>
 
-            <h4>减伤效果可视化</h4>
-            <div class="stat-bars" data-animate>
-              <div class="stat-bar-row">
-                <span class="stat-bar-label">1000护甲</span>
-                <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="16">16%</div></div>
-              </div>
-              <div class="stat-bar-row">
-                <span class="stat-bar-label">3000护甲</span>
-                <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="36">36%</div></div>
-              </div>
-              <div class="stat-bar-row">
-                <span class="stat-bar-label">5000护甲</span>
-                <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="48">48%</div></div>
-              </div>
-              <div class="stat-bar-row">
-                <span class="stat-bar-label">6575护甲</span>
-                <div class="stat-bar-track"><div class="stat-bar-fill armor" data-width="50">50%</div></div>
-              </div>
-            </div>
+<!-- ===== LEVEL 5: 减伤词缀 ===== -->
+<section class="defense-section" id="sec-dmgreduce">
+<div class="section-card" data-level="5">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon dmg">&#x1F6E1;</div>
+  <div class="section-title-group">
+    <div class="section-number">LEVEL 05</div>
+    <div class="section-title-text">减伤词缀 (Damage Reduction)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
 
-            <h4>护甲主要来源</h4>
-            <ul>
-              <li><strong>装备基底</strong>：胸甲、头盔、裤子提供最高基础护甲</li>
-              <li><strong>力量加成</strong>：每100点力量 = 2点护甲</li>
-              <li><strong>装备词缀</strong>："+护甲"、"+最大护甲"</li>
-              <li><strong>宝石镶嵌</strong>：皇家头骨（护甲槽）</li>
-              <li><strong>传奇威能</strong>：如"违抗"威能大幅提升护甲</li>
-            </ul>
+<p>减伤指护甲和抗性之外的<strong style="color:var(--green)">所有减伤途径</strong>。这是后期<strong style="color:var(--gold)">最宝贵</strong>的生存词缀。S13中新增了多种减伤类型，包括术士的"恶魔减伤"和圣骑士的"光环减伤"。</p>
 
-            <!-- Damage Simulator -->
-            <div class="simulator">
-              <div class="sim-title">&#x1F3AF; 伤害模拟器</div>
-              <div class="sim-arena">
-                <div class="sim-character">
-                  <div class="sim-monster" id="monster">&#x1F479;</div>
-                  <div style="font-size:0.75rem;color:var(--text-muted)">怪物攻击</div>
-                </div>
-                <div style="font-size:1.5rem;color:var(--text-muted)">&#x2694;</div>
-                <div class="sim-character">
-                  <div class="sim-player" id="player">
-                    <div class="sim-shield" id="shield"></div>
-                    &#x1F6E1;
-                  </div>
-                  <div style="font-size:0.75rem;color:var(--text-muted)">你的护甲</div>
-                </div>
-              </div>
-              <div class="sim-damage">
-                原始伤害 <span class="val">10,000</span> → 护甲减免后 <span class="reduced" id="simResult">5,000</span>
-              </div>
-              <br>
-              <button class="sim-btn" onclick="simulateDamage()">模拟攻击</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<h4>计算公式</h4>
+<div class="formula-box">
+  <div class="formula-label">总减伤（乘算叠加）</div>
+  <div class="formula-code">总减伤 <span class="hl">=</span> <span class="num">1</span> <span class="hl">-</span> (<span class="num">1</span><span class="hl">-</span>DR1) <span class="hl">&#x00D7;</span> (<span class="num">1</span><span class="hl">-</span>DR2) <span class="hl">&#x00D7;</span> (<span class="num">1</span><span class="hl">-</span>DR3) <span class="hl">&#x00D7;</span> ...</div>
+</div>
 
-    <!-- ===== LEVEL 2: 抗性 ===== -->
-    <section class="defense-section" id="sec-resist">
-      <div class="section-card" data-level="2">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon resist">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9868d8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">LEVEL 02</div>
-            <div class="section-title-text">抗性 (Resistance)</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>抗性专门针对<strong style="color:#9868d8">五种元素伤害</strong>：火焰、冰霜、闪电、毒素、暗影。每点抗性直接降低对应元素伤害的百分比。</p>
+<p>例如：20% + 50% = <strong style="color:var(--gold)">60%</strong>（1 - 0.8x0.5）。</p>
+<p>&#x26A0; 同类减伤间是<strong>加算</strong>（产生稀释），不同类型才是<strong>乘算</strong>。追求<strong style="color:var(--green)">多样化</strong>减伤类型才能最大化收益。</p>
 
-            <h4>计算公式</h4>
-            <div class="formula-box">
-              <div class="formula-label">抗性计算</div>
-              <div class="formula-code">抗性 = (智力转化 + 装备基底 + 额外抗性) × (1 + 抗性百分比加成)<br>智力每100点 = 5%全抗</div>
-            </div>
+<h4>&#x1F3AF; 减伤稀释可视化</h4>
+<p>对比"堆叠同类型"和"多样化类型"的效果差异：</p>
 
-            <p>抗性之间存在递减效应。20%抗性再获得20%，实际为 1-(1-0.2)(1-0.2) = 36%，而非40%。这就是<strong style="color:#e67e22">乘算递减</strong>。</p>
+<div class="dr-viz">
+  <div id="drVizContent"></div>
+  <div style="text-align:center;margin-top:.5rem">
+    <button class="sim-btn" style="font-size:.7rem;padding:.3rem 1rem" onclick="switchDR('same')">堆叠同类型</button>
+    <button class="sim-btn" style="font-size:.7rem;padding:.3rem 1rem;margin-left:.5rem" onclick="switchDR('diverse')">多样化类型</button>
+  </div>
+</div>
 
-            <h4>关键数据</h4>
-            <ul>
-              <li>基础抗性上限: <strong style="color:var(--accent)">70%</strong>（可提升至<strong style="color:var(--accent)">85%</strong>）</li>
-              <li>世界层级4中，非物理抗性会被降低<strong style="color:#e74c3c">30%</strong></li>
-              <li>80级左右应将全抗堆到70%基础最大值</li>
-            </ul>
+<h4>常见减伤来源</h4>
+<ul>
+  <li><strong>近战/远程减伤</strong>：装备词缀（同类型加算）</li>
+  <li><strong>控制下减伤</strong>：被减速/定身时生效</li>
+  <li><strong>受伤下减伤</strong>：生命低于35%时触发</li>
+  <li><strong>格挡减伤</strong>：持盾时的格挡减免</li>
+  <li><strong>技能减伤</strong>：各职业防御技能</li>
+  <li><strong>恶魔减伤</strong>：术士专属（S13新增）</li>
+  <li><strong>光环减伤</strong>：圣骑士专属（S13新增）</li>
+</ul>
 
-            <h4>抗性主要来源</h4>
-            <ul>
-              <li><strong>护身符</strong>：固定带有"所有抗性"词缀</li>
-              <li><strong>戒指</strong>：随机两种元素抗性</li>
-              <li><strong>宝石</strong>：紫晶(暗影)、翡翠(毒素)、红宝石(火焰)、黄玉(闪电)、蓝宝石(冰霜)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- ===== LEVEL 3: 生命值 ===== -->
-    <section class="defense-section" id="sec-hp">
-      <div class="section-card" data-level="3">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon hp">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e74c3c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">LEVEL 03</div>
-            <div class="section-title-text">生命值 (Life)</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>60级角色基础生命值为<strong style="color:#e74c3c">400</strong>。所有加成基于此倍增。百分比加成之间是<strong>乘算</strong>而非加算！</p>
+<!-- ===== LEVEL 6: 伤害管道 ===== -->
+<section class="defense-section" id="sec-pipeline">
+<div class="section-card" data-level="6">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon pipe">&#x26A1;</div>
+  <div class="section-title-group">
+    <div class="section-number">FINAL LEVEL</div>
+    <div class="section-title-text">伤害减免管道 &amp; 坚韧计算器</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content content">
 
-            <div class="formula-box">
-              <div class="formula-label">总生命公式</div>
-              <div class="formula-code">总生命 = (400 + 固定加成) × (1 + 加成1%) × (1 + 加成2%) × ...</div>
-            </div>
+<p>当一个怪物攻击你时，伤害经过每一层逐步削减。下面是完整的伤害管道：</p>
 
-            <h4>主要来源</h4>
-            <ul>
-              <li><strong>胸甲词缀</strong>：+最大生命（最常用）</li>
-              <li><strong>红宝石镶嵌</strong>：防具镶嵌增加生命</li>
-              <li><strong>巅峰盘</strong>：魔法节点和稀有节点的百分比生命</li>
-              <li><strong>莉莉丝祭坛</strong>：开放世界的永久生命加成</li>
-            </ul>
+<div class="pipeline-anim" id="pipeAnim">
+  <div class="pipe-node"><div class="icon">&#x1F5E1;</div><div class="label">原始伤害</div><div class="val" id="pipeBase">100K</div></div>
+  <div class="pipe-arrow">&#x279C;</div>
+  <div class="pipe-node"><div class="icon">&#x2694;</div><div class="label">护甲</div><div class="val" id="pipeArmor">-50%</div></div>
+  <div class="pipe-arrow">&#x279C;</div>
+  <div class="pipe-node"><div class="icon">&#x1F52E;</div><div class="label">抗性</div><div class="val" id="pipeResist">-70%</div></div>
+  <div class="pipe-arrow">&#x279C;</div>
+  <div class="pipe-node"><div class="icon">&#x1F6E1;</div><div class="label">减伤词缀</div><div class="val" id="pipeDR">-60%</div></div>
+  <div class="pipe-arrow">&#x279C;</div>
+  <div class="pipe-node"><div class="icon">&#x2714;</div><div class="label">最终伤害</div><div class="pipe-final" id="pipeFinal">6K</div></div>
+</div>
 
-            <p>&#x26A0;&#xFE0F; 纯堆血量没有减伤支撑就是纸老虎。D4不鼓励盲目堆血量，<strong style="color:#27ae60">有效血量(EHP)</strong>才是关键。</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<h4>交互式管道调节器</h4>
+<p>拖动滑块模拟不同防御配置下的最终伤害：</p>
 
-    <!-- ===== LEVEL 4: 强固 ===== -->
-    <section class="defense-section" id="sec-fortify">
-      <div class="section-card" data-level="4">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon fortify">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3498db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">LEVEL 04</div>
-            <div class="section-title-text">强固 (Fortify)</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>强固类似于"临时护盾"——在血条上方显示为白色薄膜层。受到伤害时优先扣除强固，强固耗尽后才扣血。</p>
+<div class="pipe-interactive">
+  <div class="pipe-controls">
+    <label>护甲减伤</label>
+    <input type="range" min="0" max="80" value="50" oninput="updatePipeline()">
+    <span class="val" id="pArmorVal">50%</span>
+  </div>
+  <div class="pipe-controls">
+    <label>抗性减伤</label>
+    <input type="range" min="0" max="85" value="70" oninput="updatePipeline()">
+    <span class="val" id="pResistVal">70%</span>
+  </div>
+  <div class="pipe-controls">
+    <label>减伤词缀</label>
+    <input type="range" min="0" max="95" value="60" oninput="updatePipeline()">
+    <span class="val" id="pDRVal">60%</span>
+  </div>
+</div>
 
-            <h4>关键特性</h4>
-            <ul>
-              <li><strong>有持续时间</strong>：强固会随时间衰减消失</li>
-              <li><strong>分段计算</strong>：多次获得的强固持续时间是分开计算的</li>
-              <li><strong>与生命挂钩</strong>：强固值与最大生命值相关——生命越高，强固越高</li>
-            </ul>
+<!-- Toughness Calculator -->
+<h4>&#x1F4CA; 坚韧计算器</h4>
 
-            <p>&#x1F4A1; 高血量BD必须搭配强固机制，不用白不用！</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="calc-grid">
+  <div class="calc-inputs">
+    <div class="calc-row"><label>最大生命</label><input type="number" id="calc-hp" value="8000" min="400" oninput="calculate()"></div>
+    <div class="calc-row"><label>护甲</label><input type="number" id="calc-armor" value="6575" min="0" max="50000" oninput="calculate()"></div>
+    <div class="calc-row"><label>平均抗性%</label><input type="number" id="calc-resist" value="60" min="0" max="85" oninput="calculate()"></div>
+    <div class="calc-row"><label>DR词缀总和%</label><input type="number" id="calc-dr" value="40" min="0" max="95" oninput="calculate()"></div>
+    <div class="calc-row"><label>强固/屏障</label><input type="number" id="calc-barrier" value="0" min="0" max="99999" oninput="calculate()"></div>
+  </div>
+  <div class="calc-results">
+    <div class="calc-result-row"><span>总减伤率</span><strong class="val" id="res-reduction">0%</strong></div>
+    <div class="calc-result-row"><span>生命放大倍数</span><strong class="val" id="res-multiplier">0x</strong></div>
+    <div class="calc-result-row"><span>物理坚韧 (EHP)</span><strong class="val" id="res-toughness">0</strong></div>
+    <div class="calc-result-row" style="border-bottom:none"><span>含屏障总坚韧</span><strong class="val" id="res-barrier-ehp" style="color:#3498db">0</strong></div>
+    <div class="calc-explain" id="calc-explain">输入数值开始计算</div>
+  </div>
+</div>
 
-    <!-- ===== LEVEL 5: 减伤词缀 ===== -->
-    <section class="defense-section" id="sec-dmgreduce">
-      <div class="section-card" data-level="5">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon dmg">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#27ae60" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">LEVEL 05</div>
-            <div class="section-title-text">减伤词缀 (Damage Reduction)</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>减伤指的是<strong style="color:#27ae60">护甲和抗性之外</strong>的所有减伤途径。这是游戏后期<strong style="color:var(--accent)">最宝贵</strong>的生存词缀。</p>
+</div>
+</div>
+</div>
+</section>
 
-            <h4>计算公式</h4>
-            <div class="formula-box">
-              <div class="formula-label">总减伤（乘算叠加）</div>
-              <div class="formula-code">总减伤 = 1 - (1-减伤1) × (1-减伤2) × (1-减伤3) × ...</div>
-            </div>
-            <p>例如：20%减伤 + 50%减伤 = 1 - (0.8 × 0.5) = <strong style="color:var(--accent)">60%</strong>实际减伤。</p>
+<!-- ===== BONUS: 各职业防御构建 ===== -->
+<section class="defense-section" id="sec-classes">
+<div class="section-card open" data-level="classes">
+<div class="section-header" onclick="toggleSection(this)">
+  <div class="section-icon" style="background:rgba(200,150,62,.12);font-size:1.4rem">&#x1F3AE;</div>
+  <div class="section-title-group">
+    <div class="section-number">BONUS</div>
+    <div class="section-title-text">全8职业防御构建 (S13)</div>
+  </div>
+  <div class="section-toggle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</div>
+<div class="section-body">
+<div class="section-content">
 
-            <p>&#x26A0;&#xFE0F; 同类减伤（如"近战减伤"多条）之间是<strong>加算</strong>的，会产生稀释。不同类型才是<strong>乘算</strong>的。所以你应该<strong style="color:#27ae60">追求多样化的减伤类型</strong>。</p>
+<div class="class-tabs">
+  <button class="class-tab active" onclick="switchClass(this,'barbarian')">&#x1F479; 野蛮人</button>
+  <button class="class-tab" onclick="switchClass(this,'sorcerer')">&#x1F525; 法师</button>
+  <button class="class-tab" onclick="switchClass(this,'rogue')">&#x1F3F9; 游侠</button>
+  <button class="class-tab" onclick="switchClass(this,'druid')">&#x1F981; 德鲁伊</button>
+  <button class="class-tab" onclick="switchClass(this,'necro')">&#x1F480; 死灵法师</button>
+  <button class="class-tab" onclick="switchClass(this,'spiritborn')">&#x1F98D; 灵巫</button>
+  <button class="class-tab" onclick="switchClass(this,'warlock')">&#x1F525; 术士</button>
+  <button class="class-tab" onclick="switchClass(this,'paladin')">&#x1F6E1; 圣骑士</button>
+</div>
 
-            <h4>常见减伤来源</h4>
-            <ul>
-              <li><strong>近战减伤 / 远程减伤</strong>：装备词缀（加算）</li>
-              <li><strong>控制下减伤</strong>：被减速/定身时生效</li>
-              <li><strong>流血下减伤</strong>：受伤状态时生效</li>
-              <li><strong>格挡减伤</strong>：持盾时的格挡减免</li>
-              <li><strong>技能减伤</strong>：各职业防御技能自带减伤</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="class-panel active" id="panel-barbarian">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(200,60,40,.15)">&#x1F479;</div>
+    <div><div class="class-name">野蛮人</div><div class="class-desc">天生钢板，S13护甲收益进一步提升</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-s">S+</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">减伤</div></div>
+    <div class="class-stat"><div class="grade grade-b">B</div><div class="label">回复</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">挑战怒吼</span><span class="skill-tag">钢铁皮肤</span><span class="skill-tag">坚韧被动</span><span class="skill-tag">强固增生</span></div>
+  <ul class="tips-list">
+    <li>挑战怒吼是游戏最强的群体减伤技能，S13冷却流哑巴蛮更硬了</li>
+    <li>利用"违抗"威能和钢铁皮肤叠护甲，轻松达到6575上限</li>
+    <li>配合"坚韧"被动保持强固状态，获得额外减伤和伤害加成</li>
+  </ul>
+</div>
 
-    <!-- ===== LEVEL 6: 伤害流程 ===== -->
-    <section class="defense-section" id="sec-pipeline">
-      <div class="section-card" data-level="6">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon dodge">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">FINAL LEVEL</div>
-            <div class="section-title-text">伤害削减流程 & 计算器</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content content">
-            <p>当一个怪物攻击你时，伤害是这样被一层层削减的：</p>
+<div class="class-panel" id="panel-sorcerer">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(52,152,219,.15)">&#x1F525;</div>
+    <div><div class="class-name">法师</div><div class="class-desc">元素掌控者，抗性和机动性是生存核心</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-b">B</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-c">C</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">抗性</div></div>
+    <div class="class-stat"><div class="grade grade-a">A+</div><div class="label">机动</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">冰甲</span><span class="skill-tag">火焰盾</span><span class="skill-tag">传送术</span><span class="skill-tag">法力护盾</span></div>
+  <ul class="tips-list">
+    <li>传送术 = 最强规避技能，S13附魔传送降低冷却后极大提升生存</li>
+    <li>4系防御技能轮流开，实现高频覆盖——冰甲、火盾、雷甲、传送</li>
+    <li>智力带来天然高抗性优势，优先堆满全抗上限70%+</li>
+  </ul>
+</div>
 
-            <div class="pipeline">
-              <div class="pipe-damage">
-                <div class="amount start">100K</div>
-                <div class="label">原始伤害</div>
-              </div>
-              <div class="pipe-arrow">&#x279C;</div>
-              <div class="pipe-node">
-                <div class="pipe-icon">&#x2694;</div>
-                <div class="pipe-label">护甲</div>
-                <div class="pipe-value">-50%</div>
-              </div>
-              <div class="pipe-arrow">&#x279C;</div>
-              <div class="pipe-node">
-                <div class="pipe-icon">&#x1F52E;</div>
-                <div class="pipe-label">抗性</div>
-                <div class="pipe-value">-70%</div>
-              </div>
-              <div class="pipe-arrow">&#x279C;</div>
-              <div class="pipe-node">
-                <div class="pipe-icon">&#x1F6E1;</div>
-                <div class="pipe-label">词缀</div>
-                <div class="pipe-value">-60%</div>
-              </div>
-              <div class="pipe-arrow">&#x279C;</div>
-              <div class="pipe-damage">
-                <div class="amount end">~600</div>
-                <div class="label">实际受伤</div>
-              </div>
-            </div>
+<div class="class-panel" id="panel-rogue">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(230,126,34,.15)">&#x1F3F9;</div>
+    <div><div class="class-name">游侠</div><div class="class-desc">灵活刺客，躲闪堆叠是核心竞争力</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-c">C+</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-b">B-</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">躲闪</div></div>
+    <div class="class-stat"><div class="grade grade-s">S+</div><div class="label">机动</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">暗影步伐</span><span class="skill-tag">烟雾弹</span><span class="skill-tag">暗影帷幕</span><span class="skill-tag">疾跑</span></div>
+  <ul class="tips-list">
+    <li>S13回避流游侠更加灵活，堆砌躲闪+移动速度实现高速战斗</li>
+    <li>暗影帷幕提供减伤，利用"机智"被动保持能量=保持减伤</li>
+    <li>烟雾弹配合控制减伤词缀，在高难本中提供稳定生存窗口</li>
+  </ul>
+</div>
 
-            <p>这就是防御叠加的力量——10万伤害被削减到600！但前提是每一层都堆到了合理水平。</p>
+<div class="class-panel" id="panel-druid">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(39,174,96,.15)">&#x1F981;</div>
+    <div><div class="class-name">德鲁伊</div><div class="class-desc">变形坦克，生命和强固双丰收</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-a">A+</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">减伤</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">强固</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">熊人形态</span><span class="skill-tag">旋风甲</span><span class="skill-tag">大地盾</span><span class="skill-tag">自然野性</span></div>
+  <ul class="tips-list">
+    <li>熊人形态天然享受护甲翻倍，S13熊德依然是硬度T0级别</li>
+    <li>结合"大地之力"巅峰盘、强固生成，是持久战最强选择</li>
+    <li>"碎石"威能+熊人强固机制，实现高额持续回复和坦克能力</li>
+  </ul>
+</div>
 
-            <div class="formula-box">
-              <div class="formula-label">总坚韧公式</div>
-              <div class="formula-code">总减伤 = 1 - (1 - 护甲减伤) × (1 - 抗性减伤) × Π(1 - 各类减伤)<br>总坚韧 = 总生命 / (1 - 总减伤)</div>
-            </div>
+<div class="class-panel" id="panel-necro">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(142,68,173,.15)">&#x1F480;</div>
+    <div><div class="class-name">死灵法师</div><div class="class-desc">仆从军团分摊伤害，另类生存之道</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-b">B</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">仆从承伤</div></div>
+    <div class="class-stat"><div class="grade grade-a">A+</div><div class="label">骨甲</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">骨甲</span><span class="skill-tag">血雾</span><span class="skill-tag">尸体卷须</span><span class="skill-tag">骷髅战士</span></div>
+  <ul class="tips-list">
+    <li>S13仆从生存力提升，骷髅军团提供稳定的仇恨分担和伤害</li>
+    <li>骨甲+违抗威能实现护甲大量叠层，搭配血雾作为保命底牌</li>
+    <li>"衰老"诅咒减伤 = 持续控场 + 生存双收益，必带技能</li>
+  </ul>
+</div>
 
-            <!-- Calculator -->
-            <div class="calc-widget">
-              <div class="calc-header">
-                <div class="calc-title">&#x1F9EE; 坚韧计算器</div>
-                <div class="calc-subtitle">输入你的属性，看看实际有多硬</div>
-              </div>
-              <div class="calc-inputs">
-                <div class="input-group">
-                  <label for="calc-hp">最大生命值</label>
-                  <input type="number" id="calc-hp" value="5000" min="400" step="100">
-                </div>
-                <div class="input-group">
-                  <label for="calc-armor">护甲值</label>
-                  <input type="number" id="calc-armor" value="5000" min="0" step="100">
-                </div>
-                <div class="input-group">
-                  <label for="calc-resist">平均抗性 (%)</label>
-                  <input type="number" id="calc-resist" value="60" min="0" max="100" step="5">
-                </div>
-                <div class="input-group">
-                  <label for="calc-dmgreduce">减伤词缀总和 (%)</label>
-                  <input type="number" id="calc-dmgreduce" value="40" min="0" max="95" step="5">
-                </div>
-              </div>
-              <div class="calc-results">
-                <div class="result-card">
-                  <div class="result-value" id="res-toughness">13,889</div>
-                  <div class="result-label">总坚韧 (EHP)</div>
-                </div>
-                <div class="result-card">
-                  <div class="result-value" id="res-reduction">64.0%</div>
-                  <div class="result-label">总减伤率</div>
-                </div>
-                <div class="result-card">
-                  <div class="result-value" id="res-multiplier">2.78x</div>
-                  <div class="result-label">生命放大倍数</div>
-                </div>
-              </div>
-              <div class="calc-explain" id="calc-explain"></div>
-            </div>
+<div class="class-panel" id="panel-spiritborn">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(46,204,113,.15)">&#x1F98D;</div>
+    <div><div class="class-name">灵巫</div><div class="class-desc">S13新职业，活力转化防御的独特机制</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-b">B+</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">机动</div></div>
+    <div class="class-stat"><div class="grade grade-b">B</div><div class="label">减伤</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">丛林之魂</span><span class="skill-tag">豹之迅捷</span><span class="skill-tag">龟甲</span><span class="skill-tag">活力转化</span></div>
+  <ul class="tips-list">
+    <li>活力(Vigor)系统将资源管理与生存挂钩，高活力=高生存</li>
+    <li>天鹰之灵提供移动速度减伤，猎豹之灵提升闪避率</li>
+    <li>"碎击"威能将活力转化为护甲，需保持高活力循环</li>
+  </ul>
+</div>
 
-            <!-- Priority Table -->
-            <h4 style="margin-top:2rem;">高层词缀优先级排行</h4>
-            <div class="priority-table">
-              <div class="priority-row">
-                <div class="priority-rank s">S</div>
-                <div class="priority-name">元素抗性 70%+</div>
-                <div class="priority-desc">基础中的基础，全抗不到70%别碰高层</div>
-              </div>
-              <div class="priority-row">
-                <div class="priority-rank s">S</div>
-                <div class="priority-name">护甲 6575</div>
-                <div class="priority-desc">物理+元素双重减伤，核心防御乘区</div>
-              </div>
-              <div class="priority-row">
-                <div class="priority-rank a">A</div>
-                <div class="priority-name">多样化减伤词缀 30%+</div>
-                <div class="priority-desc">近战/远程/流血/控制下，每种至少一条</div>
-              </div>
-              <div class="priority-row">
-                <div class="priority-rank a">A</div>
-                <div class="priority-name">最大生命值 8000+</div>
-                <div class="priority-desc">高生命才能撑起高EHP和强固</div>
-              </div>
-              <div class="priority-row">
-                <div class="priority-rank b">B</div>
-                <div class="priority-name">强固生成 / 躲闪</div>
-                <div class="priority-desc">锦上添花，高生命BD必配强固</div>
-              </div>
-              <div class="priority-row">
-                <div class="priority-rank b">B</div>
-                <div class="priority-name">格挡率 / 生命回复</div>
-                <div class="priority-desc">持盾职业专属，回复优先级最低</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="class-panel" id="panel-warlock">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(200,50,30,.15)">&#x1F525;</div>
+    <div><div class="class-name">术士</div><div class="class-desc">恶魔契约换取力量，召唤物分摊伤害</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-c">C+</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-b">B-</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-a">A</div><div class="label">恶魔减伤</div></div>
+    <div class="class-stat"><div class="grade grade-a">A-</div><div class="label">回复</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">恶魔契约</span><span class="skill-tag">生命分流</span><span class="skill-tag">暗影护甲</span><span class="skill-tag">召唤恶魔</span></div>
+  <ul class="tips-list">
+    <li>S13术士的恶魔召唤物可吸收30%伤害，是核心生存来源</li>
+    <li>生命分流以法力换生命，配合高回复实现持续站场</li>
+    <li>"恶魔减伤"词缀为术士专属，S13新词缀极大提升术士硬度</li>
+  </ul>
+</div>
 
-    <!-- 职业构建 -->
-    <section class="defense-section" id="sec-classes">
-      <div class="section-card open" data-level="classes">
-        <div class="section-header" onclick="toggleSection(this)">
-          <div class="section-icon" style="background:rgba(218,165,32,0.12);">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#DAA520" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <div class="section-title-group">
-            <div class="section-number">BONUS</div>
-            <div class="section-title-text">各职业防御构建</div>
-          </div>
-          <div class="section-toggle">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </div>
-        </div>
-        <div class="section-body">
-          <div class="section-content">
-            <div class="class-tabs">
-              <div class="class-tab active" onclick="switchClass(this,'barbarian')">&#x1F9DC; 野蛮人</div>
-              <div class="class-tab" onclick="switchClass(this,'sorcerer')">&#x1F9D9; 法师</div>
-              <div class="class-tab" onclick="switchClass(this,'rogue')">&#x1F3F9; 游侠</div>
-              <div class="class-tab" onclick="switchClass(this,'druid')">&#x1F43B; 德鲁伊</div>
-              <div class="class-tab" onclick="switchClass(this,'necromancer')">&#x1F480; 死灵</div>
-            </div>
+<div class="class-panel" id="panel-paladin">
+  <div class="class-header-card">
+    <div class="class-icon-box" style="background:rgba(241,196,15,.15)">&#x1F6E1;</div>
+    <div><div class="class-name">圣骑士</div><div class="class-desc">S13新增经典职业，全能防御的代名词</div></div>
+  </div>
+  <div class="class-stats">
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">护甲</div></div>
+    <div class="class-stat"><div class="grade grade-a">A+</div><div class="label">生命</div></div>
+    <div class="class-stat"><div class="grade grade-s">S</div><div class="label">减伤</div></div>
+    <div class="class-stat"><div class="grade grade-b">B+</div><div class="label">回复</div></div>
+  </div>
+  <div class="skill-tags"><span class="skill-tag">圣盾术</span><span class="skill-tag">神圣之光</span><span class="skill-tag">光环</span><span class="skill-tag">正义之盾</span></div>
+  <ul class="tips-list">
+    <li>圣盾术开启期间护甲翻倍+免疫控制，S13最强单体防护技能</li>
+    <li>光环系统为团队提供全抗+减伤共享，组队最优辅助</li>
+    <li>持盾时格挡率可达60%+，配合"正义之盾"实现常驻减伤</li>
+  </ul>
+</div>
 
-            <div class="class-panel active" id="panel-barbarian">
-              <div class="class-header-card">
-                <div class="class-icon">&#x1F9DC;</div>
-                <div><div class="class-name">野蛮人 Barbarian</div><div class="class-desc">天生坦克——高力量=高护甲，战吼提供巨幅减伤</div></div>
-              </div>
-              <div class="class-stats-row">
-                <div class="class-stat"><div class="val">S+</div><div class="label">护甲</div></div>
-                <div class="class-stat"><div class="val">A</div><div class="label">生命</div></div>
-                <div class="class-stat"><div class="val">S</div><div class="label">减伤</div></div>
-                <div class="class-stat"><div class="val">B</div><div class="label">回复</div></div>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag defense">铁肤 - 高减伤</span>
-                <span class="skill-tag defense">挑战怒吼 - 群体减伤</span>
-                <span class="skill-tag defense">破空斩 - 无敌帧</span>
-                <span class="skill-tag core">狂战之怒 - 免疫控制</span>
-              </div>
-              <ul class="tips-list">
-                <li><span class="icon">&#x2605;</span>力量提供大量护甲，装备优先选护甲词缀和近战减伤</li>
-                <li><span class="icon">&#x2605;</span>巅峰盘优先点出"铁肤"节点，提供高达30%减伤</li>
-                <li><span class="icon">&#x2605;</span>镶嵌皇家头骨宝石快速达到6575护甲上限</li>
-              </ul>
-            </div>
+</div>
+</div>
+</div>
+</section>
 
-            <div class="class-panel" id="panel-sorcerer">
-              <div class="class-header-card">
-                <div class="class-icon">&#x1F9D9;</div>
-                <div><div class="class-name">法师 Sorcerer</div><div class="class-desc">智力职业天然高抗性，依靠传送和元素护盾生存</div></div>
-              </div>
-              <div class="class-stats-row">
-                <div class="class-stat"><div class="val">B</div><div class="label">护甲</div></div>
-                <div class="class-stat"><div class="val">C</div><div class="label">生命</div></div>
-                <div class="class-stat"><div class="val">S</div><div class="label">抗性</div></div>
-                <div class="class-stat"><div class="val">A+</div><div class="label">机动</div></div>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag defense">寒冰甲 - 高额护甲</span>
-                <span class="skill-tag defense">火焰护盾 - 免控+减伤</span>
-                <span class="skill-tag core">传送 - 位移规避</span>
-              </div>
-              <ul class="tips-list">
-                <li><span class="icon">&#x2605;</span>智力提供全抗但不提供护甲——必须靠寒冰甲补护甲短板</li>
-                <li><span class="icon">&#x2605;</span>优先堆到70%全抗上限，法系职业有天然优势</li>
-                <li><span class="icon">&#x2605;</span>传送是核心生存技能，配合巅峰节点CD极短</li>
-              </ul>
-            </div>
+</div><!-- /page-content -->
+</div><!-- /page-wrap -->
 
-            <div class="class-panel" id="panel-rogue">
-              <div class="class-header-card">
-                <div class="class-icon">&#x1F3F9;</div>
-                <div><div class="class-name">游侠 Rogue</div><div class="class-desc">靠位移和躲闪生存，机动性极强但身板较脆</div></div>
-              </div>
-              <div class="class-stats-row">
-                <div class="class-stat"><div class="val">C+</div><div class="label">护甲</div></div>
-                <div class="class-stat"><div class="val">B-</div><div class="label">生命</div></div>
-                <div class="class-stat"><div class="val">A</div><div class="label">躲闪</div></div>
-                <div class="class-stat"><div class="val">S+</div><div class="label">机动</div></div>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag defense">暗影步 - 位移脱离</span>
-                <span class="skill-tag defense">烟雾弹 - 隐身/减伤</span>
-                <span class="skill-tag core">准备 - 免疫控制</span>
-              </div>
-              <ul class="tips-list">
-                <li><span class="icon">&#x2605;</span>核心策略是"不让怪打到你"——位移+躲闪</li>
-                <li><span class="icon">&#x2605;</span>远程减伤词缀优先考虑</li>
-                <li><span class="icon">&#x2605;</span>不要试图和怪硬碰硬——护甲天生偏低</li>
-              </ul>
-            </div>
+<script src="../../assets/js/main.js"></script>
+<script>
+// Section toggle
+function toggleSection(header) {
+  var card = header.closest('.section-card');
+  card.classList.toggle('open');
+  updateProgress();
+}
 
-            <div class="class-panel" id="panel-druid">
-              <div class="class-header-card">
-                <div class="class-icon">&#x1F43B;</div>
-                <div><div class="class-name">德鲁伊 Druid</div><div class="class-desc">变熊=天然坦克，变形提供巨幅生命和护甲加成</div></div>
-              </div>
-              <div class="class-stats-row">
-                <div class="class-stat"><div class="val">A+</div><div class="label">护甲</div></div>
-                <div class="class-stat"><div class="val">S</div><div class="label">生命</div></div>
-                <div class="class-stat"><div class="val">A</div><div class="label">减伤</div></div>
-                <div class="class-stat"><div class="val">A</div><div class="label">强固</div></div>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag core">熊人变身 - 生命+护甲</span>
-                <span class="skill-tag defense">荆棘 - 反伤+防御</span>
-                <span class="skill-tag defense">飓风甲 - 高额减伤</span>
-              </div>
-              <ul class="tips-list">
-                <li><span class="icon">&#x2605;</span>变熊状态下获得大量生命和护甲百分比加成</li>
-                <li><span class="icon">&#x2605;</span>荆棘流是德鲁伊的特色——高防御+反伤输出</li>
-                <li><span class="icon">&#x2605;</span>飓风甲提供高达40%减伤</li>
-              </ul>
-            </div>
+// Progress
+function updateProgress() {
+  var cards = document.querySelectorAll('.section-card[data-level]');
+  var open = document.querySelectorAll('.section-card[data-level].open');
+  var pct = cards.length > 0 ? (open.length / cards.length) * 100 : 0;
+  var dots = document.querySelectorAll('.level-dot');
+  dots.forEach(function(d, i) {
+    d.classList.toggle('active', i < open.length);
+  });
+}
 
-            <div class="class-panel" id="panel-necromancer">
-              <div class="class-header-card">
-                <div class="class-icon">&#x1F480;</div>
-                <div><div class="class-name">死灵法师 Necromancer</div><div class="class-desc">靠骷髅和骨甲间接生存，仆从当肉盾本体安全输出</div></div>
-              </div>
-              <div class="class-stats-row">
-                <div class="class-stat"><div class="val">B</div><div class="label">护甲</div></div>
-                <div class="class-stat"><div class="val">A</div><div class="label">生命</div></div>
-                <div class="class-stat"><div class="val">S</div><div class="label">仆从承伤</div></div>
-                <div class="class-stat"><div class="val">A+</div><div class="label">骨甲</div></div>
-              </div>
-              <div class="skill-tags">
-                <span class="skill-tag defense">骨甲 - 吸收伤害</span>
-                <span class="skill-tag defense">血肉傀儡 - 仆从承伤</span>
-                <span class="skill-tag defense">鲜血虹吸 - 击杀回血</span>
-              </div>
-              <ul class="tips-list">
-                <li><span class="icon">&#x2605;</span>骨甲是核心——可以吸收大量伤害</li>
-                <li><span class="icon">&#x2605;</span>仆从吸引仇恨和伤害，本体几乎不用承伤</li>
-                <li><span class="icon">&#x2605;</span>智力属性提供全抗，抗性面板不会差</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
-          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
-            B站: @看雲起雲落
-          </a>
-          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
-          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
-          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
-        </div>
-      </div>
-    </footer>
-
-    <!-- QR Code Preview -->
-    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
-      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
-    </div>
-
-</main>
-
-  <script>
-    // Section toggle
-    function toggleSection(header) {
-      header.closest('.section-card').classList.toggle('open');
-      updateProgress();
-    }
-
-    // Class tabs
-    function switchClass(tab, name) {
-      tab.closest('.class-tabs').querySelectorAll('.class-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const panel = tab.closest('.section-content').querySelectorAll('.class-panel');
-      panel.forEach(p => p.classList.remove('active'));
-      document.getElementById('panel-' + name).classList.add('active');
-    }
-
-    // Calculator
-    function calculate() {
-      var hp = parseFloat(document.getElementById('calc-hp').value) || 400;
-      var armor = parseFloat(document.getElementById('calc-armor').value) || 0;
-      var resist = Math.min(parseFloat(document.getElementById('calc-resist').value) || 0, 100) / 100;
-      var dmgReduce = Math.min(parseFloat(document.getElementById('calc-dmgreduce').value) || 0, 95) / 100;
-
-      var armorReduction = (0.9 * armor) / (armor + 4500);
-      var totalReduction = 1 - (1 - armorReduction) * (1 - resist) * (1 - dmgReduce);
-      var toughness = hp / (1 - totalReduction);
-      var multiplier = toughness / hp;
-
-      document.getElementById('res-toughness').textContent = Math.round(toughness).toLocaleString();
-      document.getElementById('res-reduction').textContent = (totalReduction * 100).toFixed(1) + '%';
-      document.getElementById('res-multiplier').textContent = multiplier.toFixed(2) + 'x';
-
-      var a = (armorReduction * 100).toFixed(1);
-      var r = (resist * 100).toFixed(1);
-      var d = (dmgReduce * 100).toFixed(1);
-      var t = (totalReduction * 100).toFixed(1);
-      document.getElementById('calc-explain').innerHTML =
-        '护甲减伤: ' + a + '% | 抗性减伤: ' + r + '% | 词缀减伤: ' + d + '%<br>' +
-        '总减伤 = 1 - (1-' + armorReduction.toFixed(2) + ') × (1-' + resist.toFixed(2) + ') × (1-' + dmgReduce.toFixed(2) + ') = ' + t + '%<br>' +
-        '总坚韧 = ' + hp.toLocaleString() + ' / (1 - ' + t + '%) = ' + Math.round(toughness).toLocaleString();
-    }
-
-    document.querySelectorAll('.calc-inputs input').forEach(function(input) {
-      input.addEventListener('input', calculate);
-    });
-    calculate();
-
-    // Damage simulator
-    function simulateDamage() {
-      var monster = document.getElementById('monster');
-      var player = document.getElementById('player');
-      var shield = document.getElementById('shield');
-      var result = document.getElementById('simResult');
-
-      monster.classList.remove('attacking');
-      player.classList.remove('hit');
-      void monster.offsetWidth;
-
-      monster.classList.add('attacking');
-      shield.classList.add('active');
-
-      setTimeout(function() {
-        player.classList.add('hit');
-      }, 150);
-
-      setTimeout(function() {
-        var armor = parseFloat(document.getElementById('calc-armor').value) || 5000;
-        var reduction = Math.round(10000 * (1 - (0.9 * armor) / (armor + 4500)));
-        result.textContent = reduction.toLocaleString();
-      }, 400);
-
-      setTimeout(function() {
-        monster.classList.remove('attacking');
-        player.classList.remove('hit');
-        shield.classList.remove('active');
-      }, 1500);
-    }
-
-    // Progress bar
-    function updateProgress() {
-      var total = document.querySelectorAll('.section-card').length;
-      var open = document.querySelectorAll('.section-card.open').length;
-      document.getElementById('progressFill').style.width = (open / total * 100) + '%';
-
-      // Update level dots
-      var dots = document.querySelectorAll('.level-dot');
-      var sections = document.querySelectorAll('.section-card');
-      dots.forEach(function(dot, i) {
-        dot.classList.toggle('active', sections[i] && sections[i].classList.contains('open'));
-      });
-    }
-
-    // Scroll reveal for stat bars
-    (function() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.querySelectorAll('.stat-bar-fill').forEach(function(bar) {
-              bar.style.width = bar.dataset.width + '%';
-            });
-            observer.unobserve(entry.target);
-          }
+// Stat bar animation
+(function() {
+  var observed = document.querySelectorAll('.stat-bars[data-animate]');
+  if (!observed.length) return;
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.stat-bar-fill').forEach(function(el) {
+          el.style.width = el.getAttribute('data-width') + '%';
         });
-      }, { threshold: 0.3 });
+      }
+    });
+  }, { threshold: 0.3 });
+  observed.forEach(function(el) { obs.observe(el); });
+})();
 
-      document.querySelectorAll('.stat-bars[data-animate]').forEach(function(el) {
-        observer.observe(el);
-      });
-    })();
+// ==== Armor Simulator ====
+function updateArmorSim(val) {
+  var armor = parseInt(val);
+  document.getElementById('armorValDisplay').textContent = armor.toLocaleString();
+  var dr = 0.9 * armor / (armor + 4500);
+  var pct = Math.round(dr * 100);
+  var reduced = Math.round(10000 * (1 - dr));
+  document.getElementById('simResult').textContent = reduced.toLocaleString();
+  document.getElementById('simDrPercent').textContent = pct + '%';
+}
 
-    // Init
-    updateProgress();
-  </script>
-  <script src="../../assets/js/main.js"></script>
+function simulateDamage() {
+  var monster = document.getElementById('monster');
+  var player = document.getElementById('player');
+  var shield = document.getElementById('shield');
+
+  monster.classList.remove('attacking');
+  player.classList.remove('hit');
+  shield.classList.remove('active');
+  void monster.offsetWidth;
+
+  monster.classList.add('attacking');
+  shield.classList.add('active');
+  setTimeout(function() {
+    player.classList.add('hit');
+  }, 150);
+  setTimeout(function() {
+    monster.classList.remove('attacking');
+    player.classList.remove('hit');
+    shield.classList.remove('active');
+  }, 1500);
+}
+
+// ==== Radar Chart ====
+function updateRadar() {
+  var elemIds = ['rFire','rIce','rLtng','rPoison','rShadow'];
+  var vals = [];
+  var colors = ['#e74c3c','#3498db','#f1c40f','#27ae60','#9b59b6'];
+  var sum = 0;
+  document.querySelectorAll('.radar-controls input[type=range]').forEach(function(inp, i) {
+    var v = parseInt(inp.value);
+    vals.push(v);
+    sum += v;
+    document.getElementById(elemIds[i]).textContent = v + '%';
+  });
+  var avg = Math.round(sum / vals.length);
+  document.getElementById('avgResist').textContent = avg + '%';
+  document.getElementById('eleDR').textContent = (100 - Math.round(100 * Math.pow(1 - avg/100, vals.length))) + '%';
+
+  var svg = document.getElementById('radarSvg');
+  var cx = 140, cy = 140, r = 100;
+  var html = '';
+  // Axis lines
+  for (var i = 0; i < 5; i++) {
+    var angle = Math.PI/2 + (2*Math.PI/5)*i;
+    html += '<line x1="' + cx + '" y1="' + cy + '" x2="' + (cx + r*Math.cos(-angle)) + '" y2="' + (cy + r*Math.sin(-angle)) + '" stroke="#2a2820" stroke-width="1"/>';
+    var lx = cx + (r+20)*Math.cos(-angle), ly = cy + (r+20)*Math.sin(-angle);
+    var labels = ['火','冰','电','毒','暗'];
+    html += '<text x="' + lx + '" y="' + ly + '" fill="#8a8070" font-size="11" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif">' + labels[i] + '</text>';
+  }
+  // Background rings
+  for (var ri = 1; ri <= 3; ri++) {
+    var points = '';
+    for (var i = 0; i < 5; i++) {
+      var angle = Math.PI/2 + (2*Math.PI/5)*i;
+      var pr = r * ri / 3;
+      var px = cx + pr*Math.cos(-angle), py = cy + pr*Math.sin(-angle);
+      points += (i === 0 ? 'M' : 'L') + px + ' ' + py;
+    }
+    html += '<path d="' + points + 'Z" fill="none" stroke="#2a2820" stroke-width="0.5"/>';
+  }
+  // Data polygon
+  var dataPoints = '';
+  for (var i = 0; i < 5; i++) {
+    var angle = Math.PI/2 + (2*Math.PI/5)*i;
+    var pr = r * vals[i] / 85;
+    var px = cx + pr*Math.cos(-angle), py = cy + pr*Math.sin(-angle);
+    dataPoints += (i === 0 ? 'M' : 'L') + px + ' ' + py;
+  }
+  html += '<path d="' + dataPoints + 'Z" fill="rgba(200,150,62,0.15)" stroke="#c8963e" stroke-width="2"/>';
+  // Data dots
+  for (var i = 0; i < 5; i++) {
+    var angle = Math.PI/2 + (2*Math.PI/5)*i;
+    var pr = r * vals[i] / 85;
+    var px = cx + pr*Math.cos(-angle), py = cy + pr*Math.sin(-angle);
+    html += '<circle cx="' + px + '" cy="' + py + '" r="4" fill="' + colors[i] + '" stroke="#0a0c18" stroke-width="1.5"/>';
+  }
+  svg.innerHTML = html;
+}
+
+// ==== Life Simulator ====
+function updateLifeSim(pct) {
+  var val = parseInt(pct);
+  document.getElementById('lifePctDisplay').textContent = val + '%';
+  var base = 400;
+  var total = Math.round(base * (1 + val / 100));
+  var barPct = Math.min(100, Math.round(100 * total / 2000));
+  document.getElementById('lifeBarFill').style.width = barPct + '%';
+  document.getElementById('lifeBarFill').textContent = total.toLocaleString();
+  document.getElementById('lifeBarBase').style.left = (100 * base / (base * (1 + val/100))) + '%';
+  document.getElementById('lifeTotal').textContent = total.toLocaleString();
+
+  var stackHtml = '<div class="life-stack-row"><span>基础生命</span><span class="total">400</span></div>';
+  stackHtml += '<div class="life-stack-row"><span>+ ' + val + '% 加成</span><span class="mult">x' + (1 + val/100).toFixed(2) + '</span><span class="total">+' + (total - base) + '</span></div>';
+  stackHtml += '<div class="life-stack-row" style="border-top:1px solid rgba(255,255,255,.05);padding-top:.3rem"><span style="color:var(--gold)">总生命</span><span class="total" style="color:var(--gold);font-size:.85rem">' + total.toLocaleString() + '</span></div>';
+  document.getElementById('lifeStack').innerHTML = stackHtml;
+}
+
+// ==== Fortify Simulator ====
+var fHp = 8000, fBarrier = 3200;
+function simulateFortify() {
+  var dmg = 2500;
+  var barrierText = document.getElementById('fortifyBarNum');
+  var hpText = document.getElementById('fortifyHpNum');
+  var totalText = document.getElementById('fortifyTotal');
+
+  if (fBarrier >= dmg) {
+    fBarrier -= dmg;
+  } else {
+    dmg -= fBarrier;
+    fBarrier = 0;
+    fHp -= dmg;
+    if (fHp < 0) fHp = 0;
+  }
+  updateFortifyUI();
+}
+
+function resetFortify() {
+  fHp = 8000;
+  fBarrier = 3200;
+  updateFortifyUI();
+}
+
+function updateFortifyUI() {
+  var hpPct = Math.round(fHp / 8000 * 100);
+  var barPct = Math.round(fBarrier / 8000 * 100);
+  document.getElementById('fortifyHp').style.width = hpPct + '%';
+  document.getElementById('fortifyBarrier').style.width = barPct + '%';
+  document.getElementById('fortifyHpNum').textContent = fHp.toLocaleString();
+  document.getElementById('fortifyBarNum').textContent = fBarrier.toLocaleString();
+  document.getElementById('fortifyTotal').textContent = (fHp + fBarrier).toLocaleString();
+}
+
+// ==== DR Visualizer ====
+var drMode = 'diverse';
+function switchDR(mode) {
+  drMode = mode;
+  renderDR();
+}
+
+function renderDR() {
+  var container = document.getElementById('drVizContent');
+  var html = '';
+  if (drMode === 'diverse') {
+    var items = [
+      { name: '近战减伤', val: 20, cls: 'multiplicative' },
+      { name: '远程减伤', val: 20, cls: 'multiplicative' },
+      { name: '控制下减伤', val: 20, cls: 'multiplicative' },
+      { name: '受伤下减伤', val: 20, cls: 'multiplicative' },
+      { name: '流血下减伤', val: 20, cls: 'multiplicative' },
+    ];
+    var total = 1;
+    items.forEach(function(it) { total *= (1 - it.val / 100); });
+    var totalDR = Math.round((1 - total) * 100);
+
+    items.forEach(function(it) {
+      html += '<div class="dr-viz-row"><span class="source">' + it.name + '</span><div class="bar-track"><div class="bar-fill multiplicative" style="width:' + it.val + '%">' + it.val + '%</div></div><span class="result" style="color:#c8963e">x' + (1-it.val/100).toFixed(2) + '</span></div>';
+    });
+    html += '<div class="dr-total">总减伤: <strong>' + totalDR + '%</strong> &#x2022; 5种不同类型 = 乘算收益最大化</div>';
+  } else {
+    var val = 20;
+    var total = 1;
+    var rows = [];
+    for (var i = 0; i < 5; i++) {
+      total *= (1 - val / 100);
+      rows.push({ name: '近战减伤 #' + (i+1), val: val, cls: 'additive' });
+    }
+    var totalDR = Math.round((1 - total) * 100);
+    rows.forEach(function(it, i) {
+      html += '<div class="dr-viz-row"><span class="source">' + it.name + '</span><div class="bar-track"><div class="bar-fill additive" style="width:' + it.val + '%">' + it.val + '%</div></div><span class="result" style="color:#666">x' + (1-it.val/100).toFixed(2) + '</span></div>';
+    });
+    html += '<div class="dr-total" style="color:#666">总减伤: <strong style="color:#c8963e">' + totalDR + '%</strong> &#x26A0; 5条同类词缀 = 严重稀释</div>';
+  }
+  container.innerHTML = html;
+}
+
+// ==== Pipeline Interactive ====
+function updatePipeline() {
+  var armor = parseInt(document.querySelector('.pipe-interactive .pipe-controls:nth-child(1) input').value);
+  var resist = parseInt(document.querySelector('.pipe-interactive .pipe-controls:nth-child(2) input').value);
+  var dr = parseInt(document.querySelector('.pipe-interactive .pipe-controls:nth-child(3) input').value);
+  document.getElementById('pArmorVal').textContent = armor + '%';
+  document.getElementById('pResistVal').textContent = resist + '%';
+  document.getElementById('pDRVal').textContent = dr + '%';
+
+  var base = 100000;
+  var a = base * (1 - armor / 100);
+  var b = a * (1 - resist / 100);
+  var final = Math.round(b * (1 - dr / 100));
+
+  document.getElementById('pipeArmor').textContent = '-' + armor + '%';
+  document.getElementById('pipeResist').textContent = '-' + resist + '%';
+  document.getElementById('pipeDR').textContent = '-' + dr + '%';
+  document.getElementById('pipeFinal').textContent = (final >= 1000 ? Math.round(final/1000) + 'K' : final);
+}
+
+// ==== Toughness Calculator ====
+function calculate() {
+  var hp = parseFloat(document.getElementById('calc-hp').value) || 0;
+  var armor = parseFloat(document.getElementById('calc-armor').value) || 0;
+  var resist = parseFloat(document.getElementById('calc-resist').value) || 0;
+  var dr = parseFloat(document.getElementById('calc-dr').value) || 0;
+  var barrier = parseFloat(document.getElementById('calc-barrier').value) || 0;
+
+  var armorDR = 0.9 * armor / (armor + 4500);
+  var resistDR = resist / 100;
+  var drDR = dr / 100;
+
+  var totalDR = 1 - (1 - armorDR) * (1 - resistDR) * (1 - drDR);
+  var mult = totalDR > 0 && totalDR < 1 ? Math.round(100 / (1 - totalDR)) / 100 : 1;
+  var ehp = totalDR < 1 ? Math.round(hp / (1 - totalDR)) : 999999;
+  var ehpWithBarrier = totalDR < 1 ? Math.round((hp + barrier) / (1 - totalDR)) : 999999;
+
+  document.getElementById('res-reduction').textContent = Math.round(totalDR * 100) + '%';
+  document.getElementById('res-multiplier').textContent = mult.toFixed(1) + 'x';
+  document.getElementById('res-toughness').textContent = ehp.toLocaleString();
+  document.getElementById('res-barrier-ehp').textContent = ehpWithBarrier.toLocaleString();
+
+  var explain = '护甲减伤: ' + Math.round(armorDR*100) + '% &#x2192; 剩余 ' + Math.round((1-armorDR)*100) + '%';
+  explain += ' &#x2022; 抗性减伤: ' + Math.round(resistDR*100) + '%';
+  explain += ' &#x2022; DR词缀: ' + Math.round(drDR*100) + '%';
+  explain += '<br>总减伤率: <strong>' + Math.round(totalDR*100) + '%</strong>';
+  explain += ' &#x2192; 生命放大 <strong>' + mult.toFixed(1) + 'x</strong>';
+  explain += ' &#x2192; EHP: <strong>' + ehp.toLocaleString() + '</strong>';
+  document.getElementById('calc-explain').innerHTML = explain;
+}
+
+// ==== Class Tabs ====
+function switchClass(tab, name) {
+  tab.closest('.class-tabs').querySelectorAll('.class-tab').forEach(function(t) { t.classList.remove('active'); });
+  tab.classList.add('active');
+  var panels = tab.closest('.section-content').querySelectorAll('.class-panel');
+  panels.forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('panel-' + name).classList.add('active');
+}
+
+// Init
+updateArmorSim(6575);
+updateRadar();
+updateLifeSim(50);
+updatePipeline();
+renderDR();
+calculate();
+updateProgress();
+</script>
+
 </body>
 </html>
