@@ -94,140 +94,6 @@
     }
     .header-logo-d4 img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* === Countdown Timer === */
-    .countdown-section {
-      padding: 3.5rem 0 3rem; text-align: center; position: relative;
-    }
-    .countdown-section::before {
-      content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      width: 80%; height: 1px;
-      background: linear-gradient(90deg, transparent, #8B0000, var(--accent), #8B0000, transparent);
-    }
-    .countdown-frame {
-      position: relative; display: inline-block; width: 100%; max-width: 720px;
-      margin: 0 auto; padding: 2.5rem 2rem 2rem;
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(139,0,0,0.12) 0%, transparent 60%),
-        linear-gradient(180deg, rgba(18,10,14,0.95), rgba(13,6,8,0.98));
-      border: 1px solid rgba(139,0,0,0.25); border-radius: 16px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(218,165,32,0.08);
-    }
-    .countdown-frame::before {
-      content: ''; position: absolute; inset: -1px; border-radius: 16px;
-      border: 1px solid transparent;
-      background: linear-gradient(180deg, rgba(218,165,32,0.15), transparent 40%, transparent 60%, rgba(139,0,0,0.15)) border-box;
-      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      pointer-events: none;
-    }
-    .countdown-corner {
-      position: absolute; width: 20px; height: 20px;
-    }
-    .countdown-corner::before, .countdown-corner::after {
-      content: ''; position: absolute; background: var(--accent);
-    }
-    .countdown-corner-tl { top: -1px; left: -1px; }
-    .countdown-corner-tl::before { top: 0; left: 0; width: 12px; height: 2px; }
-    .countdown-corner-tl::after { top: 0; left: 0; width: 2px; height: 12px; }
-    .countdown-corner-tr { top: -1px; right: -1px; }
-    .countdown-corner-tr::before { top: 0; right: 0; width: 12px; height: 2px; }
-    .countdown-corner-tr::after { top: 0; right: 0; width: 2px; height: 12px; }
-    .countdown-corner-bl { bottom: -1px; left: -1px; }
-    .countdown-corner-bl::before { bottom: 0; left: 0; width: 12px; height: 2px; }
-    .countdown-corner-bl::after { bottom: 0; left: 0; width: 2px; height: 12px; }
-    .countdown-corner-br { bottom: -1px; right: -1px; }
-    .countdown-corner-br::before { bottom: 0; right: 0; width: 12px; height: 2px; }
-    .countdown-corner-br::after { bottom: 0; right: 0; width: 2px; height: 12px; }
-
-    .countdown-ember {
-      position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
-      width: 36px; height: 8px;
-      background: radial-gradient(ellipse, rgba(218,165,32,0.5), transparent 70%);
-      animation: emberGlow 3s ease-in-out infinite;
-    }
-    @keyframes emberGlow {
-      0%,100% { opacity: 0.4; transform: translateX(-50%) scaleX(1); }
-      50% { opacity: 1; transform: translateX(-50%) scaleX(1.3); }
-    }
-
-    .countdown-label {
-      font-size: 0.65rem; color: rgba(139,0,0,0.7); letter-spacing: 4px; text-transform: uppercase;
-      margin-bottom: 0.4rem; font-family: 'Chakra Petch', sans-serif; font-weight: 600;
-    }
-    .countdown-title {
-      font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700;
-      color: #DAA520; margin-bottom: 1rem; letter-spacing: 3px;
-      text-shadow: 0 0 25px rgba(218,165,32,0.2), 0 2px 4px rgba(0,0,0,0.5);
-    }
-    .countdown-target {
-      font-size: 0.68rem; color: #7a6a60; margin-bottom: 1.8rem;
-      display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;
-    }
-    .countdown-divider {
-      color: rgba(218,165,32,0.25); margin: 0 0.25rem;
-    }
-    .countdown-timer {
-      display: inline-flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;
-      justify-content: center;
-    }
-    .countdown-unit {
-      display: flex; flex-direction: column; align-items: center; min-width: 80px;
-    }
-    .countdown-value {
-      font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 900;
-      color: #f0e8e0; line-height: 1; padding: 0.6rem 0.9rem;
-      background:
-        linear-gradient(180deg, rgba(18,10,14,0.98) 0%, rgba(26,15,20,0.95) 50%, rgba(18,10,14,0.98) 100%);
-      border: 1px solid rgba(139,0,0,0.35); border-radius: 8px;
-      position: relative; overflow: hidden; min-width: 72px; text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 15px rgba(139,0,0,0.15), inset 0 1px 0 rgba(218,165,32,0.1), inset 0 -1px 0 rgba(139,0,0,0.2);
-      transition: all 0.3s;
-    }
-    .countdown-value::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    .countdown-value::after {
-      content: ''; position: absolute; top: 50%; left: 10%; right: 10%; height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(139,0,0,0.12), transparent);
-    }
-    .countdown-unit-name {
-      font-size: 0.6rem; color: rgba(218,165,32,0.5); letter-spacing: 3px; text-transform: uppercase;
-      margin-top: 0.6rem; font-family: 'Chakra Petch', sans-serif; font-weight: 600;
-    }
-    .countdown-separator {
-      font-family: 'Cinzel', serif; font-size: 2rem;
-      color: rgba(139,0,0,0.5); padding: 0 0.1rem;
-      text-shadow: 0 0 8px rgba(139,0,0,0.3);
-    }
-    @keyframes digitShift {
-      0%, 100% {
-        color: #f0e8e0;
-        text-shadow: 0 0 8px rgba(218,165,32,0.05);
-      }
-      50% {
-        color: #e8d5b0;
-        text-shadow: 0 0 12px rgba(218,165,32,0.15);
-      }
-    }
-    .countdown-unit .countdown-value {
-      animation: digitShift 2s ease-in-out infinite;
-    }
-    .countdown-unit .countdown-value:hover {
-      border-color: rgba(218,165,32,0.4);
-      box-shadow: 0 4px 25px rgba(139,0,0,0.4), 0 0 20px rgba(218,165,32,0.1);
-    }
-    .countdown-ended {
-      font-family: 'Cinzel', serif; font-size: 1.4rem; color: #DAA520;
-      letter-spacing: 3px; padding: 1rem 0;
-      text-shadow: 0 0 30px rgba(218,165,32,0.4), 0 2px 4px rgba(0,0,0,0.5);
-      animation: endedGlow 2s ease-in-out infinite;
-    }
-    @keyframes endedGlow {
-      0%,100% { text-shadow: 0 0 30px rgba(218,165,32,0.4), 0 2px 4px rgba(0,0,0,0.5); }
-      50% { text-shadow: 0 0 50px rgba(218,165,32,0.6), 0 0 80px rgba(139,0,0,0.3), 0 2px 4px rgba(0,0,0,0.5); }
-    }
-
     /* === Section Label === */
     .section-label {
       display: flex; align-items: center; gap: 1rem;
@@ -504,52 +370,15 @@
       </div>
     </section>
 
-    <!-- ===== 开服倒计时 ===== -->
-    <section class="countdown-section">
-      <div class="countdown-frame">
-        <div class="countdown-ember"></div>
-        <div class="countdown-corner countdown-corner-tl"></div>
-        <div class="countdown-corner countdown-corner-tr"></div>
-        <div class="countdown-corner countdown-corner-bl"></div>
-        <div class="countdown-corner countdown-corner-br"></div>
-        <div class="countdown-label">SERVER COUNTDOWN</div>
-        <div class="countdown-title">暗黑破坏神 IV 开服倒计时</div>
-        <div class="countdown-target">
-          <span>国服：4月28日 07:30（北京时间）</span>
-          <span class="countdown-divider">&#x25C8;</span>
-          <span>国际服：4月27日 16:30（PDT）/ 4月28日 00:30（BST）</span>
-        </div>
-        <div class="countdown-timer" id="countdownTimer">
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cdDays">00</span>
-            <span class="countdown-unit-name">天</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cdHours">00</span>
-            <span class="countdown-unit-name">时</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cdMinutes">00</span>
-            <span class="countdown-unit-name">分</span>
-          </div>
-          <span class="countdown-separator">:</span>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cdSeconds">00</span>
-            <span class="countdown-unit-name">秒</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== S13 Boss掉落表（置顶） ===== -->
-    <section id="sec-s13">
+        <!-- ===== S13 Boss掉落表（置顶） ===== -->
+    <section id="sec-dlc">
     <div class="section-label">
-      <h2>S13 · Boss掉落表</h2>
-      <span class="count">最新更新</span>
+      <h2>憎恨之王 · 第13赛季</h2>
+      <span class="count">S13 赛季内容</span>
     </div>
+
     <div class="content-grid">
+      <!-- S13 Boss掉落表 -->
       <a href="s13-boss-loot.html" class="guide-card featured">
         <div class="card-content">
           <div class="card-tags">
@@ -565,17 +394,8 @@
         </div>
         <div class="card-visual"><div class="visual-icon">&#x1F451;</div></div>
       </a>
-    </div>
-    </section>
 
-    <!-- ===== 憎恨之王 ===== -->
-    <section id="sec-dlc">
-    <div class="section-label">
-      <h2>憎恨之王</h2>
-      <span class="count">扩展包内容</span>
-    </div>
 
-    <div class="content-grid">
       <!-- Featured: 术士开荒BD -->
       <a href="warlock-build.html" class="guide-card featured">
         <div class="card-content">
