@@ -374,7 +374,7 @@
     <section id="sec-dlc">
     <div class="section-label">
       <h2>憎恨之王 · 第13赛季</h2>
-      <span class="count">S13 赛季内容</span>
+      <span class="count">S13 赛季内容 · 已开服 <span id="serverDays">0</span> 天</span>
     </div>
 
     <div class="content-grid">
@@ -679,37 +679,6 @@
 
   <script src="../../assets/js/main.js"></script>
   <script>
-    (function() {
-      var target = new Date(2026, 3, 28, 7, 30, 0);
-      var daysEl = document.getElementById('cdDays');
-      var hoursEl = document.getElementById('cdHours');
-      var minutesEl = document.getElementById('cdMinutes');
-      var secondsEl = document.getElementById('cdSeconds');
-      var timerEl = document.getElementById('countdownTimer');
-
-      function pad(n) { return n < 10 ? '0' + n : String(n); }
-
-      function update() {
-        var now = new Date();
-        var diff = target.getTime() - now.getTime();
-        if (diff <= 0) {
-          timerEl.innerHTML = '<span class="countdown-ended">&#x2694; 已开服 &#x2694;</span>';
-          return;
-        }
-        var d = Math.floor(diff / 864e5);
-        var h = Math.floor((diff % 864e5) / 36e5);
-        var m = Math.floor((diff % 36e5) / 6e4);
-        var s = Math.floor((diff % 6e4) / 1e3);
-        daysEl.textContent = pad(d);
-        hoursEl.textContent = pad(h);
-        minutesEl.textContent = pad(m);
-        secondsEl.textContent = pad(s);
-      }
-
-      update();
-      setInterval(update, 1000);
-    })();
-
     // 侧边导航高亮
     (function() {
       var navItems = document.querySelectorAll('.section-nav-item');
@@ -728,6 +697,18 @@
         navItems.forEach(function(n) { n.classList.remove('active'); });
         current.nav.classList.add('active');
       }, { passive: true });
+    })();
+  </script>
+
+    
+
+  <script>
+    (function() {
+      var launch = new Date(2026, 3, 28, 7, 30, 0);
+      var now = new Date();
+      var days = Math.floor((now.getTime() - launch.getTime()) / 864e5);
+      var el = document.getElementById("serverDays");
+      if (el) el.textContent = days >= 0 ? days : 0;
     })();
   </script>
 </body>
