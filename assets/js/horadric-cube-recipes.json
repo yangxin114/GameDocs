@@ -1,0 +1,258 @@
+[
+  {
+    "order": 1,
+    "category": "装备改造",
+    "name": "添加词缀",
+    "description": "为一件物品添加一个新词缀。使用调谐棱柱可限定词缀类别。",
+    "materials": [
+      { "name": "普通、魔法、稀有或传奇物品", "quantity": "1件" },
+      { "name": "粗制的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "5" },
+      { "name": "调谐棱柱", "quantity": "1", "optional": true }
+    ],
+    "best_practice": "1. 开荒利器：蓝色/黄色先祖底材+攻击棱柱，稳定补齐攻击词缀。\n2. 后期毕业：蓝色/黄色太古底材+对应棱柱，逐步添加至4条理想类别。\n3.胚子选择：优先选取已带1-3太古词缀的蓝/黄装。\n4.配合调谐棱柱，定向添加你想要类型的词缀，如不满意可移除或定向重洗\n4.添加的词缀也可能为太古，概率较低，慎重考虑，非常烧材料"
+  },
+  {
+    "order": 2,
+    "category": "装备改造",
+    "name": "随机重洗",
+    "description": "随机重铸一条词缀为另一类别词缀。调谐棱柱可限制被选中词缀的类别。",
+    "materials": [
+      { "name": "魔法、稀有或传奇物品", "quantity": "1件" },
+      { "name": "精炼的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "15" },
+      { "name": "调谐棱柱", "quantity": "1", "optional": true }
+    ],
+    "best_practice": "一切靠天吃饭，一般不会用它，估计只有垃圾装备，重roll临时用下。 如果你有其他建议也欢迎B站告诉我"
+  },
+  {
+    "order": 3,
+    "category": "装备改造",
+    "name": "定向重洗",
+    "description": "将一条词缀重铸为同一类别的另一词缀。必须使用调谐棱柱确定类别。",
+    "materials": [
+      { "name": "魔法、稀有或传奇物品", "quantity": "1件" },
+      { "name": "精炼的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "15" },
+      { "name": "调谐棱柱", "quantity": "1块" }
+    ],
+    "best_practice": "1. 精准置换：利用调谐棱柱，我们可以快速重洗我们想要的某类词缀 \n2. 分步调整：攻击和防御词缀各用对应棱柱分批处理。\n3. 太古词条会被洗掉，千万注意！！！不要用和太古词条同类型的调谐棱柱！！！"
+  },
+  {
+    "order": 4,
+    "category": "装备改造",
+    "name": "移除词缀",
+    "description": "移除一条随机词缀。使用调谐棱柱可缩小选择范围。",
+    "materials": [
+      { "name": "魔法或稀有物品", "quantity": "1件" },
+      { "name": "精炼的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "15" },
+      { "name": "调谐棱柱", "quantity": "1", "optional": true }
+    ],
+    "best_practice": "1. 精准移除：利用调谐棱柱，快速移除我们期望移除的词条。 \n2. 千万注意别选错类型！！同类型如果有太古词缀，千万别移除！！！"
+  },
+  {
+    "order": 5,
+    "category": "装备改造",
+    "name": "嬗变物品",
+    "description": "对物品进行终极随机改造，大概率变为无法修改。可用棱柱调控结果。",
+    "materials": [
+      { "name": "传奇、暗金或神话物品", "quantity": "1件" },
+      { "name": "不稳定的源生粉尘", "quantity": "1" },
+      { "name": "调谐棱柱", "quantity": "1", "optional": true }
+    ],
+    "best_practice": "1. 圣化，为装备随机增加强力属性，也可能是不可摧毁这类垃圾，垃圾概率感觉有3/10 \n2. 重大风险提醒：最佳词缀已经ok->精造25级->打孔->回火完美，一定要都做完再来圣化！！！！！！ 我已哭死，我的4个泰瑞尔没打孔 \n3. 圣化后无法修改，无法修改，无法修改！！！重要事情说三遍。  \n4. 利用库勒调谐棱柱可增加传奇词缀，这种可再修改，我还没试过哈 \n5. 利用熵能调谐棱柱，可降低垃圾概率，也同时降低了最强词缀的概率"
+  },
+  {
+    "order": 6,
+    "category": "装备改造",
+    "name": "重置暗金威能",
+    "description": "随机重置先祖暗金装备的威能数值。",
+    "materials": [
+      { "name": "先祖暗金物品", "quantity": "1件" },
+      { "name": "同调的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "100" }
+    ],
+    "best_practice": "1. 先祖暗金的救赎，词缀重roll"
+  },
+  {
+    "order": 7,
+    "category": "物品塑形",
+    "name": "三合一塑形",
+    "description": "将3件相同类型物品重塑为一件同类型随机物品。",
+    "materials": [
+      { "name": "同类型物品", "quantity": "3件" }
+    ],
+    "best_practice": "1. 垃圾装备的回收再利用，成不成就看老天爷了"
+  },
+  {
+    "order": 8,
+    "category": "物品塑形",
+    "name": "回收暗金",
+    "description": "将3件相同暗金装备/神符重塑为该暗金的全新版本。",
+    "materials": [
+      { "name": "相同的暗金物品", "quantity": "3件" }
+    ],
+    "best_practice": "1. 垃圾先祖暗金的救赎，3件换一件新的，没咋用过"
+  },
+  {
+    "order": 9,
+    "category": "物品塑形",
+    "name": "升级为暗金",
+    "description": "将普通装备转化为同部位随机暗金。",
+    "materials": [
+      { "name": "普通物品", "quantity": "1件" },
+      { "name": "强化的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "10" }
+    ],
+    "best_practice": "1.白装定向产出暗金，开荒前期必备，尤其比如术士匕首等武器，只有一个先祖暗金，升级必然成功。"
+  },
+  {
+    "order": 10,
+    "category": "装备改造",
+    "name": "升级至传奇",
+    "description": "将稀有装备升级为传奇，随机获得一条传奇威能。调谐棱柱可缩小威能类别。",
+    "materials": [
+      { "name": "稀有物品", "quantity": "1件" },
+      { "name": "纯净的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "10" },
+      { "name": "调谐棱柱", "quantity": "1", "optional": true }
+    ],
+    "best_practice": "1. 黄装质变：完美4词缀黄装升级，有机会出满值威能。\n2. 棱柱引导：攻击/防御棱柱缩小威能池，提高目标概率。\n3. 先改后升：词缀全弄好再升级，升级后不可再动词缀。"
+  },
+  {
+    "order": 11,
+    "category": "装备改造",
+    "name": "重置套装神符",
+    "description": "将套装神符转化为同一套装中的另一部位。",
+    "materials": [
+      { "name": "套装神符", "quantity": "1枚" },
+      { "name": "原始的源生粉尘", "quantity": "25" },
+      { "name": "注能赫拉迪姆树脂", "quantity": "50" }
+    ],
+    "best_practice": "1. 快速补位：重复部位立即转缺位，尽快出5件套特效。\n2. 洗技能词条：同部位反复转化，刷+主力技能等级。"
+  },
+  {
+    "order": 12,
+    "category": "装备改造",
+    "name": "制作暗金神符",
+    "description": "将一件先祖暗金装备重塑为暗金神符，可镶嵌至护身符。",
+    "materials": [
+      { "name": "先祖暗金物品", "quantity": "1件" },
+      { "name": "任意暗金神符", "quantity": "3枚" },
+      { "name": "强化的源生粉尘", "quantity": "1" },
+      { "name": "原始的源生粉尘", "quantity": "50" },
+      { "name": "注能赫拉迪姆树脂", "quantity": "100" }
+    ],
+    "best_practice": "1. 解放装备栏：把核心暗金特效变神符，武器换更强传奇。 一般是后期毕业装备的选择，挺贵的"
+  },
+  {
+    "order": 13,
+    "category": "装备改造",
+    "name": "融合",
+    "description": "将多个同类消耗品、钥匙或BOSS材料合成为升级版。",
+    "materials": [
+      { "name": "可组合物品", "quantity": "多个" }
+    ],
+    "best_practice": "1. BOSS直换暗金：多余稀有首领战利品融合直接出该boss独有暗金，前期快速补齐核心装。\n2. 贡品/钥匙升级：低层钥匙或贡品合成高层，贡品可以升级为神话哦！ \n3. 5个巨型宝石，可融合成赫拉迪姆宝石->再次5个融合为->无瑕的赫拉迪姆宝石 \n4. 梦魇地下城钥匙可以升级为传奇钥匙(如果带金币属性，是刷金币的好图哦）"
+  },
+  {
+    "order": 14,
+    "category": "符文制作",
+    "name": "仪祭符文：跋",
+    "description": "制作跋。",
+    "materials": [
+      { "name": "普瑞德", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇祈告符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 15,
+    "category": "符文制作",
+    "name": "仪祭符文：伊格尼",
+    "description": "制作伊格尼。",
+    "materials": [
+      { "name": "泰布", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇祈告符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 16,
+    "category": "符文制作",
+    "name": "仪祭符文：塔姆",
+    "description": "制作塔姆。",
+    "materials": [
+      { "name": "讷尔", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇祈告符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 17,
+    "category": "符文制作",
+    "name": "仪祭符文：尤尔",
+    "description": "制作尤尔。",
+    "materials": [
+      { "name": "乌尔", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇祈告符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 18,
+    "category": "符文制作",
+    "name": "祈告符文：伊欧姆",
+    "description": "制作伊欧姆。",
+    "materials": [
+      { "name": "兹克", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇仪祭符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 19,
+    "category": "符文制作",
+    "name": "祈告符文：扎",
+    "description": "制作扎。",
+    "materials": [
+      { "name": "杰姆", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇仪祭符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 20,
+    "category": "符文制作",
+    "name": "祈告符文：奥姆",
+    "description": "制作奥姆。",
+    "materials": [
+      { "name": "夸", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇仪祭符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 21,
+    "category": "符文制作",
+    "name": "祈告符文：威克斯",
+    "description": "制作威克斯。",
+    "materials": [
+      { "name": "加尔", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇仪祭符文", "quantity": "5枚" }
+    ]
+  },
+  {
+    "order": 22,
+    "category": "符文制作",
+    "name": "祈告符文：约姆",
+    "description": "制作约姆。",
+    "materials": [
+      { "name": "克莱", "quantity": "1" },
+      { "name": "任意稀有符文", "quantity": "5枚" },
+      { "name": "传奇仪祭符文", "quantity": "5枚" }
+    ]
+  }
+]

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>赫拉迪姆魔方完全攻略 - 暗黑破坏神 IV S13</title>
+  <title>赫拉迪姆魔盒完全攻略 - 暗黑破坏神 IV S13</title>
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="../../assets/css/components.css">
   <link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
@@ -45,6 +45,22 @@
     .cube-section-title .sec-icon {
       font-size: 1.3rem;
     }
+
+    .cube-section.cube-simulator .cube-section-title,
+    .cube-section.cube-simulator .cube-section-desc {
+      max-width: 860px; margin-left: auto; margin-right: auto;
+    }
+
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) .cube-section-title,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) .cube-section-desc,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > .cube-sub,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > .content-block,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > .cube-table-wrap,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > div,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > p,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > h2,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > h3,
+    .cube-section:not(.cube-simulator):not(#sec-hero):not(#sec-outro) > h4 { max-width: 860px; margin-left: auto; margin-right: auto; }
 
     .cube-section-desc {
       color: #8a7a70;
@@ -165,284 +181,6 @@
       color: #c9a84c;
     }
 
-    /* Recipe card */
-    .recipe-card {
-      background: var(--bg-dark);
-      border: 1px solid rgba(58,32,40,0.5);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      transition: all 0.3s;
-    }
-
-    .recipe-card:hover {
-      border-color: rgba(218,165,32,0.3);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-    }
-
-    .recipe-header {
-      padding: 1.25rem 1.5rem;
-      background: rgba(139,0,0,0.08);
-      border-bottom: 1px solid rgba(58,32,40,0.4);
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .recipe-header:hover {
-      background: rgba(139,0,0,0.12);
-    }
-
-    .recipe-name {
-      font-family: 'Cinzel', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #f0e8e0;
-    }
-
-    .recipe-name-en {
-      font-size: 0.72rem;
-      color: #554444;
-      margin-left: 0.5rem;
-    }
-
-    .recipe-toggle {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: #665555;
-      transition: transform 0.3s;
-    }
-
-    .recipe-card.open .recipe-toggle {
-      transform: rotate(180deg);
-      color: var(--gold);
-    }
-
-    .recipe-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .recipe-card.open .recipe-body {
-      max-height: 3000px;
-    }
-
-    .recipe-content {
-      padding: 1.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .recipe-info p {
-      color: #b0a098;
-      font-size: 0.88rem;
-      line-height: 1.8;
-      margin-bottom: 0.75rem;
-    }
-
-    .recipe-desc-en {
-      font-style: italic;
-      color: #665555;
-      font-size: 0.82rem;
-      line-height: 1.7;
-      padding: 0.75rem 1rem;
-      background: rgba(0,0,0,0.2);
-      border-left: 3px solid var(--gold-dim);
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 1rem;
-    }
-
-    .recipe-materials {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .recipe-materials li {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.4rem 0;
-      font-size: 0.85rem;
-      color: #b0a098;
-      border-bottom: 1px solid rgba(58,32,40,0.2);
-    }
-
-    .recipe-materials li:last-child { border-bottom: none; }
-
-    .mat-icon {
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .recipe-image {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .recipe-image img {
-      max-width: 100%;
-      max-height: 280px;
-      object-fit: contain;
-      border-radius: 10px;
-      border: 1px solid rgba(58,32,40,0.4);
-      cursor: zoom-in;
-      transition: all 0.3s;
-    }
-
-    .recipe-image img:hover {
-      border-color: rgba(218,165,32,0.4);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-
-    /* Warning inside recipe */
-    .recipe-warning {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      background: rgba(231,76,60,0.08);
-      border: 1px solid rgba(231,76,60,0.25);
-      border-radius: 8px;
-      margin-top: 0.75rem;
-    }
-
-    .recipe-warning .warn-icon {
-      font-size: 1rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .recipe-warning p {
-      font-size: 0.82rem;
-      color: #e07060;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .recipe-tip {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      padding: 0.75rem 1rem;
-      background: rgba(39,174,96,0.06);
-      border: 1px solid rgba(39,174,96,0.2);
-      border-radius: 8px;
-      margin-top: 0.75rem;
-    }
-
-    .recipe-tip .tip-icon {
-      font-size: 1rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .recipe-tip p {
-      font-size: 0.82rem;
-      color: #6dbf8a;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* Table */
-    .cube-table-wrap {
-      overflow-x: auto;
-      margin-bottom: 2rem;
-      border-radius: 12px;
-      border: 1px solid rgba(58,32,40,0.5);
-    }
-
-    .cube-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-      min-width: 600px;
-    }
-
-    .cube-table th {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      color: var(--gold);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 0.85rem 1.25rem;
-      background: rgba(139,0,0,0.08);
-      border-bottom: 1px solid rgba(58,32,40,0.5);
-      text-align: left;
-      white-space: nowrap;
-    }
-
-    .cube-table td {
-      padding: 0.75rem 1.25rem;
-      color: #b0a098;
-      border-bottom: 1px solid rgba(58,32,40,0.2);
-      vertical-align: top;
-    }
-
-    .cube-table tr:hover td {
-      background: rgba(218,165,32,0.03);
-    }
-
-    .cube-table .en {
-      font-family: 'Cinzel', serif;
-      color: #f0e8e0;
-      font-size: 0.82rem;
-    }
-
-    .cube-table .zh {
-      color: #8a7a70;
-    }
-
-    .cube-table .note {
-      color: #554444;
-      font-size: 0.78rem;
-    }
-
-    /* Material card */
-    .mat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .mat-card {
-      background: rgba(26,15,20,0.7);
-      border: 1px solid rgba(58,32,40,0.4);
-      border-radius: 10px;
-      padding: 1.25rem;
-      transition: all 0.2s;
-    }
-
-    .mat-card:hover {
-      border-color: rgba(218,165,32,0.3);
-    }
-
-    .mat-card .mat-name {
-      font-family: 'Cinzel', serif;
-      font-size: 0.85rem;
-      color: var(--gold);
-      margin-bottom: 0.15rem;
-    }
-
-    .mat-card .mat-name-zh {
-      font-size: 0.8rem;
-      color: #8a7a70;
-      margin-bottom: 0.5rem;
-    }
-
-    .mat-card .mat-use {
-      font-size: 0.78rem;
-      color: #665555;
-      line-height: 1.6;
-    }
-
-    /* Prism grid */
     .prism-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -450,27 +188,14 @@
       margin-bottom: 2rem;
     }
 
-    .prism-card {
-      background: rgba(26,15,20,0.7);
-      border: 1px solid rgba(58,32,40,0.4);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
+    .mat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.85rem;
+      margin-bottom: 2rem;
     }
 
-    .prism-card .prism-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
-    }
 
-    .prism-card .prism-examples {
-      font-size: 0.75rem;
-      color: #665555;
-      line-height: 1.6;
-    }
-
-    /* Q&A */
     .qa-item {
       background: var(--bg-dark);
       border: 1px solid rgba(58,32,40,0.4);
@@ -610,23 +335,354 @@
     /* Responsive */
     @media (max-width: 900px) {
       .cube-page { padding: 0 1.5rem 3rem; }
-      .recipe-content { grid-template-columns: 1fr; }
-      .recipe-image { order: -1; }
     }
 
     @media (max-width: 600px) {
       .mat-grid { grid-template-columns: 1fr; }
       .prism-grid { grid-template-columns: 1fr; }
     }
-  </style>
+  
+    .mat-icon-img { width: 36px; height: 36px; object-fit: contain; flex-shrink: 0; }
+    .prism-card { display: flex; align-items: center; gap: 0.75rem; background: rgba(26,15,20,0.7); border: 1px solid rgba(58,32,40,0.4); border-radius: 10px; padding: 0.85rem 1rem; }
+    .prism-card .mat-icon-img { width: 32px; height: 32px; }
+    .prism-card .prism-name { font-size: 0.85rem; font-weight: 600; color: var(--gold); margin-bottom: 0.15rem; }
+    .prism-card .prism-examples { font-size: 0.72rem; color: #665555; line-height: 1.4; }
+    .mat-card { display: flex; gap: 0.75rem; background: rgba(26,15,20,0.7); border: 1px solid rgba(58,32,40,0.4); border-radius: 10px; padding: 1rem; transition: all 0.2s; }
+    .mat-card:hover { border-color: rgba(218,165,32,0.3); }
+    .mat-card-icon { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; margin-top: 0.15rem; }
+    .mat-card-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.15rem; }
+    .mat-card .mat-name { font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--gold); }
+    .mat-card .mat-rarity { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.5px; }
+    .mat-card .mat-name-zh { font-size: 0.75rem; color: #8a7a70; margin-bottom: 0.3rem; }
+    .mat-card .mat-use { font-size: 0.75rem; color: #665555; line-height: 1.5; margin-bottom: 0.3rem; }
+    .mat-card .mat-sources { font-size: 0.65rem; color: #4a4a3a; line-height: 1.4; }
+    .mat-card[data-rarity="暗金"] { border-color: rgba(218,165,32,0.3); }
+    .mat-card[data-rarity="传奇"] { border-color: rgba(142,68,173,0.3); }
+    .mat-card[data-rarity="稀有"] { border-color: rgba(39,174,96,0.3); }
+    .mat-card[data-rarity="魔法"] { border-color: rgba(74,158,255,0.2); }
+
+    /* ===== Horadric Cube Simulator Styles ===== */
+    .sim-layout {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      justify-content: center; }
+    }
+
+    .sim-panel { width: 720px; flex-shrink: 0; }
+
+    .sim-panel-inner {
+      background: linear-gradient(145deg, rgba(30,18,24,0.95), rgba(20,10,15,0.98));
+      border: 1px solid rgba(80,50,60,0.3);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(120,80,60,0.1);
+      border-radius: 12px;
+      height: 680px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sim-panel-header {
+      padding: 1rem 1.5rem;
+      background: linear-gradient(135deg, rgba(80,20,30,0.2), rgba(60,30,40,0.08));
+      border-bottom: 1px solid rgba(80,50,60,0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .sim-panel-header::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(218,165,32,0.3);
+      flex-shrink: 0;
+    }
+
+    .sim-panel-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(218,165,32,0.15);
+    }
+
+    .sim-panel-body { padding: 1.75rem; overflow-y: scroll; overflow-x: hidden; flex: 1; min-height: 0; }
+
+    
+    .sim-recipe-img {
+      text-align: center;
+      margin-bottom: 1rem;
+      min-height: 308px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sim-recipe-img .sim-img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 8px;
+      border: 1px solid rgba(80,50,60,0.2);
+      cursor: zoom-in;
+      transition: all 0.2s;
+    }
+    .sim-recipe-img .sim-img:hover {
+      border-color: var(--gold-dim);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    
+    .sim-recipe-desc#simPracticeDesc { margin-bottom: 0.5rem; }
+    .p-item {
+      display: flex;
+      gap: 0.6rem;
+      padding: 0.5rem 0.65rem;
+      margin-bottom: 4px;
+      background: rgba(40,25,30,0.3);
+      border-radius: 6px;
+      border-left: 2px solid rgba(218,165,32,0.15);
+      transition: background 0.2s;
+    }
+    .p-item:hover {
+      background: rgba(60,35,45,0.4);
+      border-left-color: var(--gold-dim);
+    }
+    .p-num {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: rgba(218,165,32,0.12);
+      border: 1px solid rgba(218,165,32,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-top: 0.1rem;
+    }
+    .p-text {
+      flex: 1;
+      min-width: 0;
+      font-size: 0.82rem;
+      color: #c4b8b0;
+      line-height: 1.6;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+    .p-text strong, .p-text b {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .sim-recipe-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f5ede8;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.3px;
+    }
+
+    .sim-recipe-desc {
+      color: #c4b8b0;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .sim-section-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 1.25rem 0 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(80,50,60,0.2);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sim-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(218,165,32,0.2), transparent);
+    }
+
+    .sim-materials {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+    }
+
+    .sim-materials li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.45rem 0.75rem;
+      margin-bottom: 2px;
+      font-size: 0.9rem;
+      color: #c4b8b0;
+      background: rgba(40,25,30,0.3);
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .sim-materials li:hover { background: rgba(60,35,45,0.4); }
+    .sim-materials li .mat-qty {
+      margin-left: auto;
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      color: var(--gold-dim);
+      background: rgba(218,165,32,0.08);
+      padding: 0.05rem 0.4rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .sim-warning {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.7rem 1rem;
+      background: rgba(180,50,40,0.1);
+      border: 1px solid rgba(180,50,40,0.2);
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .sim-warning p {
+      font-size: 0.85rem;
+      color: #d09080;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .sim-r-item .r-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      color: #9a8a70;
+      background: rgba(218,165,32,0.06);
+      border: 1px solid rgba(218,165,32,0.12);
+      border-radius: 3px;
+      padding: 0.05rem 0.3rem;
+      letter-spacing: 0.5px;
+      transition: all 0.2s;
+    }
+    .sim-r-item:hover .r-tag { color: var(--gold); background: rgba(218,165,32,0.1); border-color: rgba(218,165,32,0.2); }
+    .sim-r-item.active .r-tag { color: var(--gold); background: rgba(218,165,32,0.12); border-color: rgba(218,165,32,0.25); }
+    .r-tag-lg {
+      font-size: 0.65rem;
+      color: var(--gold);
+      background: rgba(218,165,32,0.08);
+      border: 1px solid rgba(218,165,32,0.15);
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.5rem;
+      font-weight: 400;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+    }
+
+    .sim-recipes {
+      width: 340px;
+      flex-shrink: 0;
+      background: linear-gradient(145deg, rgba(30,18,24,0.95), rgba(20,10,15,0.98));
+      border: 1px solid rgba(80,50,60,0.3);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(120,80,60,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      max-height: 680px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sim-recipes-header {
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg, rgba(80,20,30,0.2), rgba(60,30,40,0.08));
+      border-bottom: 1px solid rgba(80,50,60,0.2);
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sim-recipes-header .count-badge {
+      font-size: 0.65rem;
+      color: #8a7a70;
+      background: rgba(80,50,60,0.3);
+      padding: 0.1rem 0.5rem;
+      border-radius: 100px;
+    }
+
+    .sim-recipes-list { flex: 1; overflow-y: auto; }
+    .sim-recipes-list::-webkit-scrollbar { width: 3px; }
+    .sim-recipes-list::-webkit-scrollbar-track { background: transparent; }
+    .sim-recipes-list::-webkit-scrollbar-thumb { background: rgba(80,50,60,0.4); border-radius: 2px; }
+
+    .sim-cat {
+      padding: 0.6rem 1.25rem 0.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #8a7a70;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: rgba(40,20,30,0.3);
+      border-bottom: 1px solid rgba(80,50,60,0.12);
+    }
+
+    .sim-r-item {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid rgba(80,50,60,0.08);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .sim-r-item:hover {
+      background: rgba(218,165,32,0.04);
+      border-left: 2px solid rgba(218,165,32,0.3);
+      padding-left: calc(1.25rem - 2px);
+    }
+
+    .sim-r-item.active {
+      background: rgba(218,165,32,0.07);
+      border-left: 2px solid var(--gold);
+      padding-left: calc(1.25rem - 2px);
+    }
+
+    .sim-r-item .r-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #e0d8d0;
+      transition: color 0.2s;
+    }
+
+    .sim-r-item:hover .r-name { color: #f0e8e0; }
+    .sim-r-item.active .r-name { color: var(--gold); }
+
+    @media (max-width: 1024px) {
+      .sim-layout { flex-direction: column; }
+      .sim-recipes { width: 100%; max-height: none; }
+    }</style>
 </head>
 <body>
   <!-- 顶部导航 -->
   <nav class="top-nav">
     <div class="nav-inner">
       <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
-      <span class="nav-game-name">赫拉迪姆魔方完全攻略</span>
-      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 赫拉迪姆魔方</span>
+      <span class="nav-game-name">赫拉迪姆魔盒完全攻略</span>
+      <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 赫拉迪姆魔盒</span>
     </div>
   </nav>
 
@@ -658,16 +714,14 @@
     <div class="guide-sidebar-title">目录导航</div>
     <ul class="guide-sidebar-nav">
       <li><a href="#sec-hero" class="active"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">封面与配方总览</span><span class="nav-step">TOP</span></a></li>
-      <li><a href="#sec-unlock"><span class="nav-icon">&#x1F513;</span><span class="nav-text">解锁流程</span><span class="nav-step">CH 1</span></a></li>
-      <li><a href="#sec-mechanics"><span class="nav-icon">&#x2699;</span><span class="nav-text">核心机制详解</span><span class="nav-step">CH 2</span></a></li>
+      <li><a href="#sec-mechanics"><span class="nav-icon">&#x2699;</span><span class="nav-text">核心机制详解</span><span class="nav-step">CH 1</span></a></li>
       <div class="guide-sidebar-divider"></div>
-      <li><a href="#sec-modify"><span class="nav-icon">&#x1F527;</span><span class="nav-text">装备改造配方</span><span class="nav-step">CH 3</span></a></li>
-      <li><a href="#sec-convert"><span class="nav-icon">&#x1F504;</span><span class="nav-text">物品塑形配方</span><span class="nav-step">CH 4</span></a></li>
-      <li><a href="#sec-charms"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符&神符配方</span><span class="nav-step">CH 5</span></a></li>
+      <li><a href="#sec-simulator"><span class="nav-icon">&#x1F52E;</span><span class="nav-text">配方模拟器</span><span class="nav-step">CH 2</span></a></li>
       <div class="guide-sidebar-divider"></div>
-      <li><a href="#sec-workflow"><span class="nav-icon">&#x1F3AF;</span><span class="nav-text">实战打造流程</span><span class="nav-step">CH 6</span></a></li>
-      <li><a href="#sec-farming"><span class="nav-icon">&#x26A1;</span><span class="nav-text">材料获取攻略</span><span class="nav-step">CH 7</span></a></li>
-      <li><a href="#sec-qa"><span class="nav-icon">&#x2753;</span><span class="nav-text">实战问答</span><span class="nav-step">CH 8</span></a></li>
+      <li><a href="#sec-workflow"><span class="nav-icon">&#x1F3AF;</span><span class="nav-text">实战打造流程</span><span class="nav-step">CH 3</span></a></li>
+      <li><a href="#sec-farming"><span class="nav-icon">&#x26A1;</span><span class="nav-text">材料获取攻略</span><span class="nav-step">CH 4</span></a></li>
+      <li><a href="#sec-qa"><span class="nav-icon">&#x2753;</span><span class="nav-text">实战问答</span><span class="nav-step">CH 5</span></a></li>
+      <li><a href="#sec-trade"><span class="nav-icon">&#x1F4B0;</span><span class="nav-text">交易经济联动</span><span class="nav-step">CH 6</span></a></li>
       <div class="guide-sidebar-divider"></div>
       <li><a href="#sec-outro"><span class="nav-icon">&#x1F3C6;</span><span class="nav-text">结语</span><span class="nav-step">END</span></a></li>
     </ul>
@@ -691,192 +745,62 @@
 
       <!-- 版本声明 -->
       <div class="cube-disclaimer">
-        <p><strong>&#x2705; S13正式版已上线</strong> — 本文基于第13赛季正式服数据整理，适用版本：<strong style="color:var(--gold)">S13 · 憎恨之王DLC</strong>。赫拉迪姆魔方彻底改变了装备养成逻辑：从<strong>无脑刷全看脸掉落</strong>，转变为<strong>有目标地定向打造</strong>。本文面向需要利用魔方实现"绝对精准毕业"的深度玩家。</p>
+        <p><strong>&#x2705; S13正式版已上线</strong> — 本文基于第13赛季正式服数据整理，适用版本：<strong style="color:var(--gold)">S13 · 憎恨之王DLC</strong>。赫拉迪姆魔盒彻底改变了装备养成逻辑：从<strong>无脑刷全看脸掉落</strong>，转变为<strong>有目标地定向打造</strong>。本文面向需要利用魔盒实现"绝对精准毕业"的深度玩家。</p>
       </div>
 
       <!-- ====== 封面大图区 ====== -->
       <section class="cube-section" id="sec-hero" style="padding-top:0;">
         <div style="position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(58,32,40,0.5);margin-bottom:2rem;">
-          <img src="../../assets/images/diablo4/dlc2/horadric_cube/main.jpg" alt="赫拉迪姆魔方界面" style="width:100%;max-height:260px;object-fit:contain;display:block;cursor:zoom-in;" onclick="openLightbox(this.src)">
+          <img src="../../assets/images/diablo4/dlc2/horadric_cube/main.webp" alt="赫拉迪姆魔盒界面" style="width:100%;max-height:260px;object-fit:contain;display:block;cursor:zoom-in;" onclick="openLightbox(this.src)">
           <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(0,0,0,0.8));">
-            <h1 style="font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:700;color:var(--gold);margin-bottom:0.5rem;">赫拉迪姆魔方完全攻略</h1>
+            <h1 style="font-family:'Cinzel',serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:700;color:var(--gold);margin-bottom:0.5rem;">赫拉迪姆魔盒完全攻略</h1>
             <p style="color:#b0a098;font-size:0.95rem;">S13正式版 · 词缀定向打造 · 物品塑形 · 护身符&神符 · 从零到毕业全流程</p>
           </div>
         </div>
 
         <div style="padding:1.5rem;background:rgba(26,15,20,0.7);border-radius:14px;border:1px solid rgba(58,32,40,0.4);margin-bottom:2rem;">
-          <h3 style="font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;margin-bottom:0.75rem;">&#x1F4CB; 赫拉迪姆魔方简介</h3>
+          <h3 style="font-family:'Cinzel',serif;color:var(--gold);font-size:1rem;margin-bottom:0.75rem;">&#x1F4CB; 赫拉迪姆魔盒简介</h3>
           <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:1rem;">
-            赫拉迪姆魔方不仅是《憎恨之王》资料片新增的终局打造核心，更是S13赛季"变废为宝"的终极答案。它彻底改变了装备养成逻辑——<strong style="color:var(--gold)">从"无脑刷，全看脸掉落"，转变为"有目标地定向打造"</strong>。
+            赫拉迪姆魔盒不仅是《憎恨之王》资料片新增的终局打造核心，更是S13赛季"变废为宝"的终极答案。它彻底改变了装备养成逻辑——<strong style="color:var(--gold)">从"无脑刷，全看脸掉落"，转变为"有目标地定向打造"</strong>。
           </p>
           <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:1rem;">
             <strong style="color:var(--gold);">核心定位</strong>：这是目前游戏中唯一能让你<strong style="color:#f0e8e0;">从一件0词缀的白色底材开始，一步步定向添加词缀，最终打造出完美4词缀毕业神装</strong>的系统。
           </p>
           <p style="color:#8a7a70;font-size:0.82rem;line-height:1.9;">
-            <strong style="color:#f0e8e0;">与秘术师的本质区别</strong>：秘术师是"随机重Roll"，魔方是"定向添加/修改"。资深玩家通常利用魔方完成99%的词缀构筑，只把最后1%交给秘术师。
+            <strong style="color:#f0e8e0;">与秘术师的本质区别</strong>：秘术师是"随机重Roll"，魔盒是"定向添加/修改"。资深玩家通常利用魔盒完成99%的词缀构筑，只把最后1%交给秘术师。
           </p>
         </div>
       
-<h3 style="font-family:'Cinzel',serif;font-size:1rem;color:#f0e8e0;margin-bottom:1rem;">配方分类一览</h3>
 
-        <div class="cube-table-wrap">
-          <table class="cube-table">
-            <thead>
-              <tr>
-                <th>分类</th>
-                <th>配方名称</th>
-                <th>核心作用</th>
-                <th>定位</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td rowspan="6"><span style="color:#665555;">装备改造</span></td>
-                <td class="en">添加词缀</td>
-                <td class="note">为未满词缀的装备添加一条新词缀</td>
-                <td><span style="color:var(--gold);font-size:0.72rem;">毕业核心</span></td>
-              </tr>
-              <tr>
-                <td class="en">定向重洗词缀</td>
-                <td class="note">将指定词缀换成同一类别的另一词缀</td>
-                <td><span style="color:var(--green);font-size:0.72rem;">精准修正</span></td>
-              </tr>
-              <tr>
-                <td class="en">随机重洗词缀</td>
-                <td class="note">将随机词缀换成任意类别的词缀</td>
-                <td><span style="color:#554444;font-size:0.72rem;">材料陷阱</span></td>
-              </tr>
-              <tr>
-                <td class="en">移除词缀</td>
-                <td class="note">随机移除一条词缀</td>
-                <td><span style="color:var(--blue);font-size:0.72rem;">进阶技巧</span></td>
-              </tr>
-              <tr>
-                <td class="en">重置暗金威能</td>
-                <td class="note">重Roll暗金装备的特效数值</td>
-                <td><span style="color:var(--purple);font-size:0.72rem;">4太古救星</span></td>
-              </tr>
-              <tr>
-                <td class="en">嬗变物品</td>
-                <td class="note">神秘转化，有概率提升品质</td>
-                <td><span style="color:var(--red);font-size:0.72rem;">最后一步</span></td>
-              </tr>
-              <tr>
-                <td rowspan="4"><span style="color:#665555;">物品塑形</span></td>
-                <td class="en">升级为传奇</td>
-                <td class="note">稀有→传奇，保留词缀并赋予随机威能</td>
-                <td><span style="color:var(--green);font-size:0.72rem;">词缀转化</span></td>
-              </tr>
-              <tr>
-                <td class="en">升级为暗金</td>
-                <td class="note">普通→随机同部位暗金</td>
-                <td><span style="color:var(--gold);font-size:0.72rem;">低成本搏核心</span></td>
-              </tr>
-              <tr>
-                <td class="en">三合一塑形</td>
-                <td class="note">3件相同物品→1件同类新物品</td>
-                <td><span style="color:var(--blue);font-size:0.72rem;">处理多余装备</span></td>
-              </tr>
-              <tr>
-                <td class="en">回收暗金</td>
-                <td class="note">3件暗金→1件新暗金</td>
-                <td><span style="color:var(--purple);font-size:0.72rem;">搏稀有暗金</span></td>
-              </tr>
-              <tr>
-                <td rowspan="3"><span style="color:#665555;">护身符&神符</span></td>
-                <td class="en">制作暗金神符</td>
-                <td class="note">暗金装备威能→可镶嵌神符</td>
-                <td><span style="color:var(--gold);font-size:0.72rem;">解放装备位</span></td>
-              </tr>
-              <tr>
-                <td class="en">重置套装神符</td>
-                <td class="note">套装符咒→同套装另一部位</td>
-                <td><span style="color:var(--green);font-size:0.72rem;">凑套装神器</span></td>
-              </tr>
-              <tr>
-                <td class="en">定向制作符纹</td>
-                <td class="note">消耗特定符文→制作指定符文</td>
-                <td><span style="color:var(--blue);font-size:0.72rem;">符文补完</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-</section>
 
       
-
-      <!-- ====== 解锁流程 ====== -->
-      <section class="cube-section" id="sec-unlock">
-        <h2 class="cube-section-title"><span class="sec-icon">&#x1F513;</span> 如何解锁魔方</h2>
-        <p class="cube-section-desc">解锁流程和开荒时间节点建议，幫你快速用到魔方。</p>
-
-        <div class="content-block">
-          <div class="highlight-box warn" style="margin-top:0;">
-            <strong>&#x26A0;&#xFE0F; 前置条件：</strong>必须拥有《憎恨之王》资料片。
-          </div>
-
-          <ol class="step-list">
-            <li>新建赛季角色后，<strong>勾选"跳过剧情"</strong>以直接进入DLC区域。</li>
-            <li>全力推进资料片主线，当任务进行到击败<strong>"督军泽尔坎"</strong>后即可解锁。</li>
-            <li>抵达泰米斯与魔方互动一次，即可<strong>账号全角色共享</strong>。</li>
-          </ol>
-        </div>
-
-        <h3 style="font-family:'Cinzel',serif;font-size:0.95rem;color:#f0e8e0;margin-bottom:0.75rem;">开荒时间节点建议</h3>
-
-        <div class="content-block">
-          <ul>
-            <li><strong>1-45级：</strong>核心目标是<strong style="color:var(--gold);">疯狂推进DLC主线</strong>。路上掉落的装备全部拆解，以积累基础材料。</li>
-            <li><strong>约45级：</strong>魔方正式解锁。此时已积累了大量原始之尘，立刻给开荒角色<strong style="color:var(--gold);">打造第一套质变装备</strong>，体验碾压同级的快感。</li>
-          </ul>
-        </div>
-      </section>
 
       <!-- ====== 核心机制详解 ====== -->
       <section class="cube-section" id="sec-mechanics">
         <h2 class="cube-section-title"><span class="sec-icon">&#x2699;</span> 核心机制深度详解</h2>
         <p class="cube-section-desc">90%玩家会踩的坑，老手和新手拉开差距的地方。</p>
 
-        <!-- 调谐棱镜 -->
+        <!-- 调谐棱柱 -->
         <div class="cube-sub" id="sec-prism">
-          <h3 class="cube-sub-title"><span class="sub-icon">&#x1F52E;</span> 调谐棱镜系统</h3>
+          <h3 class="cube-sub-title"><span class="sub-icon">&#x1F52E;</span> 调谐棱柱系统</h3>
 
           <div class="content-block" style="margin-bottom:1rem;">
-            <p>调谐棱镜是实现"定向打造"的核心，也是拉开玩家差距的关键。使用"添加词缀"或"定向重洗"时放入棱镜，系统将从<strong style="color:var(--gold);">该类词缀库</strong>中随机选一条。</p>
+            <p>调谐棱柱是实现"定向打造"的核心，也是拉开玩家差距的关键。使用"添加词缀"或"定向重洗"时放入调谐棱柱，系统将从<strong style="color:var(--gold);">该类词缀库</strong>中随机选一条。</p>
           </div>
 
-          <p style="color:#8a7a70;font-size:0.82rem;margin-bottom:0.75rem;">六大类棱镜及其控制范围：</p>
+          <p style="color:#8a7a70;font-size:0.82rem;margin-bottom:0.75rem;">六大类调谐棱柱及其控制范围：</p>
 
           <div class="prism-grid">
-            <div class="prism-card">
-              <div class="prism-name">&#x1F3AE; 技能/核心棱镜</div>
-              <div class="prism-examples">核心技能等级、技能伤害百分比等</div>
-            </div>
-            <div class="prism-card">
-              <div class="prism-name">&#x2694; 攻击棱镜</div>
-              <div class="prism-examples">暴击几率、暴击伤害、各类增伤</div>
-            </div>
-            <div class="prism-card">
-              <div class="prism-name">&#x1F6E1; 防御棱镜</div>
-              <div class="prism-examples">生命值上限、护甲值百分比</div>
-            </div>
-            <div class="prism-card">
-              <div class="prism-name">&#x1F9EC; 抗性棱镜</div>
-              <div class="prism-examples">单一元素抗性、全元素抗性</div>
-            </div>
-            <div class="prism-card">
-              <div class="prism-name">&#x1F3C3; 机动/通用棱镜</div>
-              <div class="prism-examples">移动速度、冷却缩减、资源消耗降低</div>
-            </div>
-            <div class="prism-card">
-              <div class="prism-name">&#x2B50; 资源棱镜</div>
-              <div class="prism-examples">资源上限、资源生成、幸运一击回能</div>
-            </div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/资源调谐棱柱-图标.webp" alt="资源调谐棱柱" class="mat-icon-img"><div><div class="prism-name">资源调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取资源性词缀。</div></div></div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/保护调谐棱柱-图标.webp" alt="保护调谐棱柱" class="mat-icon-img"><div><div class="prism-name">防御调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取防御性词缀。</div></div></div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/实用调谐棱柱-图标.webp" alt="实用调谐棱柱" class="mat-icon-img"><div><div class="prism-name">机动/通用调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取机动性和功能性词缀。</div></div></div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/侵略调谐棱柱-图标.webp" alt="侵略调谐棱柱" class="mat-icon-img"><div><div class="prism-name">攻击调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取攻击性词缀。</div></div></div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/多彩调谐棱柱-图标.webp" alt="多彩调谐棱柱" class="mat-icon-img"><div><div class="prism-name">抗性调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取抗性词缀。</div></div></div>
+<div class="prism-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/娴熟调谐棱柱-图标.webp" alt="娴熟调谐棱柱" class="mat-icon-img"><div><div class="prism-name">技能/核心调谐棱柱</div><div class="prism-examples">用于在赫拉迪姆魔盒中进行塑形时，定向选取技能和核心属性词缀。</div></div></div>
           </div>
 
           <div class="content-block">
-            <p><strong>主要获取途径：</strong>最稳定的来源是<strong>"战争计划"系统</strong>及折磨难度以上的终局活动。急需某一类棱镜时，可关注<strong>低语古树</strong>的棱镜宝匣赠礼，或参加<strong>军团入侵事件</strong>。</p>
+            <p><strong>主要获取途径：</strong>最稳定的来源是<strong>"战争计划"系统</strong>及折磨难度以上的终局活动。急需某一类调谐棱柱时，可关注<strong>低语古树</strong>的调谐棱柱宝匣赠礼，或参加<strong>军团入侵事件</strong>。</p>
           </div>
         </div>
 
@@ -886,417 +810,119 @@
 
           <div class="content-block">
             <div class="highlight-box warn" style="margin-top:0;">
-              <strong>&#x26A0;&#xFE0F; 核心准则：</strong>不要在低物品强度装备上用高级粉尘。粉尘按稀有度分级，低级的用于过渡装备，高级的留到800+物品强度底材再用。
+              <strong>&#x26A0;&#xFE0F; 核心准则：</strong>不要在低物品强度装备上用高级粉尘。粉尘按稀有度分级，低级的用于过渡装备，高级的留到900+物品强度底材再用。
             </div>
           </div>
 
           <div class="mat-grid">
-            <div class="mat-card">
-              <div class="mat-name">原始之尘系列</div>
-              <div class="mat-name-zh">Primordial Dust</div>
-              <div class="mat-use">从粗糙→原始→精炼→纯净→强化→不稳定→调和，共7个等级。<br>低级用于过渡装备，高级的留到800+物品强度底材再用。</div>
-            </div>
-            <div class="mat-card">
-              <div class="mat-name">远古调谐之尘</div>
-              <div class="mat-name-zh">Ancient Tuning Dust</div>
-              <div class="mat-use">只在折磨10以上掉落，极度稀有。<strong style="color:var(--red);">绝对只留给4太古暗金装备重置威能用</strong>，若用在只有1-2个太古词条的装备上，血亏无比。</div>
-            </div>
-            <div class="mat-card">
-              <div class="mat-name">终端调谐棱镜</div>
-              <div class="mat-name-zh">Terminal Tuning Prism</div>
-              <div class="mat-use">传说级消耗品。保证操作不会让结果变差，但会让装备<strong style="color:var(--red);">永久绑定且锁定</strong>。<br><strong style="color:var(--gold);">这是你每件装备的最后一步操作</strong>，顺序搞反，神装报废。</div>
-            </div>
-            <div class="mat-card">
-              <div class="mat-name">金币消耗</div>
-              <div class="mat-name-zh">Gold Cost</div>
-              <div class="mat-use">所有魔方配方都会消耗金币，越后期的操作费用越高。在开始最终打造前，务必常备 <strong style="color:var(--gold);">5000万金币</strong> 以上。</div>
-            </div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/粗制的源生粉尘-详图.webp" alt="粗制的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/原始的源生粉尘-详图.webp" alt="原始的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/精炼的源生粉尘-详图.webp" alt="精炼的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/纯净的源生粉尘-详图.webp" alt="纯净的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/强化的源生粉尘-详图.webp" alt="强化的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/同调的源生粉尘-详图.webp" alt="同调的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/不稳的源生粉尘-详图.webp" alt="不稳定的源生粉尘" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
+<div class="mat-card"><img src="../../assets/images/diablo4/dlc2/horadric_cube/注能赫拉迪姆树脂-详细.webp" alt="注能赫拉迪姆树脂" style="width:100%;display:block;border-radius:8px;cursor:zoom-in;" onclick="openLightbox(this.src)"></div>
           </div>
         </div>
       </section>
 
-      <!-- ====== 装备改造配方 ====== -->
-      <section class="cube-section" id="sec-modify">
-        <h2 class="cube-section-title"><span class="sec-icon">&#x1F527;</span> 装备改造类配方</h2>
-        <p class="cube-section-desc">6种配方直接作用于已有装备，改变其词缀、威能或整体形态。以下为S13正式版完整数据。</p>
+      <!-- ====== 魔盒配方大全 ====== -->
+      <section class="cube-section cube-simulator" id="sec-simulator">
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F52E;</span> 魔盒配方大全</h2>
+        <p class="cube-section-desc">点击右侧配方查看详情，左侧展示配方的说明、材料与实践信息。共收录 <strong style="color:var(--gold)">22 个配方</strong>，涵盖装备改造、物品塑形、符文制作三大类。</p>
 
-        <!-- 添加词缀 -->
-        <div class="cube-sub">
-          <div class="recipe-card open">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">添加词缀 <span class="recipe-name-en">Add Affix</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
+        <div class="sim-layout">
+          <!-- Left Panel -->
+          <div class="sim-panel">
+            <div class="sim-panel-inner">
+              <div class="sim-panel-header">
+              <span class="sim-panel-title">赫拉迪姆魔盒</span>
+              <span style="font-size:0.75rem;color:#665555;" id="simRecipeCount">配方 #1</span>
             </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>给未满词缀的装备添加一条新词缀。<strong style="color:var(--gold);">毕业装打造核心配方。</strong></p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">务必配合对应棱镜使用，不要空放。配合调谐棱镜可定向选择词缀类别，大幅降低随机性。</p>
-                  <div class="recipe-tip">
-                    <span class="tip-icon">&#x2728;</span>
-                    <p>这是使用频率最高的配方，熟练掌握后相当于你掌握了"定向添加任何你需要词缀"的能力。</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Add Affix.png" alt="Add Affix 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
+            <div class="sim-panel-body">
+              <div class="sim-detail" id="simDetail">
+                <div class="sim-recipe-title" id="simRecipeTitle">添加词缀</div>
+                <div class="sim-recipe-img" id="simRecipeImg"></div>
+                <div class="sim-section-label" id="simPracticeLabel" style="display:none;">实践攻略</div>
+                <div class="sim-recipe-desc" id="simPracticeDesc"></div>
+                <div id="simWarning" style="display:none;"></div>
+              </div>            </div>
           </div>
         </div>
 
-        <!-- 定向重洗 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">定向重洗词缀 <span class="recipe-name-en">Focused Reroll</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
+          <!-- Right Panel -->
+          <div class="sim-recipes">
+            <div class="sim-recipes-header">
+              配方列表
+              <span style="font-size:0.65rem;color:#554444;margin-left:auto;"><span class="count-badge">22个配方</span></span>
             </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>将指定词缀随机换成其<strong style="color:var(--gold);">同一类别</strong>的另一词缀。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;"><strong style="color:var(--green);">拯救准毕业装的王牌配方。</strong>3条词缀完美，1条是废词缀时零风险修正。放入与废词缀同类的棱镜，精准替换。</p>
-                  <div class="recipe-tip">
-                    <span class="tip-icon">&#x2728;</span>
-                    <p>相比"随机重洗"，定向重洗更可控、更省材料。是绝大多数情况下的首选修正方案。</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Focused Reroll.png" alt="Focused Reroll 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
+            <div class="sim-recipes-list" id="simRecipeList"></div>
             </div>
           </div>
         </div>
-
-        <!-- 随机重洗 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">随机重洗词缀 <span class="recipe-name-en">Chaotic Reroll</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>将随机词缀换成<strong style="color:var(--red);">任意类别</strong>的词缀。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;"><strong style="color:var(--red);">几乎不用。</strong>纯材料陷阱，本质是赌博，除非底材全是废词缀、死马当活马医。</p>
-                  <div class="recipe-warning">
-                    <span class="warn-icon">&#x26A0;&#xFE0F;</span>
-                    <p>混沌重铸风险极高——不但随机选择词缀位，还随机转换类别。不到万不得已不要使用。</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Chaotic Reroll.jpg" alt="Chaotic Reroll 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 移除词缀 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">移除词缀 <span class="recipe-name-en">Remove Affix</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>随机移除一条词缀。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">移除装备上的一条随机词缀。用于清理底材上完全不需要的词缀，为后续添加词缀腾出空间。</p>
-                  <div class="recipe-warning">
-                    <span class="warn-icon">&#x26A0;&#xFE0F;</span>
-                    <p>注意：装备的词缀数量会影响稀有度，移除时请留意是否会降级。</p>
-                  </div>
-                </div>
-                <div class="recipe-image" style="align-items:center;color:#554444;font-size:0.9rem;">
-                  <div style="text-align:center;padding:1rem;color:#8a7a70;">&#x1F512; 移除词缀用于清理不需要的词缀，为后续打造腾出空间</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 重置暗金威能 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">重置暗金威能 <span class="recipe-name-en">Unique Power Reroll</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>重Roll暗金装备的<strong style="color:var(--gold);">特效数值</strong>。此配方只重Roll底部的传奇特效数值，完美保护你现有的词缀组合。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;"><strong style="color:var(--purple);">拯救4太古触底暗金的唯一解。</strong>消耗珍贵"远古调谐之尘"，务必用在刀刃上——只有4太古词缀的暗金才值得用。</p>
-                  <div class="recipe-tip">
-                    <span class="tip-icon">&#x2728;</span>
-                    <p>此配方不会改变装备的词缀组合，只重Roll底部的独特威能数值。放心使用。</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Unique power reroll.png" alt="Unique Power Reroll 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 嬗变 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">嬗变物品 <span class="recipe-name-en">Transfigure Item</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>神秘转化，有概率提升品质。赋予物品极具可能性的随机改造。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;"><strong style="color:var(--red);">打造的最后一步。</strong>在所有改造操作全部完成后，使用<strong style="color:var(--gold);">终端调谐棱镜</strong>配合"嬗变"配方。没终端棱镜慎用，极大概率锁死装备。</p>
-                  <div class="recipe-warning">
-                    <span class="warn-icon">&#x26A0;&#xFE0F;</span>
-                    <p>嬗变后物品有极高几率变为不可再修改状态（Unmodifiable）。操作前请确认：是否词缀完美？是否打孔？是否回火正确？是否精造最高级？</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/transfigure item.png" alt="Transfigure Item 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====== 物品塑形配方 ====== -->
-      <section class="cube-section" id="sec-convert">
-        <h2 class="cube-section-title"><span class="sec-icon">&#x1F504;</span> 物品塑形类配方</h2>
-        <p class="cube-section-desc">4种配方用于物品品质提升、转化与回收。</p>
-
-        <!-- 升级为传奇 -->
-        <div class="cube-sub">
-          <div class="recipe-card open">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">升级为传奇 <span class="recipe-name-en">Upgrade to Legendary</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>稀有装备升级为传奇，<strong style="color:var(--gold);">保留词缀</strong>并赋予随机威能。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">底材拥有3条以上目标词缀后，博核心威能。如果威能不理想，检查你的威能库——传奇装备可直接用秘术师覆盖威能。</p>
-                  <div class="highlight-box info" style="margin:0.75rem 0 0;padding:0.6rem 0.8rem;">
-                    <strong>&#x2139;&#xFE0F; 注意：</strong>暗金装备的威能不可覆盖，只能靠魔方重置特效数值。
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Upgrade to legendary.png" alt="Upgrade to Legendary 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 升级为暗金 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">升级为暗金 <span class="recipe-name-en">Upgrade to Unique</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>普通装备升级为<strong style="color:var(--gold);">随机同部位暗金</strong>。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;"><strong>低成本获取核心暗金（如军帽）的关键路径。</strong>捡到高物品等级的白装，毫不犹豫地拿去升暗金。</p>
-                  <div class="recipe-tip">
-                    <span class="tip-icon">&#x2728;</span>
-                    <p>物品强度决定暗金的基础属性！用高物品强度白装升级才能出高roll先祖暗金。</p>
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Upgrade to Unique.png" alt="Upgrade to Unique 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 三合一塑形 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">三合一塑形 <span class="recipe-name-en">3 to 1 Transmutation</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>3件相同物品合成1件同类新物品。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">处理重复装备的<strong style="color:var(--gold);">最佳方式</strong>，比分解划算得多。合成时有概率"升阶"（如普通升先祖），爆出神装的隐藏大招。</p>
-                  <div class="highlight-box info" style="margin:0.75rem 0 0;padding:0.6rem 0.8rem;">
-                    <strong>&#x2139;&#xFE0F; 护身符规则：</strong>护身符和印记不看具体名称，只看稀有度。三个同稀有度的护身符就能进行三合一，是凑齐套装的重要来源。
-                  </div>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/3 to 1 transmutation.png" alt="3 to 1 Transmutation 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 回收暗金 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">回收暗金 <span class="recipe-name-en">Recycle Uniques</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>3件暗金合成1件新暗金。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">重复暗金太多时，用此配方<strong style="color:var(--gold);">博取未收录的稀有暗金</strong>。</p>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Recycle Uniques.png" alt="Recycle Uniques 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====== 护身符&神符配方 ====== -->
-      <section class="cube-section" id="sec-charms">
-        <h2 class="cube-section-title"><span class="sec-icon">&#x1F48E;</span> 护身符与神符类配方</h2>
-        <p class="cube-section-desc">护身符系统（1徽记+6符咒）是S13数值膨胀的核心，套装效果不占用装备栏位。以下3种配方深度绑定魔方系统。</p>
-
-        <!-- 制作暗金神符 -->
-        <div class="cube-sub">
-          <div class="recipe-card open">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">制作暗金神符 <span class="recipe-name-en">Craft Unique Charm</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>将暗金装备威能提取为<strong style="color:var(--gold);">可镶嵌的神符</strong>。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">萃取核心威能，解放装备部位，去兼容更强大的符文之语。选择合适的暗金装备进行转化至关重要。</p>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Craft Unique Charm.png" alt="Craft Unique Charm 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 重置套装神符 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">重置套装神符 <span class="recipe-name-en">Reroll Set Charm</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>将套装符咒转换为<strong style="color:var(--gold);">同套装的另一个部位</strong>。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">重复掉落同一部位时，用此配方快速凑齐关键套装效果。配合三合一配方，是凑齐护身符套装的核心路径。</p>
-                </div>
-                <div class="recipe-image">
-                  <img src="../../assets/images/diablo4/dlc2/horadric_cube/Reroll set charm.png" alt="Reroll Set Charm 界面" onclick="openLightbox(this.src)">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 定向制作符纹 -->
-        <div class="cube-sub">
-          <div class="recipe-card">
-            <div class="recipe-header" onclick="this.closest('.recipe-card').classList.toggle('open')">
-              <span class="recipe-name">定向制作符纹 <span class="recipe-name-en">Rune Crafting</span></span>
-              <span class="recipe-toggle">&#x25BC;</span>
-            </div>
-            <div class="recipe-body">
-              <div class="recipe-content">
-                <div class="recipe-info">
-                  <p>消耗特定稀有度符文，制作指定符文。</p>
-                  <p style="color:var(--gold);font-size:0.82rem;">实战策略：</p>
-                  <p style="font-size:0.82rem;">关键传说符文（如<strong>"泰瑞尔"</strong>）只差临门一脚时的稳健解法。定向制作比随机掉落靠谱得多。</p>
-                </div>
-                <div class="recipe-image" style="align-items:center;color:#554444;font-size:0.9rem;">
-                  <div style="text-align:center;padding:1rem;color:#8a7a70;">&#x1F4E6; 符文之语相关配方，具体材料待确认</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ====== 实战打造流程 ====== -->
+      </section>      <!-- ====== 实战打造流程 ====== -->
       <section class="cube-section" id="sec-workflow">
         <h2 class="cube-section-title"><span class="sec-icon">&#x1F3AF;</span> 从零到毕业：标准化实战打造流程</h2>
         <p class="cube-section-desc">一套经过验证的标准化操作流程，从底材筛选到毕业锁定，每一步都有策略和避坑指南。</p>
 
         <div class="content-block">
-          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F9F1; 第一步：底材筛选（这是地基）</h4>
-          <ul>
-            <li>开启战利品过滤器，高亮显示所有<strong style="color:var(--gold);">白色和蓝色</strong>的装备掉落。老玩家的过滤器里，白装甚至比部分传奇更亮。</li>
-            <li>在折磨难度Farm时，重点关注物品强度高的<strong style="color:var(--gold);">白色先祖装备</strong>（0词缀是最干净的画布）。</li>
-            <li>留意已随机到1-2条毕业词缀的<strong style="color:var(--blue);">蓝色装备</strong>，这是帮你省了一步的底材。</li>
-          </ul>
-        </div>
-
-        <div class="content-block">
-          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x270F;&#xFE0F; 第二步：词缀构筑（策略与技巧）</h4>
-          <ol>
-            <li>将底材放入魔方，优先<strong style="color:var(--gold);">保留可用词缀</strong>，不必全部清空重建。</li>
-            <li>若词缀数不足，使用<strong>"添加词缀"</strong>配方，并放入对应的<strong style="color:var(--gold);">调谐棱镜</strong>。</li>
-            <li>若出现错误词缀，立刻用<strong>"定向重洗"</strong>修正。</li>
-          </ol>
-          <div class="highlight-box tip" style="margin:1rem 0 0;">
-            <strong>&#x2728; 实战技巧：</strong>不一定要一次性打满4条。可以先完成2-3条核心词缀，接着进行下一步，看到传奇威能成果后，再决定是否投入资源完善最后一条，以降低材料风险。
+          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F9F1; 第一步：底材筛选</h4>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;">开启战利品过滤器，高亮所有<strong>白色</strong>、<strong>蓝色</strong>和<strong>黄色先祖装备</strong>。</p>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;"><strong>白色底材（前期及暗金路线专用）</strong>：主要用于「升级为暗金」配方。该配方要求普通品质，因此前期刷图或商人赌到的白色先祖装备务必保留。这是前期快速获取核心暗金的捷径。</p>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;"><strong>蓝色/黄色底材（打造传奇毕业装）</strong>：优先筛选已携带 1 条以上<strong>太古词缀</strong>的先祖装备。天生带太古的胚子能节省海量材料，是后期打造完美传奇的基石。</p>
+          <div class="highlight-box warn" style="margin:0;">
+            <strong>&#x26A0;&#xFE0F; 记住：</strong>白装变暗金，蓝黄出传奇，两者路线不可混淆。
           </div>
         </div>
 
         <div class="content-block">
-          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F31F; 第三步：品质升级与威能赋予</h4>
+          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x270F;&#xFE0F; 第二步：词缀构筑</h4>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;">将底材放入魔盒，开始词缀调整：</p>
           <ul>
-            <li>词缀满意后，使用<strong>"升级为传奇/暗金"</strong>配方。</li>
-            <li>如果威能不理想，检查你的威能库；如有备用，传奇装备可直接用秘术师覆盖。</li>
-            <li><strong style="color:var(--red);">注意：</strong>暗金装备的威能不可覆盖，只能靠魔方重置特效数值。</li>
+            <li><strong>清理废词缀</strong>：若底材带有无用词缀，先用<strong>"移除词缀"</strong>+ 对应调谐棱柱精准切除。</li>
+            <li><strong>添加核心词缀</strong>：使用<strong>"添加词缀"</strong>+ 对应调谐棱柱，逐步补充。</li>
+            <li><strong>修正错误词缀</strong>：出现同类别但具体不对的词缀，用<strong>"定向重洗"</strong>在该类别内替换。</li>
           </ul>
+          <div class="highlight-box tip" style="margin:0;">
+            <strong>&#x2728; 核心技巧：</strong>不必一次打满 4 词缀。先完成 2-3 条，等威能确定后再完善最后一条，避免材料浪费。
+          </div>
         </div>
 
         <div class="content-block">
-          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F3AF; 第四步：毕业收尾（画龙点睛）</h4>
+          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F31F; 第三步：威能赋予（二选一）</h4>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;">当你拥有一件满意的黄色满词缀装备后，赋予威能有两条路径：</p>
           <ul>
-            <li>对暗金装备，使用<strong>"重置暗金威能"</strong>配方，将特效洗到高值。</li>
-            <li><strong style="color:var(--red);">在所有改造操作全部完成后</strong>，使用<strong style="color:var(--gold);">终端调谐棱镜</strong>配合"嬗变"配方，锁定你的毕业神装。</li>
+            <li><strong>方案 A（可控首选）</strong>：直接去秘术师处，使用威能法典将你心仪的威能刻印上去。100% 可控，适合已有高数值威能的玩家。</li>
+            <li><strong>方案 B（随机惊喜）</strong>：使用魔盒<strong>"升级至传奇"</strong>配方，随机获得一条传奇威能。可用调谐棱柱缩小类别，有机会出满值甚至法典外的威能。</li>
           </ul>
-          <div class="highlight-box warn" style="margin:1rem 0 0;">
-            <strong>&#x26A0;&#xFE0F; 检查清单（嬗变前必须确认）：</strong><br>
-            是否词缀完美？是否打孔？是否回火正确？是否精造最高级？一定要仔细检查这些项后再嬗变！否则无力回天！
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;"><strong>威能不满意怎么处理：</strong></p>
+          <ul>
+            <li>传奇装备：可用秘术师威能法典直接覆盖。</li>
+            <li>暗金装备：威能不可覆盖，只能通过魔盒<strong>"重置暗金威能"</strong>重 roll 数值。</li>
+          </ul>
+          <div class="highlight-box tip" style="margin:0;">
+            <strong>&#x2728; 提示：</strong>若选择方案 B，建议先做 2-3 条词缀，看到威能结果后再决定是否继续完善最后一条词缀。
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h4 style="font-family:'Cinzel',serif;font-size:0.95rem;color:var(--gold);margin-bottom:0.75rem;">&#x1F3AF; 第四步：毕业收尾</h4>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;"><strong>暗金数值优化</strong>：使用<strong>"重置暗金威能"</strong>将核心暗金的特效洗至高 roll。</p>
+          <p style="color:#b0a098;font-size:0.88rem;line-height:1.9;margin-bottom:0.75rem;"><strong>终极嬗变</strong>：在所有改造完成后进行，按策略选择：</p>
+          <ul>
+            <li><strong>硬赌</strong>：不用调谐棱柱直接嬗变，高风险高回报，适合易替换装备。</li>
+            <li><strong>求稳</strong>：使用<strong>熵能调谐棱柱</strong>（传奇），剔除极端结果，100% 锁定物品。</li>
+            <li><strong>护符终极</strong>：使用<strong>库勒调谐棱柱</strong>（暗金），额外附加一条传奇威能，且不锁定。</li>
+          </ul>
+          <div class="highlight-box warn" style="margin:0;">
+            <strong>&#x26A0;&#xFE0F; 嬗变前检查清单：</strong><br>
+            &#x2714; 传奇威能是否为目标且数值满意？<br>
+            &#x2714; 所有词缀是否已调整到完美？<br>
+            &#x2714; 是否已打孔？（宝石可后续更换，打孔即可）<br>
+            &#x2714; 回火词条是否正确且满值？<br>
+            &#x2714; 大师强化是否已达最高级？<br>
+            <strong style="color:var(--red);">&#x1F512; 逐项确认后再嬗变，一旦锁定，无法回头。</strong>
           </div>
         </div>
       </section>
@@ -1304,7 +930,7 @@
       <!-- ====== 材料获取 ====== -->
       <section class="cube-section" id="sec-farming">
         <h2 class="cube-section-title"><span class="sec-icon">&#x26A1;</span> 极效材料获取与终局活动联动</h2>
-        <p class="cube-section-desc">高效刷材料的核心法則是"動態重置戰爭計劃天賦"——根據你正在刷的活動動態切換天賦點。</p>
+        <p class="cube-section-desc">高效刷材料的核心法则是"动态重置战争计划天赋"——根据你正在刷的活动动态切换天赋点。</p>
 
         <div class="content-block">
           <div class="highlight-box gold" style="margin-top:0;">
@@ -1315,14 +941,14 @@
 
         <div class="content-block">
           <p><strong>高效组合推荐：</strong></p>
-          <p>在战争计划中选择 <strong style="color:var(--gold);">魔域高塔 > 炼狱魔潮 > 深坑 > 世界Boss</strong>，此组合能最大化你获取高品质棱镜和首领奖章的效率。</p>
+          <p>在战争计划中选择 <strong style="color:var(--gold);">魔域高塔 > 炼狱魔潮 > 深坑 > 世界Boss</strong>，此组合能最大化你获取高品质调谐棱柱和首领奖章的效率。</p>
         </div>
 
         <div class="content-block">
           <p><strong>各活动定位：</strong></p>
           <ul>
             <li><strong style="color:var(--gold);">地狱狂潮 & 低语古树：</strong>获取基础粉尘和符文的稳定来源。</li>
-            <li><strong style="color:var(--gold);">炼狱魔潮：</strong>专注开启金币加成选项，是单局获取数百万金币的最快捷径，用于缓解魔方操作带来的金币饥渴。</li>
+            <li><strong style="color:var(--gold);">炼狱魔潮：</strong>专注开启金币加成选项，是单局获取数百万金币的最快捷径，用于缓解魔盒操作带来的金币饥渴。</li>
             <li><strong style="color:var(--gold);">折磨10以上终局活动：</strong>产出远古调谐之尘，极度稀有，务必用在4太古暗金上。</li>
           </ul>
         </div>
@@ -1330,35 +956,35 @@
 
       <!-- ====== 交易经济 ====== -->
       <section class="cube-section" id="sec-trade" style="margin-bottom:2rem;">
-        <h2 class="cube-section-title"><span class="sec-icon">&#x1F4B0;</span> 交易经济与魔方联动</h2>
+        <h2 class="cube-section-title"><span class="sec-icon">&#x1F4B0;</span> 交易经济与魔盒联动</h2>
 
         <div class="content-block">
           <div class="highlight-box warn" style="margin-top:0;">
-            <strong>&#x26A0;&#xFE0F; 绝对规则：</strong>所有经过魔方操作的装备，都将立即变为<strong style="color:var(--red);">账号绑定</strong>，无法交易。
+            <strong>&#x26A0;&#xFE0F; 绝对规则：</strong>所有经过魔盒操作的装备，都将立即变为<strong style="color:var(--red);">账号绑定</strong>，无法交易。
           </div>
           <p><strong>赛季商机：</strong></p>
-          <p>未处理的<strong style="color:var(--gold);">高物品强度白、蓝底材</strong>、<strong style="color:var(--gold);">完美词缀黄装</strong>以及<strong style="color:var(--gold);">热门套装神符</strong>，是市场上的硬通货。魔方是拿来<strong>给自己打造毕业装</strong>的，不是拿来做商人的。</p>
+          <p>未处理的<strong style="color:var(--gold);">高物品强度白、蓝底材</strong>、<strong style="color:var(--gold);">完美词缀黄装</strong>以及<strong style="color:var(--gold);">热门套装神符</strong>，是市场上的硬通货。魔盒是拿来<strong>给自己打造毕业装</strong>的，不是拿来做商人的。</p>
         </div>
       </section>
 
       <!-- ====== 实战问答 ====== -->
       <section class="cube-section" id="sec-qa">
         <h2 class="cube-section-title"><span class="sec-icon">&#x2753;</span> 实战问答与进阶技巧</h2>
-        <p class="cube-section-desc">老玩家经验合集，涵盖常见致命问题和护身符终极配置思路。</p>
+        <p class="cube-section-desc">老玩家经验合集，涵盖常见致命问题。</p>
 
         <div class="qa-item">
           <div class="qa-q">&#x2753; 一件3词缀稀有胸甲，2条毕业，1条废词缀，怎么救？</div>
           <div class="qa-a">
             <p><span class="wrong">错误操作：使用"移除词缀"。后果：大概率直接降级成蓝装废品。</span></p>
-            <p><span class="correct">正确操作：使用"定向重洗"配方，放入与废词缀同类的棱镜，精准替换。零风险。</span></p>
+            <p><span class="correct">正确操作：使用"定向重洗"配方，放入与废词缀同类的调谐棱柱，精准替换。零风险。</span></p>
           </div>
         </div>
 
         <div class="qa-item">
-          <div class="qa-q">&#x2753; 800强度4完美黄装 vs 825强度0词缀白装，选哪个做底材？</div>
+          <div class="qa-q">&#x2753; 850强度4完美黄装 vs 900强度0词缀白装，选哪个做底材？</div>
           <div class="qa-a">
-            <p><span class="correct">答案：无脑选825的白装。</span></p>
-            <p>原因：物品强度决定护甲/抗性的基础值，且无法提升。白装虽要从头打造，但给了你100%可控的未来，值得投入高级棱镜。</p>
+            <p><span class="correct">答案：无脑选900的白装。</span></p>
+            <p>原因：物品强度决定护甲/抗性的基础值，且无法提升。白装虽要从头打造，但给了你100%可控的未来，值得投入高级调谐棱柱。</p>
           </div>
         </div>
 
@@ -1376,24 +1002,33 @@
           </div>
         </div>
 
-        <!-- 护身符终极配置 -->
-        <div class="cube-sub" style="margin-top:2rem;">
-          <h3 class="cube-sub-title"><span class="sub-icon">&#x1F451;</span> 护身符系统终极配置思路</h3>
-          
-
-          <div class="content-block">
-            <p><strong>毕业核心：</strong>不惜一切代价获取带有<strong style="color:var(--gold);">"皇家华戒"特效的徽记</strong>，它能使套装需求件数-1（最少2件）。</p>
-            <p><strong>配装实例：</strong>有了华戒徽记，你只需<strong style="color:var(--gold);">2件A套装 + 2件B套装</strong>，即可同时触发两个需要3件套的强力效果。剩余槽位还能再补一个2件套小效果，达成<strong>"双核心+一辅助"</strong>的终极形态。</p>
-            <p><strong>最终形态：</strong>利用魔方的<strong>"重置套装神符"</strong>配方，将重复的符咒转化为紧缺部位，快速解锁多套装特效。</p>
+                <div class="qa-item">
+          <div class="qa-q">&#x2753; 如何解锁魔盒？开荒流程怎么安排？</div>
+          <div class="qa-a">
+            <div class="highlight-box warn" style="margin-top:0;margin-bottom:1rem;">
+              <strong>&#x26A0;&#xFE0F; 前置条件：</strong>必须拥有《憎恨之王》资料片。
+            </div>
+            <ol class="step-list" style="margin-bottom:1rem;">
+              <li>新建赛季角色后，<strong>勾选"跳过剧情"</strong>以直接进入DLC区域。</li>
+              <li>全力推进资料片主线，当任务进行到击败<strong>"督军泽尔坎"</strong>后即可解锁。</li>
+              <li>抵达泰米斯与魔盒互动一次，即可<strong>账号全角色共享</strong>。</li>
+            </ol>
+            <p><strong>开荒时间节点：</strong></p>
+            <ul>
+              <li><strong>1-45级：</strong>核心目标是<strong style="color:var(--gold);">疯狂推进DLC主线</strong>。路上掉落的装备全部拆解，以积累基础材料。</li>
+              <li><strong>约45级：</strong>魔盒正式解锁。此时已积累了大量原始之尘，立刻给开荒角色<strong style="color:var(--gold);">打造第一套质变装备</strong>，体验碾压同级的快感。</li>
+            </ul>
           </div>
         </div>
+
+        
       </section>
 
       <!-- ====== 结语 ====== -->
       <section class="cube-section" id="sec-outro">
         <div class="cube-outro">
-          <p style="font-size:1.2rem;color:var(--gold);">&#x1F52E; S13 · 赫拉迪姆魔方</p>
-          <p>赫拉迪姆魔方系统的引入，为装备养成带来了前所未有的深度与灵活性。从词缀微调到暗金转化，从护身符重铸到神符制作，每一套配方都值得深入研究。</p>
+          <p style="font-size:1.2rem;color:var(--gold);">&#x1F52E; S13 · 赫拉迪姆魔盒</p>
+          <p>赫拉迪姆魔盒系统的引入，为装备养成带来了前所未有的深度与灵活性。从词缀微调到暗金转化，从护身符重铸到神符制作，每一套配方都值得深入研究。</p>
           <p><strong style="color:var(--gold);">庇护之地的力量，等待被重新定义。</strong></p>
 
           <div class="outro-actions">
@@ -1437,6 +1072,78 @@
       if (e.key === 'Escape') document.getElementById('lightboxOverlay').classList.remove('open');
     });
   </script>
+    <script>
+    // ===== Horadric Cube Simulator =====
+        const recipeData = [
+{ id: 'add-affix', order: 1, category: '装备改造', name: '添加词缀', tag: '定向打造', desc: '为物品添加一条随机词缀。使用调谐棱柱可缩小词缀类别范围。', materials: [{ name: '普通/魔法/稀有/传奇物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '粗糙原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '5', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '（可选）', icon: '&#x1F52E;' }], practice: '1. <strong>开荒利器</strong>：蓝色/黄色先祖底材+<strong>攻击棱柱</strong>，稳定补齐攻击词缀。 2. 后期毕业：蓝色/黄色<strong>太古底材</strong>+对应棱柱，逐步添加至4条理想类别。 3.胚子选择：优先选取已带1-3<strong>太古词缀</strong>的蓝/黄装。 4.配合调谐棱柱，<strong>定向添加</strong>你想要类型的词缀，如不满意可移除或<strong>定向重洗</strong> 4.添加的词缀也可能为太古，概率较低，慎重考虑，<strong style="color:var(--red)">非常烧材料</strong>' },
+      { id: 'chaotic-reroll', order: 2, category: '装备改造', name: '随机重洗', tag: '跨类替换', desc: '将一条随机词缀更改为另一类别的词缀。', materials: [{ name: '魔法/稀有/传奇物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '精炼原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '15', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '（可选）', icon: '&#x1F52E;' }], practice: '一切靠天吃饭，一般不会用它，估计只有垃圾装备，重roll临时用下。 如果你有其他建议也欢迎B站告诉我' },
+{ id: 'focused-reroll', order: 3, category: '装备改造', name: '定向重洗', tag: '同类精洗', desc: '将一条词缀更改为同一类别的另一词缀。必须使用调谐棱柱。', materials: [{ name: '魔法/稀有/传奇物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '精炼原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '15', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '1块（必选）', icon: '&#x1F52E;' }], practice: '1. <strong>精准置换</strong>：利用<strong>调谐棱柱</strong>，我们可以快速重洗我们想要的某类词缀  2. 分步调整：攻击和防御词缀各用对应棱柱分批处理。 3. <strong style="color:var(--red)">太古词条会被洗掉</strong>，<strong style="color:var(--red)">千万注意</strong>！！！不要用和太古词条同类型的<strong>调谐棱柱</strong>！！！' },
+{ id: 'remove-affix', order: 4, category: '装备改造', name: '移除词缀', tag: '减词腾位', desc: '从物品上移除一条随机词缀。', materials: [{ name: '魔法或稀有物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '精炼原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '15', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '（可选）', icon: '&#x1F52E;' }], practice: '1. <strong>精准移除</strong>：利用调谐棱柱，快速移除我们期望移除的词条。  2. 千万注意别选错类型！！同类型如果有<strong>太古词缀</strong>，<strong style="color:var(--red)">千万别移除</strong>！！！' },
+{ id: 'transfigure', order: 5, category: '装备改造', name: '嬗变物品', tag: '最后圣化', desc: '赋予物品极具可能性的随机改造。', materials: [{ name: '传奇/暗金/神话物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '不稳定原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '（可选）', icon: '&#x1F52E;' }], practice: '1. <strong>圣化</strong>，为装备随机增加强力属性，也可能是不可摧毁这类垃圾，垃圾概率感觉有3/10  2. 重大风险提醒：最佳词缀已经ok-><strong>精造25级</strong>-><strong>打孔</strong>-><strong>回火完美</strong>，一定要都做完再来<strong>圣化</strong>！！！！！！ 我已哭死，我的4个泰瑞尔没<strong>打孔</strong>  3. <strong>圣化</strong>后无法修改，无法修改，无法修改！！！重要事情说三遍。   4. 利用<strong>库勒调谐棱柱</strong>可增加传奇词缀，这种可再修改，我还没试过哈  5. 利用<strong>熵能调谐棱柱</strong>，可降低垃圾概率，也同时降低了最强词缀的概率', warning: '变形后物品有极高几率变为不可再修改状态（Unmodifiable）。请慎重使用！' },
+{ id: 'unique-power', order: 6, category: '装备改造', name: '重置暗金威能', tag: '洗特效值', desc: '随机重铸先祖独特物品上独特威能的数值。', materials: [{ name: '先祖暗金物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '调和原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '100', icon: '&#x2B50;' }], practice: '1. <strong>先祖暗金的救赎</strong>，词缀重roll' },
+      { id: 'three-to-one', order: 7, category: '物品塑形', name: '三合一塑形', tag: '废物利用', desc: '将3件相同类型的装备/护身符/符文转化为一件随机新物品。', materials: [{ name: '同类型物品', qty: '3件', icon: '&#x1F4E6;' }], practice: '1. 垃圾装备的回收再利用，成不成就看老天爷了' },
+{ id: 'recycle-uniques', order: 8, category: '物品塑形', name: '回收暗金', tag: '暗金重Roll', desc: '将3件相同暗金装备或护身符转化为该暗金的新版本。', materials: [{ name: '相同的暗金物品', qty: '3件', icon: '&#x1F4E6;' }], practice: '1. <strong>垃圾先祖暗金的救赎</strong>，3件换一件新的，没咋用过' },
+{ id: 'upgrade-unique', order: 9, category: '物品塑形', name: '升级为暗金', tag: '白装变暗金', desc: '将普通装备转化为同类型随机暗金装备。', materials: [{ name: '普通物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '强化原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '10', icon: '&#x2B50;' }], practice: '1.<strong>白装定向产出暗金</strong>，开荒前期必备，尤其比如术士匕首等武器，只有一个<strong>先祖暗金</strong>，升级必然成功。' },
+{ id: 'upgrade-legendary', order: 10, category: '装备改造', name: '升级至传奇', tag: '黄装升传', desc: '将稀有装备转化为带有随机传奇威能的传奇物品。', materials: [{ name: '稀有物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '纯净原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '10', icon: '&#x2B50;' }, { name: '调谐棱柱', qty: '（可选）', icon: '&#x1F52E;' }], practice: '1. <strong>黄装质变</strong>：<strong>完美4词缀黄装</strong>升级，有机会出<strong>满值威能</strong>。 2. 棱柱引导：攻击/防御棱柱缩小威能池，提高目标概率。 3. <strong style="color:var(--red)">先改后升</strong>：词缀全弄好再升级，升级后不可再动词缀。' },
+{ id: 'reroll-set-charm', order: 11, category: '装备改造', name: '重置套装神符', tag: '凑套专用', desc: '将套装护身符转化为同一套装中的另一件。', materials: [{ name: '套装神符', qty: '1枚', icon: '&#x1F48E;' }, { name: '原始原初之尘', qty: '25', icon: '&#x2B50;' }, { name: '注能赫拉迪姆树脂', qty: '50', icon: '&#x1F9EA;' }], practice: '1. <strong>快速补位</strong>：重复部位立即转缺位，尽快出<strong>5件套特效</strong>。 2. <strong>洗技能词条</strong>：同部位反复转化，刷+主力技能等级。' },
+{ id: 'craft-unique-charm', order: 12, category: '装备改造', name: '制作暗金神符', tag: '特效转符', desc: '将独特装备转化为独特护身符。', materials: [{ name: '先祖暗金物品', qty: '1件', icon: '&#x1F4E6;' }, { name: '任意暗金神符', qty: '3枚', icon: '&#x1F48E;' }, { name: '强化原初之尘', qty: '1', icon: '&#x2B50;' }, { name: '原始原初之尘', qty: '50', icon: '&#x2B50;' }, { name: '注能赫拉迪姆树脂', qty: '100', icon: '&#x1F9EA;' }], practice: '1. <strong>解放装备栏</strong>：把核心暗金特效变神符，武器换更强传奇。 一般是后期毕业装备的选择，挺贵的' },
+{ id: 'amalgamation', order: 13, category: '装备改造', name: '融合', tag: '合成升级', desc: '将多个同类消耗品、钥匙或BOSS材料合成为升级版。', materials: [{ name: '可组合物品', qty: '多个', icon: '&#x1F4E6;' }], practice: '1. <strong>BOSS直换暗金</strong>：多余<strong>稀有首领战利品</strong>融合直接出该boss独有暗金，前期快速补齐核心装。 2. 贡品/钥匙升级：低层钥匙或贡品合成高层，贡品可以<strong>升级为神话</strong>哦！ 3. 5个巨型宝石，可融合成<strong>赫拉迪姆宝石</strong>->再次5个融合为-><strong>无瑕的赫拉迪姆宝石</strong> 4. 梦魇地下城钥匙可以升级为<strong>传奇钥匙</strong>（如果带金币属性，是刷金币的好图哦）' },
+{ id: 'ritual-rune-bac', order: 14, category: '符文制作', name: '仪祭符文：跋', desc: '制作跋。', materials: [{ name: '普瑞德', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇祈告符文', qty: '5枚', icon: '&#x2728;' }], practice: '<strong>移动5米=50供品</strong>，触发频率极高，<strong>符文之语核心引擎</strong>。全职业至少备1-2枚，搭配<strong>约姆/奥姆可高频触发</strong>。' },
+{ id: 'ritual-rune-igni', order: 15, category: '符文制作', name: '仪祭符文：伊格尼', desc: '制作伊格尼。', materials: [{ name: '泰布', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇祈告符文', qty: '5枚', icon: '&#x2728;' }], practice: '特定条件下产供品，适合对应机制的BD。根据当前BD需求决定是否制作，避免盲目消耗传奇祈告符文。需<strong>双孔装备</strong>（头/胸/腿/双手武器）。' },
+{ id: 'ritual-rune-tam', order: 16, category: '符文制作', name: '仪祭符文：塔姆', desc: '制作塔姆。', materials: [{ name: '讷尔', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇祈告符文', qty: '5枚', icon: '&#x2728;' }], practice: '条件产供型仪祭符文。消耗5枚传奇祈告符文成本较高，<strong>仅在有明确符文之语需求时制作</strong>。' },
+{ id: 'ritual-rune-yul', order: 17, category: '符文制作', name: '仪祭符文：尤尔', desc: '制作尤尔。', materials: [{ name: '乌尔', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇祈告符文', qty: '5枚', icon: '&#x2728;' }], practice: '根据生成供品的条件与BD契合度决定是否制作。结合战争计划可加速材料积累。<strong>上孔仪祭+下孔祈告才能激活效果</strong>。' },
+{ id: 'summon-rune-eom', order: 18, category: '符文制作', name: '祈告符文：伊欧姆', desc: '制作伊欧姆。', materials: [{ name: '兹克', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇仪祭符文', qty: '5枚', icon: '&#x2728;' }], practice: '消耗供品触发效果。搭配高频产供的仪祭符文（跋/伊格尼）可高效循环。不同祈告符文效果差异大，<strong>选匹配BD核心机制的</strong>。' },
+{ id: 'summon-rune-ja', order: 19, category: '符文制作', name: '祈告符文：扎', desc: '制作扎。', materials: [{ name: '杰姆', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇仪祭符文', qty: '5枚', icon: '&#x2728;' }], practice: '<strong>消耗500供品将闪避变传送术</strong>，<strong>非魔法职业的神级位移</strong>。搭配跋可稳定触发，<strong>全职业热门必做</strong>。' },
+{ id: 'summon-rune-om', order: 20, category: '符文制作', name: '祈告符文：奥姆', desc: '制作奥姆。', materials: [{ name: '夸', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇仪祭符文', qty: '5枚', icon: '&#x2728;' }], practice: '低消耗祈告符文，搭配跋可<strong>高频触发增伤</strong>。适合追求稳定持续增益的BD，<strong>性价比高</strong>。' },
+{ id: 'summon-rune-wicks', order: 21, category: '符文制作', name: '祈告符文：威克斯', desc: '制作威克斯。', materials: [{ name: '加尔', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇仪祭符文', qty: '5枚', icon: '&#x2728;' }], practice: '消耗供品触发特效。根据BD战斗风格选择匹配的祈告符文。<strong>上孔仪祭+下孔祈告</strong>，<strong>双孔装备才能激活</strong>。' },
+{ id: 'summon-rune-jom', order: 22, category: '符文制作', name: '祈告符文：约姆', desc: '制作约姆。', materials: [{ name: '克莱', qty: '1', icon: '&#x2728;' }, { name: '任意稀有符文', qty: '5枚', icon: '&#x2728;' }, { name: '传奇仪祭符文', qty: '5枚', icon: '&#x2728;' }], practice: '低消耗祈告符文，搭配跋可实现<strong>接近无缝的增益覆盖</strong>。多储备以适配不同符文之语组合。' },
+    ];
+
+    
+    const rImg = {'添加词缀':'添加词缀.webp','随机重洗':'随机重洗.webp','定向重洗':'定向重洗.webp','移除词缀':'移除词缀.webp','嬗变物品':'嬗变物品.webp','重置暗金威能':'重置暗金威能.webp','三合一塑形':'三合一塑形.webp','回收暗金':'回收暗金.webp','升级为暗金':'升级为暗金.webp','升级至传奇':'升级至传奇.webp','重置套装神符':'重置套装神符.webp','制作暗金神符':'制作暗金护符.webp','融合':'融合.webp','仪祭符文：跋':'仪祭符文：跋.webp','仪祭符文：伊格尼':'仪祭符文：伊格尼.webp','仪祭符文：塔姆':'仪祭符文：塔姆.webp','仪祭符文：尤尔':'仪祭符文：尤尔.webp','祈告符文：伊欧姆':'祈告符文：伊欧姆.webp','祈告符文：扎':'祈告符文：扎.webp','祈告符文：奥姆':'祈告符文：奥姆.webp','祈告符文：威克斯':'祈告符文：威克斯.webp','祈告符文：约姆':'祈告符文：约姆.webp',};
+
+    const rImgBase = '../../assets/images/diablo4/dlc2/horadric_cube/';
+    const rl = document.getElementById('simRecipeList');
+    const srT = document.getElementById('simRecipeTitle');
+    const sW = document.getElementById('simWarning');
+    const sC = document.getElementById('simRecipeCount');
+    var cats = {};
+    recipeData.forEach(function(r) { if (!cats[r.category]) cats[r.category] = []; cats[r.category].push(r); });
+    Object.keys(cats).forEach(function(cat) {
+      var d = document.createElement('div'); d.className = 'sim-cat'; d.textContent = cat; rl.appendChild(d);
+      cats[cat].forEach(function(r) {
+        var i = document.createElement('div'); i.className = 'sim-r-item'; i.dataset.id = r.id;
+        i.innerHTML = '<div class="r-name">' + r.name + ' <span class="r-tag">' + (r.tag || '') + '</span></div>';
+        i.addEventListener('click', function() { selR(r); }); rl.appendChild(i);
+      });
+    });
+    var curR = null;
+    function selR(r) {
+      curR = r;
+      document.querySelectorAll('.sim-r-item').forEach(function(e) { e.classList.remove('active'); });
+      var t = document.querySelector('.sim-r-item[data-id="' + r.id + '"]'); if (t) t.classList.add('active');
+      srT.innerHTML = r.name + (r.tag ? ' <span class="r-tag-lg">' + r.tag + '</span>' : ''); var ri = document.getElementById('simRecipeImg'); var imgFile = rImg[r.name]; if (imgFile) { ri.innerHTML = '<img src="' + rImgBase + imgFile + '" alt="' + r.name + '" class="sim-img" onclick="openLightbox(this.src)">'; } else { ri.innerHTML = ''; } sC.textContent = '配方 #' + r.order;
+
+      var sp = document.getElementById('simPracticeDesc');
+      var sl = document.getElementById('simPracticeLabel');
+      if (r.practice) {
+        var lines = r.practice.split(/\d+\.\s*/).filter(Boolean);
+        var html = '';
+        for (var i = 0; i < lines.length; i++) {
+          var line = lines[i].trim();
+          if (line) {
+            html += '<div class="p-item"><span class="p-num">' + (i+1) + '</span><span class="p-text">' + line + '</span></div>';
+          }
+        }
+        sp.innerHTML = html;
+        sl.style.display = 'block';
+      } else { sl.style.display = 'none'; }
+      if (r.warning) { sW.style.display = 'block'; sW.innerHTML = '<div class="sim-warning"><span>&#x26A0;&#xFE0F;</span><p>' + r.warning + '</p></div>'; }
+      else { sW.style.display = 'none'; }
+    }
+    if (recipeData.length > 0) { selR(recipeData[0]); }
+  </script>
+
   <script src="../../assets/js/guide-sidebar.js"></script>
 </body>
 </html>

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《暗黑破坏神4》S13 术士开荒BD攻略：魔指利爪·恐惧之爪</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<style>
+  :root {
+    --bg-deep:    #07080f;
+    --bg-card:    #0d0e1a;
+    --bg-panel:   #111220;
+    --bg-item:    #0a0c18;
+    --gold:       #c8963e;
+    --gold-bright:#f0c060;
+    --gold-dim:   #7a5a25;
+    --purple:     #9966cc;
+    --purple-dim: #5533aa;
+    --red:        #c84040;
+    --green:      #40b870;
+    --blue:       #4488dd;
+    --demon:      #cc4422;
+    --demon-dim:  #7a2010;
+    --text-main:  #ddd4c0;
+    --text-dim:   #8a8070;
+    --text-white: #efe8d8;
+    --border:     #2a2820;
+    --border-gold:#40321a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-deep);
+    color: var(--text-main);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse 80% 40% at 50% 0%, rgba(160,40,10,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 60% at 80% 80%, rgba(100,30,120,0.08) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.012) 40px);
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg-deep); }
+  ::-webkit-scrollbar-thumb { background: var(--demon-dim); border-radius: 3px; }
+
+  /* Layout */
+  .page-wrap { display: flex; min-height: 100vh; }
+  .page-content { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 210px; flex-shrink: 0;
+    position: sticky; top: 0; height: 100vh;
+    overflow-y: auto;
+    background: rgba(7,8,15,0.96);
+    border-right: 1px solid var(--border-gold);
+    padding: 24px 0 40px;
+    display: flex; flex-direction: column; gap: 2px;
+    backdrop-filter: blur(12px);
+  }
+  .sidebar-logo { padding: 0 18px 18px; border-bottom: 1px solid var(--border-gold); margin-bottom: 12px; }
+  .sidebar-logo .game-title {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    color: var(--demon-dim); letter-spacing: 2px; text-transform: uppercase;
+  }
+  .sidebar-logo .build-title {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--demon); font-weight: 600; line-height: 1.4; margin-top: 4px;
+  }
+  .sidebar-logo .build-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 7px 18px; color: var(--text-dim);
+    text-decoration: none; font-size: 12.5px; font-weight: 400;
+    transition: all 0.2s; cursor: pointer;
+    border-left: 2px solid transparent;
+  }
+  .nav-item:hover { color: var(--gold); background: rgba(200,150,62,0.06); border-left-color: var(--gold); }
+  .nav-item .nav-icon { font-size: 15px; width: 20px; text-align: center; flex-shrink: 0; }
+  .nav-sep { height: 1px; background: var(--border); margin: 8px 18px; }
+  .nav-section-label {
+    padding: 4px 18px; font-size: 10px;
+    color: var(--text-dim); letter-spacing: 2px;
+    text-transform: uppercase; opacity: 0.6;
+  }
+  .sidebar-footer {
+    margin-top: auto; padding: 16px 18px 0;
+    border-top: 1px solid var(--border);
+    font-size: 11px; color: var(--text-dim);
+    text-align: center; line-height: 1.6;
+  }
+  .sidebar-footer span { color: var(--demon); font-weight: 500; }
+
+  /* Main */
+  .main { flex: 1; min-width: 0; overflow-x: hidden; }
+
+  /* Hero */
+  .hero {
+    position: relative; padding: 64px 60px 52px;
+    overflow: hidden; border-bottom: 1px solid var(--border-gold);
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 100% 200% at 60% 50%, rgba(180,50,20,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 100% at 95% 50%, rgba(100,30,120,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 4px; color: var(--demon-dim);
+    text-transform: uppercase; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--demon-dim), transparent);
+    max-width: 200px;
+  }
+  .hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 3.5vw, 48px);
+    font-weight: 900; line-height: 1.15;
+    color: var(--gold-bright);
+    text-shadow: 0 0 40px rgba(200,80,30,0.5), 0 2px 20px rgba(0,0,0,0.9);
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .hero-cn {
+    font-size: clamp(14px, 2vw, 22px);
+    color: var(--demon); font-weight: 500;
+    letter-spacing: 2px; margin-bottom: 16px;
+    font-family: 'Noto Sans SC', sans-serif;
+  }
+  .hero-sub { font-size: 14px; color: var(--text-dim); font-weight: 300; margin-bottom: 20px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 11px; border-radius: 2px;
+    font-size: 11.5px; font-weight: 500; letter-spacing: 0.5px;
+  }
+  .tag-gold { background: rgba(200,150,62,0.15); border: 1px solid var(--gold-dim); color: var(--gold); }
+  .tag-demon { background: rgba(200,60,30,0.15); border: 1px solid var(--demon-dim); color: var(--demon); }
+  .tag-purple { background: rgba(153,102,204,0.15); border: 1px solid var(--purple-dim); color: var(--purple); }
+  .tag-green { background: rgba(64,180,112,0.15); border: 1px solid rgba(64,180,112,0.35); color: var(--green); }
+  .tag-blue { background: rgba(64,136,221,0.15); border: 1px solid rgba(64,136,221,0.35); color: #88bbee; }
+  .hero-deco {
+    position: absolute; right: 40px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 160px; opacity: 0.035;
+    font-family: 'Cinzel', serif; font-weight: 900;
+    color: var(--demon); pointer-events: none;
+    letter-spacing: -10px; line-height: 1;
+  }
+
+  /* Section */
+  .section {
+    padding: 48px 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-header {
+    display: flex; align-items: center;
+    gap: 16px; margin-bottom: 32px;
+  }
+  .section-icon { font-size: 26px; }
+  .section-title {
+    font-family: 'Cinzel', serif; font-size: 20px;
+    font-weight: 600; color: var(--gold); letter-spacing: 0.5px;
+  }
+  .section-title-cn {
+    font-size: 13px; color: var(--text-dim);
+    margin-top: 1px; font-weight: 400;
+    letter-spacing: 1px;
+  }
+  .section-title-line {
+    flex: 1; height: 1px;
+    background: linear-gradient(to right, var(--gold-dim), transparent);
+  }
+
+  /* Category badge */
+  .cat-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 14px; border-radius: 2px;
+    font-size: 12px; font-weight: 600; letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase; font-family: 'Cinzel', serif;
+  }
+  .cat-def { background: rgba(64,136,221,0.15); border: 1px solid rgba(64,136,221,0.35); color: #88bbee; }
+  .cat-atk { background: rgba(200,60,30,0.15); border: 1px solid rgba(200,60,30,0.35); color: #e07050; }
+  .cat-res { background: rgba(64,180,112,0.15); border: 1px solid rgba(64,180,112,0.35); color: #70cc99; }
+  .cat-gen { background: rgba(200,150,62,0.15); border: 1px solid rgba(200,150,62,0.35); color: var(--gold); }
+  .cat-hex { background: rgba(153,102,204,0.15); border: 1px solid var(--purple-dim); color: var(--purple); }
+
+  /* Phase progression timeline */
+  .phase-timeline {
+    display: flex; flex-direction: column; gap: 0;
+    position: relative;
+    padding-left: 40px;
+  }
+  .phase-timeline::before {
+    content: ''; position: absolute; left: 16px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--demon-dim), var(--gold-dim), var(--purple-dim));
+  }
+  .phase-node {
+    position: relative;
+    padding: 20px 24px;
+    margin-bottom: 4px;
+    background: var(--bg-item);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .phase-node::before {
+    content: ''; position: absolute;
+    left: -29px; top: 24px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-dim);
+    background: var(--bg-deep);
+  }
+  .phase-node.active::before { background: var(--demon); border-color: var(--demon); box-shadow: 0 0 10px var(--demon); }
+  .phase-node h4 {
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold-bright); margin-bottom: 6px;
+  }
+  .phase-node p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+  /* Item Card */
+  .item-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .item-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--demon-dim), transparent);
+  }
+  .item-card-header {
+    padding: 11px 18px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .item-etype {
+    font-size: 10.5px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .item-ename {
+    font-family: 'Cinzel', serif;
+    font-size: 13.5px; color: var(--gold-bright); font-weight: 600;
+  }
+  .item-ename-cn { font-size: 12px; color: var(--text-dim); margin-left: 6px; }
+  .item-badge {
+    margin-left: auto; font-size: 10px;
+    padding: 2px 8px; border-radius: 2px;
+    font-weight: 600; letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
+  }
+  .badge-leg { background: rgba(200,150,62,0.2); color: var(--gold); border: 1px solid var(--gold-dim); }
+  .badge-uniq { background: rgba(204,119,34,0.2); color: #dd9933; border: 1px solid #7a4a10; }
+  .item-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .item-info-col {
+    padding: 18px 22px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+
+  /* Text content blocks */
+  .text-block {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+  }
+  .text-block p { margin-bottom: 12px; }
+  .text-block p:last-child { margin-bottom: 0; }
+
+  .inline-label {
+    font-size: 11px; color: var(--text-dim);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 8px; display: block;
+  }
+
+  /* Two-column resource panel */
+  .resource-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 20px;
+  }
+  .resource-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px; padding: 18px 20px;
+  }
+  .resource-card h4 {
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold-bright); margin-bottom: 8px;
+  }
+  .resource-card .res-desc {
+    font-size: 13px; color: var(--text-dim); line-height: 1.6;
+  }
+  .resource-card .res-dot {
+    display: inline-block; width: 12px; height: 12px;
+    border-radius: 50%; margin-right: 6px; vertical-align: middle;
+  }
+  .res-dot.red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+  .res-dot.purple { background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+  .res-dot.green { background: var(--green); box-shadow: 0 0 6px var(--green); }
+
+  /* Data table */
+  .data-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13px; margin-bottom: 20px;
+  }
+  .data-table th {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    color: var(--gold); letter-spacing: 1px;
+    text-transform: uppercase; padding: 10px 16px;
+    background: rgba(200,150,62,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    text-align: left;
+  }
+  .data-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(42,40,32,0.5);
+    color: var(--text-main);
+  }
+  .data-table tr:hover td { background: rgba(200,150,62,0.03); }
+  .data-table .val-highlight {
+    color: var(--gold-bright); font-weight: 600;
+  }
+  .data-table .val-demon { color: var(--demon); font-weight: 600; }
+  .data-table .val-purple { color: var(--purple); font-weight: 600; }
+
+  /* Skill section */
+  .skill-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .skill-card-header {
+    padding: 14px 22px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .skill-slot {
+    font-size: 11px; color: var(--text-dim);
+    font-family: 'Cinzel', serif; letter-spacing: 1px;
+    background: rgba(200,150,62,0.1);
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    padding: 1px 8px;
+  }
+  .skill-name {
+    font-family: 'Cinzel', serif; font-size: 15px;
+    color: var(--gold-bright); font-weight: 600;
+  }
+  .skill-name-cn { font-size: 12px; color: var(--text-dim); }
+  .skill-tag {
+    margin-left: auto; font-size: 10px;
+    padding: 2px 8px; border-radius: 2px;
+    font-weight: 600; letter-spacing: 0.5px;
+  }
+  .skill-tag.base { background: rgba(64,136,221,0.15); color: #88bbee; border: 1px solid rgba(64,136,221,0.3); }
+  .skill-tag.core { background: rgba(200,60,30,0.15); color: var(--red); border: 1px solid rgba(200,60,30,0.3); }
+  .skill-tag.defense { background: rgba(64,180,112,0.15); color: var(--green); border: 1px solid rgba(64,180,112,0.3); }
+  .skill-tag.sigil { background: rgba(153,102,204,0.15); color: var(--purple); border: 1px solid var(--purple-dim); }
+  .skill-tag.ultimate { background: rgba(204,119,34,0.15); color: #cc8822; border: 1px solid #7a4a10; }
+  .skill-body { padding: 18px 22px; }
+  .skill-desc {
+    font-size: 13px; color: var(--text-main); line-height: 1.7; margin-bottom: 14px;
+  }
+  .skill-effect {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; line-height: 1.6;
+    padding: 3px 0;
+  }
+  .skill-effect::before {
+    content: ''; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    margin-top: 8px; background: var(--demon);
+  }
+  .skill-effect.core-effect::before { background: var(--gold); }
+  .skill-info-row {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .skill-info-item {
+    font-size: 12px; color: var(--text-dim);
+    padding: 4px 10px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 2px;
+    border: 1px solid var(--border);
+  }
+
+  /* Priority ladder */
+  .prio-ladder {
+    display: flex; flex-wrap: wrap; align-items: center;
+    gap: 6px; margin-bottom: 16px;
+  }
+  .prio-item {
+    padding: 5px 14px; border-radius: 3px;
+    font-size: 13px; font-weight: 500;
+    background: rgba(200,150,62,0.08);
+    border: 1px solid rgba(200,150,62,0.2);
+    color: var(--gold);
+  }
+  .prio-item.t1 { background: rgba(200,60,30,0.12); border-color: rgba(200,60,30,0.3); color: var(--demon); }
+  .prio-item.t2 { background: rgba(153,102,204,0.1); border-color: #5533aa; color: var(--purple); }
+  .prio-item.t3 { background: rgba(64,136,221,0.1); border-color: rgba(64,136,221,0.3); color: #88bbee; }
+  .prio-arrow { color: var(--text-dim); font-size: 16px; }
+
+  /* Callout */
+  .callout {
+    display: flex; gap: 12px;
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border-left: 3px solid;
+  }
+  .callout-tip { background: rgba(64,180,112,0.08); border-color: var(--green); }
+  .callout-warn { background: rgba(200,60,30,0.08); border-color: var(--demon); }
+  .callout-info { background: rgba(64,136,221,0.08); border-color: var(--blue); }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+  .callout p strong { color: var(--gold-bright); }
+
+  /* Leveling milestone */
+  .milestone-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px; margin-bottom: 20px;
+  }
+  .milestone-card {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .milestone-card .milestone-level {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    color: var(--demon-dim); letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .milestone-card .milestone-title {
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold-bright); font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .milestone-card .milestone-desc {
+    font-size: 12.5px; color: var(--text-dim); line-height: 1.6;
+  }
+  .milestone-card .milestone-desc span { color: var(--gold); }
+
+  /* Rotation steps */
+  .rotation-grid {
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .rotation-phase {
+    background: var(--bg-item);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .rotation-phase-header {
+    padding: 12px 20px;
+    background: rgba(200,60,30,0.06);
+    border-bottom: 1px solid var(--border-gold);
+    font-family: 'Cinzel', serif; font-size: 14px;
+    color: var(--gold); font-weight: 600;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .rotation-phase-header .phase-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--demon-dim); color: var(--gold-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700;
+  }
+  .rotation-steps {
+    padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .rotation-step {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; line-height: 1.6;
+    padding: 6px 10px; border-radius: 3px;
+  }
+  .rotation-step:hover { background: rgba(200,150,62,0.04); }
+  .step-num {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border-radius: 50%; background: rgba(200,60,30,0.15);
+    border: 1px solid var(--demon-dim);
+    color: var(--demon); font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+  }
+  .step-skill {
+    color: var(--gold-bright); font-weight: 600;
+    font-size: 13px;
+  }
+
+  /* Back link */
+  .back-link-bar {
+    padding: 10px 60px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,8,15,0.8);
+  }
+  .back-link-bar a {
+    font-size: 13px; color: var(--text-dim);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: color 0.2s;
+  }
+  .back-link-bar a:hover { color: var(--gold); }
+
+  /* Affix text colors */
+  .affix-key { color: var(--gold-bright); font-weight: 600; }
+  .affix-val { color: var(--green); font-weight: 500; }
+  .affix-val-demon { color: var(--demon); font-weight: 600; }
+  .affix-val-purple { color: var(--purple); font-weight: 500; }
+  .affix-normal { color: var(--text-main); }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .page-wrap { flex-direction: column; }
+    .hero { padding: 48px 16px 36px; }
+    .section { padding: 32px 16px; }
+    .resource-grid { grid-template-columns: 1fr; }
+    .milestone-grid { grid-template-columns: 1fr; }
+    .hero-deco { display: none; }
+    .back-link-bar { padding: 10px 16px; }
+    .phase-timeline { padding-left: 28px; }
+    .phase-node::before { left: -21px; }
+  }
+  @media (max-width: 600px) {
+    .skill-card-header { flex-wrap: wrap; }
+    .skill-tag { margin-left: 0; }
+    .prio-ladder { flex-direction: column; align-items: stretch; }
+    .prio-arrow { transform: rotate(90deg); text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center; color: #554444; font-size: 0.75rem;
+  }
+  .footer-qr {
+    width: 48px; height: 48px; border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08); object-fit: contain;
+    background: #fff; padding: 2px; cursor: pointer; transition: all 0.2s;
+  }
+  .footer-qr:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.15); }
+  .qr-preview-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.3s; cursor: pointer;
+  }
+  .qr-preview-overlay.open { opacity: 1; visibility: visible; }
+  .qr-preview-overlay img {
+    width: 200px; height: 200px; border-radius: 12px;
+    background: #fff; padding: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+  }
+</style>
+</head>
+<body>
+
+<div class="page-wrap">
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <div class="game-title">Diablo IV · S13</div>
+      <div class="build-title">魔指利爪开荒BD</div>
+      <div class="build-sub">Dread Claws Leveling</div>
+    </div>
+
+    <div class="nav-section-label">核心内容</div>
+    <a class="nav-item" href="#overview">
+      <span class="nav-icon">&#x1F4CB;</span>BD概述
+    </a>
+    <a class="nav-item" href="#resources">
+      <span class="nav-icon">&#x26A1;</span>资源机制
+    </a>
+
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">技能配置</div>
+    <a class="nav-item" href="#skill-doom">
+      <span class="nav-icon">&#x2622;</span>厄运
+    </a>
+    <a class="nav-item" href="#skill-dreadclaws">
+      <span class="nav-icon">&#x1F5E1;</span>魔指利爪
+    </a>
+    <a class="nav-item" href="#skill-netherstep">
+      <span class="nav-icon">&#x1F4A8;</span>虚空步
+    </a>
+    <a class="nav-item" href="#skill-sentinel">
+      <span class="nav-icon">&#x1F6E1;</span>亵渎哨兵
+    </a>
+    <a class="nav-item" href="#skill-terrorswarm">
+      <span class="nav-icon">&#x1F300;</span>恐怖虫群
+    </a>
+    <a class="nav-item" href="#skill-laalish">
+      <span class="nav-icon">&#x1F479;</span>召唤拉利什
+    </a>
+
+    <div class="nav-sep"></div>
+    <div class="nav-section-label">开荒指南</div>
+    <a class="nav-item" href="#leveling-milestones">
+      <span class="nav-icon">&#x1F4CD;</span>升级路线
+    </a>
+    <a class="nav-item" href="#rotation">
+      <span class="nav-icon">&#x1F504;</span>输出循环
+    </a>
+    <a class="nav-item" href="#affix-priority">
+      <span class="nav-icon">&#x1F50D;</span>词缀优先级
+    </a>
+    <a class="nav-item" href="#transition">
+      <span class="nav-icon">&#x1F500;</span>终局转型
+    </a>
+
+    <div class="sidebar-footer">
+      &copy; 2026 看雲起雲落<br>
+      <span>Season 13</span> · 术士开荒
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="page-content">
+
+  <!-- Site Header -->
+  <section class="site-header-section" style="padding:5rem 0 1rem;">
+      <div class="container" style="display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:0.85rem;">
+          <img src="../../mypic.jpg" alt="看雲起雲落" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 12px rgba(212,175,55,0.3);">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;color:var(--gold);">看雲起雲落</div>
+            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:0.1rem;">一只上班狗，业余刷刷刷，随缘更新</div>
+          </div>
+        </div>
+        <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" style="width:48px;height:48px;border-radius:6px;cursor:pointer;transition:all 0.2s;" onclick="document.getElementById('qrPreview').classList.add('open')" title="扫码查看B站主页">
+        <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.35rem;padding:0.3rem 0.75rem;background:rgba(251,114,153,0.08);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.7rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+          space.bilibili.com/443078910
+        </a>
+      </div>
+    </section>
+
+  <main class="main">
+
+    <!-- Back link -->
+    <div class="back-link-bar">
+      <a href="index.html">&#x2190; 返回暗黑4首页</a>
+    </div>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero" id="top">
+      <div class="hero-eyebrow">S13 术士开荒BD · 憎恨之王</div>
+      <h1>魔指利爪</h1>
+      <div class="hero-cn">Dread Claws · 恐惧之爪 · 暗影爆发</div>
+      <p class="hero-sub">专为 1-60 级开荒优化的术士练级方案，以魔指利爪为核心技能，配合召唤恶魔与暗影形态，实现高效清图与稳定生存。</p>
+      <div class="hero-tags">
+        <span class="tag tag-demon">&#x1F525; 暗影爆发</span>
+        <span class="tag tag-gold">&#x2B50; 开荒推荐</span>
+        <span class="tag tag-purple">&#x1F479; 召唤恶魔</span>
+        <span class="tag tag-green">&#x1F4AA; 上手简单</span>
+        <span class="tag tag-blue">&#x1F504; 1-60练级</span>
+      </div>
+      <div class="hero-deco">D</div>
+    </header>
+
+    <!-- ===== Overview ===== -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4CB;</span>
+        <div>
+          <div class="section-title">BD概述</div>
+          <div class="section-title-cn">Build Overview</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="text-block">
+        <p><strong class="affix-key">BD名称</strong><span class="affix-normal">：魔指利爪开荒BD — Dread Claws Warlock Leveling Build</span></p>
+        <p><strong class="affix-key">适用版本</strong><span class="affix-normal">：暗黑破坏神4 · 憎恨之王 (Lord of Hatred) — Season 13</span></p>
+        <p><strong class="affix-key">适用场景</strong><span class="affix-normal">：1-60级开荒练级为主，兼顾早期终局内容</span></p>
+        <p><strong class="affix-key">核心定位</strong><span class="affix-normal">：中近距离暗影伤害爆发型法系。通过 </span><span class="affix-val-demon">魔指利爪</span><span class="affix-normal"> 作为常驻输出，配合召唤恶魔和恐怖虫群处理群怪，精英/BOSS 战时用终极召唤打出爆发。</span></p>
+        <p><strong class="affix-key">职业要求</strong><span class="affix-normal">：需拥有 </span><span class="affix-val-demon">《憎恨之王》</span><span class="affix-normal"> 资料片</span></p>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4>&#x2705; 优势</h4>
+          <p class="res-desc">技能循环简单直接，暗影形态提供稳定生存，召唤恶魔分担仇恨，AOE 与单体兼备，适合新手开荒。</p>
+        </div>
+        <div class="resource-card">
+          <h4>&#x26A0; 注意事项</h4>
+          <p class="res-desc">中近距离作战需要注意走位，支配力资源管理需要熟悉节奏，暗影形态层数需要维持。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Resources ===== -->
+    <section class="section" id="resources">
+      <div class="section-header">
+        <span class="section-icon">&#x26A1;</span>
+        <div>
+          <div class="section-title">术士核心机制速览</div>
+          <div class="section-title-cn">Warlock Core Mechanics</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4><span class="res-dot red"></span>愤怒 (Anger)</h4>
+          <p class="res-desc">基础技能（如厄运）生成愤怒。用于施放核心技能（魔指利爪）。<br><br><strong class="affix-key">本BD定位</strong><span class="affix-normal">：厄运是主要愤怒来源，每次命中稳定生成愤怒，保障魔指利爪的持续输出。</span></p>
+        </div>
+        <div class="resource-card">
+          <h4><span class="res-dot purple"></span>支配力 (Dominance)</h4>
+          <p class="res-desc">随时间自动恢复，恶魔形态下基础攻击加速获取。用于召唤恶魔（亵渎哨兵、召唤拉利什）。<br><br><strong class="affix-key">本BD定位</strong><span class="affix-normal">：支配力主要通过自然恢复获取。熟悉节奏后可以更频繁地召唤恶魔。</span></p>
+        </div>
+      </div>
+
+      <div class="resource-grid" style="margin-top: 16px;">
+        <div class="resource-card">
+          <h4>&#x1F3F3; 暗影形态 (Shadow Form)</h4>
+          <p class="res-desc">移动时进入潜行并消耗层数。提供生存能力，配合部分威能可获得额外增伤。虚空步可快速叠加层数。</p>
+        </div>
+        <div class="resource-card">
+          <h4>&#x1F479; 妖术 (Hex)</h4>
+          <p class="res-desc">根据敌人已损失生命，使其受到的深渊技能伤害提高，最多叠加3层。魔指利爪有几率施加，是重要的增伤手段。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <span class="callout-icon">&#x1F4A1;</span>
+        <p><strong>开荒小贴士</strong>：1-30 级阶段愤怒管理是关键——不要空怒放不出核心技能。优先在装备上找怒气生成词缀，保持循环流畅。</p>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="section-icon">&#x26A1;</span>
+        <div>
+          <div class="section-title">技能配置详解</div>
+          <div class="section-title-cn">Skill Setup</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <!-- 1. Doom -->
+      <div class="skill-card" id="skill-doom">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 6</span>
+          <span class="skill-name">Doom</span>
+          <span class="skill-name-cn">厄运</span>
+          <span class="skill-tag base">基础</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：基础 · 深渊 · 妖术</span>
+            <span class="skill-info-item">资源：生成愤怒</span>
+          </div>
+          <p class="skill-desc">引爆敌人身上的符印，对其施加妖术并造成伤害。作为基础技能，是愤怒生成的主要手段，同时负责维持妖术层数。</p>
+          <div class="callout callout-info" style="margin-bottom:0;">
+            <span class="callout-icon">&#x2139;</span>
+            <p><strong>开荒用法</strong>：开战先用厄运标记敌人叠妖术，然后切到魔指利爪输出。厄运不占公共冷却时穿插使用回复愤怒。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Dread Claws -->
+      <div class="skill-card" id="skill-dreadclaws">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 1</span>
+          <span class="skill-name">Dread Claws</span>
+          <span class="skill-name-cn">魔指利爪</span>
+          <span class="skill-tag core">核心</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：核心 · 深渊 · 暗影</span>
+            <span class="skill-info-item">消耗：愤怒</span>
+            <span class="skill-info-item">类型：中距离爆发</span>
+          </div>
+          <p class="skill-desc">爆发出暗影利爪，在碰撞时造成伤害。这是本BD的绝对核心输出技能，所有增伤和资源都围绕它配置。中近距离的爆发伤害，配合妖术和暗影形态能打出可观输出。</p>
+          <div class="skill-effect core-effect">开荒期间优先点满此技能及其所有强化节点</div>
+          <div class="skill-effect">碰撞伤害可以同时命中多个目标，清图效率极高</div>
+          <div class="skill-effect">享受暗影伤害加成，装备上优先堆叠暗影系增伤</div>
+        </div>
+      </div>
+
+      <!-- 3. Nether Step -->
+      <div class="skill-card" id="skill-netherstep">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 2</span>
+          <span class="skill-name">Nether Step</span>
+          <span class="skill-name-cn">虚空步</span>
+          <span class="skill-tag defense">防御</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：防御 · 深渊 · 移动</span>
+            <span class="skill-info-item">冷却：约12秒</span>
+          </div>
+          <p class="skill-desc">穿过地狱的阴影出现在目标位置，获得暗影形态层数以及移动速度加成。核心防御兼位移技能，提供关键的暗影形态维持和走位能力。</p>
+          <div class="skill-effect core-effect">开荒时先加出充能节点，获得2层充能大幅提升机动性</div>
+          <div class="skill-effect">用于躲避地板技能、快速接近远程怪、叠加暗影形态</div>
+          <div class="skill-effect">强化移动速度的节点可以让跑图效率大幅提升</div>
+        </div>
+      </div>
+
+      <!-- 4. Profane Sentinel -->
+      <div class="skill-card" id="skill-sentinel">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 3</span>
+          <span class="skill-name">Profane Sentinel</span>
+          <span class="skill-name-cn">亵渎哨兵</span>
+          <span class="skill-tag sigil">召唤</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：召唤 · 深渊</span>
+            <span class="skill-info-item">消耗：支配力</span>
+            <span class="skill-info-item">定位：控制 · 辅助</span>
+          </div>
+          <p class="skill-desc">召唤一个亵渎哨兵，在范围内持续攻击敌人并施加暗影伤害。哨兵可以吸引仇恨并提供持续输出，是开荒阶段重要的生存保障。</p>
+          <div class="skill-effect">开荒期优先点出哨兵持续时间延长节点</div>
+          <div class="skill-effect">配合支配力恢复节奏，尽量保持哨兵常驻</div>
+          <div class="skill-effect">在面对精英群时，哨兵可以帮你分担大量伤害</div>
+        </div>
+      </div>
+
+      <!-- 5. Terror Swarm -->
+      <div class="skill-card" id="skill-terrorswarm">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 4</span>
+          <span class="skill-name">Terror Swarm</span>
+          <span class="skill-name-cn">恐怖虫群</span>
+          <span class="skill-tag core">AOE</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：深渊 · 范围</span>
+            <span class="skill-info-item">消耗：愤怒</span>
+            <span class="skill-info-item">定位：范围清场</span>
+          </div>
+          <p class="skill-desc">释放暗影虫群席卷前方区域，对范围内所有敌人造成持续伤害。是开荒期间主要的大范围清图技能，配合魔指利爪形成单点+群拉的双重输出体系。</p>
+          <div class="skill-effect">遇到大群怪时先放虫群再切魔指利爪点杀精英</div>
+          <div class="skill-effect">范围伤害词缀可以显著提升清图效率</div>
+          <div class="skill-effect">注意控制愤怒消耗，避免虫群放完接不上魔指利爪</div>
+        </div>
+      </div>
+
+      <!-- 6. Summon Laalish -->
+      <div class="skill-card" id="skill-laalish">
+        <div class="skill-card-header">
+          <span class="skill-slot">槽位 5</span>
+          <span class="skill-name">Summon Laalish</span>
+          <span class="skill-name-cn">召唤拉利什</span>
+          <span class="skill-tag ultimate">终极</span>
+        </div>
+        <div class="skill-body">
+          <div class="skill-info-row">
+            <span class="skill-info-item">标签：终极 · 召唤 · 恶魔</span>
+            <span class="skill-info-item">消耗：支配力</span>
+            <span class="skill-info-item">冷却：较长</span>
+          </div>
+          <p class="skill-desc">召唤强大的恶魔拉利什为你而战。拉利什会主动攻击附近的敌人，拥有高额伤害和嘲讽能力。这是本BD的爆发型技能，专门应对精英怪和BOSS战。</p>
+          <div class="skill-effect core-effect">仅用于精英和BOSS战，平时不要浪费支配力</div>
+          <div class="skill-effect">拉利什的嘲讽效果可以给你创造安全的输出窗口</div>
+          <div class="skill-effect">开荒期间优先点出召唤持续时间延长</div>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <span class="callout-icon">&#x26A0;</span>
+        <p><strong>技能升级顺序</strong>：魔指利爪 → 虚空步(充能) → 恐怖虫群 → 亵渎哨兵 → 召唤拉利什 → 厄运。优先保证核心输出的等级，防御技能至少各加1点解锁功能。</p>
+      </div>
+    </section>
+
+    <!-- ===== Leveling Milestones ===== -->
+    <section class="section" id="leveling-milestones">
+      <div class="section-header">
+        <span class="section-icon">&#x1F4CD;</span>
+        <div>
+          <div class="section-title">开荒升级路线</div>
+          <div class="section-title-cn">Leveling Milestones</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="milestone-grid">
+        <div class="milestone-card">
+          <div class="milestone-level">Level 1 - 15</div>
+          <div class="milestone-title">技能解锁期</div>
+          <div class="milestone-desc">
+            <span>厄运</span> + <span>魔指利爪</span> 为核心骨架。优先把魔指利爪点出，搭配厄运生成愤怒。清怪以单点为主，不要拉太多怪。
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-level">Level 15 - 30</div>
+          <div class="milestone-title">机动提升期</div>
+          <div class="milestone-desc">
+            解锁 <span>虚空步</span> 充能节点，机动性大幅提升。加入 <span>恐怖虫群</span> 处理群怪。装备上开始关注 <span>暗影伤害</span> 和 <span>怒气生成</span> 词缀。
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-level">Level 30 - 45</div>
+          <div class="milestone-title">体系成型期</div>
+          <div class="milestone-desc">
+            解锁 <span>亵渎哨兵</span> 和 <span>召唤拉利什</span>。召唤恶魔分担仇恨，拉利什用于精英/BOSS爆发。此时可以挑战更高难度的地下城。
+          </div>
+        </div>
+        <div class="milestone-card">
+          <div class="milestone-level">Level 45 - 60</div>
+          <div class="milestone-title">终局过渡期</div>
+          <div class="milestone-desc">
+            所有技能点基本到位。开始刷 <span>地狱狂潮</span> 和 <span>梦魇地下城</span> 积累装备。逐步向终局BD过渡（可参考本网站的术士终局攻略）。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Rotation ===== -->
+    <section class="section" id="rotation">
+      <div class="section-header">
+        <span class="section-icon">&#x1F504;</span>
+        <div>
+          <div class="section-title">输出循环与操作手法</div>
+          <div class="section-title-cn">Rotation Guide</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="rotation-grid">
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">1</span>
+            遭遇战起手
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>使用 <span class="step-skill">虚空步</span> 切入战场，获得暗影形态层数。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>施放 <span class="step-skill">亵渎哨兵</span> 建立前线，吸引仇恨。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">3</span>
+              <span>对目标使用 <span class="step-skill">厄运</span> 施加妖术并生成愤怒。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">2</span>
+            清理小怪
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>对群怪使用 <span class="step-skill">恐怖虫群</span> 造成范围持续伤害。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>使用 <span class="step-skill">魔指利爪</span> 点杀残血怪，利用碰撞伤害同时清理多只。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">3</span>
+              <span>愤怒不足时穿插 <span class="step-skill">厄运</span> 回怒，保持妖术层数。</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rotation-phase">
+          <div class="rotation-phase-header">
+            <span class="phase-num">3</span>
+            精英/BOSS战
+          </div>
+          <div class="rotation-steps">
+            <div class="rotation-step">
+              <span class="step-num">1</span>
+              <span>提前开 <span class="step-skill">亵渎哨兵</span> 建立战场优势。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">2</span>
+              <span>使用 <span class="step-skill">召唤拉利什</span> 爆发，利用嘲讽创造输出窗口。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">3</span>
+              <span>在拉利什吸引仇恨期间，用 <span class="step-skill">魔指利爪</span> 全力输出。</span>
+            </div>
+            <div class="rotation-step">
+              <span class="step-num">4</span>
+              <span>虚空步保持暗影形态，规避地板技能。</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Affix Priority ===== -->
+    <section class="section" id="affix-priority">
+      <div class="section-header">
+        <span class="section-icon">&#x1F50D;</span>
+        <div>
+          <div class="section-title">装备词缀优先级</div>
+          <div class="section-title-cn">Affix Priority (Leveling)</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="text-block" style="margin-bottom: 24px;">
+        <p><span class="affix-normal">开荒阶段以随捡随穿为主，以下词缀优先级仅作参考。遇到符合优先级的装备就换上，不需要专门去刷特定装备。</span></p>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <span class="cat-badge cat-atk">&#x2694; 攻击优先</span>
+        <div class="prio-ladder">
+          <span class="prio-item t1">&#x2605; 暗影伤害</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t1">&#x2605; 核心技能伤害</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t2">暴击几率</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t3">暴击伤害</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t2">怒气生成</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t3">智力</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <span class="cat-badge cat-def">&#x1F6E1; 防御优先</span>
+        <div class="prio-ladder">
+          <span class="prio-item t2">生命上限</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t2">护甲</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t3">全元素抗性</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t3">暗影抗性</span>
+          <span class="prio-arrow">&#x2192;</span>
+          <span class="prio-item t3">冷却缩减</span>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <span class="callout-icon">&#x1F4A1;</span>
+        <p><strong>练级阶段推荐的地下城威能</strong>：优先解锁与暗影伤害、核心技能相关的能量法典威能。特别是增加魔指利爪伤害或深渊技能伤害的威能，提升最明显。</p>
+      </div>
+    </section>
+
+    <!-- ===== Transition ===== -->
+    <section class="section" id="transition">
+      <div class="section-header">
+        <span class="section-icon">&#x1F500;</span>
+        <div>
+          <div class="section-title">终局转型方向</div>
+          <div class="section-title-cn">Endgame Transition</div>
+        </div>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="text-block">
+        <p><span class="affix-normal">60 级完成后，可以根据你手上的装备决定转型方向：</span></p>
+      </div>
+
+      <div class="resource-grid">
+        <div class="resource-card">
+          <h4>&#x1F525; 地狱裂隙流</h4>
+          <p class="res-desc">如果打到 <span class="affix-val-demon">塔萨美特之脊</span> 暗金武器，可以转型为地狱裂隙压制流。参考本网站的《仪式师·地狱裂隙》终局BD攻略。</p>
+        </div>
+        <div class="resource-card">
+          <h4>&#x1F479; 恶魔召唤流</h4>
+          <p class="res-desc">如果打到召唤相关的暗金或威能，可以转型为以召唤恶魔为主的打法，操作更轻松，适合中老年玩家。</p>
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">&#x2139;</span>
+        <p><strong>数据来源</strong>：本攻略参考自 d4builds.gg 的 Dread Claws Warlock Leveling Build <span class="affix-val">(Build ID: 6039c2cb)</span>，结合 S13 赛季实测经验整理。</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0.6rem;">
+          <a href="https://space.bilibili.com/443078910" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;padding:0.35rem 0.85rem;background:rgba(251,114,153,0.1);border:1px solid rgba(251,114,153,0.2);border-radius:100px;font-size:0.75rem;color:#fb7299;text-decoration:none;transition:all 0.2s;">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#fb7299"><path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 3.84c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933.373z"/></svg>
+            B站: @看雲起雲落
+          </a>
+          <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码" class="footer-qr" onclick="document.getElementById('qrPreview').classList.add('open')">
+          <p style="font-size:0.65rem;color:#4a5568;">扫码查看B站主页</p>
+          <p style="font-size:0.72rem;color:#4a5568;margin-top:0.5rem;">&copy; 2026 看雲起雲落</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- QR Preview -->
+    <div class="qr-preview-overlay" id="qrPreview" onclick="this.classList.remove('open')">
+      <img src="../../assets/images/my-bili-2pic.png" alt="B站二维码大图">
+    </div>
+
+  </main>
+  </div>
+</div>
+
+<!-- Active nav tracking -->
+<script>
+const sections = document.querySelectorAll('.section[id]');
+const navItems = document.querySelectorAll('.nav-item[href^="#"]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => { n.style.color = ''; n.style.borderLeftColor = 'transparent'; });
+      const active = document.querySelector(`.nav-item[href="#${entry.target.id}"]`);
+      if (active) {
+        active.style.color = 'var(--gold)';
+        active.style.borderLeftColor = 'var(--gold)';
+      }
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+
+<!-- @author 看雲起雲落 -->
+</body>
+</html>

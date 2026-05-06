@@ -1,0 +1,224 @@
+{
+  "资源调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/资源调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/资源调谐棱柱-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取资源性词缀。",
+    "usage": "塑形时定向选取资源性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "保护调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/保护调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/保护调谐棱柱-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取防御性词缀。",
+    "usage": "塑形时定向选取防御性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "实用调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/实用调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/实用调谐棱柱-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取机动性和功能性词缀。",
+    "usage": "塑形时定向选取机动性和功能性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "侵略调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/侵略调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/侵略调谐棱柱-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取攻击性词缀。",
+    "usage": "塑形时定向选取攻击性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "熵能调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/熵能调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/熵能调谐棱柱-详图.png",
+    "rarity": "传奇",
+    "rarity_color": "var(--purple)",
+    "description": "用于在赫拉迪姆魔盒中影响嬗变的结果。排除风险最高的结果，但也移除最为强大的效果。有100%几率使物品变为不可修改。",
+    "usage": "嬗变时排除极端结果，但物品必定变为不可修改",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "库勒调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/库勒调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/库勒调谐棱柱-详图.png",
+    "rarity": "暗金",
+    "rarity_color": "var(--gold)",
+    "description": "仅可用于护符。用于在赫拉迪姆魔盒中影响嬗变的结果。随机附加一条额外的传奇词缀，并使物品在嬗变后依然保持可修改状态。",
+    "usage": "嬗变护符时附加额外传奇词缀并保持可修改",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "多彩调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/多彩调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/多彩调谐棱柱-详图.png",
+    "rarity": "稀有",
+    "rarity_color": "var(--green)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取抗性词缀。",
+    "usage": "塑形时定向选取抗性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "娴熟调谐棱柱": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/娴熟调谐棱柱-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/娴熟调谐棱柱-详图.png",
+    "rarity": "稀有",
+    "rarity_color": "var(--green)",
+    "description": "用于在赫拉迪姆魔盒中进行塑形时，定向选取技能和核心属性词缀。",
+    "usage": "塑形时定向选取技能和核心属性词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "消耗品"
+  },
+  "同调的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/同调的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/同调的源生粉尘-详图.png",
+    "rarity": "暗金",
+    "rarity_color": "var(--gold)",
+    "description": "一种稀有材料，用于在赫拉迪姆魔盒中重随暗金物品的威能数值。",
+    "usage": "重置暗金威能",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "强化的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/强化的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/强化的源生粉尘-详图.png",
+    "rarity": "暗金",
+    "rarity_color": "var(--gold)",
+    "description": "一种特殊材料，用于在赫拉迪姆魔盒中进行制造暗金物品的塑形。",
+    "usage": "升级为暗金、制作暗金神符",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "纯净的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/纯净的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/纯净的源生粉尘-详图.png",
+    "rarity": "传奇",
+    "rarity_color": "var(--purple)",
+    "description": "一种特殊材料，用于在赫拉迪姆魔盒中进行制造传奇物品的塑形。",
+    "usage": "升级至传奇",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "不稳定的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/不稳的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/不稳的源生粉尘-详图.png",
+    "rarity": "传奇",
+    "rarity_color": "var(--purple)",
+    "description": "一种特殊材料，用于在赫拉迪姆魔盒中嬗变物品。",
+    "usage": "嬗变物品",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "精炼的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/精炼的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/精炼的源生粉尘-详图.png",
+    "rarity": "稀有",
+    "rarity_color": "var(--green)",
+    "description": "一种魔法成分，用于在赫拉迪姆魔盒中进行更改或移除词缀的塑形。",
+    "usage": "随机重洗、定向重洗、移除词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "原始的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/原始的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/原始的源生粉尘-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "一种魔法成分，用于在赫拉迪姆魔盒中进行大部分塑形。",
+    "usage": "大多数魔盒配方通用材料",
+    "sources": [
+      "精英怪物",
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励"
+    ],
+    "type": "制作材料"
+  },
+  "粗制的源生粉尘": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/粗制的源生粉尘-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/粗制的源生粉尘-详图.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "一种魔法成分，用于在赫拉迪姆魔盒中进行添加词缀的塑形。",
+    "usage": "添加词缀",
+    "sources": [
+      "战争计划中的魔盒战利品",
+      "秘语之树的宝匣奖励",
+      "精英怪物"
+    ],
+    "type": "制作材料"
+  },
+  "注能赫拉迪姆树脂": {
+    "icon": "../../assets/images/diablo4/dlc2/horadric_cube/注能的赫拉迪姆树脂-图标.png",
+    "detail": "../../assets/images/diablo4/dlc2/horadric_cube/注能赫拉迪姆树脂-详细.png",
+    "rarity": "魔法",
+    "rarity_color": "var(--blue)",
+    "description": "用于在赫拉迪姆魔盒中制作神符和封印的粘性物质，通过分解护身符神符和封印获得。",
+    "usage": "制作暗金神符、重置套装神符",
+    "sources": [
+      "分解护身符神符和封印"
+    ],
+    "type": "制作材料"
+  }
+}
