@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S13 3.0.2版本更新说明 - 暗黑破坏神 IV</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+<style>
+:root{--bg-deep:#07080f;--bg-item:#0a0c18;--gold:#c8963e;--gold-bright:#f0c060;--gold-dim:#7a5a25;--demon:#cc4422;--demon-dim:#7a2010;--text-main:#ddd4c0;--text-dim:#8a8070;--text-white:#efe8d8;--border:#2a2820;--border-gold:#40321a;--green:#40b870;--blue:#4488dd;--red:#e04040;--purple:#9868d8;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg-deep);color:var(--text-main);font-family:'Noto Sans SC',sans-serif;font-weight:400;line-height:1.7;min-height:100vh;background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(160,40,10,.13) 0%,transparent 70%),radial-gradient(ellipse 60% 60% at 80% 80%,rgba(100,30,120,.08) 0%,transparent 60%)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-deep)}::-webkit-scrollbar-thumb{background:var(--demon-dim);border-radius:3px}
+
+.hero{padding:5rem 0 3rem;text-align:center;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,0,0,.5),transparent)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;background:rgba(139,0,0,.2);border:1px solid rgba(139,0,0,.4);border-radius:100px;font-size:.68rem;font-weight:600;color:#e74c3c;letter-spacing:2px;margin-bottom:1.2rem}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3.5vw,2.6rem);font-weight:900;color:#DAA520;letter-spacing:3px;text-shadow:0 0 40px rgba(218,165,32,.2),0 2px 4px rgba(0,0,0,.5);margin-bottom:.75rem}
+.hero-title .accent{color:#c0392b}
+.hero-subtitle{font-size:.9rem;color:#8a7868;max-width:650px;margin:0 auto;line-height:1.8}
+
+.patch-content{max-width:860px;margin:0 auto;padding:0 2rem 3rem}
+.patch-section{margin-bottom:3rem;padding-top:70px}
+.patch-card{background:rgba(26,15,20,.85);border:1px solid rgba(58,32,40,.6);border-radius:14px;padding:1.8rem 2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.patch-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#DAA520,transparent);opacity:0;transition:opacity .35s}
+.patch-card:hover::before{opacity:1}
+
+h2{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:.75rem}
+h3{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--text-white);margin:1.2rem 0 .5rem}
+h4{font-size:.88rem;color:var(--gold);font-weight:600;margin:1rem 0 .4rem}
+p{font-size:.85rem;color:var(--text-dim);line-height:1.9;margin-bottom:.6rem}
+p strong{color:var(--text-white)}
+
+.sec-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-header::before{content:'';width:3px;height:18px;background:linear-gradient(to bottom,#DAA520,#8B0000);border-radius:2px}
+.sec-header h2{margin-bottom:0}
+
+.bug-list{list-style:none;padding:0;margin:.5rem 0}
+.bug-list li{padding:.35rem .6rem .35rem 1.2rem;font-size:.82rem;color:var(--text-dim);line-height:1.7;position:relative;border-bottom:1px solid rgba(58,32,40,.12)}
+.bug-list li::before{content:'\2714';position:absolute;left:0;color:var(--green);font-size:.65rem;top:.5rem}
+.bug-list li:last-child{border-bottom:none}
+
+.dev-note{font-style:italic;color:#7a6a60;font-size:.78rem;padding:.4rem .7rem;background:rgba(0,0,0,.2);border-left:2px solid rgba(218,165,32,.2);border-radius:0 4px 4px 0;margin:.3rem 0}
+
+.update-meta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem}
+.update-meta span{font-size:.75rem;color:#665555;background:rgba(80,50,60,.15);padding:.2rem .6rem;border-radius:4px}
+
+@media(max-width:768px){
+  .patch-content{padding:0 1rem 2rem}
+  .patch-card{padding:1.2rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+    <span class="nav-game-name">Diablo IV &#xB7; 3.0.2 版本更新</span>
+    <span class="nav-breadcrumb">首页 &gt; 暗黑破坏神 IV &gt; 3.0.2更新</span>
+  </div>
+</nav>
+
+<div class="scroll-progress-track"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')"><img id="lightboxImage" src="" alt="图片预览"></div>
+
+<button class="back-to-top-rune" id="backToTop" aria-label="返回顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<aside class="guide-sidebar" id="patchSidebar">
+  <div class="guide-sidebar-title">目录导航</div>
+  <ul class="guide-sidebar-nav">
+    <li><a href="#sec-top" class="active"><span class="nav-icon">&#x1F4D6;</span><span class="nav-text">版本概述</span><span class="nav-step">TOP</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-expansion"><span class="nav-icon">&#x1F3F0;</span><span class="nav-text">资料片更新</span><span class="nav-step">1</span></a></li>
+    <li><a href="#sec-warplans"><span class="nav-icon">&#x2694;</span><span class="nav-text">战争计划修复</span><span class="nav-step">2</span></a></li>
+    <li><a href="#sec-charms"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符修复</span><span class="nav-step">3</span></a></li>
+    <li><a href="#sec-cube"><span class="nav-icon">&#x1F52E;</span><span class="nav-text">赫拉迪姆方块</span><span class="nav-step">4</span></a></li>
+    <li><a href="#sec-gameplay"><span class="nav-icon">&#x2699;</span><span class="nav-text">游戏性修复</span><span class="nav-step">5</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-class"><span class="nav-icon">&#x1F3AD;</span><span class="nav-text">职业调整</span><span class="nav-step">6</span></a></li>
+    <li><a href="#sec-dungeon"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">地下城修复</span><span class="nav-step">7</span></a></li>
+    <li><a href="#sec-ui"><span class="nav-icon">&#x1F4BB;</span><span class="nav-text">UI/体验</span><span class="nav-step">8</span></a></li>
+    <li><a href="#sec-base"><span class="nav-icon">&#x1F3AE;</span><span class="nav-text">基础游戏</span><span class="nav-step">9</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-footer"><span class="nav-icon">&#x1F4DD;</span><span class="nav-text">说明</span><span class="nav-step">END</span></a></li>
+  </ul>
+  <div class="guide-sidebar-footer"><a href="index.html">&#x2190; 返回D4首页</a></div>
+</aside>
+<button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<main class="guide-content">
+
+<section class="hero" id="sec-top">
+  <div class="hero-badge">&#x1F514; 官方更新</div>
+  <h1 class="hero-title">3.0.2 版本更新 <span class="accent">Build #71841</span></h1>
+  <p class="hero-subtitle">第13赛季「审判赛季」首个大型修复补丁 · 涵盖资料片内容更新与多项Bug修复</p>
+  <div class="update-meta">
+    <span>&#x1F4C5; 更新日期：2026年5月13日</span>
+    <span>&#x1F310; 适用平台：全平台</span>
+    <span>&#x1F4CB; Build #71841</span>
+  </div>
+</section>
+
+<div class="patch-content">
+
+<!-- ====== 资料片内容 ====== -->
+<section class="patch-section" id="sec-expansion">
+<div class="sec-header"><h2>&#x1F3F0; 资料片内容更新</h2></div>
+
+<div class="patch-card">
+  <h3>&#x1F4C8 护身符更新</h3>
+  <ul class="bug-list">
+    <li>套装护身符现在播放独特的掉落音效，以便于辨识。</li>
+    <li>套装护身符现在使用独特的小地图图标，以提高可见度。</li>
+    <li>更新了游侠"尼芙尔的锐眼凝眸"护身符3件套奖励的说明，明确指出获得其所有加成的前提是"复仇"状态处于激活中。</li>
+  </ul>
+
+  <h4>&#x1F98A 德鲁伊护身符调整</h4>
+  <ul class="bug-list">
+    <li>"风暴司牧的呼召"5件套奖励现在与2件套的伤害加成叠加，而不是覆盖。</li>
+    <li>"风暴司牧的呼召"2件套奖励现在在增益激活期间提升所有风暴技能伤害，而非仅提升消耗灵力的那个技能。</li>
+    <li>"风暴司牧的呼召"2件套奖励最大加成从75%下调至40%，以补偿其对所有风暴技能的伤害加成。</li>
+    <li>"老狼的印记"现在将其直接伤害加成包含在持续伤害倍率加成中。</li>
+    <li>"老狼的印记"的中毒伤害加成现改为乘法计算，而非加法。</li>
+  </ul>
+
+  <h3>&#x1F504 综合更新</h3>
+  <ul class="bug-list">
+    <li>墨菲斯托回响和憎恨回响已加入组队查找器。</li>
+    <li>新增了各种加载界面提示，提供关于新功能的详细信息。</li>
+    <li>更新了"多彩调谐棱镜"的说明，明确其可以针对单一抗性。</li>
+    <li>新增了传送至活跃战争计划的功能。如果没有活跃战争计划，玩家将传送至忒弥斯；否则将传送至当前目标点。</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F6A7 战役与任务 Bug修复</h3>
+  <ul class="bug-list">
+    <li>修复了在"死亡"任务中，完成"对抗墨菲斯托"目标时使用城镇传送门可能导致任务进度卡住的问题。</li>
+    <li>修复了玩家可能在锁定的或无法进入的战役区域内复活的问题。</li>
+    <li>修复了重新进入某些区域时，任务NPC对话可能反复触发或重叠的问题。</li>
+    <li>修复了在"梦之鱼"任务中，石鱼公说话时离开区域可能导致进度卡住的问题。</li>
+    <li>修复了"谜题之路"任务中错误引用"毁灭"而非"腐化"的问题，该错误可能导致解谜时造成困惑。</li>
+    <li>修复了"保卫过去"支线任务中，HUD指南针和音频导航辅助功能无法正常工作的问题。</li>
+    <li>修复了多处隐形墙阻挡任务进度的问题。</li>
+    <li>修复了"伤口淌血处"任务中玩家死亡后Boss不会重置的问题。</li>
+    <li>修复了其他多种导致任务进度卡死的问题。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 战争计划修复 ====== -->
+<section class="patch-section" id="sec-warplans">
+<div class="sec-header"><h2>&#x2694; 战争计划 Bug修复</h2></div>
+
+<div class="patch-card">
+  <ul class="bug-list">
+    <li>修复了战争计划中的炼狱魔潮遭遇战可能在单波内反复刷新瓦尔申Boss的问题。</li>
+    <li>修复了夙敌巢穴（红门）在某些战争计划活动中无法触发的问题。</li>
+    <li>修复了夙敌巢穴在某些情况下可被无限刷取的问题。</li>
+    <li>修复了在幽暗之城（库拉斯特地下城）跑图失败并传送回城镇后，小队成员可能被移出队伍的问题。</li>
+    <li>修复了世界地图与追踪器上战争计划活动图标和目标显示不一致的问题。</li>
+    <li>修复了部分战争计划可能发放非预期奖励或材料的问题。</li>
+    <li>修复了幽暗之城的"无尽虫群"词缀可能导致额外敌人增加通关时间的问题。</li>
+    <li>修复了处于不同进度阶段的队伍成员在评估战争计划战役状态时出现不一致的问题。</li>
+    <li>修复了玩家死亡并复活后，战争计划为炼狱魔潮提供的怪物强度提升无法保留的问题。</li>
+    <li>修复了赫拉迪姆猎手天赋进度在登出时可能被重置的问题。</li>
+    <li>修复了传送出地下城时，无畏信念层数被重置的问题。</li>
+    <li>修复了在深坑中，如果队伍中只有一名玩家激活了"石心"战争计划词缀，克罗恩的底座不会生成的问题。</li>
+    <li>修复了如果玩家同时拥有"血之羁绊"，"地狱奖赏"无法正确影响血族掉落的问题。</li>
+    <li>修复了幽暗之城的战争计划追踪图标与地图图标不匹配的问题。</li>
+    <li>修复了瓦尔申的复仇宝箱未能掉落预期暗金物品的问题。</li>
+    <li>修复了在折磨6以下难度中，比列的符文巢穴符文池降低非传奇符文掉落率的问题。</li>
+    <li>修复了物品可能意外影响战争计划选择的问题。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 护身符修复 ====== -->
+<section class="patch-section" id="sec-charms">
+<div class="sec-header"><h2>&#x1F48E; 护身符 Bug修复</h2></div>
+
+<div class="patch-card">
+  <ul class="bug-list">
+    <li>修复了非神话品质护身符和徽记无法交易的问题。</li>
+    <li>修复了"巴拉赞之咬"护身符套装在与"亡神之狂"互动时可能错误地对玩家施加虚弱的问题。</li>
+    <li>修复了护身符和徽记词缀提供的仆从生命加成未能正确生效的问题。</li>
+    <li><strong style="color:var(--gold)">游侠：</strong>修复了在已有灌魔激活的状态下启动新灌魔，会导致"咒缚钢铁"护身符5件套提供的幸运一击几率加成被移除的问题。</li>
+    <li>修复了即使没有激活复仇层数，尼芙尔的锐眼凝眸5件套提供的射手技能增伤依然生效的问题。</li>
+    <li><strong style="color:var(--gold)">死灵法师：</strong>修复了护身符套装奖励未完整提供仆从生命加成的问题。</li>
+    <li>修复了徽记上的"仆从伤害提高"词缀未在所有仆从伤害场景下生效的问题。</li>
+    <li>修复了徽记上的"拾取生命球后伤害提高"词缀无效的问题。</li>
+    <li>修复了护身符套装奖励在祭礼进度中可能意外失效或无法正确叠加的多种情况。</li>
+    <li>修复了快速装备护身符时可能意外替换已装备护身符的问题。</li>
+    <li>修复了使用手柄查看军械库配装时，护身符栏位可能被裁切的问题。</li>
+    <li>修复了神话徽记可能出现词缀缺失的问题。</li>
+    <li>修复了"命运之拳"护身符无法被分解的问题。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 赫拉迪姆方块 ====== -->
+<section class="patch-section" id="sec-cube">
+<div class="sec-header"><h2>&#x1F52E; 赫拉迪姆方块 Bug修复</h2></div>
+
+<div class="patch-card">
+  <ul class="bug-list">
+    <li>修复了刻印在嬗变项链上的威能无法匹配法典数值的问题。</li>
+    <li>修复了在赫拉迪姆方块中修改词缀时可能错误增加货币的问题。</li>
+    <li>修复了赫拉迪姆之尘的提示说明显示错误的交互指引。</li>
+    <li>修复了部分赫拉迪姆方块任务无法通过进度检测的问题。</li>
+    <li>修复了在珠宝匠处无法使用赫拉迪姆宝石制作选项的问题。</li>
+    <li>修复了使用赫拉迪姆方块转化护甲时可能生成制作者职业无法使用的护甲。</li>
+    <li>修复了使用技能等级调谐棱镜时，大量+技能等级词缀无法被掷出的问题。</li>
+    <li><strong>修复了以下词缀无法被调谐棱镜修改的问题：</strong>
+      <br>&nbsp;&nbsp;- 屏障生成 &nbsp;&nbsp;- 强固生成 &nbsp;&nbsp;- 减损</li>
+    <li>修复了一件无用暗金物品可以被转化的问题。</li>
+    <li>修复了物品无法如期转化为暗金物品的多种情况。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 游戏性修复 ====== -->
+<section class="patch-section" id="sec-gameplay">
+<div class="sec-header"><h2>&#x2699; 游戏性 Bug修复</h2></div>
+
+<div class="patch-card">
+  <h4>&#x1F9D9 术士（Warlock）</h4>
+  <ul class="bug-list">
+    <li>修复了+魔印持续时间%词缀未对术士魔印产生一致效果的问题。</li>
+    <li>修复了"魔能轰击"的心灵遥控分支表现异常的问题；已优化提示说明。</li>
+    <li>修复了"受折磨的可怜虫"的不可阻挡分支持续时间短于预期的问题。</li>
+    <li>修复了魔印强化技能在淬炼后无法正确生效的问题。</li>
+    <li>修复了"橙色使者"威能无法影响拥有充能次数的冷却技能的问题。</li>
+    <li>修复了"颠覆魔印"的移动速度升级未提供完整加成的问题。</li>
+    <li>修复了"天启湮灭"层数在服务器切换时无法保留的问题。</li>
+    <li>修复了术士的资源生成属性显示其他职业数值的问题。</li>
+    <li>修复了通过Ceh符文召唤灵魂狼群时，"恐惧蜂群"的持续时间被缩短的问题。</li>
+    <li>修复了"恶毒之威能"在护符上效果偏弱的问题。</li>
+    <li>修复了"召唤魔印"的地狱龙无法喷吐"炽焰尖啸"的次级恶魔颅骨的问题。</li>
+    <li>修复了灵魂碎片恶魔不计入"深不可测"传奇巅峰节点的问题。</li>
+    <li>修复了"决斗者之威能"在单手武器与副手的部分组合下无法提供加成的问题。</li>
+    <li>修复了"残害之威能"无法与"剔骨碎片"正确作用的问题。</li>
+  </ul>
+
+  <h4>&#x1F54A 灵巫（Spiritborn）</h4>
+  <ul class="bug-list">
+    <li>修复了"突进利爪"的进化利爪变体在拥有4层充能时无法正确打出额外一击的问题。</li>
+    <li>修复了"雷佐卡之怒"5件套奖励计算了超出预期的额外残暴层数。</li>
+    <li>修复了在秘法阵内施放猎豹技能无法刷新残暴持续时间的问题。</li>
+    <li>修复了"疫病之威能"无法如期延长疫病虫群持续时间的问题。</li>
+    <li>修复了"漩涡"配合虫群升级后，无法享受延长中毒时间效果加成的问题。</li>
+    <li>修复了提高范围的"清算"升级仍会将灵巫拉入近战距离的问题。</li>
+    <li>修复了"铁甲护体"的"铁蹄踏破"技能变体偶尔造成远超预期伤害的问题。</li>
+  </ul>
+  <div class="dev-note">开发者注：该技能变体将在本次补丁发布后重新启用。</div>
+
+  <h4>&#x1F54A 圣骑士（Paladin）</h4>
+  <ul class="bug-list">
+    <li>修复了在裁决官形态下通过闪避施放狂热技能时，"银白帷幕"无法提供"死战不退"层数的问题。</li>
+    <li>修复了使用全套护身符套装时，"钢铁布道"和"苍穹之刃"技能变体产生的残影可能变为隐形的问题。</li>
+    <li>修复了"格林之砧"威能未按每层决心正确提高伤害减免的问题。</li>
+    <li>修复了消耗裁决无法为"圣善冲锋"技能变体增加神圣新星伤害的问题。</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F3F0 幽暗之城（库拉斯特）修复</h3>
+  <ul class="bug-list">
+    <li>修复了在特定贡品与调和条件下通关幽暗之城，无法完成对应的赛季旅程目标的问题。</li>
+    <li>修复了从忒弥斯进入幽暗之城不计入低语任务进度的问题。</li>
+    <li>修复了贡品宝箱提示需要光辉贡品，实际却需要军械贡品的问题。</li>
+    <li>修复了幽暗之城通往最终层的传送门可能在达到最大调和值前提前出现的问题。</li>
+    <li>修复了幽暗之城的时间目标在由暗影分身等召唤/复制盟友完成时，未能提供额外奖励时间的问题。</li>
+    <li>修复了幽暗之城失败并传送回城镇后，玩家可能被移出队伍的问题。</li>
+    <li>修复了使用神话贡品达到最大调和值时，部分幽暗之城奖励目标无法完成的问题。</li>
+    <li>修复了远古军械贡品无法从议价中掉落选定物品的问题。</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F504 综合修复</h3>
+  <ul class="bug-list">
+    <li>修复了"橙色使者"威能无法影响拥有充能次数的冷却技能的问题。</li>
+    <li>修复了拉克符文之语无法与"挑战怒吼"及新的技能变体配合使用的问题。</li>
+    <li>修复了部分精英敌人在携带特定词缀组合生成时可能无限生成蛇类的问题。</li>
+    <li>修复了尤里瓦尔的折磨回响的怪物强度高于预期的问题。</li>
+    <li>修复了灵巫角色无法打开神秘收藏宝匣的问题。</li>
+    <li>修复了完成"冷酷天堂"不会完成对应的低语任务。</li>
+    <li>修复了海法特鲁斯山的低语任务无法完成的问题。</li>
+    <li>术士：修复了同时使用"疯狂牢笼"效果与恶魔形态时，可能导致头部和护甲模型丢失的问题。（别丢了你的脑袋！）</li>
+    <li>修复了术士玩家在某些情况下无法更改外观的问题。</li>
+    <li>修复了部分等级佣兵好感度奖励无法领取的问题。</li>
+    <li>修复了"光辉使命"成就仍然要求完成秘语之树目标的问题。</li>
+    <li>修复了"光辉使命"成就未正确标记已完成的巢穴首领目标。</li>
+    <li>修复了通过钓鱼获得的怪物无法被投射物技能选为目标的问题。</li>
+    <li>修复了部分地下城小地图显示不准确的问题。</li>
+    <li>修复了通过拉克符文使用"挑战怒吼"时，其他职业播放错误音效的问题。</li>
+    <li>修复了在宇宙档案馆要塞中，击败鲁迪亚之前使其进入失衡状态会导致要塞完成卡住的问题。</li>
+    <li>修复了在永恒界角色上完成钓鱼引导任务后，会导致赛季角色无法完成该任务的问题。</li>
+    <li>修复了忒弥斯城内多处存在隐形墙的问题。</li>
+    <li>修复了忒弥斯城内可能出现并存在怪物的问题。</li>
+    <li>修复了德鲁伊图腾上"武器伤害"新词缀从未出现的问题。</li>
+    <li>多处视觉、音频、UI及环境优化改进。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 职业调整 ====== -->
+<section class="patch-section" id="sec-class">
+<div class="sec-header"><h2>&#x1F3AD; 职业 Bug修复（基础游戏）</h2></div>
+
+<div class="patch-card">
+  <h4>&#x1F9D4 野蛮人（Barbarian）</h4>
+  <ul class="bug-list">
+    <li>修复了"动荡"的伤害加成未能正确作用于附近敌人的问题。</li>
+    <li>修复了"先祖召唤"的"高地人"升级分支可能在切换武器时导致召唤的古代人消失的问题。</li>
+    <li>修复了"战吼"的效价升级未能正确增强相关分支提供的加成。</li>
+    <li>修复了"震地践踏"配合"震地"升级分支未对敌人造成减速的问题。</li>
+    <li>修复了"狂战士之怒"的升级分支仅延长了不可阻挡的持续时间。</li>
+    <li>修复了"致命一击"的"怒火生成"升级分支未能在击杀时恢复满怒气。</li>
+    <li>修复了"致命一击"的"压制"升级分支未提供压制层数。</li>
+    <li>修复了"剥皮"的治疗效果随最大生命值提高的加成计算错误。</li>
+    <li>修复了"塞斯切隆之怒"未能提高所有受影响技能的规模。</li>
+    <li>修复了"团队领袖"词缀可能导致野蛮人在用荆棘治疗盟友时对自身造成伤害。</li>
+  </ul>
+
+  <h4>&#x1F98A 德鲁伊（Druid）</h4>
+  <ul class="bug-list">
+    <li>修复了"灰熊狂怒"的免疫升级分支未在完整持续时间内提供免疫。</li>
+    <li>修复了"衰弱咆哮"配合"支配"升级分支在强固状态下未能延长增益持续时间。</li>
+    <li>修复了传奇与暗金图腾无法从珍品商处获得的问题。</li>
+  </ul>
+
+  <h4>&#x2620 死灵法师（Necromancer）</h4>
+  <ul class="bug-list">
+    <li>修复了暗影法师的持续伤害升级分支未能享受部分伤害加成的问题。</li>
+    <li>修复了"死亡之握"暗金物品的额外伤害低于预期的问题。</li>
+    <li>修复了"拉斯玛的意志"造成物理伤害而非暗影伤害的问题。</li>
+    <li>修复了"血雾"配合"血之突进"技能变体不再随技能等级提升的问题。</li>
+    <li>修复了"蠕行尸骸"提示说明中与"尸骸触须"技能变体互动的描述错误。</li>
+    <li>修复了"血矛"配合"觅血者"技能变将其伤害加成施加到错误目标的问题。</li>
+    <li>修复了"劈砍血肉"未提高尸骸技能伤害的问题。</li>
+    <li>修复了牺牲仆从后，亡者之书的仆从限制显示错误的问题。</li>
+    <li>修复了玩家死亡后，骷髅法师无法正确复活的问题。</li>
+    <li>修复了"衰老"技能变体未能提供所述加成的问题。</li>
+    <li>修复了魔像不可阻挡升级分支在被控制时无法召唤魔像的问题。</li>
+    <li>修复了"亡者甲壳"威能导致骷髅数量上限提示增加的问题。</li>
+    <li>修复了骷髅战士的易伤升级分支在宠物被动传送到玩家身边时，可能对死灵法师自身施加易伤的问题。</li>
+    <li>修复了魔像的"邪秽暴食"升级分支未能消耗尸骸并如预期减少自身冷却时间。</li>
+    <li>修复了玩家死亡后仆从生命值可能波动的问题。</li>
+  </ul>
+
+  <h4>&#x1F5E1 游侠（Rogue）</h4>
+  <ul class="bug-list">
+    <li>修复了灌魔效价未正确作用于冰霜灌魔的"水晶精炼"技能变体。</li>
+    <li>修复了暗影分身的"觉醒"技能变体配合"刀锋之舞"使用时，达到能量阈值后无法生成影分身。</li>
+    <li>修复了"邪异馈赠"未提供预期的全元素抗性加成。</li>
+    <li>修复了"剧毒之触"未提高毒灌的效价。</li>
+    <li>修复了"铁雨"未施加其伤害加成。</li>
+    <li>修复了"艾特娜的遗落匕首"未提供非物理伤害加成。</li>
+    <li>修复了"刺客的步调"未对暗影步附加暗影灌魔效果。</li>
+    <li>修复了"狡诈谋略"效果在低连击点数时仅影响伤害。</li>
+    <li>修复了暗影分身产生的箭雨无法享受游侠自身加成的问题。</li>
+    <li>修复了在铁蒺藜处于冷却期间通过"亡命行军"闪避时无法触发铁蒺藜生成的问题。</li>
+    <li>修复了"暗影之握"无法被持续伤害效果正确触发，并在特定情况下造成远超预期伤害的问题。</li>
+    <li>修复了游侠在深坑中偶尔可以在未击杀敌人的情况下推进进度条的问题。</li>
+  </ul>
+  <div class="dev-note">开发者注：暗影之握将在补丁发布后解除禁用状态。</div>
+
+  <h4>&#x1F525 法师（Sorcerer）</h4>
+  <ul class="bug-list">
+    <li>修复了陨石、火球、连锁闪电、冰晶碎片、多头蛇及相关升级分支中，伤害、加成或互动未按说明生效的问题。</li>
+    <li>修复了陨石和球状闪电的侧分支升级同时选取时可能互相冲突的问题。</li>
+    <li>修复了"万有之声"威能可能导致触发的基础技能丢失预期目标的问题。</li>
+    <li>修复了"效率之威能"仅剩一层时仍会消耗资源的问题。</li>
+    <li>修复了"效率之威能"配合"碎路"冰封球技能变体时消耗层数过多的问题。</li>
+    <li>修复了"怯懦之威能"提示说明中移动速度数值显示错误的问题。</li>
+    <li>修复了"电能迸发"组合"电击轰爆"时无法触发的问题。</li>
+    <li>修复了"雷能之握"未提供额外电弧触发次数的问题。</li>
+    <li>修复了"艾苏的传家宝"与"布克拉尼的步伐"无法从临时移动速度加成中获得暴击率加成的问题。</li>
+    <li>修复了"奥克鲁斯之眼"不会掉落的问题。</li>
+    <li>修复了"奥克鲁斯之眼"未为下一次施放提供伤害和冷却时间加成的问题。</li>
+    <li>修复了传送附魔配合"烈焰"技能变体时，未能一致表现为炎术技能的问题。</li>
+    <li>修复了陨石附魔每次施放时多次触发压制效果的问题。</li>
+    <li>修复了"裂能之威能"效果仅在首次命中时生效的问题。</li>
+    <li>修复了球状闪电的爆炸未随伤害升级而正常提升的问题。</li>
+    <li>修复了火墙的降低消耗侧分支升级有时会失效的问题。</li>
+  </ul>
+  <div class="dev-note">开发者注：奥克鲁斯之眼将在补丁发布后解除禁用状态。</div>
+</div>
+</section>
+
+<!-- ====== 地下城修复 ====== -->
+<section class="patch-section" id="sec-dungeon">
+<div class="sec-header"><h2>&#x1F3E0; 地下城与低语任务 Bug修复</h2></div>
+
+<div class="patch-card">
+  <ul class="bug-list">
+    <li>修复了地下城小地图路径和目标标记可能指向无效或无法到达位置的问题。</li>
+    <li>修复了部分交互物品（如宝箱）可能悬空或无法触及的问题。</li>
+    <li>修复了多类地下城和要塞中的导航、路径和地图渲染问题。</li>
+    <li>修复了地下城低语目标在击败所有所需敌人后仍未完成的问题。</li>
+    <li>修复了影响暗金怪物生成的地下城词缀未能正常生效的问题。</li>
+    <li>修复了低语目标和世界活动标记出现在错误地图位置的问题。</li>
+    <li>修复了部分地下城事件和Boss奖励或经验值低于预期的问题。</li>
+    <li>修复了部分地下城Boss被击败后不掉落战利品或不给予经验值的问题。</li>
+    <li>修复了部分情况下地下城通关后没有任何奖励的问题。</li>
+    <li>修复了部分地下城战斗可能卡住且无法推进的问题。</li>
+    <li>修复了回响Boss的机制在重启战斗后可能继续残留的问题。</li>
+    <li>修复了部分Boss在较低世界层级下血量过高导致进度卡住的问题。</li>
+    <li><strong>新掉落的梦魇地下城徽记</strong>现在将排除需要通过完成要塞才能进入的地下城。</li>
+    <li>修复了在地下城进阶或战争计划中被选定后，地下城可能无法初始化的问题。</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F525 终局活动修复</h3>
+  <ul class="bug-list">
+    <li>修复了特殊互动元素（如神坛）在深坑中不能稳定生成的问题。</li>
+    <li>修复了离开深坑不需要经历预期引导时间的问题。</li>
+    <li>修复了深坑UI显示错误解锁等级要求的问题。</li>
+    <li>修复了炼狱魔潮中燃烧屠夫在玩家进入潜行状态时会离开的问题，延长了潜行状态下与屠夫战斗的持续时间。</li>
+    <li>修复了巢穴首领版屠夫的某个危害技能伤害远超预期的问题。</li>
+    <li>修复了巢穴首领版屠夫的血量远超预期的问题。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== UI/用户体验 ====== -->
+<section class="patch-section" id="sec-ui">
+<div class="sec-header"><h2>&#x1F4BB; UI与用户体验 Bug修复</h2></div>
+
+<div class="patch-card">
+  <ul class="bug-list">
+    <li>修复了属性与材料面板显示部分职业主要资源生成数值错误的问题。</li>
+    <li>修复了多处加载界面提示不准确的问题。</li>
+    <li>修复了高塔宝匣描述未能准确反映其奖励的问题。</li>
+    <li>修复了部分制作提示说明和转化配方已过时的问题。</li>
+    <li>修复了英雄详情面板中的等级信息显示旧有等级上限的问题。</li>
+    <li>修复了使用手柄时无法正确编辑战利品过滤规则的问题。</li>
+    <li>修复了显示多条词缀时地图UI元素重叠的问题。</li>
+    <li>修复了染料视觉效果未正确应用于部分护甲套装的问题。</li>
+    <li>修复了角色选择界面显示错误战役完成状态的问题。</li>
+    <li>修复了部分世界和活动图标在地图上位置错位或产生误导的问题。</li>
+    <li>修复了部分赛季旅程目标的"查看地图"按钮在非安全区域无法显示地下城位置的问题。</li>
+    <li>修复了排行榜提交新纪录后未能立即更新的问题。</li>
+    <li>修复了搜索"死亡护佑"威能时，无法识别"召唤"关键词的问题。</li>
+    <li>修复了狂犬病升级分支未能正确更新提示说明的问题。</li>
+    <li>修复了多项野蛮人威能描述引用过时压制机制的问题。</li>
+    <li>修复了尝试交易憎恨之王专属物品时的警告提示错误引用了"憎恨之躯"的问题。</li>
+    <li>修复了"凡世苦难"淬炼词缀描述中的数值错误。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== 基础游戏 ====== -->
+<section class="patch-section" id="sec-base">
+<div class="sec-header"><h2>&#x1F3AE; 基础游戏更新</h2></div>
+
+<div class="patch-card">
+  <h3>&#x1F4C8 游戏更新</h3>
+  <ul class="bug-list">
+    <li>更新了"跳过战役"确认信息，更好地传达跳过战役是该角色的<strong>永久选择</strong>。</li>
+    <li>梦魇地下城徽记上的"地牢探险"词缀现在在进入折磨难度时，有机会升级为以下词缀之一：<br>
+      &nbsp;&nbsp;- 先祖精英 &nbsp;&nbsp;- 神话恶作剧者 &nbsp;&nbsp;- 宝藏裂界</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F6A7 综合 Bug修复</h3>
+  <ul class="bug-list">
+    <li>修复了部分技能升级和传奇效果在重洗技能或更换装备前可能错误叠加或持续生效的问题。</li>
+    <li>修复了部分技能、被动和提示说明在更高等级时未能正确更新的问题。</li>
+    <li>修复了基于充能次数的技能未能正确享受部分冷却缩减效果的问题。</li>
+    <li>修复了触发或召唤类技能未能一致继承对应伤害加成的问题。</li>
+    <li>修复了部分暗金与神话增益可能随机失效的问题。</li>
+    <li>修复了野蛮人的"冲锋"和德鲁伊的"践踏"在被减速或冰冻时，如果没有不可阻挡升级分支则无法施放的问题。</li>
+    <li>修复了淬炼词缀"幸运一击：几率施加虚弱"无效的问题。</li>
+    <li>修复了如果血腥少女被转化为都瑞尔，击败血腥少女的低语任务无法完成的问题。</li>
+  </ul>
+</div>
+
+<div class="patch-card">
+  <h3>&#x1F3C6 赛季与成就</h3>
+  <ul class="bug-list">
+    <li>修复了部分赛季目标和挑战未计入完成IX级巅峰奖励所需的10个目标的问题。</li>
+    <li>修复了多处赛季阶位目标未能正常计入赛季阶位完成度，或无法按预期达成的问题。</li>
+    <li>修复了部分赛季旅程目标列出错误的章节或条件信息。</li>
+    <li>修复了赛季巅峰挑战无法在地图上显示地下城位置的问题。</li>
+    <li>修复了赛季阶位可能错误追踪地狱狂潮威胁度的问题。</li>
+    <li>修复了"一匹可靠的坐骑"任务在已解锁坐骑后仍可接受的问题。</li>
+    <li>修复了格里戈里的护符掉落率低于预期的问题。</li>
+    <li>修复了衣柜中出现无法获取的赛季奖励的问题。</li>
+    <li>修复了部分暗金物品从预期Boss处的掉落率低于预期，或完全无法掉落的问题。</li>
+    <li>修复了暗金项链上的一条额外词缀可能掷出低于最小值的问题。</li>
+    <li>修复了部分魔法物品保留了非预期的固有词缀。</li>
+    <li>修复了卸下更强物品可能导致较弱物品的威能无法激活的问题。</li>
+    <li>修复了附魔双手武器时，降低资源消耗词缀可能出现两次的问题。</li>
+    <li>修复了专家模式角色无法从神话暗金宝匣中获得物品掉落的问题。</li>
+    <li>多处视觉、音频、性能及稳定性优化改进。</li>
+  </ul>
+</div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer class="footer" id="sec-footer">
+  <div class="container" style="text-align:center;padding:2rem 0">
+    <p style="font-size:.72rem;color:#4a5568;">以上翻译基于暴雪娱乐官方补丁说明文本，部分专有名词及游戏术语采用游戏内简体中文版本通用译名。</p>
+    <p style="font-size:.72rem;color:#4a5568;margin-top:.5rem;">&copy; 2026 看雲起雲落</p>
+  </div>
+</footer>
+
+</div>
+</main>
+
+<script src="../../assets/js/main.js"></script>
+<script>
+var progressFill=document.getElementById('scrollProgressFill');
+window.addEventListener('scroll',function(){
+  var s=document.documentElement.scrollTop||document.body.scrollTop;
+  var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  progressFill.style.width=(h>0?s/h*100:0)+'%';
+});
+var backBtn=document.getElementById('backToTop');
+window.addEventListener('scroll',function(){backBtn.classList.toggle('visible',window.scrollY>300);});
+backBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+document.getElementById('sidebarToggle').addEventListener('click',function(){document.getElementById('patchSidebar').classList.toggle('open');});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      document.querySelectorAll('.guide-sidebar-nav a').forEach(function(a){a.classList.remove('active');});
+      var id=e.target.id;
+      document.querySelector('.guide-sidebar-nav a[href="#'+id+'"]')?.classList.add('active');
+    }
+  });
+},{rootMargin:'-80px 0px -70% 0px'});
+document.querySelectorAll('[id^="sec-"]').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
