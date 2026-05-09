@@ -75,8 +75,6 @@ p strong{color:var(--text-white)}
   <ul class="guide-sidebar-nav">
     <li><a href="#sec-top" class="active"><span class="nav-icon">&#x1F4D6;</span><span class="nav-text">版本概述</span><span class="nav-step">TOP</span></a></li>
     <div class="guide-sidebar-divider"></div>
-    <li><a href="#sec-impact"><span class="nav-icon">&#x1F3CA;</span><span class="nav-text">补丁影响评估</span><span class="nav-step">0</span></a></li>
-    <div class="guide-sidebar-divider"></div>
     <li><a href="#sec-expansion"><span class="nav-icon">&#x1F3F0;</span><span class="nav-text">资料片更新</span><span class="nav-step">1</span></a></li>
     <li><a href="#sec-warplans"><span class="nav-icon">&#x2694;</span><span class="nav-text">战争计划修复</span><span class="nav-step">2</span></a></li>
     <li><a href="#sec-charms"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">护身符修复</span><span class="nav-step">3</span></a></li>
@@ -112,71 +110,6 @@ p strong{color:var(--text-white)}
 
 <div class="patch-content">
 
-<section class="patch-section" id="sec-impact">
-<div class="sec-header"><h2>&#x1F3CA; 补丁影响评估</h2></div>
-
-<div class="patch-card">
-  <p style="color:var(--text-dim);font-size:1.02rem;line-height:1.9;">本补丁以Bug修复和机制矫正为核心，未进行直接的数值平衡调整。整体影响是<strong>纠正错误、释放被压制强度</strong>，而非重新洗牌。补丁让各职业的实战表现更接近设计预期。机制灵活的职业因Bug修复而更强，存在设计短板的职业虽获修复但根本问题未解。</p>
-</div>
-
-<div class="patch-card">
-  <h3>&#x1F451; 版本格局</h3>
-  <p><strong style="color:var(--gold);">顶尖职业：法师</strong> &mdash; 核心流派：球状闪电法师</p>
-  <p>得益于高机动性、高爆发和Bug修复，是目前终局冲层和Boss战的最优解。补丁定性为<strong>纯正向收益</strong>，统治地位进一步巩固。关键暗金回归，伤害加成机制理顺，输出稳定性提升。</p>
-</div>
-
-<div class="patch-card">
-  <h3>&#x1F3AD; 各职业影响详析</h3>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--green);margin-bottom:.3rem;">&#x2728; 法师 &mdash; 纯正向</h4>
-    <p style="font-size:1rem;">补丁前已是版本顶尖。奥克鲁斯之眼修复并重新启用，关键机动与伤害手段回归；陨石附魔不再错误多次触发压制；球状闪电、连锁闪电等核心现可正确继承伤害加成。<strong>Bug修复直接解决实战痛点，核心暗金回归盘活配装可能性，理论输出上限进一步走高。</strong></p>
-    <div class="dev-note">法师的强是全方位的，补丁解决的是"明明伤害够但偶尔丢伤害"的细微痛点，这种稳定性的提升在极限冲层时价值极高。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x1F9D9; 术士 &mdash; 纯正向（未触及根本）</h4>
-    <p style="font-size:1rem;">魔印持续时间词缀一致生效，天启湮灭层数在服务器切换后保留，淬炼后技能正确生效。<strong>伤害下限得到保障，构筑稳定性提升，但核心机制问题未变。</strong></p>
-    <div class="dev-note">术士的问题是"手感"而非"数值"。技能前摇长、被迫站桩输出的机制在需要高频走位的终局中容错率极低。它依然是那个"有伤害但玩着难受"的职业。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x1F5E1; 游侠 &mdash; 关键正向影响</h4>
-    <p style="font-size:1rem;">暗影之握修复并重新启用，恢复与持续伤害效果的联动；灌魔效价正确作用于冰霜灌魔变体；暗影分身正常生成。<strong>"暗影之握"是流派构筑的基石级装备，回归直接解放了相关流派的构筑空间和爆发上限，是本次补丁最大的"解禁受益者"。</strong></p>
-    <div class="dev-note">一件核心装备的回归比十个Bug修复都重要，它直接意味着之前被封印的一整套打法重新可用。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x1F54A; 灵巫 &mdash; 纯正向</h4>
-    <p style="font-size:1rem;">铁蹄踏破变体修复后重新启用，清算技能范围修复不再拉近战距离，雷佐卡之怒5件套不再计算额外残暴层数。<strong>被禁技能回归盘活构筑，范围修复改善操作手感，强度从依赖Bug转向依赖正常机制。</strong></p>
-    <div class="dev-note">灵巫经历了一次"健康化"调整。因Bug虚高的部分被移除，核心玩法被保留并修复，有助于构筑的稳定性和可预期性。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x2620; 死灵法师 &mdash; 操作体验质变</h4>
-    <p style="font-size:1rem;">仆从生命值不再异常波动，骷髅法师正确复活，魔像邪秽暴食正常消耗尸骸，死亡之握额外伤害修正。<strong>大量长期存在的仆从AI和血量问题被解决，补齐了"强度在线但体验糟糕"的最大短板，是本次补丁体感提升最大的职业。</strong></p>
-    <div class="dev-note">修复的项目全是日常刷图中反复出现的恼人问题，修好后整个职业的流畅度上了一个台阶。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x1F54A; 圣骑士 &mdash; 纯正向（生存端强化）</h4>
-    <p style="font-size:1rem;">格林之砧威能随每层决心正确提高伤害减免，银白帷幕正常提供层数，圣善冲锋正确增加神圣新星伤害。<strong>核心防御机制回归令高层容错率回到预期水平，整体表现从"强但偶尔脆"变成了"强且稳定"。</strong></p>
-    <div class="dev-note">圣骑士的修复属于"补漏"性质，本身进攻端没有问题，防御端Bug修好后对近战职业至关重要。</div>
-  </div>
-
-  <div style="margin-bottom:2rem;padding:1rem;background:rgba(64,184,112,.06);border-radius:10px;">
-    <h4 style="color:var(--gold);margin-bottom:.3rem;">&#x1F98A; 德鲁伊 &mdash; 结构性调整（偏向正向）</h4>
-    <p style="font-size:1rem;">风暴司牧5件套与2件套可叠加，2件套上限下调至40%但作用于所有风暴技能，老狼印记中毒改为乘法计算。<strong>相乘叠加提高了持续伤害构筑收益。2件套虽下调峰值，但解除了对特定技能的依赖，操作手感优化。</strong></p>
-    <div class="dev-note">用峰值换覆盖率，这种稳定增伤覆盖的收益在长线战斗中往往比爆发峰值更实在。</div>
-  </div>
-
-  <div style="padding:1rem;background:rgba(80,50,60,.2);border-radius:10px;">
-    <h4 style="color:var(--text-dim);margin-bottom:.3rem;">&#x1F9D4; 野蛮人 &mdash; 基础功能修复</h4>
-    <p style="font-size:1rem;">动荡、致命一击怒火生成、剥皮治疗计算等异常修复，塞斯切隆之怒正常提升技能规模。<strong>修复了计算错误但未获新强度来源。在法师、术士等高光职业映衬下存在感偏低，但速刷依然绰绰有余。</strong></p>
-  </div>
-</div>
-</section>
-<!-- ====== 资料片内容 ====== -->
 <section class="patch-section" id="sec-expansion">
 <div class="sec-header"><h2>&#x1F3F0; 资料片内容更新</h2></div>
 
