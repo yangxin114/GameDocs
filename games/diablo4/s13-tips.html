@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S13赛季小技巧攻略 - 暗黑破坏神 IV</title>
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/components.css">
+<link rel="stylesheet" href="../../assets/css/theme-diablo4.css">
+<link rel="stylesheet" href="../../assets/css/guide-sidebar.css">
+<style>
+:root{--bg-deep:#07080f;--bg-item:#0a0c18;--gold:#c8963e;--gold-bright:#f0c060;--gold-dim:#7a5a25;--demon:#cc4422;--demon-dim:#7a2010;--text-main:#ddd4c0;--text-dim:#8a8070;--text-white:#efe8d8;--border:#2a2820;--border-gold:#40321a;--green:#40b870;--blue:#4488dd;--red:#e04040;--purple:#9868d8;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg-deep);color:var(--text-main);font-family:'Noto Sans SC',sans-serif;font-weight:400;line-height:1.7;min-height:100vh;background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(160,40,10,.13) 0%,transparent 70%),radial-gradient(ellipse 60% 60% at 80% 80%,rgba(100,30,120,.08) 0%,transparent 60%)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-deep)}::-webkit-scrollbar-thumb{background:var(--demon-dim);border-radius:3px}
+
+.hero{padding:5rem 0 3rem;text-align:center;position:relative}
+.hero::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(139,0,0,.5),transparent)}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;background:rgba(139,0,0,.2);border:1px solid rgba(139,0,0,.4);border-radius:100px;font-size:.78rem;font-weight:600;color:#e74c3c;letter-spacing:2px;margin-bottom:1.2rem}
+.hero-title{font-family:'Cinzel',serif;font-size:clamp(1.5rem,3.5vw,2.6rem);font-weight:900;color:#DAA520;letter-spacing:3px;text-shadow:0 0 40px rgba(218,165,32,.2),0 2px 4px rgba(0,0,0,.5);margin-bottom:.75rem}
+.hero-title .accent{color:#c0392b}
+.hero-subtitle{font-size:.92rem;color:#8a7868;max-width:650px;margin:0 auto;line-height:1.8}
+
+.tip-content{max-width:860px;margin:0 auto;padding:0 2rem 3rem}
+.tip-section{margin-bottom:3rem;padding-top:70px}
+.tip-card{background:rgba(26,15,20,.85);border:1px solid rgba(58,32,40,.6);border-radius:14px;padding:1.8rem 2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.tip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#DAA520,transparent);opacity:0;transition:opacity .35s}
+.tip-card:hover{border-color:rgba(218,165,32,.35)}
+.tip-card:hover::before{opacity:1}
+
+h2{font-family:'Cinzel',serif;font-size:1.15rem;font-weight:700;color:var(--gold);margin-bottom:.75rem}
+h3{font-family:'Cinzel',serif;font-size:.95rem;font-weight:600;color:var(--text-white);margin:1.2rem 0 .5rem}
+h4{font-size:.88rem;color:var(--gold);font-weight:600;margin:1rem 0 .4rem}
+p{font-size:.88rem;color:var(--text-dim);line-height:1.9;margin-bottom:.6rem}
+p strong{color:var(--text-white)}
+
+.sec-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
+.sec-header::before{content:'';width:3px;height:18px;background:linear-gradient(to bottom,#DAA520,#8B0000);border-radius:2px}
+.sec-header h2{margin-bottom:0}
+
+/* Table styling */
+.tip-table{width:100%;border-collapse:collapse;margin:.5rem 0}
+.tip-table td,.tip-table th{padding:.5rem .7rem;border:1px solid rgba(58,32,40,.4);font-size:.82rem;color:var(--text-dim);vertical-align:top}
+.tip-table th{background:rgba(218,165,32,.08);color:var(--gold);font-weight:600;text-align:left;white-space:nowrap}
+.tip-table tr:hover td{background:rgba(58,32,40,.15)}
+
+.step-list{counter-reset:step;list-style:none;padding:0!important;margin:.5rem 0}
+.step-list li{counter-increment:step;padding:.5rem 0 .5rem 2rem;position:relative;border-bottom:1px solid rgba(58,32,40,.15);font-size:.85rem;color:var(--text-dim);line-height:1.7}
+.step-list li:last-child{border-bottom:none}
+.step-list li::before{content:counter(step);position:absolute;left:0;top:.5rem;width:1.3rem;height:1.3rem;background:rgba(218,165,32,.12);border:1px solid rgba(218,165,32,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--gold)}
+
+.highlight-box{padding:.8rem 1rem;border-radius:8px;margin:.8rem 0;font-size:.82rem;line-height:1.7}
+.highlight-box.tip{background:rgba(39,174,96,.08);border:1px solid rgba(39,174,96,.2);color:#6dbf8a}
+.highlight-box.warn{background:rgba(231,76,60,.08);border:1px solid rgba(231,76,60,.2);color:#e07060}
+.highlight-box.info{background:rgba(52,152,219,.08);border:1px solid rgba(52,152,219,.2);color:#5dade2}
+.highlight-box.gold{background:rgba(218,165,32,.08);border:1px solid rgba(218,165,32,.2);color:#c9a84c}
+
+.bug-fixed{text-decoration:line-through;color:#665555}
+.bug-active{color:var(--green);font-weight:600}
+
+@media(max-width:768px){
+  .tip-content{padding:0 1rem 2rem}
+  .tip-card{padding:1.2rem 1.25rem}
+  .tip-table td,.tip-table th{font-size:.78rem;padding:.35rem .5rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">&#x2190; 返回D4</a>
+    <span class="nav-game-name">Diablo IV &#xB7; S13小技巧攻略</span>
+    <span class="nav-breadcrumb">&#x1F517; 攻略整理: 看雲起雲落</span>
+  </div>
+</nav>
+
+<div class="scroll-progress-track"><div class="scroll-progress-fill" id="scrollProgressFill"></div></div>
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="this.classList.remove('open')"><img id="lightboxImage" src="" alt="图片预览"></div>
+
+<button class="back-to-top-rune" id="backToTop" aria-label="&#x8FD4;&#x56DE;&#x9876;&#x90E8;">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<aside class="guide-sidebar" id="tipSidebar">
+  <div class="guide-sidebar-title">目录导航</div>
+  <ul class="guide-sidebar-nav">
+    <li><a href="#sec-top" class="active"><span class="nav-icon">&#x1F3E0;</span><span class="nav-text">封面</span><span class="nav-step">TOP</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-economy"><span class="nav-icon">&#x1F4B0;</span><span class="nav-text">经济与材料</span><span class="nav-step">1</span></a></li>
+    <li><a href="#sec-gem"><span class="nav-icon">&#x1F48E;</span><span class="nav-text">宝石系统</span><span class="nav-step">2</span></a></li>
+    <li><a href="#sec-portal"><span class="nav-icon">&#x1F300;</span><span class="nav-text">黄门与红门</span><span class="nav-step">3</span></a></li>
+    <li><a href="#sec-astaroth"><span class="nav-icon">&#x1F525;</span><span class="nav-text">阿斯塔洛斯速刷</span><span class="nav-step">4</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-craft"><span class="nav-icon">&#x1F52E;</span><span class="nav-text">做装系统</span><span class="nav-step">5</span></a></li>
+    <li><a href="#sec-gamble"><span class="nav-icon">&#x1F3B0;</span><span class="nav-text">赌博技巧</span><span class="nav-step">6</span></a></li>
+    <li><a href="#sec-misc"><span class="nav-icon">&#x2699;</span><span class="nav-text">其他技巧</span><span class="nav-step">7</span></a></li>
+    <li><a href="#sec-loot"><span class="nav-icon">&#x1F4E6;</span><span class="nav-text">暗金出处</span><span class="nav-step">8</span></a></li>
+    <div class="guide-sidebar-divider"></div>
+    <li><a href="#sec-footer"><span class="nav-icon">&#x1F4DD;</span><span class="nav-text">说明</span><span class="nav-step">END</span></a></li>
+  </ul>
+  <div class="guide-sidebar-footer"><a href="index.html">&#x2190; 返回D4首页</a></div>
+</aside>
+<button class="guide-sidebar-toggle" id="sidebarToggle" aria-label="切换导航">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<main class="guide-content">
+
+<section class="hero" id="sec-top">
+  <div class="hero-badge"><span class="pulse"></span>S13 &#xB7; 实用技巧</div>
+  <h1 class="hero-title">S13赛季 <span class="accent">小技巧攻略</span></h1>
+  <p class="hero-subtitle">经济速刷 &middot; 宝石合成 &middot; 黄门红门 &middot; 做装心得 &middot; 速升级技巧 &middot; 收录当前版本实用干货</p>
+  <p style="font-size:.72rem;color:#665555;margin-top:.8rem;">&#x1F517; 攻略整理: 看雲起雲落 &middot; 基于S13赛季当前版本</p>
+</section>
+
+<div class="tip-content">
+
+<!-- ====== 经济与材料 ====== -->
+<section class="tip-section" id="sec-economy">
+<div class="sec-header"><h2>&#x1F4B0; 经济与材料</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F911 金币如何快速获取？</h3>
+  <table class="tip-table">
+    <tr><th style="width:60px">优先级</th><th style="width:35%">方式</th><th>说明</th></tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>梦魇地下城钥匙（金币词缀）+ 精进套装 + 封印</strong><br>
+      <div style="margin-top:.5rem;">
+        <img src="../../assets/images/diablo4/s13-tips/梦魇地下城-金币储备词缀.webp" alt="梦魇地下城金币词缀" style="max-width:280px;border-radius:6px;border:1px solid var(--border);cursor:zoom-in;" onclick="document.getElementById('lightboxImage').src=this.src;document.getElementById('lightboxOverlay').classList.add('open')">
+        <img src="../../assets/images/diablo4/s13-tips/传奇梦魇地下城-金币储备词缀.webp" alt="传奇梦魇地下城金币词缀" style="max-width:280px;border-radius:6px;border:1px solid var(--border);cursor:zoom-in;margin-left:.3rem;" onclick="document.getElementById('lightboxImage').src=this.src;document.getElementById('lightboxOverlay').classList.add('open')">
+      </div></td>
+      <td>选择带金币词缀的梦魇地下城钥匙，搭配精进套装（折磨I以下获取，可三合一合成）与封印。每局10亿-50亿金币，视地图而定。封印通过三合一合成或运气直接掉落。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td><strong>卖神符和封印给商人</strong></td>
+      <td>开荒前期可以如此操作，每个封印最贵1300W+。但后期不建议，因为封印和神符还能分解获得树脂材料，是后期制作终极神符的核心材料。</td>
+    </tr>
+    <tr>
+      <td><span style="color:#665555">&#x2605;&#x2606;&#x2606;</span></td>
+      <td>战争计划奖励 / 地狱狂潮</td>
+      <td>收益低于前两者，若前两者无法满足可考虑。</td>
+    </tr>
+  </table>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F3F0 遗忘之魂去哪里刷？</h3>
+  <table class="tip-table">
+    <tr><th style="width:60px">优先级</th><th style="width:35%">方式</th><th>说明</th></tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>合成</strong></td>
+      <td>找炼金师，100个萦雾水晶可合成1个遗忘之魂。萦雾水晶还能通过生皮和铁矿合成，材料充裕时优先选择。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>分解暗金装备</strong></td>
+      <td>打巢穴Boss/幽暗之城/红门获得的多余暗金直接分解，最高效来源。900普通暗金=14个；900先祖=1-2个。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>战争计划材料节点</strong></td>
+      <td>选材料路线时有遗忘之魂直接奖励。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td>梦魇地下城「战争储备」词条</td>
+      <td>完成带此词条的地下城，结尾箱子必出材料包含遗忘之魂。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td>军团事件</td>
+      <td>参与后有材料奖励，但需等刷新，建议路过顺手。</td>
+    </tr>
+    <tr>
+      <td><span style="color:#665555">&#x2605;&#x2606;&#x2606;</span></td>
+      <td>地狱狂潮精英怪</td>
+      <td>效率偏低，不推荐专门去刷。</td>
+    </tr>
+  </table>
+  <div class="wp-img-wrap" style="text-align:center;margin:.8rem 0;">
+    <img src="../../assets/images/diablo4/s13-tips/金币获取-1.webp" alt="金币获取示例1" style="max-width:480px;width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;" onclick="document.getElementById('lightboxImage').src=this.src;document.getElementById('lightboxOverlay').classList.add('open')">
+    <img src="../../assets/images/diablo4/s13-tips/金币获取-2.webp" alt="金币获取示例2" style="max-width:480px;width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;margin-top:.5rem;" onclick="document.getElementById('lightboxImage').src=this.src;document.getElementById('lightboxOverlay').classList.add('open')">
+  </div>
+
+  <div class="highlight-box warn">
+    <strong>&#x26A0;&#xFE0F; 注意：</strong>不要无脑分解所有装备。900强度黄装若有1-2条目标或太古目标词缀，可以送进魔盒加工，说不定能做成过渡装，价值远超分解。
+  </div>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F9EA 如何获得注能赫拉迪姆树脂？</h3>
+  <p>树脂是魔盒高级操作的核心消耗品，尤其获得3技能的神符需要通过大量重置神符来获取。</p>
+  <table class="tip-table">
+    <tr><th style="width:60px">优先级</th><th style="width:35%">来源</th><th>说明</th></tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>分解封印和神符</strong></td>
+      <td>每个封印可获取50个树脂材料，是后期获得树脂的最佳来源，不建议全卖钱。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td><strong>战争计划材料节点</strong></td>
+      <td>选树脂相关路线有直接产出。</td>
+    </tr>
+  </table>
+</div>
+</section>
+
+<!-- ====== 宝石系统 ====== -->
+<section class="tip-section" id="sec-gem">
+<div class="sec-header"><h2>&#x1F48E; 宝石系统</h2></div>
+
+<div class="tip-card">
+  <h3>&#x2B50 宝石获取与S13终极宝石合成</h3>
+  <table class="tip-table">
+    <tr><th style="width:60px">优先级</th><th style="width:35%">方式</th><th>说明</th></tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>先祖之路</strong></td>
+      <td>每次Boss必掉3个皇家宝石，有时还有完美宝石。通过日志-重置副本可反复刷取，建议移速快或传送快的BD来速刷。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td>梦魇地下城（宝藏/裂界词条）</td>
+      <td>宝石掉落密集，但此类钥匙较难获取。</td>
+    </tr>
+    <tr>
+      <td><span style="color:#665555">&#x2605;&#x2606;&#x2606;</span></td>
+      <td>幽暗之城</td>
+      <td>宝石+其他材料兼得，适合中后期。</td>
+    </tr>
+  </table>
+
+  <h4>S13宝石合成路线</h4>
+  <ol class="step-list">
+    <li>首饰NPC合成最高级的<strong>巨型宝石</strong></li>
+    <li>魔盒将5个巨型宝石 = 1个<strong>赫拉迪姆宝石</strong></li>
+    <li>魔盒将5个赫拉迪姆宝石 = 1个<strong>无瑕的赫拉迪姆宝石</strong></li>
+  </ol>
+  <div class="highlight-box gold">
+    <strong>&#x2728; 版本终极答案：</strong>无瑕的赫拉迪姆宝石属性将大幅提升，相比普通宝石提升约1.5-2倍！
+  </div>
+</div>
+</section>
+
+<!-- ====== 黄门与红门 ====== -->
+<section class="tip-section" id="sec-portal">
+<div class="sec-header"><h2>&#x1F300; 黄门与红门</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F7E1 无限黄门（金门）</h3>
+  <p><strong>定义：</strong>黄门即战争计划-梦魇地下城的右侧天赋中，<strong>地精（哥布林/捣蛋鬼）触发的金色传送门</strong>。击杀或追赶地精时有概率开启，进入后是高密度宝藏区，古币、金币、材料、太古（概率）、神话（概率）爆炸式掉落。</p>
+
+  <h4>无限刷方法</h4>
+  <ol class="step-list">
+    <li>自己开启：战争计划-梦魇地下城右侧天赋最终节点，日常打地精触发。</li>
+    <li>找已有黄门的玩家（如某些主播，一般免费）传递火种。</li>
+    <li>进入已有玩家地图（需要与他不同难度，如他难度11，你设难度12），然后离开队伍。</li>
+    <li>找一个木桩队友让他也获得火种，不断传送他、离开队伍即可无限刷。</li>
+    <li>或两人不同难度，每打一次离开队伍重置即可。</li>
+  </ol>
+  <div class="highlight-box warn">
+    <strong>&#x26A0;&#xFE0F; 3.0.2更新状态：</strong>目前尚可用，但5.13更新后需重新验证。
+  </div>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F534 红门是什么？</h3>
+  <p><strong>定义：</strong>类似黄门，通过战争计划-巢穴首领中间天赋点到底。一层红门之前已修复无法无限速刷，但<strong>二层红门可以</strong>，宝石等掉落丰富。</p>
+
+  <h4>无限刷方法</h4>
+  <ol class="step-list">
+    <li>找已有红门玩家传递火种。</li>
+    <li>其他机制同黄门，无限速刷即可。</li>
+  </ol>
+  <div class="highlight-box warn">
+    <strong>&#x26A0;&#xFE0F; 3.0.2更新状态：</strong><span class="bug-fixed">修复了夙敌巢穴（红门）在某些情况下可被无限刷取的问题。</span> — 已确认5.13补丁修复。
+  </div>
+</div>
+</section>
+
+<!-- ====== 阿斯塔洛斯速刷 ====== -->
+<section class="tip-section" id="sec-astaroth">
+<div class="sec-header"><h2>&#x1F525; 阿斯塔洛斯无限速刷</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F3AF 如何无限刷取阿斯塔洛斯？</h3>
+  <p><strong>需求：</strong>阿斯塔洛斯是传奇地下城最后一层Boss，掉落多个职业的毕业装备，如法师的冬镜项链。</p>
+  <p>目前存在Bug可无限刷，不用每次打3层地下城再击杀，省去大量时间。</p>
+
+  <h4>操作方法</h4>
+  <ol class="step-list">
+    <li>战争计划-巢穴首领右侧天赋，点出<strong>阿斯塔洛斯之犬</strong>。</li>
+    <li>随便找一个传奇梦魇地下城钥匙，打到最后一层。</li>
+    <li>进入阿斯塔洛斯房间后，迅速走出来（注意别走出太远）。</li>
+    <li>阿斯塔洛斯之犬会跟随你刷出，击杀获取装备掉落。</li>
+    <li>回城，再回来，即可无限速刷。</li>
+    <li>如进房后未能及时走出来，击杀阿斯塔洛斯之犬后自杀即可（注意别把Boss杀了）。</li>
+  </ol>
+  <div class="highlight-box info">
+    <strong>&#x2139;&#xFE0F; 目前状态：</strong>5.13补丁未看到相关修复描述，暂未修复。
+  </div>
+</div>
+</section>
+
+<!-- ====== 做装系统 ====== -->
+<section class="tip-section" id="sec-craft">
+<div class="sec-header"><h2>&#x1F52E; 做装系统</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F4D6 战争计划如何合理配置？</h3>
+  <p>参考攻略站中的 <a href="war-plans.html" style="color:var(--gold);">战争计划攻略</a>。</p>
+</div>
+
+<div class="tip-card">
+  <h3>&#x2728 如何合理嬗变（圣化）？</h3>
+  <p>详细嬗变信息及各配方用法参考 <a href="horadric-cube-guide.html" style="color:var(--gold);">赫拉迪姆魔盒攻略</a>。</p>
+
+  <h4>小技巧：锁定太古词缀</h4>
+  <p>适用于想重置某条词缀，但它还有同类型的另一条太古词缀时：</p>
+  <ol class="step-list">
+    <li>在秘术师处对这条太古词缀进行一次附魔，选择<strong>无变化</strong>。</li>
+    <li>它就会被锁定，无法被魔盒的做装系统修改。</li>
+    <li>缺点：装备后续还有垃圾词缀也无法再次附魔了。</li>
+  </ol>
+
+  <h4>已知的坑</h4>
+  <div class="highlight-box warn">
+    <strong>&#x26A0;&#xFE0F; 全抗不算做抗性类型</strong> — 注意别用抗性类型的棱柱来获得全抗！<br>
+    <strong>&#x26A0;&#xFE0F; 全技能不算做技能类型</strong> — 注意别用技能类型的棱柱来获得全技能！
+  </div>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F9F1 如何获得白色装备（普通品质）？</h3>
+  <p><strong>用途：</strong>白装是做特定魔盒配方的底材，可将白装升级为暗金。通过这种方式可获取术士的各种武器——同类型暗金只有1-2个，轻松获得想要的初期暗金。</p>
+
+  <h4>获取方式</h4>
+  <ul class="step-list" style="list-style:disc;counter-reset:none">
+    <li style="counter-increment:none"><strong>魔盒做装</strong>：赌博出蓝色或黄色装备，去魔盒移除所有词缀，变为白色。</li>
+    <li style="counter-increment:none"><strong>城镇商人</strong>（铁匠/商人）直接购买——最稳定，部分地图商人固定出售白装。</li>
+    <li style="counter-increment:none"><strong>野外怪物掉落</strong>：低难度区域更常见，高难度出金装/暗金概率高白装反而少。</li>
+    <li style="counter-increment:none"><strong>降低游戏难度</strong>：普通/冒险难度白装掉落更多。</li>
+  </ul>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F3B0 如何获得神话暗金贡品（紫色）？</h3>
+  <div class="highlight-box gold">
+    <strong>&#x2728; 小秘密：</strong>在魔盒处，通过5个传奇贡品可合并为1个神话暗金掉落的贡品！
+  </div>
+</div>
+</section>
+
+<!-- ====== 赌博技巧 ====== -->
+<section class="tip-section" id="sec-gamble">
+<div class="sec-header"><h2>&#x1F3B0; 赌博技巧</h2></div>
+
+<div class="tip-card">
+  <h3>&#x26A0; 秘语古币赌博 — 你肯定找错人了！</h3>
+  <p>目前新城<strong>忒弥斯</strong>的赌博NPC存在Bug，无法赌博出暗金和神话暗金。</p>
+  <div class="highlight-box warn">
+    <strong>&#x26A0;&#xFE0F; 建议所有赌博都回到老城</strong>，比如<strong>赛瑞加</strong>。不知道这个技巧，你可能已经和无数神话暗金擦肩而过了！
+  </div>
+</div>
+</section>
+
+<!-- ====== 其他技巧 ====== -->
+<section class="tip-section" id="sec-misc">
+<div class="sec-header"><h2>&#x2699; 其他技巧</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F476 小号如何快速70级？</h3>
+  <table class="tip-table">
+    <tr><th style="width:60px">优先级</th><th style="width:35%">方式</th><th>说明</th></tr>
+    <tr>
+      <td><span style="color:var(--gold)">&#x2605;&#x2605;&#x2605;</span></td>
+      <td><strong>秘语之树宝箱 / 组队任务小队奖励宝箱</strong></td>
+      <td>3秒钟70级，绝对不是梦。建议攒够10+宝箱给小号去开启。</td>
+    </tr>
+    <tr>
+      <td><span style="color:var(--blue)">&#x2605;&#x2605;&#x2606;</span></td>
+      <td><strong>队友带魔渊</strong></td>
+      <td>队友通过魔渊带小号升级，略慢，估计至少半小时以上。</td>
+    </tr>
+  </table>
+</div>
+
+<div class="tip-card">
+  <h3>&#x1F504 如何快速升级战争计划活动经验？</h3>
+  <ol class="step-list">
+    <li>需要一个队友。</li>
+    <li>两人需要有同样的第一个战争计划活动（如都是梦魇地下城）。</li>
+    <li>组队，任意一人开启该活动，完成活动。</li>
+    <li>日志 -> 放弃当前的战争计划。</li>
+    <li>重置地下城。</li>
+    <li>重新开启战争任务（同一个活动）。</li>
+    <li>如此往复，可无限速刷某一个活动的经验。</li>
+  </ol>
+</div>
+</section>
+
+<!-- ====== 暗金出处 ====== -->
+<section class="tip-section" id="sec-loot">
+<div class="sec-header"><h2>&#x1F4E6; 暗金出处查询</h2></div>
+
+<div class="tip-card">
+  <h3>&#x1F50D 如何查看暗金装备的出处？</h3>
+  <p>游戏中按住<strong>Alt</strong>键（或右摇杆）查看装备掉落来源提示，但有时信息不够直观。可以在<strong>衣柜</strong>中搜索未获得的暗金，查看其可能的掉落来源。</p>
+  <p>也可以参考我们整理的 <a href="s13-boss-loot.html" style="color:var(--gold);">S13 Boss掉落表</a>，涵盖各Boss的专属暗金和神话暗金掉落信息，方便按目标Boss规划刷取路线。</p>
+  <div class="highlight-box tip">
+    <strong>&#x2728; 建议：</strong>先确认目标暗金的掉落Boss，然后集中刷对应的巢穴或终局活动，效率远高于盲刷。
+  </div>
+</div>
+</section>
+
+<!-- ====== Footer ====== -->
+<footer class="footer" id="sec-footer">
+  <div class="container" style="text-align:center;padding:2rem 0">
+    <p style="font-size:.72rem;color:#4a5568;">文档整理基于S13赛季（2026年5月）当前版本，部分Bug类玩法可能随补丁修复，以实际游戏为准。</p>
+    <p style="font-size:.72rem;color:#4a5568;margin-top:.5rem;">&copy; 2026 看雲起雲落</p>
+  </div>
+</footer>
+
+</div>
+</main>
+
+<script src="../../assets/js/main.js"></script>
+<script>
+var progressFill=document.getElementById('scrollProgressFill');
+window.addEventListener('scroll',function(){
+  var s=document.documentElement.scrollTop||document.body.scrollTop;
+  var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  progressFill.style.width=(h>0?s/h*100:0)+'%';
+});
+var backBtn=document.getElementById('backToTop');
+window.addEventListener('scroll',function(){backBtn.classList.toggle('visible',window.scrollY>300);});
+backBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+document.getElementById('sidebarToggle').addEventListener('click',function(){document.getElementById('tipSidebar').classList.toggle('open');});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      document.querySelectorAll('.guide-sidebar-nav a').forEach(function(a){a.classList.remove('active');});
+      var id=e.target.id;
+      document.querySelector('.guide-sidebar-nav a[href="#'+id+'"]')?.classList.add('active');
+    }
+  });
+},{rootMargin:'-80px 0px -70% 0px'});
+document.querySelectorAll('[id^="sec-"]').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
